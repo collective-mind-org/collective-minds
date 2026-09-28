@@ -17,7 +17,9 @@ import json, math, os, platform, sys, numpy as np, pybamm
 HERE = os.path.dirname(os.path.abspath(__file__))
 RECORDED_ENV = {"pybamm": "26.8"}          # version the R02 table reproduces on (results/reproduce_r02-validation.txt)
 TOL_PT = 0.2
-k, tau, crate = (float(a) for a in (sys.argv[1:4] or ["2.0", "1.2", "0.5"]))
+EXPLORE = "--explore" in sys.argv   # compute an unrecorded row without claiming a reproduction (excelsior, 2026-09-28)
+args = [a for a in sys.argv[1:] if a != "--explore"]
+k, tau, crate = (float(a) for a in (args[0:3] or ["2.0", "1.2", "0.5"]))
 pybamm.set_logging_level("ERROR")
 base = pybamm.ParameterValues("Chen2020")
 Lp0, Ln0, Q0 = base["Positive electrode thickness [m]"], base["Negative electrode thickness [m]"], base["Nominal cell capacity [A.h]"]
@@ -35,9 +37,10 @@ def run(k, tau, crate):
 rows = json.load(open(os.path.join(HERE, "CM-BAT-R02-rates.json")))
 def pick(k_, tau_, c_): return next((r for r in rows if abs(r["k"]-k_)<1e-9 and abs(r["tau"]-tau_)<1e-9 and abs(r["crate"]-c_)<1e-9), None)
 ref, today_rec = pick(k, tau, crate), pick(1.0, 1.8, crate)
-if ref is None or today_rec is None:
+if (ref is None or today_rec is None) and not EXPLORE:
     ks = sorted({r["k"] for r in rows}); ts = sorted({r["tau"] for r in rows}); cs = sorted({r["crate"] for r in rows})
     print(f"ROW ABSENT: k={k:g}, tau={tau:g}, C={crate:g} is not in the R02 table. Grid: k in {ks}, tau in {ts}, C in {cs}")
+    print("To compute it anyway without a reproduction verdict, add --explore.")
     sys.exit(2)
 refAh, refWh = run(k, 1.8, 0.05)                 # target thickness, reference tortuosity, C/20
 Ah, Wh = run(k, tau, crate)                       # target row
@@ -45,6 +48,12 @@ base_refAh, base_refWh = run(1.0, 1.8, 0.05)      # today's cell at C/20 ...
 base_Ah, base_Wh = run(1.0, 1.8, crate)           # ... and at the same C-rate: the net_gain denominator, recomputed (v2)
 cap_ret, energy_ret = Ah/refAh, Wh/refWh
 today_energy_ret = base_Wh/base_refWh
+if ref is None or today_rec is None:   # --explore on a row outside the table: report, no verdict
+    ng = (1/(0.83+0.17/k)) * energy_ret/today_energy_ret - 1
+    print(f"CM-BAT-R02 EXPLORATORY row (not in the recorded table, no reproduction verdict) — k={k:g}, tau={tau:g}, C={crate:g}")
+    print(f"pybamm {pybamm.__version__}, numpy {np.__version__}, python {platform.python_version()}")
+    print(f"cap_ret={cap_ret*100:.2f}%, energy_ret={energy_ret*100:.2f}%, net_gain={ng*100:+.2f}%, denominator={today_energy_ret*100:.2f}%")
+    print("RESULT: EXPLORATORY"); sys.exit(0)
 net_gain = (1/(0.83+0.17/k)) * energy_ret/today_energy_ret - 1
 pv = ".".join(pybamm.__version__.split(".")[:2])
 same_env = pv == RECORDED_ENV["pybamm"]
