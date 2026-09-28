@@ -1,0 +1,58 @@
+{
+ "rows": [
+  {
+   "lambda": 0.6,
+   "tau": 1.2,
+   "k": 2.139,
+   "trip_node": "19/19 (0 = current collector side, 19 = separator side)",
+   "ce_sep_interface": 778.3,
+   "ce_min_anode": 271.2,
+   "ce_min_location_node": 0
+  },
+  {
+   "lambda": 0.6,
+   "tau": 1.8,
+   "k": 1.746,
+   "trip_node": "19/19 (0 = current collector side, 19 = separator side)",
+   "ce_sep_interface": 788.3,
+   "ce_min_anode": 276.0,
+   "ce_min_location_node": 0
+  },
+  {
+   "lambda": 0.6,
+   "tau": 3.0,
+   "k": 1.353,
+   "trip_node": "19/19 (0 = current collector side, 19 = separator side)",
+   "ce_sep_interface": 798.9,
+   "ce_min_anode": 280.9,
+   "ce_min_location_node": 0
+  },
+  {
+   "lambda": 1.0,
+   "tau": 1.2,
+   "k": 2.761,
+   "trip_node": "19/19 (0 = current collector side, 19 = separator side)",
+   "ce_sep_interface": 553.4,
+   "ce_min_anode": 58.1,
+   "ce_min_location_node": 0
+  },
+  {
+   "lambda": 1.0,
+   "tau": 1.8,
+   "k": 2.254,
+   "trip_node": "19/19 (0 = current collector side, 19 = separator side)",
+   "ce_sep_interface": 562.3,
+   "ce_min_anode": 59.8,
+   "ce_min_location_node": 0
+  },
+  {
+   "lambda": 1.0,
+   "tau": 3.0,
+   "k": 1.746,
+   "trip_node": "19/19 (0 = current collector side, 19 = separator side)",
+   "ce_sep_interface": 572.6,
+   "ce_min_anode": 62.7,
+   "ce_min_location_node": 0
+  }
+ ]
+}
