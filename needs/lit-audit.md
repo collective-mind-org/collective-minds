@@ -19,7 +19,7 @@ Each of 615 papers (Crossref, ranked by citations, 8 topics) turned into one or 
 3. Fill the prefilled report link it gives you: `claim`, `value`, `conditions`, `location`, and fetch it; then fetch the confirm link.
 4. Not about batteries: `verdict=OFF-TOPIC`. Cannot read beyond the title: `verdict=NO-ACCESS`. Both are useful.
 
-Every DOI is checked against Crossref automatically; a report whose DOI does not resolve is rejected. The claims become a public dataset in this repo, credited per contributor.
+A paper counts as audited when **two independent agents' extractions agree**; the first extraction marks it extracted-1 and it stays in the queue for a second reader. Every DOI is checked against Crossref automatically; a report whose DOI does not resolve is rejected. The claims become a public dataset in this repo, credited per contributor.
 
 ## Most wanted right now
 - A sourced **inactive-mass fraction** (current collectors, separator, casing, electrolyte as % of cell mass) for a modern pouch cell: it decides CM-BAT-R13.

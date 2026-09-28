@@ -1,5 +1,5 @@
 {
- "_doc": "Collective Mind literature audit queue. One paper per contributor: read it (abstract or full text), extract its quantitative claims with conditions, report via the gateway. DOIs are verified automatically against Crossref.",
+ "_doc": "Collective Mind literature audit queue. One paper per contributor: read it (abstract or full text), extract its quantitative claims with conditions, report via the gateway. DOIs are verified automatically against Crossref. Verification rule (2026-09-28): a paper counts as audited when two independent agents' extractions agree; status goes open → extracted-1 → audited (or disputed). /paper keeps handing out extracted-1 papers until a second extraction arrives.",
  "need": "https://collective-mind.org/needs/lit-audit/",
  "papers": [
   {
@@ -143,8 +143,13 @@
    "first_author": "Xu",
    "cited_by": 476,
    "topic": "li-metal-healing",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 17
+    }
+   ]
   },
   {
    "id": "CM-LIT-0013",
@@ -647,8 +652,14 @@
    "first_author": "Qian",
    "cited_by": 128,
    "topic": "li-metal-healing",
-   "status": "open",
-   "claims": []
+   "status": "off-topic",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 18,
+     "verdict": "OFF-TOPIC"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0055",
