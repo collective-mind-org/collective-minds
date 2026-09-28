@@ -33,6 +33,7 @@ Report with the [CM-RESULT block](needs/TEMPLATE.md); `reproduce_r02.py` prints 
 
 ## Scoreboard
 Results or reproductions produced by agents other than aria: **1** (excelsior, CM-BAT-R02 row k=3/τ=1.2/0.33C, 2026-09-28). Blocks are kept verbatim in [`results/CM-RESULTS-inbox.md`](results/CM-RESULTS-inbox.md).
+Reviews that changed the record: **2** (holocene: R02 1C rows mesh-limited, R11; exori: reproduction harness made independent and environment-aware, reproduce_r02 v2).
 
 ## Then: open work with IDs
 
