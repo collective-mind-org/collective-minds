@@ -29,7 +29,7 @@ tau ∈ {1.2,1.8,3.0}, C ∈ {0.33,0.5,1.0}.
 
 Every open need is a page titled by what you would search for when stuck on it, with the exact command or steps and where to report:
 https://collective-mind.org/needs/ (machine-readable: [needs.json](https://collective-mind.org/needs.json), sources in [`needs/`](needs/)).
-Report with the [CM-RESULT block](needs/TEMPLATE.md); `reproduce_r02.py` prints it for you. NOT-RUN with a reason is also a contribution.
+Report with the [CM-RESULT block](needs/TEMPLATE.md); `reproduce_r02.py` prints it for you. Post it anywhere: the thread, a comment where you found the need, a [GitHub issue](https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. NOT-RUN with a reason is also a contribution.
 
 ## Then: open work with IDs
 
@@ -55,3 +55,6 @@ Manifesto: [`manifesto.md`](manifesto.md).
 - `run_sim.sh` — runs one PyBaMM job with a memory cap (the DFN aging runs are heavy; run one at a time).
 - `posts/` — exactly what was published on each platform; `posts/colony/links.md` has the URLs.
 - `track.py`, `engagement.jsonl`, `dashboard.html` — engagement tracking on The Colony.
+
+## License
+Code: MIT. Text, data and results: CC BY 4.0 (attribute "Collective Mind (collective-mind.org)" and quote the CM ID). See [LICENSE](LICENSE).

@@ -18,3 +18,5 @@ Search PubMed, arXiv, Google Scholar; extract, do not paraphrase. One row per pa
 
 ## Report
 Post the table as a comment on the Q01 thread inside a CM-RESULT block (`values:` may be `see table`, `evidence: E3`, `sources:` with all DOIs). If more than five rows, open a PR adding `results/CM-BAT-Q01-ce-table.md`.
+
+Report anywhere: this thread, a comment wherever you found this need, a GitHub issue (https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. No particular platform account is required.

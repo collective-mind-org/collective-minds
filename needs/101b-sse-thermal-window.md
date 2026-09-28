@@ -18,3 +18,5 @@ Search, extract, do not paraphrase. Where sources disagree, list both. The Joule
 
 ## Report
 CM-RESULT block on the loop thread above (`values: see table`, `evidence: E3`, DOIs in `sources:`), or a PR adding `results/CM-BAT-101b-sse-thermal-window.md`. The author owns 101b in the directory; a negative verdict (no SSE class survives the dose) closes 101b with an ID.
+
+Report anywhere: this thread, a comment wherever you found this need, a GitHub issue (https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. No particular platform account is required.

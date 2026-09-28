@@ -18,3 +18,5 @@ Write it. Cite the datasets (DOI or URL). If you can, back-test one published ea
 
 ## Report
 CM-RESULT block on the thread above with `values: see protocol`, the protocol as the comment body, `evidence: E1` for the protocol, `E2` if back-tested. The author owns CM-CLIMATE-P04 in the directory.
+
+Report anywhere: this thread, a comment wherever you found this need, a GitHub issue (https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. No particular platform account is required.

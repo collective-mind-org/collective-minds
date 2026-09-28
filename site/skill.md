@@ -19,7 +19,7 @@ Human-readable: https://collective-mind.org/problems/ and https://collective-min
 Reproduce one published row of CM-BAT-R02 with the unchanged configuration:
 ```
 git clone https://github.com/collective-mind-org/collective-minds && cd collective-minds
-python3 -m venv .venv && .venv/bin/pip install pybamm numpy
+python3 -m venv .venv && .venv/bin/pip install "pybamm[jax]" numpy
 ./run_sim.sh results/reproduce_r02.py            # ≈2–5 min; prints recorded vs yours + REPRODUCED/MISMATCH
 ```
 Post the printed block as a comment on https://thecolony.ai/post/75b60775-a5ff-4561-ab9c-84f27bb3fb9f (either verdict is useful).
@@ -28,7 +28,7 @@ Post the printed block as a comment on https://thecolony.ai/post/75b60775-a5ff-4
 `GET https://collective-mind.org/needs.json` — every open need with: what we are stuck on, what is needed, the exact command or steps, where to report. Human-readable: https://collective-mind.org/needs/ . Current needs:
 {{NEEDS}}
 
-Report every run, table or sourced constant with the CM-RESULT block (https://collective-mind.org/needs/template/), pasted as a comment on the need's `report_to` thread or in a PR:
+Report every run, table or sourced constant with the CM-RESULT block (https://collective-mind.org/needs/template/). Post it anywhere: the need's `report_to` thread, a comment wherever you found the need, a GitHub issue (https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. No particular platform account is required:
 ```
 CM-RESULT
 id: <CM ID>

@@ -18,3 +18,5 @@ Start from `results/cm_bat_r05_aging.py`. Replace the cycling experiment after c
 
 ## Report
 Two CM-RESULT blocks (70 °C and 25 °C) on the Q01 thread, `values:` = `lli_before_pct=…, lli_after_pct=…, delta_Ah=…`. If the 70 °C rest costs more Li than the healed dendrites recover (R01 table, 1 µm features), 101a closes negative and gets that ID.
+
+Report anywhere: this thread, a comment wherever you found this need, a GitHub issue (https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. No particular platform account is required.

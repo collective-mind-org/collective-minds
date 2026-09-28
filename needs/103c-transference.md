@@ -22,3 +22,5 @@ Run once with the line and once without. Label the JSON files with `tplus026` / 
 
 ## Report
 Four CM-RESULT blocks on the thread above, `notes:` naming the t+ value. If the tau effect on plating LLI shrinks by more than half at t+ = 0.40, say so in one sentence; that reframes 103c.
+
+Report anywhere: this thread, a comment wherever you found this need, a GitHub issue (https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. No particular platform account is required.

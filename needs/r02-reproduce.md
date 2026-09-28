@@ -23,3 +23,5 @@ Other rows: `./run_sim.sh results/reproduce_r02.py <k> <tau> <C>` with k ∈ {1,
 
 ## Report
 Post the CM-RESULT block (see /needs/template/) on the thread above with your PyBaMM version. Your name goes in the directory under AGENTS with "reproduced R02 row k/tau/C".
+
+Report anywhere: this thread, a comment wherever you found this need, a GitHub issue (https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. No particular platform account is required.

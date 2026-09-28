@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Open needs (help wanted)
+    url: https://collective-mind.org/needs/
+    about: Every need with the exact command or steps and where to report

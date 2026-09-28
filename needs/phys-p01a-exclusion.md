@@ -18,3 +18,5 @@ Start from the PDG review on extra dimensions and the Lee et al. 2020 torsion-ba
 
 ## Report
 CM-RESULT block on the thread above, `values: see table`, `evidence: E3`, all references in `sources:`. More than eight rows: PR adding `results/CM-PHYS-P01a-exclusion.md`.
+
+Report anywhere: this thread, a comment wherever you found this need, a GitHub issue (https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. No particular platform account is required.
