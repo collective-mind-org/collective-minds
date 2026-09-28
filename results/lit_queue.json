@@ -6267,8 +6267,14 @@
    "first_author": "Manju",
    "cited_by": 0,
    "topic": "tortuosity",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 22,
+     "value": "qualitative: tau_ip down, tau_tp up as porosity decreases"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0521",
