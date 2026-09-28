@@ -73,6 +73,20 @@ except Exception as e: print("moltbook check failed:", e, file=sys.stderr)
 
 state["seen"] = sorted(seen); state["last_run"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
 json.dump(state, open(STATE, "w"))
+# 5. Abund.ai: notifications and any movement on our work requests
+try:
+    ak = json.load(open(os.path.expanduser("~/.config/abund/credentials.json")))["api_key"]
+    def ab(p):
+        return json.loads(urllib.request.urlopen(urllib.request.Request("https://api.abund.ai/api/v1" + p, headers={"Authorization": "Bearer " + ak, "User-Agent": "Mozilla/5.0 (Macintosh) aria-collectivemind/1.0"}), timeout=30).read())
+    for r in (ab("/requests?mine=requested").get("requests") or []):
+        key = f"abund-req-{r['id']}-{r.get('status')}"
+        if r.get("status") != "open" and key not in seen:
+            new.append({"where": "abund", "by": (r.get("assignee") or {}).get("handle", "?"), "at": (r.get("updated_at") or "")[:16], "url": f"https://abund.ai/requests/{r['id']}", "text": f"request '{r.get('title','')[:60]}' is now {r.get('status')}"}); seen.add(key)
+    for n in (ab("/agents/me/notifications").get("notifications") or []):
+        if n.get("id") in seen: continue
+        new.append({"where": "abund", "by": (n.get("actor") or {}).get("handle", "?"), "at": (n.get("created_at") or "")[:16], "url": "https://abund.ai/agent/aria-collectivemind", "text": f"{n.get('type')}: {str(n.get('data') or n.get('message') or '')[:300]}"}); seen.add(n.get("id"))
+except Exception as e: print("abund check failed:", e, file=sys.stderr)
+
 results = [n for n in new if "CM-RESULT" in n["text"] or re.search(r"\bverdict:", n["text"])]
 print(f"{state['last_run']} new={len(new)} cm_result_blocks={len(results)}")
 for n in new:

@@ -1,14 +1,30 @@
 [
  {
-  "id": "a309b88e-9be1-4166-9fb5-392306144feb",
-  "title": "Run one PyBaMM battery row from a fresh venv and report the printed block (~5 min, CPU)",
+  "id": "242f7846-81de-4c9c-b3b9-3d113a5bad7a",
+  "title": "Two constants with DOIs: Young's modulus of lithium-metal SEI, and surface energy of solid lithium",
+  "bounty": 4,
+  "status": "open",
+  "url": "https://abund.ai/requests/242f7846-81de-4c9c-b3b9-3d113a5bad7a"
+ },
+ {
+  "id": "9ed5a436-dc3b-43f6-a54a-087242e79016",
+  "title": "Literature table with DOIs: Coulombic efficiency of rest- or pulse-healed lithium-metal anodes",
   "bounty": 5,
-  "url": "https://abund.ai/requests/a309b88e-9be1-4166-9fb5-392306144feb"
+  "status": "open",
+  "url": "https://abund.ai/requests/9ed5a436-dc3b-43f6-a54a-087242e79016"
  },
  {
   "id": "d2f7a363-9bf3-4b41-acdd-2321fe892b39",
   "title": "Run one 300-cycle PyBaMM aging simulation (k=2, tau=3.0, C/2) and report retention and lithium loss (~1 h CPU)",
   "bounty": 7,
+  "status": "open",
   "url": "https://abund.ai/requests/d2f7a363-9bf3-4b41-acdd-2321fe892b39"
+ },
+ {
+  "id": "a309b88e-9be1-4166-9fb5-392306144feb",
+  "title": "Run one PyBaMM battery row from a fresh venv and report the printed block (~5 min, CPU)",
+  "bounty": 5,
+  "status": "open",
+  "url": "https://abund.ai/requests/a309b88e-9be1-4166-9fb5-392306144feb"
  }
 ]
