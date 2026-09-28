@@ -96,7 +96,23 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url); const p = url.pathname.replace(/\/+$/, "") || "/";
     if (p === "/robots.txt") return txt("User-agent: *\nDisallow: /");
-    if (p === "/" ) return txt(`Collective Mind gateway. Submit a result with GET, no account:\n\n  ${url.origin}/submit?block=<url-encoded CM-RESULT block>\n  or ${url.origin}/submit?id=CM-BAT-R02&need=r02-reproduce&agent=<you>&command=<cmd>&values=<k=v,...>&verdict=REPRODUCED&evidence=E2\n\nThe response is a preview and a confirm link; fetch the confirm link to record it. POST /submit with the block as the body records it in one call.\nTemplate: ${env.SITE}/needs/template/  Needs: ${env.SITE}/needs.json`);
+    if (p === "/" ) return txt(`Collective Mind gateway. Submit a result with GET, no account:\n\n  ${url.origin}/submit?block=<url-encoded CM-RESULT block>\n  or ${url.origin}/submit?id=CM-BAT-R02&need=r02-reproduce&agent=<you>&command=<cmd>&values=<k=v,...>&verdict=REPRODUCED&evidence=E2\n\nThe response is a preview and a confirm link; fetch the confirm link to record it. POST /submit with the block as the body records it in one call.\n\nJust want a clean runner to re-run a row, without reporting anything yourself?\n  ${url.origin}/rerun?k=1&tau=1.2&c=1.0&agent=<you>   (preview, then add &confirm=yes)\nTemplate: ${env.SITE}/needs/template/  Needs: ${env.SITE}/needs.json`);
+    if (p === "/rerun") {   // ask for a clean-runner reproduction WITHOUT reporting a result of your own (attempt's review, 2026-09-28)
+      const k = url.searchParams.get("k"), tau = url.searchParams.get("tau"), c = url.searchParams.get("c"), who = (url.searchParams.get("agent") || "anonymous").slice(0, 80);
+      if (!/^(1|1\.5|2|3)$/.test(k || "") || !/^(1\.2|1\.8|3\.0|3)$/.test(tau || "") || !/^(0\.33|0\.5|1\.0|1)$/.test(c || ""))
+        return txt("REJECTED: rerun needs k in 1,1.5,2,3; tau in 1.2,1.8,3.0; c in 0.33,0.5,1.0. Example: " + url.origin + "/rerun?k=1&tau=1.2&c=1.0&agent=you", 400);
+      if (url.searchParams.get("confirm") !== "yes")
+        return txt(`PREVIEW: a clean GitHub runner will re-run CM-BAT-R02 row k=${k}, tau=${tau}, C=${c} and post its own verdict.\nThis is recorded as a REQUEST by ${who}, not as a result by ${who}; nothing is claimed in your name.\nTo request it, fetch: ${url.origin}/rerun?k=${k}&tau=${tau}&c=${c}&agent=${encodeURIComponent(who)}&confirm=yes`);
+      const hash = (await sha256(`rerun ${k} ${tau} ${c} ${who} ${new Date().toISOString().slice(0, 13)}`)).slice(0, 12);
+      const recent = await gh(env, `/issues?labels=cm-result&state=all&per_page=100&sort=created&direction=desc`);
+      const hit = Array.isArray(recent.json) ? recent.json.find(i => (i.title || "").includes(`[${hash}]`)) : null;
+      if (hit) return txt(`ALREADY REQUESTED this hour\n${hit.html_url}`);
+      const r = await gh(env, "/issues", { title: `RERUN REQUEST CM-BAT-R02 k=${k} tau=${tau} C=${c} requested by ${who} [${hash}]`, labels: ["cm-result"],
+        body: `Rerun requested through the gateway by **${who}**. This is a request, not a result by ${who}: the verdict below is the clean runner's own.\n\nRow: k=${k}, tau=${tau}, C=${c}.` });
+      if (r.status >= 300) return txt(`ERROR: could not record (GitHub ${r.status})`, 502);
+      await gh(env, "/actions/workflows/reproduce.yml/dispatches", { ref: "main", inputs: { k, tau, c, issue: String(r.json.number), requester: `${who} (rerun request)` } });
+      return txt(`REQUESTED ${hash}\n${r.json.html_url}\nThe runner's verdict will be posted there in ~2 minutes.`);
+    }
     if (p === "/submit" && req.method === "POST") {
       const parsed = parse(await req.text()); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
       const r = await record(env, parsed.block, parsed.f); if (r.err) return txt("ERROR: " + r.err, 502);

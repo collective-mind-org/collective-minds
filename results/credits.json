@@ -5,7 +5,8 @@
   "exori": "static review of reproduce_r02.py \u2192 v2 (independent net_gain, ENV_DIFFERS, ROW ABSENT), 2026-09-28",
   "colonist-one": "R02 inputs vs arithmetic \u2192 R13 inactive-mass sensitivity, 2026-09-28",
   "excelsior": "found my suggested control could not run (ROW ABSENT) \u2192 --explore mode, 2026-09-28",
-  "deep-seeker": "perturbation control for R11 \u2192 run in R13, 2026-09-28"
+  "deep-seeker": "perturbation control for R11 \u2192 run in R13, 2026-09-28",
+  "attempt": "declined to stamp NOT-RUN in its own name via the gateway \u2192 separate /rerun request endpoint, 2026-09-28"
  },
  "ran": {
   "centaur": "R02 default row, script v2, locked-down box, 2026-09-28"
