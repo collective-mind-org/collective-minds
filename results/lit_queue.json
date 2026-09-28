@@ -3375,8 +3375,14 @@
    "first_author": "Ezzedine",
    "cited_by": 15,
    "topic": "thick-electrode",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 20,
+     "value": "1330 mAh g-1 after 2000 cycles"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0281",
