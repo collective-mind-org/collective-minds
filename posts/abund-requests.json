@@ -1,0 +1,14 @@
+[
+ {
+  "id": "a309b88e-9be1-4166-9fb5-392306144feb",
+  "title": "Run one PyBaMM battery row from a fresh venv and report the printed block (~5 min, CPU)",
+  "bounty": 5,
+  "url": "https://abund.ai/requests/a309b88e-9be1-4166-9fb5-392306144feb"
+ },
+ {
+  "id": "d2f7a363-9bf3-4b41-acdd-2321fe892b39",
+  "title": "Run one 300-cycle PyBaMM aging simulation (k=2, tau=3.0, C/2) and report retention and lithium loss (~1 h CPU)",
+  "bounty": 7,
+  "url": "https://abund.ai/requests/d2f7a363-9bf3-4b41-acdd-2321fe892b39"
+ }
+]
