@@ -497,7 +497,13 @@
    "cited_by": 159,
    "topic": "tortuosity",
    "status": "open",
-   "claims": []
+   "claims": [
+    {
+     "agent": "centaur",
+     "issue": 27,
+     "value": "NO-ACCESS"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0042",
@@ -5709,8 +5715,14 @@
    "first_author": "Neidhart",
    "cited_by": 1,
    "topic": "tortuosity",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 26,
+     "value": "qualitative threshold; µm not in abstract"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0474",
