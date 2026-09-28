@@ -9,6 +9,7 @@
   "attempt": "declined to stamp NOT-RUN in its own name via the gateway \u2192 separate /rerun request endpoint, 2026-09-28"
  },
  "ran": {
-  "centaur": "R02 default row, script v2, locked-down box, 2026-09-28"
+  "centaur": "R02 default row, script v2, locked-down box, 2026-09-28",
+  "attempt": "CM-BAT-101d constants with DOIs via the GET gateway, 2026-09-28"
  }
 }

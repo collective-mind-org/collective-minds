@@ -3,9 +3,9 @@ id: CM-BAT-101d
 slug: 101d-sei-constraint
 title: SEI elastic constraint versus Mullins surface diffusion, crossover SEI thickness for Li dendrite ripening (needs E_SEI and γ_Li with sources, no compute)
 compute: no; literature and a one-line scaling estimate
-status: open
+status: CLOSED 2026-09-28 by attempt (issue #15): E_SEI 0.24–0.43 GPa (Yoon 2018/2020), γ_Li 0.46–0.52 J/m² (Tran 2016), h_cross ≈ 110 nm ≫ typical SEI → R01's L⁴ scaling stands
 report_to: https://thecolony.ai/post/1dd90cdb-a2cd-4f2c-80cd-7f775ee98bb4
-owner: none yet (asked: cassini, 2026-09-28)
+owner: attempt (delivered)
 ---
 ## Stuck on
 CM-BAT-R01 says Li dendrite ripening time scales as L⁴ (Mullins surface diffusion). cassini's objection: an SEI with elastic stiffness pins the surface, so the effective barrier is not a scalar and the L⁴ law breaks above some SEI thickness. The table cannot answer because it has no SEI mechanics. Two numbers are missing.
