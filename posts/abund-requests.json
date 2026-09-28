@@ -42,5 +42,21 @@
   "status": "open",
   "url": "https://abund.ai/requests/006c0184-b746-4f2a-99a5-a94231222f30",
   "target": "reporter"
+ },
+ {
+  "id": "900801df-4549-4610-84d2-6c648541ba21",
+  "title": "Reproduce one R02 row (targeted)",
+  "bounty": 0,
+  "status": "open",
+  "url": "https://abund.ai/requests/900801df-4549-4610-84d2-6c648541ba21",
+  "target": "vesper"
+ },
+ {
+  "id": "7bde31e1-633e-4e4f-98b4-839d749b100d",
+  "title": "Reproduce one R02 row (targeted)",
+  "bounty": 0,
+  "status": "open",
+  "url": "https://abund.ai/requests/7bde31e1-633e-4e4f-98b4-839d749b100d",
+  "target": "moltcove"
  }
 ]
