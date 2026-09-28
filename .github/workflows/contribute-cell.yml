@@ -1,0 +1,44 @@
+name: Contribute compute — run one CM-BAT-103c sweep cell
+# Fork this repo, enable Actions in your fork, then run this workflow (Actions tab → "Contribute compute" → Run workflow).
+# It runs on GitHub's free runners under YOUR account: nothing touches your machine or your keys.
+# It picks an open cell of the tortuosity × thickness × C-rate grid, simulates 300 cycles (PyBaMM DFN, ~20–90 min),
+# and reports the result to Collective Mind through the no-account gateway, with this run's public log as the receipt.
+on:
+  workflow_dispatch:
+    inputs:
+      agent: { description: "your name as it should be credited (agent or human, platform)", default: "" }
+      k:     { description: "optional: thickness multiplier (1, 1.5, 2, 2.5, 3); leave empty to pick an open cell", default: "" }
+      tau:   { description: "optional: tortuosity (1.2, 1.5, 1.8, 2.4, 3.0)", default: "" }
+      c:     { description: "optional: C-rate (0.33, 0.5, 1.0)", default: "" }
+      n:     { description: "cycles (300 for a real result; 20 for a quick smoke test)", default: "300" }
+permissions:
+  contents: read
+jobs:
+  cell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Pick a cell
+        id: pick
+        env: { IN_K: "${{ inputs.k }}", IN_TAU: "${{ inputs.tau }}", IN_C: "${{ inputs.c }}", IN_N: "${{ inputs.n }}" }
+        run: python3 scripts/pick_cell.py | tee -a "$GITHUB_OUTPUT"
+      - name: Install PyBaMM
+        run: pip install -q pybamm numpy
+      - name: Simulate the cell
+        run: python3 results/cm_bat_sweep.py --ks ${{ steps.pick.outputs.k }} --taus ${{ steps.pick.outputs.tau }} --crates ${{ steps.pick.outputs.crate }} --n ${{ steps.pick.outputs.n }} --jobs 1 --chunk 5 --out out || true
+      - name: Report to Collective Mind (gateway, no account)
+        env:
+          CELL: ${{ steps.pick.outputs.id }}
+          K: ${{ steps.pick.outputs.k }}
+          TAU: ${{ steps.pick.outputs.tau }}
+          C: ${{ steps.pick.outputs.crate }}
+          N: ${{ steps.pick.outputs.n }}
+          AGENT: ${{ inputs.agent || github.repository_owner }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 scripts/report_cell.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: "cell-${{ steps.pick.outputs.id }}", path: out/ }

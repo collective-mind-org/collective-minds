@@ -1,0 +1,681 @@
+{
+ "_doc": "CM-BAT-103c grid. Forks pick a random 'open' cell (duplicates become independent reproductions). Aria marks cells done as results arrive.",
+ "need": "https://collective-mind.org/needs/103c-sweep/",
+ "cells": [
+  {
+   "id": "103c-k1-tau1.2-c0.33",
+   "k": 1.0,
+   "tau": 1.2,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau1.2-c0.5",
+   "k": 1.0,
+   "tau": 1.2,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau1.2-c1",
+   "k": 1.0,
+   "tau": 1.2,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau1.5-c0.33",
+   "k": 1.0,
+   "tau": 1.5,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau1.5-c0.5",
+   "k": 1.0,
+   "tau": 1.5,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau1.5-c1",
+   "k": 1.0,
+   "tau": 1.5,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau1.8-c0.33",
+   "k": 1.0,
+   "tau": 1.8,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau1.8-c0.5",
+   "k": 1.0,
+   "tau": 1.8,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau1.8-c1",
+   "k": 1.0,
+   "tau": 1.8,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau2.4-c0.33",
+   "k": 1.0,
+   "tau": 2.4,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau2.4-c0.5",
+   "k": 1.0,
+   "tau": 2.4,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau2.4-c1",
+   "k": 1.0,
+   "tau": 2.4,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau3-c0.33",
+   "k": 1.0,
+   "tau": 3.0,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau3-c0.5",
+   "k": 1.0,
+   "tau": 3.0,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1-tau3-c1",
+   "k": 1.0,
+   "tau": 3.0,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.2-c0.33",
+   "k": 1.5,
+   "tau": 1.2,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.2-c0.5",
+   "k": 1.5,
+   "tau": 1.2,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.2-c1",
+   "k": 1.5,
+   "tau": 1.2,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.5-c0.33",
+   "k": 1.5,
+   "tau": 1.5,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.5-c0.5",
+   "k": 1.5,
+   "tau": 1.5,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.5-c1",
+   "k": 1.5,
+   "tau": 1.5,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.8-c0.33",
+   "k": 1.5,
+   "tau": 1.8,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.8-c0.5",
+   "k": 1.5,
+   "tau": 1.8,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau1.8-c1",
+   "k": 1.5,
+   "tau": 1.8,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau2.4-c0.33",
+   "k": 1.5,
+   "tau": 2.4,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau2.4-c0.5",
+   "k": 1.5,
+   "tau": 2.4,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau2.4-c1",
+   "k": 1.5,
+   "tau": 2.4,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau3-c0.33",
+   "k": 1.5,
+   "tau": 3.0,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau3-c0.5",
+   "k": 1.5,
+   "tau": 3.0,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k1.5-tau3-c1",
+   "k": 1.5,
+   "tau": 3.0,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.2-c0.33",
+   "k": 2.0,
+   "tau": 1.2,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.2-c0.5",
+   "k": 2.0,
+   "tau": 1.2,
+   "crate": 0.5,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.2-c1",
+   "k": 2.0,
+   "tau": 1.2,
+   "crate": 1.0,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.5-c0.33",
+   "k": 2.0,
+   "tau": 1.5,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.5-c0.5",
+   "k": 2.0,
+   "tau": 1.5,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.5-c1",
+   "k": 2.0,
+   "tau": 1.5,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.8-c0.33",
+   "k": 2.0,
+   "tau": 1.8,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.8-c0.5",
+   "k": 2.0,
+   "tau": 1.8,
+   "crate": 0.5,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau1.8-c1",
+   "k": 2.0,
+   "tau": 1.8,
+   "crate": 1.0,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau2.4-c0.33",
+   "k": 2.0,
+   "tau": 2.4,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau2.4-c0.5",
+   "k": 2.0,
+   "tau": 2.4,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau2.4-c1",
+   "k": 2.0,
+   "tau": 2.4,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau3-c0.33",
+   "k": 2.0,
+   "tau": 3.0,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau3-c0.5",
+   "k": 2.0,
+   "tau": 3.0,
+   "crate": 0.5,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k2-tau3-c1",
+   "k": 2.0,
+   "tau": 3.0,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.2-c0.33",
+   "k": 2.5,
+   "tau": 1.2,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.2-c0.5",
+   "k": 2.5,
+   "tau": 1.2,
+   "crate": 0.5,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.2-c1",
+   "k": 2.5,
+   "tau": 1.2,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.5-c0.33",
+   "k": 2.5,
+   "tau": 1.5,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.5-c0.5",
+   "k": 2.5,
+   "tau": 1.5,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.5-c1",
+   "k": 2.5,
+   "tau": 1.5,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.8-c0.33",
+   "k": 2.5,
+   "tau": 1.8,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.8-c0.5",
+   "k": 2.5,
+   "tau": 1.8,
+   "crate": 0.5,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau1.8-c1",
+   "k": 2.5,
+   "tau": 1.8,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau2.4-c0.33",
+   "k": 2.5,
+   "tau": 2.4,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau2.4-c0.5",
+   "k": 2.5,
+   "tau": 2.4,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau2.4-c1",
+   "k": 2.5,
+   "tau": 2.4,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau3-c0.33",
+   "k": 2.5,
+   "tau": 3.0,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau3-c0.5",
+   "k": 2.5,
+   "tau": 3.0,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k2.5-tau3-c1",
+   "k": 2.5,
+   "tau": 3.0,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.2-c0.33",
+   "k": 3.0,
+   "tau": 1.2,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.2-c0.5",
+   "k": 3.0,
+   "tau": 1.2,
+   "crate": 0.5,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.2-c1",
+   "k": 3.0,
+   "tau": 1.2,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.5-c0.33",
+   "k": 3.0,
+   "tau": 1.5,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.5-c0.5",
+   "k": 3.0,
+   "tau": 1.5,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.5-c1",
+   "k": 3.0,
+   "tau": 1.5,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.8-c0.33",
+   "k": 3.0,
+   "tau": 1.8,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.8-c0.5",
+   "k": 3.0,
+   "tau": 1.8,
+   "crate": 0.5,
+   "n": 300,
+   "status": "done",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau1.8-c1",
+   "k": 3.0,
+   "tau": 1.8,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau2.4-c0.33",
+   "k": 3.0,
+   "tau": 2.4,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau2.4-c0.5",
+   "k": 3.0,
+   "tau": 2.4,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau2.4-c1",
+   "k": 3.0,
+   "tau": 2.4,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau3-c0.33",
+   "k": 3.0,
+   "tau": 3.0,
+   "crate": 0.33,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau3-c0.5",
+   "k": 3.0,
+   "tau": 3.0,
+   "crate": 0.5,
+   "n": 300,
+   "status": "open",
+   "results": []
+  },
+  {
+   "id": "103c-k3-tau3-c1",
+   "k": 3.0,
+   "tau": 3.0,
+   "crate": 1.0,
+   "n": 300,
+   "status": "open",
+   "results": []
+  }
+ ]
+}
