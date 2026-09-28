@@ -1,0 +1,65 @@
+{
+ "kappa": 0.9487000000000005,
+ "rows": [
+  {
+   "lambda_target": 0.6,
+   "tau": 1.2,
+   "k": 2.139,
+   "anode_um": 182,
+   "cathode_um": 162,
+   "onset_SOC_pct_of_charge": 69.2,
+   "charge_reached_pct": 74.4,
+   "min_dphi_V": -0.0095
+  },
+  {
+   "lambda_target": 0.6,
+   "tau": 1.8,
+   "k": 1.746,
+   "anode_um": 149,
+   "cathode_um": 132,
+   "onset_SOC_pct_of_charge": 69.6,
+   "charge_reached_pct": 75.1,
+   "min_dphi_V": -0.0097
+  },
+  {
+   "lambda_target": 0.6,
+   "tau": 3.0,
+   "k": 1.353,
+   "anode_um": 115,
+   "cathode_um": 102,
+   "onset_SOC_pct_of_charge": 70.0,
+   "charge_reached_pct": 75.8,
+   "min_dphi_V": -0.0107
+  },
+  {
+   "lambda_target": 1.0,
+   "tau": 1.2,
+   "k": 2.761,
+   "anode_um": 235,
+   "cathode_um": 209,
+   "onset_SOC_pct_of_charge": 34.2,
+   "charge_reached_pct": 59.6,
+   "min_dphi_V": -0.0863
+  },
+  {
+   "lambda_target": 1.0,
+   "tau": 1.8,
+   "k": 2.254,
+   "anode_um": 192,
+   "cathode_um": 170,
+   "onset_SOC_pct_of_charge": 35.4,
+   "charge_reached_pct": 60.8,
+   "min_dphi_V": -0.0893
+  },
+  {
+   "lambda_target": 1.0,
+   "tau": 3.0,
+   "k": 1.746,
+   "anode_um": 149,
+   "cathode_um": 132,
+   "onset_SOC_pct_of_charge": 35.8,
+   "charge_reached_pct": 62.0,
+   "min_dphi_V": -0.0919
+  }
+ ]
+}
