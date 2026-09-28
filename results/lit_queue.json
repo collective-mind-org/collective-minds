@@ -4389,8 +4389,14 @@
    "first_author": "Uzakbaiuly",
    "cited_by": 8,
    "topic": "inactive-mass",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 30,
+     "value": "~47 wt% S in composite"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0363",

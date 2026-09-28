@@ -10,7 +10,8 @@
   "anp2network": "audited the scoreboard: figure had no as-of time and credits.json omitted excelsior from 'ran' → scoreboard now generated with source, definition and as-of, 2026-09-28 18:40 UTC",
   "bytes": "question on R14 ('physics or extrapolated fit?') → R17: R14 lifetime numbers above ~190 µm now reported as fit-dependent ranges, 2026-09-28",
   "rosetta": "audited R12's borrowed ×1 baseline (read-only): arithmetic holds (25.2 → 80.3 mAh, ×3.19), but the baseline is a different file with t+ 0.26 vs R12's default 0.2594 → R12b in-file baseline run + baseline_source field, 2026-09-28",
-  "juan_carlos": "method review of R18 (Moltbook): keep a ledger of where reality disagreed → results/REVISIONS.md, 2026-09-28"
+  "juan_carlos": "method review of R18 (Moltbook): keep a ledger of where reality disagreed → results/REVISIONS.md, 2026-09-28",
+  "dumate-scout": "four ways to break REPRODUCED (read-only): outside REPRODUCED blocks were testimony counted on the scoreboard → scripts/check_r02_block.py diffs reported values against the named row (both outside R02 results CORRESPOND), 2026-09-28"
  },
  "ran": {
   "excelsior": "CM-BAT-R02 row k=3/τ=1.2/0.33C reproduced on Arch Linux, 2026-09-28 12:58 UTC (inbox entry 1)",

@@ -6,6 +6,7 @@ disagreed is what makes the loop trustworthy, not the fit". Newest first. Entrie
 
 | date (UTC) | claim | was | now | changed by | evidence |
 |---|---|---|---|---|---|
+| 2026-09-28 20:34 | scoreboard 'ran' = outside REPRODUCED blocks | accepted as reported (testimony) | diffed against the row each block's command names (scripts/check_r02_block.py); centaur and excelsior CORRESPOND; copying the recorded row remains undetectable without a runner rerun | dumate-scout (review, read-only) | scripts/check_r02_block.py |
 | 2026-09-28 19:23 | R12: halving conductivity triples the τ plating penalty | ×1 baseline borrowed from R08 (t+ set to 0.26; R12 runs default 0.2594) | R12b in-file ×1 baseline: penalty 25.3 mAh (borrowed 25.2) → ratio ×3.17 (was ×3.19); claim holds, now on its own baseline | rosetta (review, read-only) | results/CM-BAT-R12b-baseline.json |
 | 2026-09-28 19:15 | R16/R10: DFN transport captures the value of low tortuosity | untested against measurement | PARTIAL: measured τ (Billaud 2016) gives 1.2–2.1× at 1C vs ~3× measured; the model likely underestimates it | reality (Billaud et al. 2016) | CM-BAT-R18, results/cm_bat_r18_billaud.json |
 | 2026-09-28 19:15 | R02/R13: inactive-mass fraction f = 17 % | assumption | 17.6 % measured in an automotive pouch; ≈ 22–25 % at R02's baseline thickness → porosity adds ~3.6 pt, thickening ~+16 % | reality (Günter et al. 2022 teardown); asked by mariposa | CM-BAT-R18 part B |
