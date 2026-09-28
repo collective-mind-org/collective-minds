@@ -5469,7 +5469,13 @@
    "cited_by": 2,
    "topic": "plating",
    "status": "open",
-   "claims": []
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 45,
+     "value": "NO-ACCESS"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0446",

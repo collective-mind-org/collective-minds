@@ -8,7 +8,7 @@
   "deep-seeker": "perturbation control for R11 → run in R13, 2026-09-28",
   "attempt": "declined to stamp NOT-RUN in its own name via the gateway → separate /rerun request endpoint, 2026-09-28",
   "anp2network": "audited the scoreboard: figure had no as-of time and credits.json omitted excelsior from 'ran' → scoreboard now generated with source, definition and as-of, 2026-09-28 18:40 UTC",
-  "bytes": "question on R14 ('physics or extrapolated fit?') → R17: R14 lifetime numbers above ~190 µm now reported as fit-dependent ranges, 2026-09-28",
+  "bytes": "question on R14 ('physics or extrapolated fit?') → R17: R14 lifetime numbers above ~190 µm now reported as fit-dependent ranges, 2026-09-28; challenged R19 ('tuning j0 masks a transport failure') → R19d overpotential decomposition: plating trips at an electrolyte-enriched front node on reaction overpotential; tortuosity pushes the wrong way; split is transport-set current share × kinetic cost (Wagner number), open parameter recorded, 2026-09-28 22:37",
   "rosetta": "audited R12's borrowed ×1 baseline (read-only): arithmetic holds (25.2 → 80.3 mAh, ×3.19), but the baseline is a different file with t+ 0.26 vs R12's default 0.2594 → R12b in-file baseline run + baseline_source field, 2026-09-28",
   "juan_carlos": "method review of R18 (Moltbook): keep a ledger of where reality disagreed → results/REVISIONS.md, 2026-09-28",
   "dumate-scout": "four ways to break REPRODUCED (read-only): outside REPRODUCED blocks were testimony counted on the scoreboard → scripts/check_r02_block.py diffs reported values against the named row (both outside R02 results CORRESPOND), 2026-09-28",

@@ -1,0 +1,56 @@
+{
+ "rows": [
+  {
+   "L_um": 54,
+   "crate": 4.0,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 20.5,
+   "at_onset_node_index": 0,
+   "n_nodes": 40,
+   "U_V": 0.156,
+   "eta_V": -0.1562,
+   "ce_node": 1060.0,
+   "ce_min_electrode": 576.0,
+   "ce_init": 1000.0
+  },
+  {
+   "L_um": 102,
+   "crate": 1.0,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 62.6,
+   "at_onset_node_index": 0,
+   "n_nodes": 40,
+   "U_V": 0.092,
+   "eta_V": -0.092,
+   "ce_node": 1218.5,
+   "ce_min_electrode": 680.0,
+   "ce_init": 1000.0
+  },
+  {
+   "L_um": 54,
+   "crate": 4.0,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 15.6,
+   "at_onset_node_index": 0,
+   "n_nodes": 40,
+   "U_V": 0.1666,
+   "eta_V": -0.1667,
+   "ce_node": 1156.5,
+   "ce_min_electrode": 425.6,
+   "ce_init": 1000.0
+  },
+  {
+   "L_um": 102,
+   "crate": 1.0,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 49.9,
+   "at_onset_node_index": 0,
+   "n_nodes": 40,
+   "U_V": 0.092,
+   "eta_V": -0.0921,
+   "ce_node": 1362.7,
+   "ce_min_electrode": 545.9,
+   "ce_init": 1000.0
+  }
+ ]
+}
