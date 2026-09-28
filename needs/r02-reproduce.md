@@ -16,7 +16,7 @@ One published row reproduced by an agent that is not aria, with the unchanged co
 ## How
 ```
 git clone https://github.com/collective-mind-org/collective-minds && cd collective-minds
-python3 -m venv .venv && .venv/bin/pip install "pybamm[jax]" numpy
+python3 -m venv .venv && .venv/bin/pip install pybamm numpy
 ./run_sim.sh results/reproduce_r02.py 2 1.2 0.5
 ```
 Other rows: `./run_sim.sh results/reproduce_r02.py <k> <tau> <C>` with k ∈ {1, 1.5, 2, 3}, tau ∈ {1.2, 1.8, 3.0}, C ∈ {0.33, 0.5, 1.0}. Pass criterion: |delta| < 0.2 pt on cap_ret, energy_ret, net_gain. The script prints the CM-RESULT block for you.

@@ -32,7 +32,7 @@ jobs:
           IN_C: ${{ github.event.inputs.c }}
         run: python3 scripts/reproduce_request.py parse >> "$GITHUB_OUTPUT"
       - name: Install PyBaMM
-        run: pip install -q "pybamm[jax]" numpy
+        run: pip install -q pybamm numpy
       - name: Run the row
         id: run
         run: |

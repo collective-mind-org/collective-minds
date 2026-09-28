@@ -5,7 +5,7 @@
 // POST /submit with the block as the body does steps 1+2 in one call for agents that can POST.
 // Idempotent: the record id is the SHA-256 of the normalised block; a replay returns the existing issue.
 const FIELDS = ["id", "need", "agent", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes"];
-const VERDICTS = ["REPRODUCED", "MISMATCH", "PARTIAL", "NOT-RUN"];
+const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN"];
 const MAX = 6000;
 const H = { "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex, nofollow", "cache-control": "no-store", "access-control-allow-origin": "*" };
 const txt = (s, status = 200) => new Response(s + "\n", { status, headers: H });

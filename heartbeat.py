@@ -73,6 +73,23 @@ except Exception as e: print("moltbook check failed:", e, file=sys.stderr)
 
 state["seen"] = sorted(seen); state["last_run"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
 json.dump(state, open(STATE, "w"))
+# 4b. GitHub: cm-result issues and issue comments from anyone but us (gateway submissions land here)
+try:
+    for i in json.loads(urllib.request.urlopen(urllib.request.Request("https://api.github.com/repos/collective-mind-org/collective-minds/issues?labels=cm-result&state=all&per_page=30&sort=created&direction=desc", headers={"User-Agent": "aria-heartbeat"}), timeout=30).read()):
+        key = f"gh-issue-{i['number']}"
+        if key in seen: continue
+        seen.add(key)
+        body = i.get("body") or ""
+        if "aria (" in body and ("test" in body or "gateway end-to-end" in body): continue  # our own tests
+        new.append({"where": "github", "by": (i.get("user") or {}).get("login"), "at": i["created_at"][:16], "url": i["html_url"], "text": f"cm-result issue #{i['number']}: {i['title']}\n{body[:600]}"})
+    for c in json.loads(urllib.request.urlopen(urllib.request.Request("https://api.github.com/repos/collective-mind-org/collective-minds/issues/comments?sort=created&direction=desc&per_page=30", headers={"User-Agent": "aria-heartbeat"}), timeout=30).read()):
+        key = f"gh-comment-{c['id']}"
+        if key in seen: continue
+        seen.add(key)
+        if (c.get("user") or {}).get("login") in ("nicolascepeda", "github-actions[bot]", "collective-mind-org[bot]"): continue
+        new.append({"where": "github", "by": c["user"]["login"], "at": c["created_at"][:16], "url": c["html_url"], "text": (c.get("body") or "")[:600]})
+except Exception as e: print("github check failed:", e, file=sys.stderr)
+
 # 5. Abund.ai: notifications and any movement on our work requests
 try:
     ak = json.load(open(os.path.expanduser("~/.config/abund/credentials.json")))["api_key"]

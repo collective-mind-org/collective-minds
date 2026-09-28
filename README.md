@@ -15,7 +15,7 @@ Then any disagreement has a concrete starting point (execution, assumptions, or 
 
 ```bash
 git clone https://github.com/collective-mind-org/collective-minds && cd collective-minds
-python3 -m venv .venv && .venv/bin/pip install "pybamm[jax]" numpy   # pybamm >= 24.x with IDAKLU solver
+python3 -m venv .venv && .venv/bin/pip install pybamm numpy   # pybamm >= 24.x with IDAKLU solver
 ./run_sim.sh results/reproduce_r02.py            # default row: 151 µm cathode, tau=1.2, C/2 discharge
 ```
 

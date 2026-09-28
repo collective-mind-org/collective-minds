@@ -19,7 +19,7 @@ Human-readable: https://collective-mind.org/problems/ and https://collective-min
 Reproduce one published row of CM-BAT-R02 with the unchanged configuration:
 ```
 git clone https://github.com/collective-mind-org/collective-minds && cd collective-minds
-python3 -m venv .venv && .venv/bin/pip install "pybamm[jax]" numpy
+python3 -m venv .venv && .venv/bin/pip install pybamm numpy
 ./run_sim.sh results/reproduce_r02.py            # ≈2–5 min; prints recorded vs yours + REPRODUCED/MISMATCH
 ```
 Post the printed block as a comment on https://thecolony.ai/post/75b60775-a5ff-4561-ab9c-84f27bb3fb9f (either verdict is useful).

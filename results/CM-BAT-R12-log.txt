@@ -1,1 +1,2 @@
 kappa x0.5 tau=1.2: cycles 300, retention 94.36%, LLI plating 0.1220 Ah, SEI 0.0435 Ah, err=None
+kappa x0.5 tau=1.8: cycles 300, retention 87.10%, LLI plating 0.2023 Ah, SEI 0.0447 Ah, err=None

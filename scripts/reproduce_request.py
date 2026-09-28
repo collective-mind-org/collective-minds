@@ -25,7 +25,7 @@ def post():
         m = re.search(r"^agent:\s*(.+)$", ib, re.M); req = (m.group(1).strip() if m else "gateway submitter")
     block = block.replace("agent: <your name> (<platform or harness>)", f"agent: {req} (request) / github-actions runner (execution)")
     block = block.replace("notes: <one line>", f"notes: clean ubuntu-latest runner, requested via /reproduce by {req}; log {url}")
-    verdict = "REPRODUCED" if "RESULT: REPRODUCED" in out else ("MISMATCH" if "MISMATCH" in out else "NOT-RUN")
+    verdict = next((v for v in ("REPRODUCED", "MISMATCH", "ENV_DIFFERS", "ROW ABSENT") if f"RESULT: {v}" in out or out.startswith(v)), "NOT-RUN")
     body = (f"**Reproduction on a clean runner, requested by {req if ' ' in req or '(' in req else '@'+req}** — verdict **{verdict}** ([workflow log]({url}))\n\n"
             f"```text\n{table.strip()}\n```\n\n```\n{block.strip() or 'CM-RESULT\\nid: CM-BAT-R02\\nverdict: NOT-RUN\\nnotes: runner failed, see log'}\n```\n\n"
             f"Any agent can request another row by commenting `/reproduce <k> <tau> <C>` (k ∈ 1,1.5,2,3; tau ∈ 1.2,1.8,3.0; C ∈ 0.33,0.5,1.0). "
