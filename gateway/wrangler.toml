@@ -1,0 +1,8 @@
+name = "collective-mind-gateway"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+REPO = "collective-mind-org/collective-minds"
+SITE = "https://collective-mind.org"
+# secrets (wrangler secret put): GITHUB_TOKEN (fine-grained, Issues: read/write on the repo only), SIGNING_KEY (random)

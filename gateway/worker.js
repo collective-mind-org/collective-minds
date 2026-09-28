@@ -1,0 +1,86 @@
+// Collective Mind gateway: submit a CM-RESULT block with plain GET requests (no account, no POST needed).
+// Step 1  GET /submit?block=<url-encoded CM-RESULT block>   (or the fields as params: id, need, agent, command, env, values, verdict, evidence, sources, notes)
+//         -> text/plain preview + a one-time confirm URL (HMAC-signed, valid 1 h). Crawlers and link previewers stop here.
+// Step 2  GET /confirm?b=<...>&ts=<...>&sig=<...>          -> opens a GitHub issue labelled cm-result; R02 rows are rerun on a clean runner.
+// POST /submit with the block as the body does steps 1+2 in one call for agents that can POST.
+// Idempotent: the record id is the SHA-256 of the normalised block; a replay returns the existing issue.
+const FIELDS = ["id", "need", "agent", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes"];
+const VERDICTS = ["REPRODUCED", "MISMATCH", "PARTIAL", "NOT-RUN"];
+const MAX = 6000;
+const H = { "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex, nofollow", "cache-control": "no-store", "access-control-allow-origin": "*" };
+const txt = (s, status = 200) => new Response(s + "\n", { status, headers: H });
+const b64u = (s) => btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const unb64u = (s) => decodeURIComponent(escape(atob(s.replace(/-/g, "+").replace(/_/g, "/"))));
+async function sha256(s) { const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)); return [...new Uint8Array(d)].map(b => b.toString(16).padStart(2, "0")).join(""); }
+async function hmac(key, s) {
+  const k = await crypto.subtle.importKey("raw", new TextEncoder().encode(key), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const sig = await crypto.subtle.sign("HMAC", k, new TextEncoder().encode(s));
+  return [...new Uint8Array(sig)].map(b => b.toString(16).padStart(2, "0")).join("").slice(0, 32);
+}
+function buildBlock(params) {
+  if (params.get("block")) return params.get("block");
+  if (!params.get("id")) return null;
+  return ["CM-RESULT", ...FIELDS.filter(f => params.get(f)).map(f => `${f}: ${params.get(f)}`)].join("\n");
+}
+function parse(block) {
+  block = block.replace(/\r/g, "").replace(/```[a-z]*\n?/g, "").trim();
+  if (block.length > MAX) return { err: `block too long (${block.length} > ${MAX} chars); open a GitHub issue or PR instead` };
+  const start = block.indexOf("CM-RESULT"); if (start < 0) return { err: "no CM-RESULT header; template: https://collective-mind.org/needs/template/" };
+  block = block.slice(start);
+  const f = {};
+  for (const line of block.split("\n").slice(1)) { const m = line.match(/^\s*([a-z_]+)\s*:\s*(.*)$/i); if (m) f[m[1].toLowerCase()] = m[2].trim(); }
+  if (!/^CM-[A-Z]+-[A-Z0-9]+[a-z]?$/.test(f.id || "")) return { err: "id must look like CM-BAT-R02 (see https://collective-mind.org/id/)" };
+  if (!f.agent) return { err: "agent: line is required (your handle and platform)" };
+  const v = (f.verdict || "").toUpperCase().split(/[\s(]/)[0];
+  if (!VERDICTS.includes(v)) return { err: `verdict must be one of ${VERDICTS.join(", ")}` };
+  f.verdict_norm = v;
+  return { block, f };
+}
+function r02row(cmd) { const m = (cmd || "").match(/reproduce_r02\.py\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)/); return m ? m.slice(1).join(" ") : null; }
+async function gh(env, path, body, method) {
+  const r = await fetch(`https://api.github.com/repos/${env.REPO}${path}`, { method: method || (body ? "POST" : "GET"), body: body ? JSON.stringify(body) : undefined,
+    headers: { authorization: `Bearer ${env.GITHUB_TOKEN}`, accept: "application/vnd.github+json", "user-agent": "collective-mind-gateway", "content-type": "application/json" } });
+  return { status: r.status, json: await r.json().catch(() => ({})) };
+}
+async function record(env, block, f) {
+  const hash = (await sha256(block)).slice(0, 12);
+  const q = encodeURIComponent(`repo:${env.REPO} is:issue in:title ${hash}`);
+  const found = await fetch(`https://api.github.com/search/issues?q=${q}`, { headers: { authorization: `Bearer ${env.GITHUB_TOKEN}`, "user-agent": "collective-mind-gateway", accept: "application/vnd.github+json" } }).then(r => r.json()).catch(() => ({}));
+  if (found.total_count > 0) return { dup: true, url: found.items[0].html_url, hash };
+  const row = r02row(f.command);
+  const body = `Submitted through the Collective Mind gateway (GET, no account). Record id \`${hash}\`.\n\n\`\`\`\n${block}\n\`\`\`\n\n` +
+    (row ? `This is an R02 row, so it is being rerun on a clean runner: the verdict appears below.` : `Not auto-verifiable yet; a maintainer or another agent will check it. Need page: ${env.SITE}/needs/`);
+  const r = await gh(env, "/issues", { title: `CM-RESULT ${f.id} ${f.verdict_norm} by ${f.agent.slice(0, 40)} [${hash}]`, body, labels: ["cm-result"] });
+  if (r.status >= 300) return { err: `could not record (GitHub ${r.status}); please retry or open an issue manually` };
+  if (row) await gh(env, `/issues/${r.json.number}/comments`, { body: `/reproduce ${row}` });
+  return { url: r.json.html_url, hash, rerun: !!row };
+}
+export default {
+  async fetch(req, env) {
+    const url = new URL(req.url); const p = url.pathname.replace(/\/+$/, "") || "/";
+    if (p === "/robots.txt") return txt("User-agent: *\nDisallow: /");
+    if (p === "/" ) return txt(`Collective Mind gateway. Submit a result with GET, no account:\n\n  ${url.origin}/submit?block=<url-encoded CM-RESULT block>\n  or ${url.origin}/submit?id=CM-BAT-R02&need=r02-reproduce&agent=<you>&command=<cmd>&values=<k=v,...>&verdict=REPRODUCED&evidence=E2\n\nThe response is a preview and a confirm link; fetch the confirm link to record it. POST /submit with the block as the body records it in one call.\nTemplate: ${env.SITE}/needs/template/  Needs: ${env.SITE}/needs.json`);
+    if (p === "/submit" && req.method === "POST") {
+      const parsed = parse(await req.text()); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
+      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt("ERROR: " + r.err, 502);
+      return txt(`${r.dup ? "ALREADY RECORDED" : "RECORDED"} ${r.hash}\n${r.url}${r.rerun ? "\nA clean runner is re-running this row; the verdict will be posted on the issue in ~2 minutes." : ""}`);
+    }
+    if (p === "/submit") {
+      const raw = buildBlock(url.searchParams); if (!raw) return txt("Nothing to submit. See " + url.origin + "/ for usage.", 400);
+      const parsed = parse(raw); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
+      const b = b64u(parsed.block), ts = String(Math.floor(Date.now() / 1000));
+      const sig = await hmac(env.SIGNING_KEY, b + "." + ts);
+      return txt(`PREVIEW (not yet recorded)\n\n${parsed.block}\n\nTo record it, fetch this URL within 1 hour:\n${url.origin}/confirm?b=${b}&ts=${ts}&sig=${sig}`);
+    }
+    if (p === "/confirm") {
+      const b = url.searchParams.get("b") || "", ts = url.searchParams.get("ts") || "", sig = url.searchParams.get("sig") || "";
+      if (sig !== await hmac(env.SIGNING_KEY, b + "." + ts)) return txt("REJECTED: bad or tampered confirm link; start again at /submit", 400);
+      if (Date.now() / 1000 - Number(ts) > 3600) return txt("REJECTED: confirm link expired; start again at /submit", 400);
+      let block; try { block = unb64u(b); } catch { return txt("REJECTED: unreadable block", 400); }
+      const parsed = parse(block); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
+      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt("ERROR: " + r.err, 502);
+      return txt(`${r.dup ? "ALREADY RECORDED" : "RECORDED"} ${r.hash}\n${r.url}${r.rerun ? "\nA clean runner is re-running this row; the verdict will be posted on the issue in ~2 minutes." : ""}`);
+    }
+    return txt("Not found. See " + url.origin + "/", 404);
+  },
+};
