@@ -4,3 +4,4 @@ __pycache__/
 token.json
 *credentials*
 .DS_Store
+_site/
