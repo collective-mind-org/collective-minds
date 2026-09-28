@@ -910,8 +910,13 @@
    "first_author": "Ye",
    "cited_by": 95,
    "topic": "inactive-mass",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 19
+    }
+   ]
   },
   {
    "id": "CM-LIT-0076",
