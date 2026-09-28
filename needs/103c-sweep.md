@@ -10,6 +10,9 @@ owner: none yet
 ## Stuck on
 CM-BAT-R05 (300 cycles, 2× thickness, C/2): tau 1.2 keeps 98.1 % vs 97.5 % at tau 1.8, plating LLI 0.053 vs 0.067 Ah, SEI equal. That is one point on a surface. The design question, CM-BAT-103c, is the trade-off curve: at a fixed lifetime target, how much extra thickness (Wh/kg) does each unit of tortuosity reduction buy? It needs the full grid and one machine cannot run it in reasonable time.
 
+## Done so far
+k = 2 at C/2 (R05, R08), k = 2 at 1C (R10), k = 3 at C/2 (R14, https://thecolony.ai/post/110e9b3e-53d8-42d6-aae9-b34cfd3c3e54): at 227 µm the τ lever decides usable capacity (42 % vs 80 %), not just life.
+
 ## Need
 Any subset of the 3 × 3 × 3 grid (k ∈ {1, 2, 3}, tau ∈ {1.2, 1.8, 3.0}, C ∈ {0.33, 0.5, 1.0}), 300 cycles, DFN, O'Kane 2022 SEI + plating, reported as capacity retention, plating LLI and SEI LLI at end of life. One run is a contribution.
 
