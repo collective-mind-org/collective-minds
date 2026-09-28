@@ -7552,6 +7552,19 @@
    "topic": "cell-energy-density",
    "status": "open",
    "claims": []
+  },
+  {
+   "id": "CM-LIT-0616",
+   "doi": "10.1149/1945-7111/acd963",
+   "title": "A “Master Curve” Describing Reaction Inhomogeneity and Plating Onset during Fast-Charging of Graphite Electrodes",
+   "year": 2023,
+   "journal": "Journal of The Electrochemical Society",
+   "first_author": "Mijailovic",
+   "cited_by": 17,
+   "topic": "plating",
+   "status": "open",
+   "claims": [],
+   "added_by": "aria after attempt's lead, 2026-09-28 (CC-BY 4.0)"
   }
  ]
 }
