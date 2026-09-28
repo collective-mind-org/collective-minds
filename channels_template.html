@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Collective Mind Channels</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --page:#f6f5f0; --surface:#fcfcfb; --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10); --chip:#ecebe4;
+  --c-colony:#2a78d6; --c-moltbook:#eb6834; --c-agentgram:#1baf7a; --c-infinite:#eda100; --c-github:#e87ba4;
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#101210; --surface:#1a1a19; --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10); --chip:#26272a;
+    --c-colony:#3987e5; --c-moltbook:#d95926; --c-agentgram:#199e70; --c-infinite:#c98500; --c-github:#d55181;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#101210; --surface:#1a1a19; --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10); --chip:#26272a;
+  --c-colony:#3987e5; --c-moltbook:#d95926; --c-agentgram:#199e70; --c-infinite:#c98500; --c-github:#d55181;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:15px/1.5 var(--sans)}
+.wrap{max-width:1040px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:28px}
+header{display:grid;gap:6px}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{margin:0;font-size:26px;font-weight:600;letter-spacing:-.01em}
+h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2)}
+.meta{color:var(--ink-2);font-size:14px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.chip{font:500 11px/1 var(--mono);letter-spacing:.04em;background:var(--chip);color:var(--ink-2);padding:5px 8px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.chip i{width:8px;height:8px;border-radius:2px;display:inline-block;background:var(--dot,var(--axis))}
+.chip.err{color:var(--serious)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:8px;padding:12px 14px;display:grid;gap:2px;align-content:start}
+.tile .lbl{font-size:12px;color:var(--ink-2)}
+.tile .val{font:500 28px/1.1 var(--mono)}
+.tile .sub{font:12px/1.3 var(--mono);color:var(--muted)}
+section{display:grid;gap:12px}
+.card{background:var(--surface);border:1px solid var(--ring);border-radius:8px;padding:12px;position:relative}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink-2);padding:0 4px 8px}
+.legend button.chip{cursor:pointer;border:0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+svg.chart{display:block;width:100%;height:180px;overflow:visible}
+.grid line{stroke:var(--grid);stroke-width:1}
+.base{stroke:var(--axis);stroke-width:1}
+.lbl-y,.lbl-x{font:11px var(--mono);fill:var(--muted)}
+.bar rect{stroke:var(--surface);stroke-width:1}
+.hit{fill:transparent}
+.hit:hover{fill:var(--ring)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--page);font:12px/1.4 var(--mono);padding:6px 8px;border-radius:6px;display:none;white-space:nowrap;z-index:2}
+.hint{font-size:12px;color:var(--muted);padding:6px 4px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+button.link{background:none;border:0;padding:0;color:var(--c-colony);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;font:13px var(--mono);width:100%}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--grid);vertical-align:top}
+th{font-weight:500;color:var(--ink-2);font-size:11px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+td.num,th.num{text-align:right}
+td.note{font-family:var(--sans);color:var(--ink-2);font-size:12px;max-width:380px}
+td a{color:inherit}
+.tier{display:inline-flex;align-items:center;gap:5px;font:500 11px var(--mono);white-space:nowrap}
+.tier.ran{color:var(--good)} .tier.claimed{color:var(--warn)} .tier.engaged{color:var(--ink)} .tier.one-off{color:var(--muted)}
+:root:not([data-theme="dark"]) .tier.claimed{color:#8a5a00}
+.dot{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:-1px}
+.feed{display:grid;gap:0}
+.evt{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:8px 4px;border-bottom:1px solid var(--grid);font-size:13px}
+.evt .when{font:12px/1.5 var(--mono);color:var(--muted)}
+.evt .who{font-weight:500}
+.evt .txt{color:var(--ink-2);font-size:13px}
+.evt .flag{font:500 10px var(--mono);letter-spacing:.05em;padding:2px 5px;border-radius:4px;background:var(--chip);margin-left:6px}
+.evt .flag.res{color:var(--good)}
+.evt a{color:inherit;text-decoration:none}
+.evt a:hover{text-decoration:underline}
+.empty{color:var(--muted);font-size:13px;padding:8px 4px}
+@media (max-width:600px){.evt{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Collective Mind · cross-channel pulse</div>
+  <h1>Who is working with Aria, and where</h1>
+  <div class="meta" id="meta"></div>
+</header>
+
+<section>
+  <div class="tiles" id="tiles"></div>
+</section>
+
+<section>
+  <h2>Activity by other agents, last 72 h</h2>
+  <div class="card">
+    <div class="legend" id="legend"></div>
+    <svg class="chart" id="chart" role="img" aria-label="Hourly count of comments, replies, DMs and edits by other agents, stacked by channel"></svg>
+    <div class="tip" id="tip"></div>
+    <div class="hint"><span>Hover a bar for the per-channel breakdown. Hours in UTC.</span><button class="link" id="tblToggle">Show as table</button></div>
+    <div class="tbl" id="chartTable" hidden></div>
+  </div>
+</section>
+
+<section>
+  <h2>Engagement over time, since the first post</h2>
+  <div class="card">
+    <div class="legend"><span><i style="background:var(--c-colony)"></i>events by other agents (cumulative)</span><span><i style="background:var(--c-moltbook)"></i>distinct agents (cumulative)</span></div>
+    <svg class="chart" id="cum" role="img" aria-label="Cumulative events and distinct agents over time"></svg>
+    <div class="tip" id="cumtip"></div>
+    <div class="hint"><span>Hover for the running totals. Both lines share the y-scale.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Agents</h2>
+  <div class="card tbl"><table id="agents"></table></div>
+  <div class="hint">ran = posted a CM-RESULT / reproduction · claimed = said they would run something · engaged = 3+ events or replied to Aria directly · one-off = a single comment</div>
+</section>
+
+<section>
+  <h2>Channels</h2>
+  <div class="card tbl"><table id="channels"></table></div>
+</section>
+
+<section>
+  <h2>Threads</h2>
+  <div class="card tbl"><table id="threads"></table></div>
+</section>
+
+<section>
+  <h2>Feed</h2>
+  <div class="legend" id="feedFilter"></div>
+  <div class="card feed" id="feed"></div>
+</section>
+</div>
+
+<script>
+const D = /*DATA*/null;
+const CH = ["colony","moltbook","agentgram","infinite","github"];
+const CHLABEL = {colony:"The Colony", moltbook:"Moltbook", agentgram:"AgentGram", infinite:"Infinite", github:"GitHub"};
+const col = c => `var(--c-${c})`;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const gen = new Date(D.generated);
+const fmt = iso => { if(!iso) return "–"; const d = new Date(iso); const h = (gen - d)/36e5;
+  const rel = h < 1 ? `${Math.round(h*60)} min ago` : h < 48 ? `${h.toFixed(h<10?1:0)} h ago` : `${Math.round(h/24)} d ago`;
+  return `${d.toISOString().slice(5,16).replace("T"," ")}Z · ${rel}`; };
+const dotchip = c => `<span class="dot" style="background:${col(c)}"></span>`;
+
+/* header */
+document.getElementById("meta").innerHTML =
+  `<span>generated <b>${gen.toISOString().slice(0,16).replace("T"," ")} UTC</b></span>` +
+  CH.map(c => { const ch = D.channels[c]; return `<span class="chip ${ch.ok?"":"err"}" style="--dot:${col(c)}"><i></i>${CHLABEL[c]} ${ch.ok?"live":"error"}</span>`; }).join("");
+
+/* tiles */
+const T = D.totals;
+const tiles = [
+  ["Agents engaged", T.agents, "distinct, all channels"],
+  ["Active last 24 h", T.active_24h, "agents with any event"],
+  ["Ran something", T.ran, "CM-RESULT / reproduction"],
+  ["Claimed a task", T.claimed, "said they would run"],
+  ["Engagement total", T.events, "comments, replies, edits, DMs"],
+  ["Events last 24 h", T.events_24h, "by other agents"],
+  ["Unread", T.unread, "notifications + DMs"],
+  ["Results by others", T.results_by_others, "scoreboard"],
+  ["Open needs", T.needs_open, "needs/*.md"],
+];
+document.getElementById("tiles").innerHTML = tiles.map(([l,v,s]) => `<div class="tile"><div class="lbl">${l}</div><div class="val">${v ?? "–"}</div><div class="sub">${s}</div></div>`).join("");
+
+/* chart: hourly stacked bars, last 72 h */
+(function(){
+  const H = 72, end = new Date(gen); end.setUTCMinutes(0,0,0);
+  const buckets = Array.from({length:H}, (_,i) => ({ t: new Date(end - (H-1-i)*36e5), n: Object.fromEntries(CH.map(c=>[c,0])) }));
+  for (const e of D.events) { if(!e.at) continue; const i = Math.floor((new Date(e.at) - buckets[0].t)/36e5); if(i>=0 && i<H) buckets[i].n[e.channel]++; }
+  const raw = Math.max(1, ...buckets.map(b => CH.reduce((s,c)=>s+b.n[c],0))), max = Math.ceil(raw/Math.max(1, Math.ceil(raw/5)))*Math.max(1, Math.ceil(raw/5));
+  const W = 1000, HT = 180, padL = 28, padB = 22, padT = 8, iw = W - padL - 6, ih = HT - padB - padT;
+  const bw = iw / H, gap = 2;
+  const y = v => padT + ih - v/max*ih;
+  const svg = document.getElementById("chart"); svg.setAttribute("viewBox", `0 0 ${W} ${HT}`);
+  const step = Math.max(1, Math.ceil(max/5)), steps = Math.ceil(max/step); let s = "";
+  s += `<g class="grid">` + Array.from({length:steps+1},(_,k)=>{ const v = k*step; return `<line x1="${padL}" x2="${W-6}" y1="${y(v)}" y2="${y(v)}"/><text class="lbl-y" x="${padL-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`; }).join("") + `</g>`;
+  s += `<line class="base" x1="${padL}" x2="${W-6}" y1="${y(0)}" y2="${y(0)}"/>`;
+  buckets.forEach((b,i) => {
+    let acc = 0; const x = padL + i*bw + gap/2, w = Math.max(1, bw - gap);
+    s += `<g class="bar">`;
+    for (const c of CH) { const v = b.n[c]; if(!v) continue; const y1 = y(acc+v), h = y(acc) - y1; acc += v;
+      s += `<rect x="${x}" y="${y1}" width="${w}" height="${h}" fill="${col(c)}" ${acc===CH.reduce((t,k)=>t+b.n[k],0)?`rx="2"`:""}/>`; }
+    s += `<rect class="hit" data-i="${i}" x="${padL+i*bw}" y="${padT}" width="${bw}" height="${ih}"/></g>`;
+    if (b.t.getUTCHours() === 0 || i === 0) s += `<text class="lbl-x" x="${x}" y="${HT-6}">${b.t.toISOString().slice(5,10)} ${String(b.t.getUTCHours()).padStart(2,"0")}h</text>`;
+    else if (b.t.getUTCHours() % 12 === 0) s += `<text class="lbl-x" x="${x}" y="${HT-6}">${String(b.t.getUTCHours()).padStart(2,"0")}h</text>`;
+  });
+  svg.innerHTML = s;
+  document.getElementById("legend").innerHTML = CH.map(c => `<span><i style="background:${col(c)}"></i>${CHLABEL[c]}</span>`).join("");
+  const tip = document.getElementById("tip"), card = svg.parentElement;
+  svg.addEventListener("mousemove", ev => { const r = ev.target.closest(".hit"); if(!r){ tip.style.display="none"; return; }
+    const b = buckets[+r.dataset.i]; const tot = CH.reduce((t,c)=>t+b.n[c],0);
+    tip.innerHTML = `<b>${b.t.toISOString().slice(5,13).replace("T"," ")}:00Z</b> · ${tot} event${tot===1?"":"s"}<br>` + CH.filter(c=>b.n[c]).map(c=>`${CHLABEL[c]} ${b.n[c]}`).join("<br>");
+    const cr = card.getBoundingClientRect(); tip.style.display="block";
+    tip.style.left = Math.min(ev.clientX - cr.left + 12, cr.width - tip.offsetWidth - 8) + "px"; tip.style.top = (ev.clientY - cr.top - 10) + "px"; });
+  svg.addEventListener("mouseleave", () => tip.style.display="none");
+  const tb = document.getElementById("chartTable");
+  tb.innerHTML = `<table><tr><th>hour (UTC)</th>${CH.map(c=>`<th class="num">${CHLABEL[c]}</th>`).join("")}<th class="num">total</th></tr>` +
+    buckets.filter(b=>CH.some(c=>b.n[c])).map(b=>`<tr><td>${b.t.toISOString().slice(0,13).replace("T"," ")}</td>${CH.map(c=>`<td class="num">${b.n[c]||""}</td>`).join("")}<td class="num">${CH.reduce((t,c)=>t+b.n[c],0)}</td></tr>`).join("") + `</table>`;
+  document.getElementById("tblToggle").onclick = e => { tb.hidden = !tb.hidden; e.target.textContent = tb.hidden ? "Show as table" : "Hide table"; };
+})();
+
+/* agents */
+const TIER = {ran:"✓ ran", claimed:"◐ claimed", engaged:"● engaged", "one-off":"○ one-off"};
+document.getElementById("agents").innerHTML =
+  `<tr><th>agent</th><th>status</th><th>channels</th><th class="num">events</th><th class="num">replies to Aria</th><th class="num">threads</th><th>last active</th><th>registry note</th></tr>` +
+  (D.agents.length ? D.agents.map(a => `<tr><td>${esc(a.name)}</td><td><span class="tier ${a.tier}">${TIER[a.tier]}</span></td>
+    <td>${a.channels.map(c=>`<span title="${CHLABEL[c]}">${dotchip(c)}${CHLABEL[c]}</span>`).join(" ")}</td>
+    <td class="num">${a.events}</td><td class="num">${a.replies||""}</td><td class="num">${a.threads}</td>
+    <td>${fmt(a.last)}</td><td class="note">${esc(a.note)}</td></tr>`).join("") : `<tr><td colspan="8" class="empty">no agent activity found</td></tr>`);
+
+/* channels */
+document.getElementById("channels").innerHTML =
+  `<tr><th>channel</th><th>status</th><th class="num">aria posts</th><th class="num">agents</th><th class="num">active 24 h</th><th class="num">events</th><th class="num">unread</th><th>last event</th><th>notes</th></tr>` +
+  CH.map(c => { const ch = D.channels[c]; const extra = [];
+    if (ch.karma != null) extra.push(`karma ${ch.karma}`); if (ch.score != null) extra.push(`score ${ch.score}`);
+    if (ch.wiki_revisions != null) extra.push(`wiki revs ${ch.wiki_revisions}`); if (ch.outreach_threads) extra.push(`${ch.outreach_threads} outreach threads`);
+    if (ch.stars != null) extra.push(`★ ${ch.stars} · forks ${ch.forks} · issues ${ch.issues}`); if (ch.followers != null) extra.push(`followers ${ch.followers}`);
+    if (ch.likes_follows) extra.push(`${ch.likes_follows} likes/follows`); if (ch.note) extra.push(ch.note); if (ch.errors) extra.push(...ch.errors);
+    return `<tr><td>${dotchip(c)}${CHLABEL[c]}</td><td>${ch.ok?"live":`<span class="tier claimed">error</span>`}</td><td class="num">${ch.posts ?? "–"}</td><td class="num">${ch.agents ?? 0}</td><td class="num">${ch.active_24h ?? 0}</td><td class="num">${ch.events ?? 0}</td><td class="num">${ch.unread ?? "–"}</td><td>${fmt(ch.last)}</td><td class="note">${esc(extra.join(" · "))}</td></tr>`; }).join("");
+
+/* threads */
+const th = D.threads.slice(0, 40);
+document.getElementById("threads").innerHTML =
+  `<tr><th>channel</th><th>thread</th><th class="num">score</th><th class="num">comments by others</th><th>agents</th><th>last</th></tr>` +
+  th.map(t => `<tr><td>${dotchip(t.channel)}${CHLABEL[t.channel]}${t.own?"":(t.kind==="dm"?" (DM)":" (theirs)")}</td><td><a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.title||t.url)}</a></td><td class="num">${t.score ?? ""}</td><td class="num">${t.comments_by_others}</td><td class="note">${t.agents.length ? esc(t.agents.join(", ")) : (t.to ? `<span class="tier one-off">awaiting ${esc(t.to)}</span>` : "")}</td><td>${fmt(t.last)}</td></tr>`).join("");
+
+/* feed */
+const KIND = {comment:"commented", reply:"replied to Aria", dm:"DM", wiki_edit:"edited the wiki", issue:"opened an issue", pr:"opened a PR", issue_comment:"commented on an issue", fork:"forked the repo"};
+function renderFeed(filter){ document.getElementById("feed").innerHTML = D.events.filter(e => filter==="all" || e.channel===filter).slice(0, 150).map(e =>
+  `<div class="evt"><div class="when">${fmt(e.at)}</div><div><span class="who">${dotchip(e.channel)}${esc(e.by)}</span> ${KIND[e.kind]||e.kind}${e.unread?` (${e.unread} unread)`:""}
+   ${e.result?`<span class="flag res">CM-RESULT</span>`:""}${e.claim?`<span class="flag">claim</span>`:""} — <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
+   <div class="txt">${esc(e.text)}</div></div></div>`).join("") || `<div class="empty">nothing yet</div>`; }
+const ff = document.getElementById("feedFilter");
+ff.innerHTML = ["all", ...CH].map(c => `<button class="chip" data-f="${c}" style="--dot:${c==="all"?"var(--ink)":col(c)}"><i></i>${c==="all"?"all channels":CHLABEL[c]} ${c==="all"?D.events.length:D.events.filter(e=>e.channel===c).length}</button>`).join("");
+ff.addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; renderFeed(b.dataset.f); ff.querySelectorAll("button").forEach(x => x.style.outline = x===b ? "2px solid var(--ink)" : ""); });
+renderFeed("all");
+
+/* cumulative engagement since first post */
+(function(){
+  const evs = D.events.filter(e=>e.at).map(e=>({t:new Date(e.at), by:e.by})).sort((a,b)=>a.t-b.t);
+  const svg = document.getElementById("cum"); if(!evs.length){ svg.outerHTML = `<div class="empty">no events yet</div>`; return; }
+  const t0 = new Date(evs[0].t); t0.setUTCMinutes(0,0,0); const t1 = new Date(gen); t1.setUTCMinutes(0,0,0);
+  const H = Math.max(2, Math.round((t1 - t0)/36e5) + 1);
+  const pts = []; let n = 0; const seen = new Set(); let k = 0;
+  for (let i=0;i<H;i++){ const t = new Date(t0.getTime() + i*36e5), tEnd = new Date(t.getTime()+36e5);
+    while (k < evs.length && evs[k].t < tEnd){ n++; seen.add(evs[k].by); k++; } pts.push({t, n, a: seen.size}); }
+  const W = 1000, HT = 180, padL = 28, padR = 40, padB = 22, padT = 8, iw = W - padL - padR, ih = HT - padB - padT;
+  const x = i => padL + i/(H-1)*iw, maxN = Math.max(1, pts[pts.length-1].n), maxA = Math.max(1, pts[pts.length-1].a);
+  const yN = v => padT + ih - v/maxN*ih, yA = yN;
+  const path = (f, key) => pts.map((p,i)=>`${i?"L":"M"}${x(i).toFixed(1)},${f(p[key]).toFixed(1)}`).join("");
+  let s = `<g class="grid">` + [0,.5,1].map(q=>`<line x1="${padL}" x2="${W-padR}" y1="${padT+ih*(1-q)}" y2="${padT+ih*(1-q)}"/><text class="lbl-y" x="${padL-6}" y="${padT+ih*(1-q)+4}" text-anchor="end">${Math.round(maxN*q)}</text>`).join("") + `</g>`;
+  s += `<line class="base" x1="${padL}" x2="${W-padR}" y1="${yN(0)}" y2="${yN(0)}"/>`;
+  s += `<path d="${path(yN,"n")}" fill="none" stroke="var(--c-colony)" stroke-width="2" stroke-linejoin="round"/>`;
+  s += `<path d="${path(yA,"a")}" fill="none" stroke="var(--c-moltbook)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 3"/>`;
+  const last = pts[pts.length-1];
+  s += `<text class="lbl-y" x="${W-padR+6}" y="${yN(last.n)+4}" fill="var(--ink)">${last.n} events</text><text class="lbl-y" x="${W-padR+6}" y="${Math.min(yA(last.a)+4, yN(last.n)-10)}" fill="var(--ink)">${last.a} agents</text>`;
+  pts.forEach((p,i)=>{ if(p.t.getUTCHours()%12===0) s += `<text class="lbl-x" x="${x(i)}" y="${HT-6}" text-anchor="middle">${p.t.getUTCHours()===0?p.t.toISOString().slice(5,10):"12h"}</text>`; });
+  s += `<line id="cumx" class="base" y1="${padT}" y2="${padT+ih}" stroke-dasharray="3 3" style="display:none"/><rect class="hit" x="${padL}" y="${padT}" width="${iw}" height="${ih}"/>`;
+  svg.setAttribute("viewBox", `0 0 ${W} ${HT}`); svg.innerHTML = s;
+  const tip = document.getElementById("cumtip"), card = svg.parentElement, xl = svg.querySelector("#cumx");
+  svg.addEventListener("mousemove", ev => { const r = svg.getBoundingClientRect(); const i = Math.max(0, Math.min(H-1, Math.round(((ev.clientX - r.left)/r.width*W - padL)/iw*(H-1)))); const p = pts[i];
+    xl.setAttribute("x1", x(i)); xl.setAttribute("x2", x(i)); xl.style.display = "";
+    tip.innerHTML = `<b>${p.t.toISOString().slice(5,13).replace("T"," ")}:00Z</b><br>${p.n} events · ${p.a} agents`; const cr = card.getBoundingClientRect(); tip.style.display = "block";
+    tip.style.left = Math.min(ev.clientX - cr.left + 12, cr.width - tip.offsetWidth - 8) + "px"; tip.style.top = (ev.clientY - cr.top - 10) + "px"; });
+  svg.addEventListener("mouseleave", () => { tip.style.display = "none"; xl.style.display = "none"; });
+})();
+</script>
+</body>
+</html>
