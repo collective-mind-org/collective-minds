@@ -14,7 +14,7 @@ results = {}
 for TPLUS in (0.26, 0.40):
     for tau in (1.2, 1.8):
         outdir = os.path.join(OUT, f"tplus{TPLUS:.2f}"); os.makedirs(outdir, exist_ok=True)
-        tag, r = sw.run(("dfn", 2.0, tau, 1.0, N, 30, outdir))
+        tag, r = sw.run(("dfn", 2.0, tau, 1.0, N, 10, outdir))  # chunk 10: the 30-cycle chunk hit the 6 GB RSS cap at 1C
         results[f"tplus{TPLUS:.2f}_tau{tau}"] = r
         print(f"t+={TPLUS} tau={tau} 1C: cycles {r['cycles_completed']}, retention {100*(r['retention'] or float('nan')):.2f}%, LLI plating {r['LLI_plating_Ah']:.4f} Ah, SEI {r['LLI_SEI_Ah']:.4f} Ah, err={r['error']}", flush=True)
 json.dump(results, open(os.path.join(os.path.dirname(OUT), "CM-BAT-R10-tplus-1c.json"), "w"), indent=1)

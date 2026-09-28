@@ -1,4 +1,1 @@
 t+=0.26 tau=1.2 1C: cycles 300, retention 99.78%, LLI plating 0.1547 Ah, SEI 0.0308 Ah, err=None
-run_sim: RSS 6080 MB > cap 6000 MB, killing
-./run_sim.sh: line 17: 65108 Killed: 9               nice -n 10 "$(dirname "$0")/.venv/bin/python" "$@"
-exit=137
