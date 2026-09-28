@@ -1,0 +1,1 @@
+k=2.0 tau=1.2: 300 cycles, retention 98.1% (9.96->9.77 Ah), LLI plating 0.053 Ah, SEI 0.040 Ah

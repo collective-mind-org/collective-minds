@@ -1,0 +1,27 @@
+  ret = Ah/ref_Ah; eret = Wh/ref_Wh if ref_Wh==ref_Wh else float("nan")
+k=1 (pos 76 um) tau=1.2: 1C 4.94 Ah / C20 5.09 Ah = 97.1% cap, energy nan%
+k=1 (pos 76 um) tau=1.8: 1C 4.94 Ah / C20 5.09 Ah = 97.0% cap, energy nan%
+k=1 (pos 76 um) tau=3.0: 1C 4.92 Ah / C20 5.09 Ah = 96.7% cap, energy nan%
+k=2 (pos 151 um) tau=1.2: 1C 8.29 Ah / C20 10.18 Ah = 81.4% cap, energy nan%
+k=2 (pos 151 um) tau=1.8: 1C 3.82 Ah / C20 10.18 Ah = 37.6% cap, energy nan%
+k=2 (pos 151 um) tau=3.0: 1C 1.12 Ah / C20 10.18 Ah = 11.0% cap, energy nan%
+k=3 (pos 227 um) tau=1.2: 1C 1.81 Ah / C20 15.25 Ah = 11.9% cap, energy nan%
+k=3 (pos 227 um) tau=1.8: 1C 1.05 Ah / C20 15.25 Ah = 6.9% cap, energy nan%
+k=3 (pos 227 um) tau=3.0: 1C 0.71 Ah / C20 15.25 Ah = 4.7% cap, energy nan%
+k=4 (pos 302 um) tau=1.2: 1C 1.11 Ah / C20 20.32 Ah = 5.5% cap, energy nan%
+k=4 (pos 302 um) tau=1.8: 1C 0.82 Ah / C20 20.32 Ah = 4.0% cap, energy nan%
+k=4 (pos 302 um) tau=3.0: 1C 0.71 Ah / C20 20.32 Ah = 3.5% cap, energy nan%
+
+Effective cell Wh/kg vs baseline (mass amortisation x energy retention at 1C):
+k=1 tau=1.2: mass x1.000 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=1 tau=1.8: mass x1.000 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=1 tau=3.0: mass x1.000 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=2 tau=1.2: mass x1.093 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=2 tau=1.8: mass x1.093 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=2 tau=3.0: mass x1.093 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=3 tau=1.2: mass x1.128 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=3 tau=1.8: mass x1.128 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=3 tau=3.0: mass x1.128 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=4 tau=1.2: mass x1.146 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=4 tau=1.8: mass x1.146 * energy-ret nan% -> +nan% vs today's cell at 1C
+k=4 tau=3.0: mass x1.146 * energy-ret nan% -> +nan% vs today's cell at 1C

@@ -1,0 +1,4 @@
+{
+ "_err": 403,
+ "_body": "{\"detail\":{\"message\":\"You need at least 10 karma to create a colony.\",\"code\":\"FORBIDDEN\"}}"
+}

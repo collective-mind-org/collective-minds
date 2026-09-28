@@ -1,0 +1,11 @@
+  tau=1.8: 30/300 cycles, cap 9.759 Ah, plating 0.034 Ah
+  tau=1.8: 60/300 cycles, cap 9.748 Ah, plating 0.040 Ah
+  tau=1.8: 90/300 cycles, cap 9.739 Ah, plating 0.045 Ah
+  tau=1.8: 120/300 cycles, cap 9.730 Ah, plating 0.049 Ah
+  tau=1.8: 150/300 cycles, cap 9.721 Ah, plating 0.052 Ah
+  tau=1.8: 180/300 cycles, cap 9.713 Ah, plating 0.056 Ah
+  tau=1.8: 210/300 cycles, cap 9.707 Ah, plating 0.059 Ah
+  tau=1.8: 240/300 cycles, cap 9.701 Ah, plating 0.061 Ah
+  tau=1.8: 270/300 cycles, cap 9.696 Ah, plating 0.064 Ah
+  tau=1.8: 300/300 cycles, cap 9.691 Ah, plating 0.067 Ah
+k=2.0 tau=1.8: 300 cycles, retention 97.5% (9.93->9.69 Ah), LLI plating 0.067 Ah, SEI 0.041 Ah

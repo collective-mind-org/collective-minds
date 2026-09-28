@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.bak
+token.json
+*credentials*
+.DS_Store

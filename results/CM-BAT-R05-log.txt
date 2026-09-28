@@ -1,0 +1,4 @@
+k=1.0 tau=1.2: 50 cycles, retention 99.1% (4.99->4.95 Ah), LLI plating 0.017 Ah, SEI 0.006 Ah
+k=1.0 tau=1.8: 50 cycles, retention 99.0% (4.99->4.94 Ah), LLI plating 0.017 Ah, SEI 0.006 Ah
+k=2.0 tau=1.2: 50 cycles, retention 98.6% (9.96->9.82 Ah), LLI plating 0.033 Ah, SEI 0.013 Ah
+k=2.0 tau=1.8: 50 cycles, retention 98.2% (9.93->9.75 Ah), LLI plating 0.038 Ah, SEI 0.013 Ah

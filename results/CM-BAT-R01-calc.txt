@@ -1,0 +1,32 @@
+=== CM-BAT-R01a: Li surface-diffusion ripening time (Mullins scaling t ~ L^4 / B, B = Ds*gamma*Omega^2*nu/kT)
+
+T=298 K
+ Ea(eV)   Ds(m2/s) | L=  100nm L=  300nm L= 1000nm L= 3000nm L=10000nm
+   0.10    2.0e-09 |  8.66e-02s  7.02e+00s  8.66e+02s     19.5h    100.3d
+   0.15    2.9e-10 |  6.07e-01s  4.92e+01s      1.7h      5.7d    702.8d
+   0.20    4.1e-11 |  4.26e+00s  3.45e+02s     11.8h     39.9d   4925.4d
+   0.25    5.9e-12 |  2.98e+01s  2.42e+03s      3.5d    279.6d  34520.2d
+   0.30    8.4e-13 |  2.09e+02s      4.7h     24.2d   1959.7d 241939.5d
+   0.40    1.7e-14 |      2.9h      9.6d   1188.4d  96262.7d 11884279.6d
+
+T=333 K
+ Ea(eV)   Ds(m2/s) | L=  100nm L=  300nm L= 1000nm L= 3000nm L=10000nm
+   0.10    3.1e-09 |  6.43e-02s  5.21e+00s  6.43e+02s     14.5h     74.4d
+   0.15    5.4e-10 |  3.67e-01s  2.97e+01s      1.0h      3.4d    425.0d
+   0.20    9.4e-11 |  2.10e+00s  1.70e+02s      5.8h     19.7d   2427.4d
+   0.25    1.6e-11 |  1.20e+01s  9.70e+02s     33.3h    112.3d  13864.4d
+   0.30    2.9e-12 |  6.84e+01s      1.5h      7.9d    641.4d  79186.8d
+   0.40    8.8e-14 |  2.23e+03s     50.2h    258.3d  20923.9d 2583199.9d
+
+Reading: with a bare-Li barrier (~0.1-0.2 eV, DFT range) sub-micron features ripen in seconds-hours at RT;
+with an SEI-limited effective barrier (>=0.3 eV) 1 um features take days-weeks and 10 um whiskers never ripen.
+=> The remodeling idea (CM-BAT-101) lives or dies on the *effective* surface-diffusion barrier under SEI. Measurable.
+
+=== CM-BAT-R01b: cell-level Wh/kg gain from thicker electrodes (inactive foil+separator amortisation)
+thickness x1.0: inactive per-area fraction 17.0%  -> cell Wh/kg + 0.0%
+thickness x1.5: inactive per-area fraction 12.0%  -> cell Wh/kg + 6.0%
+thickness x2.0: inactive per-area fraction  9.3%  -> cell Wh/kg + 9.3%
+thickness x3.0: inactive per-area fraction  6.4%  -> cell Wh/kg +12.8%
+Pack level (cell-to-pack ~0.70-0.80 mass ratio): multiply cell gain by that ratio -> x2 thickness ~ +6-7%, x3 ~ +9-10%.
+=> My earlier 15-25% claim for CM-BAT-103 was too optimistic; ceiling from area-amortisation alone is ~+8-12% cell, ~+6-10% pack.
+   Remaining upside must come from rate capability at thickness (enabling higher areal loading at all), not from mass alone.
