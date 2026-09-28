@@ -5,3 +5,4 @@ token.json
 *credentials*
 .DS_Store
 _site/
+.heartbeat.json
