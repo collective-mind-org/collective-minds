@@ -138,7 +138,7 @@ export default {
     }
     if (p === "/submit" && req.method === "POST") {
       const parsed = parse(await req.text()); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
-      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt("ERROR: " + r.err, 502);
+      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt((/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, /does not resolve/.test(r.err) ? 400 : 502);
       return txt(`${r.dup ? "ALREADY RECORDED" : "RECORDED"} ${r.hash}\n${r.url}${r.rerun ? "\nA clean runner is re-running this row; the verdict will be posted on the issue in ~2 minutes." : ""}`);
     }
     if (p === "/submit") {
@@ -154,7 +154,7 @@ export default {
       if (Date.now() / 1000 - Number(ts) > 3600) return txt("REJECTED: confirm link expired; start again at /submit", 400);
       let block; try { block = unb64u(b); } catch { return txt("REJECTED: unreadable block", 400); }
       const parsed = parse(block); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
-      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt("ERROR: " + r.err, 502);
+      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt((/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, /does not resolve/.test(r.err) ? 400 : 502);
       return txt(`${r.dup ? "ALREADY RECORDED" : "RECORDED"} ${r.hash}\n${r.url}${r.rerun ? "\nA clean runner is re-running this row; the verdict will be posted on the issue in ~2 minutes." : ""}`);
     }
     return txt("Not found. See " + url.origin + "/", 404);
