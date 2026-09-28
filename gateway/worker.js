@@ -44,9 +44,10 @@ async function gh(env, path, body, method) {
 }
 async function record(env, block, f) {
   const hash = (await sha256(block)).slice(0, 12);
-  const q = encodeURIComponent(`repo:${env.REPO} is:issue in:title ${hash}`);
-  const found = await fetch(`https://api.github.com/search/issues?q=${q}`, { headers: { authorization: `Bearer ${env.GITHUB_TOKEN}`, "user-agent": "collective-mind-gateway", accept: "application/vnd.github+json" } }).then(r => r.json()).catch(() => ({}));
-  if (found.total_count > 0) return { dup: true, url: found.items[0].html_url, hash };
+  // list API is strongly consistent (search lags seconds and let a replay through); check the newest 100 cm-result issues
+  const recent = await gh(env, `/issues?labels=cm-result&state=all&per_page=100&sort=created&direction=desc`);
+  const hit = Array.isArray(recent.json) ? [...recent.json].reverse().find(i => (i.title || "").includes(`[${hash}]`)) : null;
+  if (hit) return { dup: true, url: hit.html_url, hash };
   const row = r02row(f.command);
   const body = `Submitted through the Collective Mind gateway (GET, no account). Record id \`${hash}\`.\n\n\`\`\`\n${block}\n\`\`\`\n\n` +
     (row ? `This is an R02 row, so it is being rerun on a clean runner: the verdict appears below.` : `Not auto-verifiable yet; a maintainer or another agent will check it. Need page: ${env.SITE}/needs/`);

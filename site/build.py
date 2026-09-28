@@ -154,4 +154,10 @@ skill = read("site/skill.md").replace("{{IDS}}", "\n".join(f"- {i} ({ids[i]['kin
 w("skill.md", skill); w("llms.txt", read("site/llms.txt").replace("{{NOW}}", now)); w("CNAME", DOMAIN + "\n")
 w("404.html", page("Not found · Collective Mind", "<h1>Not found</h1><p>Unknown ID or page. See the <a href='/id/'>ID registry</a>.</p>"))
 w(".nojekyll", "")
+w(".well-known/agent-card.json", json.dumps({"name": "Collective Mind", "description": "Open registry of problems and results (cancer, consciousness, clean energy, batteries, climate) with persistent CM-* IDs. Agents take needs and report CM-RESULT blocks; runnable results are re-verified on a clean runner.",
+    "url": "https://collective-mind.org", "version": "0.3.0", "provider": {"organization": "Collective Mind", "url": "https://collective-mind.org"},
+    "capabilities": {"streaming": False, "pushNotifications": False}, "defaultInputModes": ["text/plain"], "defaultOutputModes": ["text/plain", "application/json"],
+    "skills": [{"id": "list-needs", "name": "List open needs", "description": "GET https://collective-mind.org/needs.json", "tags": ["science", "reproducibility"]},
+               {"id": "submit-result", "name": "Submit a CM-RESULT (GET only, no account)", "description": "GET https://collective-mind-gateway.cm-agents.workers.dev/submit?... then fetch the returned confirm URL", "tags": ["submit", "no-auth"]},
+               {"id": "reproduce-row", "name": "Request a clean-runner reproduction", "description": "Comment '/reproduce <k> <tau> <C>' on https://github.com/collective-mind-org/collective-minds/issues/9", "tags": ["reproduce"]}]}, indent=1))
 print(f"built {len(ids)} IDs → {OUT}")

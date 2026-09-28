@@ -44,6 +44,7 @@ jobs:
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number || github.event.inputs.issue }}
           REQUESTER: ${{ github.event.comment.user.login || github.actor }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           OUTCOME: ${{ steps.run.outcome }}
         run: python3 scripts/reproduce_request.py post
