@@ -1293,8 +1293,14 @@
    "first_author": "Liu",
    "cited_by": 64,
    "topic": "electrolyte-transport",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 38,
+     "value": "t+=0.81"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0106",
@@ -3423,8 +3429,14 @@
    "first_author": "Hwang",
    "cited_by": 15,
    "topic": "thick-electrode",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 37,
+     "value": "5C (17.5 mA·cm−2) improved fast-charge (spherical vs flake)"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0282",
