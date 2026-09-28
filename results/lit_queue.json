@@ -1065,8 +1065,14 @@
    "first_author": "Jones",
    "cited_by": 78,
    "topic": "plating",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 34,
+     "value": "plating onset −40 °C (baseline −30 °C; VC/LiBOB −10 °C)"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0088",
