@@ -1,0 +1,4 @@
+T=25 C: block1 99.04% | first cycle after rest 4.9528 Ah | block2 99.89% | total 98.89% | LLI 0.299 -> 0.327 -> 0.399 % | SEI None -> None nm
+T=70 C: block1 99.04% | first cycle after rest 4.9466 Ah | block2 99.92% | total 98.80% | LLI 0.299 -> 0.406 -> 0.458 % | SEI None -> None nm
+done
+exit=0
