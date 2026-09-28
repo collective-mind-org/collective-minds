@@ -23,12 +23,13 @@ rows = json.load(open(os.path.join(HERE, "CM-BAT-R02-rates.json")))["rows"] if "
 def pick(k_, tau_, c_): return next(r for r in rows if abs(r["k"]-k_)<1e-9 and abs(r["tau"]-tau_)<1e-9 and abs(r["crate"]-c_)<1e-9)
 ref = pick(k, tau, crate); today = pick(1.0, 1.8, crate)
 out = {"row": {"k": k, "tau": tau, "crate": crate}, "recorded": {m: ref[m] for m in ("cap_ret", "energy_ret", "net_gain")}, "mesh": {}}
-for mult in (1, 2):
+MULTS = [int(m) for m in os.environ.get("CM_MESH_MULTS", "1,2").split(",")]
+for mult in MULTS:
     refAh, refWh, _ = run(k, 1.8, 0.05, mult); Ah, Wh, vp = run(k, tau, crate, mult)
     cap_ret, energy_ret = Ah/refAh, Wh/refWh; net_gain = (1/(0.83+0.17/k)) * energy_ret/today["energy_ret"] - 1
     out["mesh"][f"x{mult}"] = {"var_pts": vp, "cap_ret": cap_ret, "energy_ret": energy_ret, "net_gain": net_gain}
     print(f"mesh x{mult} {vp}: cap_ret {cap_ret*100:.3f}% energy_ret {energy_ret*100:.3f}% net_gain {net_gain*100:.3f}%  | delta vs recorded: {(cap_ret-ref['cap_ret'])*100:+.3f} {(energy_ret-ref['energy_ret'])*100:+.3f} {(net_gain-ref['net_gain'])*100:+.3f} pt", flush=True)
-a, b = out["mesh"]["x1"], out["mesh"]["x2"]
+a, b = out["mesh"][f"x{MULTS[0]}"], out["mesh"][f"x{MULTS[-1]}"]
 d = {m: (b[m]-a[m])*100 for m in ("cap_ret", "energy_ret", "net_gain")}; out["delta_x2_minus_x1_pt"] = d
-print("mesh x2 - x1 (pt):", {m: round(v, 4) for m, v in d.items()}, "| CONVERGED" if all(abs(v) < 0.2 for v in d.values()) else "| NOT CONVERGED", flush=True)
-json.dump(out, open(os.path.join(HERE, "CM-BAT-R11-mesh.json"), "w"), indent=1)
+print(f"mesh x{MULTS[-1]} - x{MULTS[0]} (pt):", {m: round(v, 4) for m, v in d.items()}, "| CONVERGED" if all(abs(v) < 0.2 for v in d.values()) else "| NOT CONVERGED", flush=True)
+json.dump(out, open(os.path.join(HERE, f"CM-BAT-R11-mesh-k{k:g}-tau{tau:g}-C{crate:g}-m{'-'.join(map(str,MULTS))}.json"), "w"), indent=1)
