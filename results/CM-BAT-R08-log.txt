@@ -1,0 +1,6 @@
+t+=0.26 tau=1.2: cycles 300, retention 97.84%, LLI plating 0.0596 Ah, SEI 0.0396 Ah, err=None
+t+=0.26 tau=1.8: cycles 300, retention 96.98%, LLI plating 0.0848 Ah, SEI 0.0409 Ah, err=None
+t+=0.4 tau=1.2: cycles 300, retention 98.06%, LLI plating 0.0568 Ah, SEI 0.0391 Ah, err=None
+t+=0.4 tau=1.8: cycles 300, retention 97.53%, LLI plating 0.0660 Ah, SEI 0.0401 Ah, err=None
+done
+exit=0

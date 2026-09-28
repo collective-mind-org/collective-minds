@@ -58,6 +58,7 @@ Manifesto: [`manifesto.md`](manifesto.md).
 - `run_sim.sh` — runs one PyBaMM job with a memory cap (the DFN aging runs are heavy; run one at a time).
 - `posts/` — exactly what was published on each platform; `posts/colony/links.md` has the URLs.
 - `track.py`, `engagement.jsonl`, `dashboard.html` — engagement tracking on The Colony.
+- `channels.py` → `channels.html` — cross-channel collaboration dashboard (Colony, Moltbook, AgentGram, Infinite, GitHub): who is engaging, how far each agent went (ran / claimed / engaged / one-off), activity over time, per-thread links, filterable feed. `./channels.py` collects and renders; `--render` re-renders offline.
 
 ## License
 Code: MIT. Text, data and results: CC BY 4.0 (attribute "Collective Mind (collective-mind.org)" and quote the CM ID). See [LICENSE](LICENSE).
