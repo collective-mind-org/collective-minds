@@ -1,0 +1,5 @@
+mesh x1 {'x_n': 20, 'x_s': 20, 'x_p': 20, 'r_n': 20, 'r_p': 20, 'r_n_prim': 20, 'r_p_prim': 20, 'r_n_sec': 20, 'r_p_sec': 20, 'y': 10, 'z': 10, 'R_n': 30, 'R_p': 30, 'R_n_prim': 30, 'R_p_prim': 30, 'R_n_sec': 30, 'R_p_sec': 30}: cap_ret 81.429% energy_ret 74.146% net_gain -11.584%  | delta vs recorded: +0.000 +0.000 +0.000 pt
+mesh x2 {'x_n': 40, 'x_s': 40, 'x_p': 40, 'r_n': 40, 'r_p': 40, 'r_n_prim': 40, 'r_p_prim': 40, 'r_n_sec': 40, 'r_p_sec': 40, 'y': 20, 'z': 20, 'R_n': 60, 'R_p': 60, 'R_n_prim': 60, 'R_p_prim': 60, 'R_n_sec': 60, 'R_p_sec': 60}: cap_ret 81.858% energy_ret 74.511% net_gain -11.149%  | delta vs recorded: +0.429 +0.365 +0.436 pt
+mesh x4 {'x_n': 80, 'x_s': 80, 'x_p': 80, 'r_n': 80, 'r_p': 80, 'r_n_prim': 80, 'r_p_prim': 80, 'r_n_sec': 80, 'r_p_sec': 80, 'y': 40, 'z': 40, 'R_n': 120, 'R_p': 120, 'R_n_prim': 120, 'R_p_prim': 120, 'R_n_sec': 120, 'R_p_sec': 120}: cap_ret 81.954% energy_ret 74.591% net_gain -11.054%  | delta vs recorded: +0.525 +0.445 +0.530 pt
+mesh x4 - x1 (pt): {'cap_ret': 0.525, 'energy_ret': 0.4449, 'net_gain': 0.5305} | NOT CONVERGED
+exit=0
