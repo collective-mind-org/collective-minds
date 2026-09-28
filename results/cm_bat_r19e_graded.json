@@ -1,0 +1,52 @@
+{
+ "rows": [
+  {
+   "profile": "uniform",
+   "eps_front": 0.35,
+   "eps_back": 0.35,
+   "L_um": 54,
+   "crate": 4.0,
+   "onset_SOC_pct": 20.5
+  },
+  {
+   "profile": "uniform",
+   "eps_front": 0.35,
+   "eps_back": 0.35,
+   "L_um": 102,
+   "crate": 1.0,
+   "onset_SOC_pct": 62.6
+  },
+  {
+   "profile": "front_dense",
+   "eps_front": 0.28,
+   "eps_back": 0.42,
+   "L_um": 54,
+   "crate": 4.0,
+   "onset_SOC_pct": 7.6
+  },
+  {
+   "profile": "front_dense",
+   "eps_front": 0.28,
+   "eps_back": 0.42,
+   "L_um": 102,
+   "crate": 1.0,
+   "onset_SOC_pct": 27.0
+  },
+  {
+   "profile": "front_open",
+   "eps_front": 0.42,
+   "eps_back": 0.28,
+   "L_um": 54,
+   "crate": 4.0,
+   "onset_SOC_pct": 23.5
+  },
+  {
+   "profile": "front_open",
+   "eps_front": 0.42,
+   "eps_back": 0.28,
+   "L_um": 102,
+   "crate": 1.0,
+   "onset_SOC_pct": 66.3
+  }
+ ]
+}
