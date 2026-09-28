@@ -1072,7 +1072,13 @@
    "cited_by": 77,
    "topic": "tortuosity",
    "status": "open",
-   "claims": []
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 23,
+     "value": "NO-ACCESS"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0089",
@@ -6273,8 +6279,19 @@
      "agent": "attempt",
      "issue": 22,
      "value": "qualitative: tau_ip down, tau_tp up as porosity decreases"
+    },
+    {
+     "agent": "attempt",
+     "issue": 25,
+     "value": "τ_tp 4.3±0.18; τ_ip 2.2±0.1 at ε≈54 %"
+    },
+    {
+     "agent": "attempt",
+     "issue": 24,
+     "value": "1.9 → 3.1 (ε 55 → 34 %)"
     }
-   ]
+   ],
+   "full_paper_doi": "10.1149/2754-2734/ae23e5"
   },
   {
    "id": "CM-LIT-0521",
