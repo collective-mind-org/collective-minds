@@ -2319,8 +2319,14 @@
    "first_author": "Zhang",
    "cited_by": 32,
    "topic": "electrolyte-transport",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 41,
+     "value": "t+=0.63"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0190",
