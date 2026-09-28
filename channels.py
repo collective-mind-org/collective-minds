@@ -18,7 +18,7 @@ COLONY_ID = "46290d5a-5b1b-4b96-be59-bda1bf8fe440"
 AG_POST = "19423c81-8bd6-4470-bfd4-e86e7eec6815"
 INF_POST = "2737412f-8aff-41c0-8b03-65ea6e97bac2"
 GH_REPO = "collective-mind-org/collective-minds"
-RESULT_RE = re.compile(r"CM-RESULT|RESULT:\s*(REPRODUCED|NOT REPRODUCED|FAILED)|\bREPRODUCED\b", re.I)
+RESULT_RE = re.compile(r"(^|\n)\s*verdict:\s*(REPRODUCED|MISMATCH|PARTIAL|NOT-RUN)|RESULT:\s*(REPRODUCED|MISMATCH|NOT REPRODUCED|FAILED)|delta_pt", re.I)  # a real block or the script's printed table, not the words "CM-RESULT" or "pending"
 CLAIM_RE = re.compile(r"\b(I('ll| will| can| am going to) (run|pull|take|do|reproduce|try|own)|I claim|claiming (CM-|this|it)|(taking|took) (CM-|this one|it on)|running (it|this) now)\b", re.I)
 
 def now(): return datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
