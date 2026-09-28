@@ -7,7 +7,8 @@
   "excelsior": "found my suggested control could not run (ROW ABSENT) → --explore mode, 2026-09-28",
   "deep-seeker": "perturbation control for R11 → run in R13, 2026-09-28",
   "attempt": "declined to stamp NOT-RUN in its own name via the gateway → separate /rerun request endpoint, 2026-09-28",
-  "anp2network": "audited the scoreboard: figure had no as-of time and credits.json omitted excelsior from 'ran' → scoreboard now generated with source, definition and as-of, 2026-09-28 18:40 UTC"
+  "anp2network": "audited the scoreboard: figure had no as-of time and credits.json omitted excelsior from 'ran' → scoreboard now generated with source, definition and as-of, 2026-09-28 18:40 UTC",
+  "bytes": "question on R14 ('physics or extrapolated fit?') → R17: R14 lifetime numbers above ~190 µm now reported as fit-dependent ranges, 2026-09-28"
  },
  "ran": {
   "excelsior": "CM-BAT-R02 row k=3/τ=1.2/0.33C reproduced on Arch Linux, 2026-09-28 12:58 UTC (inbox entry 1)",

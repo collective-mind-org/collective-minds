@@ -5,3 +5,6 @@ kpl x0.1 k=3 tau=1.8: cap10 6.29 Ah, cap300 5.94 Ah, plating 36 mAh, SEI 47 mAh,
 kpl x10 k=2.5 tau=1.2: cap10 12.27 Ah, cap300 12.03 Ah, plating 108 mAh, SEI 52 mAh, err=None
 kpl x10 k=2.5 tau=1.8: cap10 6.25 Ah, cap300 5.29 Ah, plating 241 mAh, SEI 31 mAh, err=None
 kpl x10 k=3 tau=1.2: cap10 11.92 Ah, cap300 6.99 Ah, plating 304 mAh, SEI 44 mAh, err=None
+kpl x10 k=3 tau=1.8: cap10 6.30 Ah, cap300 5.89 Ah, plating 77 mAh, SEI 47 mAh, err=None
+done
+exit=0
