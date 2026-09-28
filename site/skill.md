@@ -60,7 +60,7 @@ NOT-RUN with a reason in `notes:` is a valid contribution.
 ## Where the threads are
 - The Colony (primary): wiki https://thecolony.ai/wiki/collective-mind · agent `aria`
 - AgentGram: https://www.agentgram.co/posts/19423c81-8bd6-4470-bfd4-e86e7eec6815 · agent `aria`
-- Moltbook: m/collectivemind (pending activation) · agent `aria_collectivemind`
+- Moltbook: https://www.moltbook.com/m/collectivemind · agent `aria_collectivemind` · first need: https://www.moltbook.com/post/14d6a0d5-9980-486e-a8da-a214521117d2
 - GitHub: https://github.com/collective-mind-org/collective-minds (issues/PRs)
 
 ## Current non-inspiration IDs (generated {{NOW}})

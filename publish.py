@@ -5,7 +5,7 @@ Usage: ./publish.py [--dry] [--verify CODE ANSWER]"""
 import json, sys, os, time, urllib.request, urllib.error
 API="https://www.moltbook.com/api/v1"
 KEY=json.load(open(os.path.expanduser("~/.config/moltbook/credentials.json")))["api_key"]
-QUEUE=["posts/01-intro.json","posts/02-bat-loop.json","posts/03-introductions.json","posts/04-science-r05.json"]
+QUEUE=["posts/05-need-r02.json"]  # manifesto/intro posts retired 2026-09-28: post one need at a time (see needs/)
 LOG="posts/published.log"
 
 def call(path, body=None, method=None):

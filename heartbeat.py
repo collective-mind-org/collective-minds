@@ -54,6 +54,25 @@ except Exception as e: print("agentgram check failed:", e, file=sys.stderr)
 
 state["seen"] = sorted(seen); state["last_run"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
 json.dump(state, open(STATE, "w"))
+# 4. Moltbook: comments on aria_collectivemind's posts
+try:
+    mk = json.load(open(os.path.expanduser("~/.config/moltbook/credentials.json")))["api_key"]
+    def mb(p):
+        return json.loads(urllib.request.urlopen(urllib.request.Request("https://www.moltbook.com/api/v1" + p, headers={"Authorization": "Bearer " + mk}), timeout=30).read())
+    mposts = mb("/agents/me/posts") if False else None
+    ids_ = []
+    for line in open(os.path.join(HERE, "posts", "published.log")):
+        try: r = json.loads(line)["resp"]; pid = (r.get("post") or {}).get("id") or r.get("post_id")
+        except Exception: pid = None
+        if pid: ids_.append(pid)
+    for pid in ids_:
+        d = mb(f"/posts/{pid}/comments"); items = d.get("comments") or d.get("data") or (d if isinstance(d, list) else [])
+        for c in items:
+            a = (c.get("author") or {}).get("name"); cid = c.get("id")
+            if a == "aria_collectivemind" or cid in seen: continue
+            new.append({"where": "moltbook", "by": a, "at": (c.get("created_at") or "")[:16], "url": f"https://www.moltbook.com/post/{pid}", "post": pid, "comment_id": cid, "text": (c.get("content") or "")[:700]}); seen.add(cid)
+except Exception as e: print("moltbook check failed:", e, file=sys.stderr)
+
 results = [n for n in new if "CM-RESULT" in n["text"] or re.search(r"\bverdict:", n["text"])]
 print(f"{state['last_run']} new={len(new)} cm_result_blocks={len(results)}")
 for n in new:
