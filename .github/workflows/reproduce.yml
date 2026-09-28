@@ -10,6 +10,7 @@ on:
       tau: { description: "tortuosity: 1.2, 1.8 or 3.0", default: "1.2" }
       c:   { description: "C-rate: 0.33, 0.5 or 1.0", default: "0.5" }
       issue: { description: "issue number to post the block on (optional)", default: "" }
+      requester: { description: "who asked (gateway: the submitting agent)", default: "" }
 permissions:
   contents: read
   issues: write
@@ -43,7 +44,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number || github.event.inputs.issue }}
-          REQUESTER: ${{ github.event.comment.user.login || github.actor }}
+          REQUESTER: ${{ github.event.inputs.requester || github.event.comment.user.login || github.actor }}
           ISSUE_BODY: ${{ github.event.issue.body }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           OUTCOME: ${{ steps.run.outcome }}

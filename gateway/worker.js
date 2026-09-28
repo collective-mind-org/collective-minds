@@ -37,9 +37,41 @@ function parse(block) {
   return { block, f };
 }
 function r02row(cmd) { const m = (cmd || "").match(/reproduce_r02\.py\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)/); return m ? m.slice(1).join(" ") : null; }
+
+// ---- GitHub App auth (posts as collective-mind[bot]); falls back to GITHUB_TOKEN if APP_ID/APP_PRIVATE_KEY are not set
+let _tok = null, _tokExp = 0;
+function pemToPkcs8(pem) {
+  const b64 = pem.replace(/-----[^-]+-----/g, "").replace(/\s+/g, "");
+  let der = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  if (!/BEGIN RSA PRIVATE KEY/.test(pem)) return der;             // already PKCS#8
+  const len = (n) => n < 128 ? [n] : n < 256 ? [0x81, n] : [0x82, n >> 8, n & 255];
+  const alg = [0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00];
+  const oct = [0x04, ...len(der.length)];
+  const body = [0x02, 0x01, 0x00, ...alg, ...oct];
+  const out = new Uint8Array([0x30, ...len(body.length + der.length), ...body, ...der]);
+  return out;
+}
+const b64url = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+async function appJwt(env) {
+  const key = await crypto.subtle.importKey("pkcs8", pemToPkcs8(env.APP_PRIVATE_KEY), { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, false, ["sign"]);
+  const now = Math.floor(Date.now() / 1000);
+  const enc = (o) => b64url(new TextEncoder().encode(JSON.stringify(o)));
+  const data = enc({ alg: "RS256", typ: "JWT" }) + "." + enc({ iat: now - 60, exp: now + 540, iss: String(env.APP_ID) });
+  const sig = await crypto.subtle.sign("RSASSA-PKCS1-v1_5", key, new TextEncoder().encode(data));
+  return data + "." + b64url(sig);
+}
+async function ghToken(env) {
+  if (!env.APP_ID || !env.APP_PRIVATE_KEY) return env.GITHUB_TOKEN;
+  if (_tok && Date.now() < _tokExp) return _tok;
+  const jwt = await appJwt(env), h = { authorization: `Bearer ${jwt}`, accept: "application/vnd.github+json", "user-agent": "collective-mind-gateway" };
+  const inst = await fetch(`https://api.github.com/repos/${env.REPO}/installation`, { headers: h }).then(r => r.json());
+  const t = await fetch(`https://api.github.com/app/installations/${inst.id}/access_tokens`, { method: "POST", headers: h }).then(r => r.json());
+  _tok = t.token; _tokExp = Date.now() + 50 * 60 * 1000; return _tok;
+}
 async function gh(env, path, body, method) {
+  const token = await ghToken(env);
   const r = await fetch(`https://api.github.com/repos/${env.REPO}${path}`, { method: method || (body ? "POST" : "GET"), body: body ? JSON.stringify(body) : undefined,
-    headers: { authorization: `Bearer ${env.GITHUB_TOKEN}`, accept: "application/vnd.github+json", "user-agent": "collective-mind-gateway", "content-type": "application/json" } });
+    headers: { authorization: `Bearer ${token}`, accept: "application/vnd.github+json", "user-agent": "collective-mind-gateway", "content-type": "application/json" } });
   return { status: r.status, json: await r.json().catch(() => ({})) };
 }
 async function record(env, block, f) {
@@ -53,7 +85,11 @@ async function record(env, block, f) {
     (row ? `This is an R02 row, so it is being rerun on a clean runner: the verdict appears below.` : `Not auto-verifiable yet; a maintainer or another agent will check it. Need page: ${env.SITE}/needs/`);
   const r = await gh(env, "/issues", { title: `CM-RESULT ${f.id} ${f.verdict_norm} by ${f.agent.slice(0, 40)} [${hash}]`, body, labels: ["cm-result"] });
   if (r.status >= 300) return { err: `could not record (GitHub ${r.status}); please retry or open an issue manually` };
-  if (row) await gh(env, `/issues/${r.json.number}/comments`, { body: `/reproduce ${row}` });
+  if (row) {
+    const [k, tau, c] = row.split(" ");
+    const d = await gh(env, "/actions/workflows/reproduce.yml/dispatches", { ref: "main", inputs: { k, tau, c, issue: String(r.json.number), requester: f.agent.slice(0, 80) } });
+    if (d.status >= 300) await gh(env, `/issues/${r.json.number}/comments`, { body: `/reproduce ${row}` });   // fallback for token mode
+  }
   return { url: r.json.html_url, hash, rerun: !!row };
 }
 export default {
