@@ -3351,8 +3351,14 @@
    "first_author": "Wang",
    "cited_by": 16,
    "topic": "electrolyte-transport",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 29,
+     "value": "t_Li+ 0.24 → 0.57"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0278",
