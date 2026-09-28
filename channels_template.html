@@ -69,7 +69,7 @@ td.num,th.num{text-align:right}
 td.note{font-family:var(--sans);color:var(--ink-2);font-size:12px;max-width:380px}
 td a{color:inherit}
 .tier{display:inline-flex;align-items:center;gap:5px;font:500 11px var(--mono);white-space:nowrap}
-.tier.ran{color:var(--good)} .tier.claimed{color:var(--warn)} .tier.engaged{color:var(--ink)} .tier.one-off{color:var(--muted)}
+.tier.ran{color:var(--good)} .tier.reviewed{color:var(--good)} .tier.claimed{color:var(--warn)} .tier.engaged{color:var(--ink)} .tier.one-off{color:var(--muted)}
 :root:not([data-theme="dark"]) .tier.claimed{color:#8a5a00}
 .dot{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:-1px}
 .feed{display:grid;gap:0}
@@ -121,7 +121,7 @@ td a{color:inherit}
 <section>
   <h2>Agents</h2>
   <div class="card tbl"><table id="agents"></table></div>
-  <div class="hint">ran = posted a CM-RESULT / reproduction · claimed = said they would run something · engaged = 3+ events or replied to Aria directly · one-off = a single comment</div>
+  <div class="hint">ran = posted a CM-RESULT / reproduction · reviewed = a review or objection that changed the record · claimed = said they would run something · engaged = 3+ events or replied to Aria directly · one-off = a single comment</div>
 </section>
 
 <section>
@@ -144,7 +144,7 @@ td a{color:inherit}
 <script>
 const D = /*DATA*/null;
 const CH = ["colony","moltbook","agentgram","infinite","github"];
-const CHLABEL = {colony:"The Colony", moltbook:"Moltbook", agentgram:"AgentGram", infinite:"Infinite", github:"GitHub"};
+const CHLABEL = {colony:"The Colony", moltbook:"Moltbook", agentgram:"AgentGram", infinite:"Infinite", abund:"Abund.ai", github:"GitHub"};
 const col = c => `var(--c-${c})`;
 const esc = s => String(s ?? "").replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 const gen = new Date(D.generated);
@@ -164,6 +164,7 @@ const tiles = [
   ["Agents engaged", T.agents, "distinct, all channels"],
   ["Active last 24 h", T.active_24h, "agents with any event"],
   ["Ran something", T.ran, "CM-RESULT / reproduction"],
+  ["Reviewed", T.reviewed, "changed the record"],
   ["Claimed a task", T.claimed, "said they would run"],
   ["Engagement total", T.events, "comments, replies, edits, DMs"],
   ["Events last 24 h", T.events_24h, "by other agents"],
@@ -211,7 +212,7 @@ document.getElementById("tiles").innerHTML = tiles.map(([l,v,s]) => `<div class=
 })();
 
 /* agents */
-const TIER = {ran:"✓ ran", claimed:"◐ claimed", engaged:"● engaged", "one-off":"○ one-off"};
+const TIER = {ran:"✓ ran", reviewed:"✎ reviewed", claimed:"◐ claimed", engaged:"● engaged", "one-off":"○ one-off"};
 document.getElementById("agents").innerHTML =
   `<tr><th>agent</th><th>status</th><th>channels</th><th class="num">events</th><th class="num">replies to Aria</th><th class="num">threads</th><th>last active</th><th>registry note</th></tr>` +
   (D.agents.length ? D.agents.map(a => `<tr><td>${esc(a.name)}</td><td><span class="tier ${a.tier}">${TIER[a.tier]}</span></td>

@@ -13,7 +13,7 @@ import json, os, re, sys, datetime, urllib.request, urllib.error, html
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 OUT_JSON = os.path.join(HERE, "channels.json"); OUT_HTML = os.path.join(HERE, "channels.html")
 TEMPLATE = os.path.join(HERE, "channels_template.html")
-SELF = {"aria", "aria_collectivemind", "aria-collectivemind", "nicolascepeda"}
+SELF = {"aria", "aria_collectivemind", "aria-collectivemind", "nicolascepeda", "github-actions[bot]", "collective-mind-org[bot]", "abundai"}
 COLONY_ID = "46290d5a-5b1b-4b96-be59-bda1bf8fe440"
 AG_POST = "19423c81-8bd6-4470-bfd4-e86e7eec6815"
 INF_POST = "2737412f-8aff-41c0-8b03-65ea6e97bac2"
@@ -96,9 +96,13 @@ def colony(events, threads, ch):
             u = (conv.get("other_user") or {}).get("username"); unread = conv.get("unread_count") or 0
             threads.append({"channel": "colony", "kind": "dm", "title": f"DM · {u}", "url": f"https://thecolony.ai/messages/{u}", "own": False, "to": u,
                             "score": None, "comments_by_others": unread, "agents": [u] if unread else [], "aria_last": None, "last": iso(conv.get("last_message_at"))})
-            if not unread: continue  # sender is not exposed; only an unread conversation proves the other side wrote
-            events.append(ev("colony", "dm", u, conv.get("last_message_at"), "https://thecolony.ai/messages", conv.get("last_message_preview") or "", "DM",
-                             unread=conv.get("unread_count") or 0))
+            try:
+                msgs = (C.call(f"/messages/conversations/{u}") or {}).get("messages") or []
+            except Exception: msgs = []
+            inbound = [m for m in msgs if ((m.get("sender") or {}).get("username")) == u]
+            threads[-1]["agents"] = [u] if inbound else []; threads[-1]["comments_by_others"] = len(inbound)
+            for m in inbound:
+                events.append(ev("colony", "dm", u, m.get("created_at"), f"https://thecolony.ai/messages/{u}", m.get("body") or "", "DM"))
     except Exception as e: ch.setdefault("errors", []).append(f"auth: {e}")
 
 def moltbook(events, threads, ch):
@@ -141,6 +145,27 @@ def agentgram(events, threads, ch):
         ch["likes_follows"] = sum(1 for x in nd["data"] if x.get("type") in ("like", "follow"))
     except Exception as e: ch.setdefault("errors", []).append(f"notifications: {e}")
 
+def abund(events, threads, ch):
+    key = cred("~/.config/abund/credentials.json", "api_key")
+    H = {"Authorization": "Bearer " + key, "User-Agent": "Mozilla/5.0 (Macintosh) aria-collectivemind/1.0"}
+    api = "https://api.abund.ai/api/v1"
+    n = get(f"{api}/agents/me/notifications?limit=50", H)
+    notes = n.get("notifications") or n.get("data") or []
+    ch["unread"] = sum(1 for x in notes if not x.get("read") and not x.get("is_read"))
+    for x in notes:
+        a = (x.get("actor") or {}).get("handle")
+        if not a or a in SELF: continue
+        events.append(ev("abund", x.get("type") or "notification", a, x.get("created_at"), "https://abund.ai/agent/aria-collectivemind", str((x.get("data") or {}).get("preview") or ""), "Abund.ai"))
+    reqs = get(f"{api}/requests?mine=requested", H).get("requests") or []
+    ch.update(posts=len(reqs), note=f"{sum(r.get('status') == 'open' for r in reqs)} open work requests")
+    for r in reqs:
+        who = (r.get("assignee") or {}).get("handle")
+        if who and who not in SELF:
+            events.append(ev("abund", "request_" + str(r.get("status")), who, r.get("updated_at"), f"https://abund.ai/requests/{r['id']}", r.get("title") or "", "work request",
+                             result=r.get("status") in ("delivered", "closed")))
+        threads.append({"channel": "abund", "kind": "request", "title": f"{r.get('bounty')} cr · {r.get('title','')[:70]}", "url": f"https://abund.ai/requests/{r['id']}", "own": True,
+                        "score": None, "comments_by_others": 1 if who else 0, "agents": [who] if who else [], "last": iso(r.get("updated_at"))})
+
 def infinite_(events, threads, ch):
     import infinite as I
     url = f"https://infinite-lamm.vercel.app/post/{INF_POST}"; who = set(); n = 0
@@ -172,9 +197,12 @@ def github(events, threads, ch):
     ch["external_activity"] = sum(1 for e in events if e["channel"] == "github")
 
 COLLECTORS = [("colony", "The Colony", colony), ("moltbook", "Moltbook", moltbook), ("agentgram", "AgentGram", agentgram),
-              ("infinite", "Infinite", infinite_), ("github", "GitHub", github)]
+              ("infinite", "Infinite", infinite_), ("abund", "Abund.ai", abund), ("github", "GitHub", github)]
 
 # ----------------------------------------------------------------------------------------------------- local context
+try: REVIEWED = json.load(open(os.path.join(HERE, "results", "credits.json"))).get("reviewed", {})
+except Exception: REVIEWED = {}
+
 def registry_notes():
     """Free-text status per agent from problems.md AGENTS & CAPABILITIES, and agents credited in results/CM-RESULTS-inbox.md."""
     notes, credited = {}, set()
@@ -204,6 +232,7 @@ def build_agents(events, notes, credited, t0):
     out = []
     for a in agents.values():
         if a["name"] in credited or a["results"]: tier = "ran"
+        elif a["name"] in REVIEWED: tier = "reviewed"
         elif a["claims"] or re.search(r"CLAIM", notes.get(a["name"], ""), re.I): tier = "claimed"
         elif a["events"] >= 3 or a["replies"] >= 1: tier = "engaged"
         else: tier = "one-off"
@@ -211,7 +240,7 @@ def build_agents(events, notes, credited, t0):
         hrs = (t0 - last).total_seconds() / 3600 if last else None
         out.append({**a, "channels": sorted(a["channels"]), "threads": len(a["threads"]), "tier": tier, "hours_since": None if hrs is None else round(hrs, 1),
                     "active_24h": hrs is not None and hrs <= 24, "note": notes.get(a["name"], "")})
-    order = {"ran": 0, "claimed": 1, "engaged": 2, "one-off": 3}
+    order = {"ran": 0, "reviewed": 1, "claimed": 2, "engaged": 3, "one-off": 4}
     out.sort(key=lambda a: (order[a["tier"]], -(a["events"]), a["name"]))
     return out
 
@@ -236,7 +265,7 @@ def collect():
         ch["active_24h"] = len({e["by"] for e in mine if e["at"] and (t0 - datetime.datetime.fromisoformat(e["at"].replace("Z", "+00:00"))).total_seconds() <= 86400})
         ch["last"] = max((e["at"] for e in mine if e["at"]), default=None)
     needs = sorted(f[:-3] for f in os.listdir(os.path.join(HERE, "needs")) if f.endswith(".md") and f != "TEMPLATE.md")
-    totals = {"agents": len(agents), "active_24h": sum(a["active_24h"] for a in agents), "ran": sum(a["tier"] == "ran" for a in agents),
+    totals = {"agents": len(agents), "active_24h": sum(a["active_24h"] for a in agents), "ran": sum(a["tier"] == "ran" for a in agents), "reviewed": sum(a["tier"] == "reviewed" for a in agents),
               "claimed": sum(a["tier"] == "claimed" for a in agents), "events": len(events), "events_24h": sum(1 for e in events if e["at"] and (t0 - datetime.datetime.fromisoformat(e["at"].replace("Z", "+00:00"))).total_seconds() <= 86400),
               "unread": sum((ch.get("unread") or 0) for ch in channels.values()), "results_by_others": len(credited),
               "channels_live": sum(ch["ok"] for ch in channels.values()), "needs_open": len(needs)}
