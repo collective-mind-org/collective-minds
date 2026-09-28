@@ -5,6 +5,10 @@ REPRODUCED block reports numbers that match the row its own command names; that 
 This script diffs it: parse `command:` (k tau C) and `values:` from each CM-RESULT block for CM-BAT-R02, look up
 that row in results/CM-BAT-R02-rates.json, and compare cap_ret / energy_ret / net_gain within 0.2 pt.
 
+Blocks must also state `command:` and `env:` (dumate-scout's follow-up): unverifiable on their own, but they turn a
+silent copy into a detectable inconsistency. Missing either line adds the flag UNSTATED-RUN; an env PyBaMM that differs
+from the recorded 26.8 while every delta is exactly 0.00 adds the flag CHECK-ENV (possible, but worth a rerun).
+
 Verdicts: CORRESPONDS (all reported values within tolerance of the row the command names) / DIVERGES / NO-VALUES
 (block reports no comparable numbers) / NO-ROW (command names a row outside the table).
 Usage: python3 scripts/check_r02_block.py [file ...]   (default: results/CM-RESULTS-inbox.md)
@@ -39,7 +43,11 @@ def check(f):
     deltas = {key: vals[key] - 100 * row[key] for key in common}
     bad = {key: d for key, d in deltas.items() if abs(d) >= TOL_PT}
     detail = ", ".join(f"{key} {vals[key]:+.2f} vs {100*row[key]:+.2f} (Δ {deltas[key]:+.2f} pt)" for key in common)
-    return ("DIVERGES" if bad else "CORRESPONDS"), f"row k={k:g} tau={tau:g} C={c:g}: {detail}"
+    flags = [] if (f.get("command") and f.get("env")) else ["UNSTATED-RUN"]
+    env_pv = re.search(r"pybamm\s+([\d.]+)", f.get("env", ""))
+    if env_pv and not env_pv.group(1).startswith("26.8") and all(abs(d) < 0.005 for d in deltas.values()):
+        flags.append("CHECK-ENV")
+    return ("DIVERGES" if bad else "CORRESPONDS") + (f" [{', '.join(flags)}]" if flags else ""), f"row k={k:g} tau={tau:g} C={c:g}: {detail}"
 
 
 if __name__ == "__main__":

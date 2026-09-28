@@ -4599,8 +4599,14 @@
    "first_author": "Feng",
    "cited_by": 6,
    "topic": "electrolyte-transport",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 32,
+     "value": "t+ = 0.87"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0380",
