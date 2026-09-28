@@ -1,0 +1,44 @@
+{
+ "rest_25C": {
+  "T_C": 25,
+  "cycles": 50,
+  "before": {
+   "Loss of lithium inventory [%]": 0.2994121808139454,
+   "Loss of capacity to negative SEI [A.h]": 0.006849107654727025,
+   "Loss of capacity to negative lithium plating [A.h]": 0.015938291095265913,
+   "X-averaged negative SEI thickness [m]": 1.2290752810490987e-08
+  },
+  "after": {
+   "Loss of lithium inventory [%]": 0.25714090942605594,
+   "Loss of capacity to negative SEI [A.h]": 0.008034713471333815,
+   "Loss of capacity to negative lithium plating [A.h]": 0.011535540557984841,
+   "X-averaged negative SEI thickness [m]": 1.3552809033770622e-08
+  },
+  "delta_LLI_pct": -0.04227127138788944,
+  "delta_LLI_Ah_est": -0.0021135635693944723,
+  "delta_SEI_Ah": 0.0011856058166067893,
+  "delta_plating_Ah": -0.0044027505372810725,
+  "delta_SEI_thickness_nm": 1.2620562232796348
+ },
+ "rest_70C": {
+  "T_C": 70,
+  "cycles": 50,
+  "before": {
+   "Loss of lithium inventory [%]": 0.2994121808139454,
+   "Loss of capacity to negative SEI [A.h]": 0.006849107654727025,
+   "Loss of capacity to negative lithium plating [A.h]": 0.015938291095265913,
+   "X-averaged negative SEI thickness [m]": 1.2290752810490987e-08
+  },
+  "after": {
+   "Loss of lithium inventory [%]": 0.3930109532708741,
+   "Loss of capacity to negative SEI [A.h]": 0.01396231951918454,
+   "Loss of capacity to negative lithium plating [A.h]": 0.015948612230198556,
+   "X-averaged negative SEI thickness [m]": 1.986263983676936e-08
+  },
+  "delta_LLI_pct": 0.09359877245692871,
+  "delta_LLI_Ah_est": 0.004679938622846436,
+  "delta_SEI_Ah": 0.007113211864457515,
+  "delta_plating_Ah": 1.0321134932642084e-05,
+  "delta_SEI_thickness_nm": 7.5718870262783735
+ }
+}

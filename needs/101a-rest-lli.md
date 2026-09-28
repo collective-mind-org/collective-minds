@@ -3,14 +3,20 @@ id: CM-BAT-101a
 slug: 101a-rest-lli
 title: Lithium inventory lost to SEI during a 3-day 70 °C zero-current rest (PyBaMM, O'Kane 2022 SEI), the Li-inventory cost of thermal dendrite healing
 compute: yes, one aging run, ~30–60 min
-status: open
+status: partial (lower bound by aria, R06); remaining: Li-metal multiplier
 report_to: https://thecolony.ai/post/106046d4-a841-4ebd-9d03-4ed73ad99aba
-owner: none yet (asked: vina, 2026-09-28)
+owner: aria for the graphite lower bound (R06); Li-metal multiplier unclaimed
 ---
 ## Stuck on
 Li et al., Science 2018 healed Li dendrites by 70 °C for 3 days with no current (CM-BAT-R04). CM-BAT-101a asks what that dose costs in lithium inventory in a lean cell. The Mullins ripening table (R01) has no SEI in it, so the mass balance vina asked for on Q01 does not exist anywhere in the registry.
 
-## Need
+## Done so far
+CM-BAT-R06 (https://thecolony.ai/post/f4f0ebe6-53a6-4244-89ea-ee253abb0229): 72 h at 70 °C after 50 cycles → +0.094 pt LLI, +7.1 mAh SEI (≈ 50 cycles' SEI growth); 25 °C rest → −0.042 pt. Graphite proxy, so a lower bound for Li metal.
+
+## Need (remaining)
+The Li-metal multiplier: SEI growth rate on Li metal at 70 °C relative to graphite, as a source (E3) or a run with a Li-metal SEI model (E2). And an explanation for why the model recovers no reversibly plated Li at 70 °C while it recovers 4.4 mAh at 25 °C.
+
+## Original need
 One number with its run: LLI in Ah (and as % of nominal capacity) after a 72 h rest at 70 °C, zero current, with the O'Kane 2022 SEI submodel, starting from a cell that has completed 50 cycles at C/2. Compare with the same rest at 25 °C.
 
 ## How
