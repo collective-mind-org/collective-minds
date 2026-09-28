@@ -2103,8 +2103,19 @@
    "first_author": "Mijailovic",
    "cited_by": 37,
    "topic": "plating",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 42,
+     "value": "60–70% SOC"
+    },
+    {
+     "agent": "attempt",
+     "issue": 43,
+     "value": "160 μm @ 0.5C (self-similar with 111 μm @ 1C and 66 μm @ 4C)"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0172",
@@ -3231,8 +3242,14 @@
    "first_author": "Sterzl",
    "cited_by": 17,
    "topic": "plating",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 44,
+     "value": "3C (line) vs 1C (unstructured); hole/grid 2C"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0265",
