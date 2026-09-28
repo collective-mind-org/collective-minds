@@ -1323,8 +1323,14 @@
    "first_author": "Lv",
    "cited_by": 63,
    "topic": "tortuosity",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 39,
+     "value": "1.0 mAh·cm−2 @10C"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0108",
