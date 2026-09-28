@@ -1869,8 +1869,14 @@
    "first_author": "Jiang",
    "cited_by": 40,
    "topic": "thick-electrode",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 40,
+     "value": "112.7 mAh·g−1 after 200 cycles at 10C"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0153",
