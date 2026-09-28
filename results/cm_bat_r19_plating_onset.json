@@ -1,0 +1,171 @@
+{
+ "meta": {
+  "source": "CM-LIT-0171 (Mijailovic 2024) measured onset 60-70 % SOC at 54um/4C and 102um/1C, eps 0.35",
+  "pybamm": "26.8.0.0",
+  "eps": 0.35,
+  "eps_s": 0.6,
+  "started": "2026-09-28T22:25:41Z"
+ },
+ "rows": [
+  {
+   "L_um": 54,
+   "crate": 4.0,
+   "radius_um": 2.5,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 33.0,
+   "min_dphi_end_V": -0.1562,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 11664
+  },
+  {
+   "L_um": 102,
+   "crate": 1.0,
+   "radius_um": 2.5,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 82.2,
+   "min_dphi_end_V": -0.0597,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10404
+  },
+  {
+   "L_um": 144,
+   "crate": 0.5,
+   "radius_um": 2.5,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 90.6,
+   "min_dphi_end_V": -0.0266,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10368
+  },
+  {
+   "L_um": 160,
+   "crate": 0.5,
+   "radius_um": 2.5,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 86.9,
+   "min_dphi_end_V": -0.0459,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 12800
+  },
+  {
+   "L_um": 54,
+   "crate": 4.0,
+   "radius_um": 5.0,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 20.5,
+   "min_dphi_end_V": -0.4381,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 11664
+  },
+  {
+   "L_um": 102,
+   "crate": 1.0,
+   "radius_um": 5.0,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 62.6,
+   "min_dphi_end_V": -0.1002,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10404
+  },
+  {
+   "L_um": 144,
+   "crate": 0.5,
+   "radius_um": 5.0,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 82.3,
+   "min_dphi_end_V": -0.0601,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10368
+  },
+  {
+   "L_um": 160,
+   "crate": 0.5,
+   "radius_um": 5.0,
+   "tau_mode": "bruggeman1.5",
+   "onset_SOC_pct": 77.5,
+   "min_dphi_end_V": -0.0798,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 12800
+  },
+  {
+   "L_um": 54,
+   "crate": 4.0,
+   "radius_um": 2.5,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 27.2,
+   "min_dphi_end_V": -0.3208,
+   "bruggeman": 2.046,
+   "lambda_L2C_um2": 11664
+  },
+  {
+   "L_um": 102,
+   "crate": 1.0,
+   "radius_um": 2.5,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 69.6,
+   "min_dphi_end_V": -0.1377,
+   "bruggeman": 2.046,
+   "lambda_L2C_um2": 10404
+  },
+  {
+   "L_um": 144,
+   "crate": 0.5,
+   "radius_um": 2.5,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 77.8,
+   "min_dphi_end_V": -0.0995,
+   "bruggeman": 2.046,
+   "lambda_L2C_um2": 10368
+  },
+  {
+   "L_um": 160,
+   "crate": 0.5,
+   "radius_um": 2.5,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 72.0,
+   "min_dphi_end_V": -0.1581,
+   "bruggeman": 2.046,
+   "lambda_L2C_um2": 12800
+  },
+  {
+   "L_um": 54,
+   "crate": 4.0,
+   "radius_um": 5.0,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 15.6,
+   "min_dphi_end_V": -0.4362,
+   "bruggeman": 2.046,
+   "lambda_L2C_um2": 11664
+  },
+  {
+   "L_um": 102,
+   "crate": 1.0,
+   "radius_um": 5.0,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 49.9,
+   "min_dphi_end_V": -0.1791,
+   "bruggeman": 2.046,
+   "lambda_L2C_um2": 10404
+  },
+  {
+   "L_um": 144,
+   "crate": 0.5,
+   "radius_um": 5.0,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 69.6,
+   "min_dphi_end_V": -0.134,
+   "bruggeman": 2.046,
+   "lambda_L2C_um2": 10368
+  },
+  {
+   "L_um": 160,
+   "crate": 0.5,
+   "radius_um": 5.0,
+   "tau_mode": "tau3",
+   "onset_SOC_pct": 63.3,
+   "min_dphi_end_V": -0.1924,
+   "bruggeman": 2.046,
+   "lambda_L2C_um2": 12800
+  }
+ ]
+}

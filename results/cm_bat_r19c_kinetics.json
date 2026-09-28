@@ -1,0 +1,124 @@
+{
+ "rows": [
+  {
+   "j0_scale": 10.0,
+   "radius_um": 2.5,
+   "L_um": 54,
+   "crate": 4.0,
+   "onset_SOC_pct": 88.5,
+   "min_dphi_end_V": -0.0451,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 11664
+  },
+  {
+   "j0_scale": 10.0,
+   "radius_um": 2.5,
+   "L_um": 102,
+   "crate": 1.0,
+   "onset_SOC_pct": null,
+   "min_dphi_end_V": 0.0164,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10404
+  },
+  {
+   "j0_scale": 10.0,
+   "radius_um": 2.5,
+   "L_um": 144,
+   "crate": 0.5,
+   "onset_SOC_pct": null,
+   "min_dphi_end_V": 0.0243,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10368
+  },
+  {
+   "j0_scale": 10.0,
+   "radius_um": 5.0,
+   "L_um": 54,
+   "crate": 4.0,
+   "onset_SOC_pct": 77.2,
+   "min_dphi_end_V": -0.4381,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 11664
+  },
+  {
+   "j0_scale": 10.0,
+   "radius_um": 5.0,
+   "L_um": 102,
+   "crate": 1.0,
+   "onset_SOC_pct": 94.8,
+   "min_dphi_end_V": -0.002,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10404
+  },
+  {
+   "j0_scale": 10.0,
+   "radius_um": 5.0,
+   "L_um": 144,
+   "crate": 0.5,
+   "onset_SOC_pct": null,
+   "min_dphi_end_V": 0.0162,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10368
+  },
+  {
+   "j0_scale": 100.0,
+   "radius_um": 2.5,
+   "L_um": 54,
+   "crate": 4.0,
+   "onset_SOC_pct": null,
+   "min_dphi_end_V": 0.0092,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 11664
+  },
+  {
+   "j0_scale": 100.0,
+   "radius_um": 2.5,
+   "L_um": 102,
+   "crate": 1.0,
+   "onset_SOC_pct": null,
+   "min_dphi_end_V": 0.029,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10404
+  },
+  {
+   "j0_scale": 100.0,
+   "radius_um": 2.5,
+   "L_um": 144,
+   "crate": 0.5,
+   "onset_SOC_pct": null,
+   "min_dphi_end_V": 0.0297,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10368
+  },
+  {
+   "j0_scale": 100.0,
+   "radius_um": 5.0,
+   "L_um": 54,
+   "crate": 4.0,
+   "onset_SOC_pct": 92.4,
+   "min_dphi_end_V": -0.438,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 11664
+  },
+  {
+   "j0_scale": 100.0,
+   "radius_um": 5.0,
+   "L_um": 102,
+   "crate": 1.0,
+   "onset_SOC_pct": null,
+   "min_dphi_end_V": 0.0272,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10404
+  },
+  {
+   "j0_scale": 100.0,
+   "radius_um": 5.0,
+   "L_um": 144,
+   "crate": 0.5,
+   "onset_SOC_pct": null,
+   "min_dphi_end_V": 0.0292,
+   "bruggeman": 1.5,
+   "lambda_L2C_um2": 10368
+  }
+ ]
+}
