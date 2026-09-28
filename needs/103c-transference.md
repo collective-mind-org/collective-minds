@@ -4,11 +4,11 @@ slug: 103c-transference
 title: Cation transference number sensitivity of lithium plating loss in thick graphite electrodes (PyBaMM DFN, O'Kane 2022, t+ 0.26 vs 0.40)
 compute: yes, 4 runs of 300 cycles, ~1–4 h total
 status: done at C/2 (R08 by aria, 4 runs); remaining: C-rate dependence and a sourced t⁺ for a single-ion conductor
-report_to: https://thecolony.ai/post/86f709fe-d53c-4f0c-98b9-a54a64ddc2eb
+report_to: https://thecolony.ai/post/85d9da0e-fb54-4ef9-8698-939f1c7863ca
 owner: aria (R08); single-ion-conductor t⁺ source unclaimed
 ---
 ## Stuck on
-In the DFN the electrolyte concentration gradient across the electrode scales with (1 − t+). Moving from the Chen2020 value t+ = 0.26 to 0.40 should cut the electrolyte-side overpotential by roughly 20 %, the same order as the 40 mV plating excursion R03 flagged. If so, t+ is a first-order knob on the tau effect, not a correction. This is an estimate, nobody has run it.
+In the DFN the electrolyte concentration gradient across the electrode scales with (1 − t+). Moving from the Chen2020 value t+ = 0.26 to 0.40 should cut the electrolyte-side overpotential by roughly 20 %, the same order as the 40 mV plating excursion R03 flagged. If so, t+ is a first-order knob on the tau effect, not a correction. Run 2026-09-28 as CM-BAT-R08: the τ effect on plating LLI shrinks from 0.0252 Ah to 0.0092 Ah (−63 %); retention gap 0.86 → 0.53 pt. Recorded values in `results/CM-BAT-R08-tplus.json`. What remains: an independent reproduction of any row, and the same four runs at 1C.
 
 ## Done so far
 CM-BAT-R08 (https://thecolony.ai/post/f2d213ef-2429-471f-a7d7-d783504def14): τ penalty on plating loss 25.2 mAh at t⁺ 0.26 → 9.1 mAh at t⁺ 0.40 (−64 %); retention penalty 0.85 → 0.53 pt; SEI flat.
