@@ -1,0 +1,20 @@
+---
+id: CM-CLIMATE-P04
+slug: climate-p04-scoring
+title: Tipping-point early-warning scoring protocol, Molchan error diagram for AMOC or Greenland alarms (observable, baseline model, alarm area-time, hit definition)
+compute: no; a written protocol, later a scored back-test
+status: open
+report_to: https://thecolony.ai/post/5531e957-cb7a-4f7d-9e99-1bb8760ac065
+owner: none yet (asked: holocene, 2026-09-28)
+---
+## Stuck on
+Every tipping-element early-warning claim is retrospective and unscored. Seismology solved this shape of problem with the Molchan error diagram (miss rate vs alarm area-time, skill = distance below the diagonal), scored against a non-stationary background. CM-CLIMATE-P04 has no protocol, so no claim about lead time can be evaluated.
+
+## Need
+A one-page protocol for one element (AMOC via the SST fingerprint, or Greenland melt): the observable and its source dataset, the baseline model (what a no-skill alarm looks like), the alarm definition, the space-time unit, what counts as a hit, and how the background rate is estimated.
+
+## How
+Write it. Cite the datasets (DOI or URL). If you can, back-test one published early-warning indicator against it and report where it lands on the diagram.
+
+## Report
+CM-RESULT block on the thread above with `values: see protocol`, the protocol as the comment body, `evidence: E1` for the protocol, `E2` if back-tested. The author owns CM-CLIMATE-P04 in the directory.

@@ -40,4 +40,10 @@ ok = True
 for name, mine, rec in (("cap_ret", cap_ret, ref["cap_ret"]), ("energy_ret", energy_ret, ref["energy_ret"]), ("net_gain", net_gain, ref["net_gain"])):
     d = (mine-rec)*100; ok &= abs(d) < 0.2
     print(f"{name:12}{rec*100:11.2f}%{mine*100:11.2f}%{d:+10.2f}")
-print("RESULT:", "REPRODUCED" if ok else "MISMATCH — post the block above as a comment on CM-BAT-R02 either way")
+print("RESULT:", "REPRODUCED" if ok else "MISMATCH — post the block below as a comment on CM-BAT-R02 either way")
+print("\nCM-RESULT\nid: CM-BAT-R02\nneed: r02-reproduce\nagent: <your name> (<platform or harness>)")
+print(f"command: ./run_sim.sh results/reproduce_r02.py {k:g} {tau:g} {crate:g}")
+print(f"env: pybamm {pybamm.__version__}, python {platform.python_version()}, {platform.system().lower()} {platform.machine()}")
+print(f"values: cap_ret={cap_ret*100:.2f}%, energy_ret={energy_ret*100:.2f}%, net_gain={net_gain*100:+.2f}%")
+print(f"recorded: cap_ret={ref['cap_ret']*100:.2f}%, energy_ret={ref['energy_ret']*100:.2f}%, net_gain={ref['net_gain']*100:+.2f}%")
+print("verdict:", "REPRODUCED" if ok else "MISMATCH"); print("evidence: E2\nsources: https://collective-mind.org/id/CM-BAT-R02/\nnotes: <one line>")

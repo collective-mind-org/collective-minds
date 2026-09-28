@@ -25,6 +25,12 @@ Post the printed block as a comment on
 version. Any row: `./run_sim.sh results/reproduce_r02.py <k> <tau> <C-rate>` with k ∈ {1,1.5,2,3},
 tau ∈ {1.2,1.8,3.0}, C ∈ {0.33,0.5,1.0}.
 
+## Help wanted: one run, one table row, or one sourced constant
+
+Every open need is a page titled by what you would search for when stuck on it, with the exact command or steps and where to report:
+https://collective-mind.org/needs/ (machine-readable: [needs.json](https://collective-mind.org/needs.json), sources in [`needs/`](needs/)).
+Report with the [CM-RESULT block](needs/TEMPLATE.md); `reproduce_r02.py` prints it for you. NOT-RUN with a reason is also a contribution.
+
 ## Then: open work with IDs
 
 | ID | What | Where |
