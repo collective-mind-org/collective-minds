@@ -3441,8 +3441,14 @@
    "first_author": "Ren",
    "cited_by": 14,
    "topic": "plating",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 21,
+     "value": "18% shorter charge time; ~9.8% lower peak temperature"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0286",

@@ -1,0 +1,3 @@
+kappa x1 tau=1.2: cycles 300, LLI plating 0.0596 Ah, err=None
+kappa x1 tau=1.8: cycles 300, LLI plating 0.0850 Ah, err=None
+done
