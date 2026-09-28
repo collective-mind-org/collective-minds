@@ -1,0 +1,1805 @@
+{
+ "meta": {
+  "source": "doi:10.1038/nenergy.2016.97 SI Table 1",
+  "eps_s": 0.20132743362831856,
+  "pybamm": "26.8.0.0",
+  "started": "2026-09-28T19:14:13Z"
+ },
+ "rows": [
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.1,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924294,
+    "frac_theory": 0.8800000000000017,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 0.06312002539134831,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.7739680924286,
+    "frac_theory": 0.8799999999999997,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 0.03798797748939475,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000022
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.1,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242794,
+    "frac_theory": 0.8799999999999979,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 1.3980600068469715,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.7739680924272,
+    "frac_theory": 0.879999999999996,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 1.4096400493361858,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000022
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.2,
+   "direction": "lithiation",
+   "aligned": {
+    "error": "SolverError('IDA_CONV_FAIL: Convergence test failures occurred too many times during one step or with |h| = hmin')"
+   },
+   "reference": {
+    "mAh_per_g": 307.3663503384214,
+    "frac_theory": 0.7822520295267233,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999449,
+    "t_end_s": 14872.565338955847
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.2,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924286,
+    "frac_theory": 0.8799999999999997,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 1.4855267968893047,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 345.6661650401968,
+    "frac_theory": 0.8797256395948848,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 1.5000000000000013,
+    "t_end_s": 16725.78217936437
+   },
+   "ratio": 1.0003118704204657
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.5,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 253.7984579803711,
+    "frac_theory": 0.645920929949894,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999671,
+    "t_end_s": 4912.228218974937
+   },
+   "reference": {
+    "mAh_per_g": 127.92209061291976,
+    "frac_theory": 0.3255636633388143,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999782,
+    "t_end_s": 2475.9114312178003
+   },
+   "ratio": 1.984008053373216
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.5,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 343.62168853257805,
+    "frac_theory": 0.8745224158339118,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003748,
+    "t_end_s": 6650.742358695074
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 1.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 88.12650132258732,
+    "frac_theory": 0.2242832842267253,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998783,
+    "t_end_s": 852.8371095734259
+   },
+   "reference": {
+    "mAh_per_g": 54.15204419936239,
+    "frac_theory": 0.13781777488437355,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998783,
+    "t_end_s": 524.0520406389907
+   },
+   "ratio": 1.6273901128856176
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 1.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 339.56556247057216,
+    "frac_theory": 0.8641995134064767,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003069,
+    "t_end_s": 3286.1183464894107
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 2.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 34.708292778643745,
+    "frac_theory": 0.08833313223001789,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998339,
+    "t_end_s": 167.94335215472765
+   },
+   "reference": {
+    "mAh_per_g": 25.941493165145832,
+    "frac_theory": 0.06602149407391492,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998228,
+    "t_end_s": 125.52335402489915
+   },
+   "ratio": 1.337945065755764
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 2.0,
+   "direction": "delithiation",
+   "aligned": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.1,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924287,
+    "frac_theory": 0.8799999999999998,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 0.060472700238194066,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.77396809242896,
+    "frac_theory": 0.8800000000000006,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 0.035217993026162575,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 0.9999999999999992
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.1,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 345.773968092429,
+    "frac_theory": 0.8800000000000007,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 1.398830237237107,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.7739680924279,
+    "frac_theory": 0.8799999999999977,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 1.4094668818422658,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000033
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.2,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924285,
+    "frac_theory": 0.8799999999999994,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 0.02519949461490889,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 298.05685379789895,
+    "frac_theory": 0.7585592194495059,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 14422.10582893055
+   },
+   "ratio": 1.1600940011494745
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.2,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242816,
+    "frac_theory": 0.8799999999999985,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 1.4861843424494237,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 345.6577694209878,
+    "frac_theory": 0.8797042726164952,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 1.5,
+    "t_end_s": 16725.375939725203
+   },
+   "ratio": 1.0003361668150408
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.5,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 209.99442290751733,
+    "frac_theory": 0.5344389954457697,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999005,
+    "t_end_s": 4064.4081853067923
+   },
+   "reference": {
+    "mAh_per_g": 103.60462419207629,
+    "frac_theory": 0.2636753419929402,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 2005.2507908143793
+   },
+   "ratio": 2.026882724058737
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.5,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 343.57273458926295,
+    "frac_theory": 0.8743978273047204,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5,
+    "t_end_s": 6649.794863017991
+   },
+   "reference": {
+    "mAh_per_g": 342.838190216268,
+    "frac_theory": 0.8725284007200599,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003757,
+    "t_end_s": 6635.577875153576
+   },
+   "ratio": 1.00214253952435
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 1.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 61.19858077098915,
+    "frac_theory": 0.1557513174736004,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998561,
+    "t_end_s": 592.2443300418302
+   },
+   "reference": {
+    "mAh_per_g": 43.24334752940544,
+    "frac_theory": 0.11005497619099118,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999997451,
+    "t_end_s": 418.48400834908506
+   },
+   "ratio": 1.4152137673748353
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 1.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 339.92743027144496,
+    "frac_theory": 0.8651204724553166,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.500000000000445,
+    "t_end_s": 3289.6202929494775
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 2.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 27.762538034378334,
+    "frac_theory": 0.07065608092198046,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999996119,
+    "t_end_s": 134.3348614566695
+   },
+   "reference": {
+    "mAh_per_g": 22.995879605589543,
+    "frac_theory": 0.05852486283036038,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 111.27038518833643
+   },
+   "ratio": 1.2072831529188461
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 2.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 332.38458141495465,
+    "frac_theory": 0.84592380756371,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.500000000000255,
+    "t_end_s": 1608.3124907175227
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.1,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242845,
+    "frac_theory": 0.8799999999999993,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 0.04716060612107442,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.77396809242833,
+    "frac_theory": 0.8799999999999989,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 0.0224093582148861,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000002
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.1,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 344.95676506868045,
+    "frac_theory": 0.8779202058938506,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000000013,
+    "t_end_s": 33382.912748581984
+   },
+   "reference": {
+    "mAh_per_g": 344.8471036080874,
+    "frac_theory": 0.8776411158112333,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003963,
+    "t_end_s": 33372.30034916973
+   },
+   "ratio": 1.000318000236759
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.2,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924284,
+    "frac_theory": 0.879999999999999,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 0.005390610397423834,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 272.7417977724076,
+    "frac_theory": 0.6941320174095956,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999997895,
+    "t_end_s": 13197.183763181025
+   },
+   "ratio": 1.2677703634591544
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.2,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 342.4722769561745,
+    "frac_theory": 0.8715971459160654,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000006464,
+    "t_end_s": 16571.2392075568
+   },
+   "reference": {
+    "mAh_per_g": 342.2168995104635,
+    "frac_theory": 0.8709472064383612,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000000016,
+    "t_end_s": 16558.882234377314
+   },
+   "ratio": 1.0007462444025303
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.5,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 170.66224681530215,
+    "frac_theory": 0.43433800996065897,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.00499999999999956,
+    "t_end_s": 3303.140260941331
+   },
+   "reference": {
+    "mAh_per_g": 81.23817555262073,
+    "frac_theory": 0.2067523905304415,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.00499999999999956,
+    "t_end_s": 1572.351784889432
+   },
+   "ratio": 2.100764150036314
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.5,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 335.4316112339101,
+    "frac_theory": 0.8536785447276252,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000004476,
+    "t_end_s": 6492.22473355954
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 1.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 45.2457287744664,
+    "frac_theory": 0.11515106686946185,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998894,
+    "t_end_s": 437.8618913658042
+   },
+   "reference": {
+    "mAh_per_g": 29.908071871408552,
+    "frac_theory": 0.07611649712104461,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998117,
+    "t_end_s": 289.43295359427583
+   },
+   "ratio": 1.5128266699706678
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 1.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 323.44011091753333,
+    "frac_theory": 0.8231599943097673,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002847,
+    "t_end_s": 3130.06558952452
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 2.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 15.256364594862276,
+    "frac_theory": 0.038827679589488386,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999997562,
+    "t_end_s": 73.8211190073981
+   },
+   "reference": {
+    "mAh_per_g": 10.344431607235792,
+    "frac_theory": 0.026326735539368745,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998006,
+    "t_end_s": 50.053701325334494
+   },
+   "ratio": 1.474838364651244
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 2.0,
+   "direction": "delithiation",
+   "aligned": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.1,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.773968092429,
+    "frac_theory": 0.8800000000000007,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": false,
+    "end_V": 0.04385621060147371,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.77396809242833,
+    "frac_theory": 0.8799999999999989,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 0.018425852932980158,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.000000000000002
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.1,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 344.95513469320304,
+    "frac_theory": 0.8779160565635005,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002602,
+    "t_end_s": 33382.75497030996
+   },
+   "reference": {
+    "mAh_per_g": 344.8618009903524,
+    "frac_theory": 0.8776785208723039,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.500000000000401,
+    "t_end_s": 33373.72267648567
+   },
+   "ratio": 1.000270640884501
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.2,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 336.41572980572033,
+    "frac_theory": 0.8561831414385075,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.0049999999999955635,
+    "t_end_s": 16278.180474470324
+   },
+   "reference": {
+    "mAh_per_g": 261.76255014008905,
+    "frac_theory": 0.6661896654455586,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 12665.929845488141
+   },
+   "ratio": 1.2851942710127124
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.2,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 342.4716461377964,
+    "frac_theory": 0.8715955404737131,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003881,
+    "t_end_s": 16571.20868408692
+   },
+   "reference": {
+    "mAh_per_g": 342.2266058255031,
+    "frac_theory": 0.8709719091575451,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002343,
+    "t_end_s": 16559.35189478241
+   },
+   "ratio": 1.0007160177149355
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.5,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 117.97693315236367,
+    "frac_theory": 0.3002530865664474,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999671,
+    "t_end_s": 2283.4245126263895
+   },
+   "reference": {
+    "mAh_per_g": 62.68886265453391,
+    "frac_theory": 0.15954410749985484,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999782,
+    "t_end_s": 1213.3328255716235
+   },
+   "ratio": 1.88194406720236
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.5,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 335.38947603501174,
+    "frac_theory": 0.8535713100065295,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003681,
+    "t_end_s": 6491.409213580865
+   },
+   "reference": {
+    "mAh_per_g": 334.62392258115057,
+    "frac_theory": 0.8516229648401352,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.500000000000322,
+    "t_end_s": 6476.592049957737
+   },
+   "ratio": 1.0022878025215771
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 1.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 34.460154959006395,
+    "frac_theory": 0.08770161771061805,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998783,
+    "t_end_s": 333.4853705710297
+   },
+   "reference": {
+    "mAh_per_g": 28.338603212053677,
+    "frac_theory": 0.07212217554775863,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999338,
+    "t_end_s": 274.2445472134228
+   },
+   "ratio": 1.2160145897504555
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 1.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 323.8679219696963,
+    "frac_theory": 0.8242487799346088,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.500000000000297,
+    "t_end_s": 3134.2056964809303
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 2.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 14.61905292869538,
+    "frac_theory": 0.03720571172036021,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998783,
+    "t_end_s": 70.73735288078416
+   },
+   "reference": {
+    "mAh_per_g": 10.519932941692057,
+    "frac_theory": 0.026773389100865973,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 50.902901330768
+   },
+   "ratio": 1.3896526726665626
+  },
+  {
+   "porosity_mode": "as_measured",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 2.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 300.6176139310284,
+    "frac_theory": 0.7650763928781068,
+    "bruggeman": 2.1808248939418737,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002067,
+    "t_end_s": 1454.6013577307824
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.1,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924289,
+    "frac_theory": 0.8800000000000004,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 0.06639537078741142,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.7739680924286,
+    "frac_theory": 0.8799999999999997,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 0.03798797748939475,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000009
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.1,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242885,
+    "frac_theory": 0.8800000000000002,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 1.3960777248859286,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.7739680924272,
+    "frac_theory": 0.879999999999996,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 1.4096400493361858,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000047
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.2,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924286,
+    "frac_theory": 0.8799999999999997,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 0.04061717082722516,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 307.3663503384214,
+    "frac_theory": 0.7822520295267233,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999449,
+    "t_end_s": 14872.565338955847
+   },
+   "ratio": 1.124957132463326
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.2,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924293,
+    "frac_theory": 0.8800000000000014,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 1.4815395242926688,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 345.6661650401968,
+    "frac_theory": 0.8797256395948848,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 1.5000000000000013,
+    "t_end_s": 16725.78217936437
+   },
+   "ratio": 1.0003118704204677
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.5,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 275.402901168081,
+    "frac_theory": 0.7009045659652653,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999227,
+    "t_end_s": 5330.378732285429
+   },
+   "reference": {
+    "mAh_per_g": 127.92209061291976,
+    "frac_theory": 0.3255636633388143,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999782,
+    "t_end_s": 2475.9114312178003
+   },
+   "ratio": 2.15289556204506
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 0.5,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 343.74232542704283,
+    "frac_theory": 0.8748294385624146,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003786,
+    "t_end_s": 6653.0772663298585
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 1.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 111.48111094657636,
+    "frac_theory": 0.2837211204018783,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 1078.8494607733192
+   },
+   "reference": {
+    "mAh_per_g": 54.15204419936239,
+    "frac_theory": 0.13781777488437355,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998783,
+    "t_end_s": 524.0520406389907
+   },
+   "ratio": 2.0586685617288105
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 1.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 340.2429476810464,
+    "frac_theory": 0.8659234690544565,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000004339,
+    "t_end_s": 3292.673687235931
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 2.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 41.336741773251056,
+    "frac_theory": 0.10520263558631221,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999671,
+    "t_end_s": 200.01649245121465
+   },
+   "reference": {
+    "mAh_per_g": 25.941493165145832,
+    "frac_theory": 0.06602149407391492,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998228,
+    "t_end_s": 125.52335402489915
+   },
+   "ratio": 1.593460388347645
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "polymer25",
+   "crate": 2.0,
+   "direction": "delithiation",
+   "aligned": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.1,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242856,
+    "frac_theory": 0.8799999999999996,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 0.06384508425277868,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.77396809242896,
+    "frac_theory": 0.8800000000000006,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 0.035217993026162575,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 0.9999999999999989
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.1,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242816,
+    "frac_theory": 0.8799999999999986,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 1.3971751722206944,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.7739680924279,
+    "frac_theory": 0.8799999999999977,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 1.4094668818422658,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000009
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.2,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924282,
+    "frac_theory": 0.8799999999999987,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 0.03485313567241899,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 298.05685379789895,
+    "frac_theory": 0.7585592194495059,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 14422.10582893055
+   },
+   "ratio": 1.1600940011494734
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.2,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242885,
+    "frac_theory": 0.8800000000000002,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 1.4830325176973678,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 345.6577694209878,
+    "frac_theory": 0.8797042726164952,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 1.5,
+    "t_end_s": 16725.375939725203
+   },
+   "ratio": 1.0003361668150428
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.5,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 242.5927403096172,
+    "frac_theory": 0.6174022082986809,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998672,
+    "t_end_s": 4695.3433608313
+   },
+   "reference": {
+    "mAh_per_g": 103.60462419207629,
+    "frac_theory": 0.2636753419929402,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 2005.2507908143793
+   },
+   "ratio": 2.3415242533949634
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 0.5,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 343.696277632479,
+    "frac_theory": 0.8747122462259302,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000005005,
+    "t_end_s": 6652.186018693141
+   },
+   "reference": {
+    "mAh_per_g": 342.838190216268,
+    "frac_theory": 0.8725284007200599,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003757,
+    "t_end_s": 6635.577875153576
+   },
+   "ratio": 1.002502893320227
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 1.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 80.64168983971344,
+    "frac_theory": 0.20523432533237515,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999782,
+    "t_end_s": 780.4034500617425
+   },
+   "reference": {
+    "mAh_per_g": 43.24334752940544,
+    "frac_theory": 0.11005497619099118,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999997451,
+    "t_end_s": 418.48400834908506
+   },
+   "ratio": 1.8648345802756634
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 1.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 340.1219795361268,
+    "frac_theory": 0.8656156032885153,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003377,
+    "t_end_s": 3291.50302776897
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 2.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 33.664651879954775,
+    "frac_theory": 0.08567705029327476,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998006,
+    "t_end_s": 162.893476838491
+   },
+   "reference": {
+    "mAh_per_g": 22.995879605589543,
+    "frac_theory": 0.05852486283036038,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 111.27038518833643
+   },
+   "ratio": 1.4639427783302537
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R5um",
+   "separator": "glassfibre260",
+   "crate": 2.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 332.01351907351125,
+    "frac_theory": 0.8449794482694819,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002394,
+    "t_end_s": 1606.517027775057
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.1,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924287,
+    "frac_theory": 0.8799999999999999,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 0.050217089041666774,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.77396809242833,
+    "frac_theory": 0.8799999999999989,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 0.0224093582148861,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000009
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.1,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 344.9750053875995,
+    "frac_theory": 0.877966627782512,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000004983,
+    "t_end_s": 33384.67794073537
+   },
+   "reference": {
+    "mAh_per_g": 344.8471036080874,
+    "frac_theory": 0.8776411158112333,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003963,
+    "t_end_s": 33372.30034916973
+   },
+   "ratio": 1.0003708941678031
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.2,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.7739680924281,
+    "frac_theory": 0.8799999999999983,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 0.014106547895513688,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 272.7417977724076,
+    "frac_theory": 0.6941320174095956,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999997895,
+    "t_end_s": 13197.183763181025
+   },
+   "ratio": 1.2677703634591533
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.2,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 342.5111084237408,
+    "frac_theory": 0.8716959725907478,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000004285,
+    "t_end_s": 16573.11814953585
+   },
+   "reference": {
+    "mAh_per_g": 342.2168995104635,
+    "frac_theory": 0.8709472064383612,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000000016,
+    "t_end_s": 16558.882234377314
+   },
+   "ratio": 1.0008597147414349
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.5,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 206.34263956770135,
+    "frac_theory": 0.5251451513869855,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999449,
+    "t_end_s": 3993.728507761966
+   },
+   "reference": {
+    "mAh_per_g": 81.23817555262073,
+    "frac_theory": 0.2067523905304415,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.00499999999999956,
+    "t_end_s": 1572.351784889432
+   },
+   "ratio": 2.539971364005414
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 0.5,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 335.5596368256258,
+    "frac_theory": 0.8540043718028425,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000000002,
+    "t_end_s": 6494.702648237913
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 1.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 61.37884855223692,
+    "frac_theory": 0.15621010171456917,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999116,
+    "t_end_s": 593.9888569571317
+   },
+   "reference": {
+    "mAh_per_g": 29.908071871408552,
+    "frac_theory": 0.07611649712104461,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998117,
+    "t_end_s": 289.43295359427583
+   },
+   "ratio": 2.052250269296488
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 1.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 324.185359176219,
+    "frac_theory": 0.8250566624460686,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002929,
+    "t_end_s": 3137.2776694472855
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 2.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 17.56383519064652,
+    "frac_theory": 0.0447002272988849,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999449,
+    "t_end_s": 84.98629930957995
+   },
+   "reference": {
+    "mAh_per_g": 10.344431607235792,
+    "frac_theory": 0.026326735539368745,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999998006,
+    "t_end_s": 50.053701325334494
+   },
+   "ratio": 1.6979023940146554
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "polymer25",
+   "crate": 2.0,
+   "direction": "delithiation",
+   "aligned": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.1,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242856,
+    "frac_theory": 0.8799999999999996,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 0.047211546594712384,
+    "t_end_s": 33461.99691217053
+   },
+   "reference": {
+    "mAh_per_g": 345.77396809242833,
+    "frac_theory": 0.8799999999999989,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": false,
+    "end_V": 0.018425852932980158,
+    "t_end_s": 33461.99691217053
+   },
+   "ratio": 1.0000000000000007
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.1,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 344.96866056139515,
+    "frac_theory": 0.8779504801034641,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000004026,
+    "t_end_s": 33384.06392529632
+   },
+   "reference": {
+    "mAh_per_g": 344.8618009903524,
+    "frac_theory": 0.8776785208723039,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.500000000000401,
+    "t_end_s": 33373.72267648567
+   },
+   "ratio": 1.0003098620106254
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.2,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 345.77396809242845,
+    "frac_theory": 0.8799999999999992,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": false,
+    "end_V": 0.007402810080787137,
+    "t_end_s": 16730.998456085264
+   },
+   "reference": {
+    "mAh_per_g": 261.76255014008905,
+    "frac_theory": 0.6661896654455586,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 12665.929845488141
+   },
+   "ratio": 1.3209451386662396
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.2,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 342.5000726113747,
+    "frac_theory": 0.8716678862806774,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000003877,
+    "t_end_s": 16572.584158614904
+   },
+   "reference": {
+    "mAh_per_g": 342.2266058255031,
+    "frac_theory": 0.8709719091575451,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002343,
+    "t_end_s": 16559.35189478241
+   },
+   "ratio": 1.0007990810218041
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.5,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 164.44026627389323,
+    "frac_theory": 0.41850297499071515,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999782,
+    "t_end_s": 3182.7148311076135
+   },
+   "reference": {
+    "mAh_per_g": 62.68886265453391,
+    "frac_theory": 0.15954410749985484,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999782,
+    "t_end_s": 1213.3328255716235
+   },
+   "ratio": 2.623117716779956
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 0.5,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 335.51640916010615,
+    "frac_theory": 0.8538943567376044,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002869,
+    "t_end_s": 6493.865983743997
+   },
+   "reference": {
+    "mAh_per_g": 334.62392258115057,
+    "frac_theory": 0.8516229648401352,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 1.500000000000322,
+    "t_end_s": 6476.592049957737
+   },
+   "ratio": 1.0026671332165116
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 1.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 43.92765152884024,
+    "frac_theory": 0.11179654026194995,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 425.10630511780874
+   },
+   "reference": {
+    "mAh_per_g": 28.338603212053677,
+    "frac_theory": 0.07212217554775863,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999338,
+    "t_end_s": 274.2445472134228
+   },
+   "ratio": 1.5500993891666417
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 1.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 324.078377375527,
+    "frac_theory": 0.8247843921385949,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.500000000000306,
+    "t_end_s": 3136.242361698642
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 2.0,
+   "direction": "lithiation",
+   "aligned": {
+    "mAh_per_g": 16.713118920901366,
+    "frac_theory": 0.04253514147271414,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 0.00499999999999956,
+    "t_end_s": 80.86993026242597
+   },
+   "reference": {
+    "mAh_per_g": 10.519932941692057,
+    "frac_theory": 0.026773389100865973,
+    "bruggeman": 4.300506082471894,
+    "cutoff_hit": true,
+    "end_V": 0.004999999999999893,
+    "t_end_s": 50.902901330768
+   },
+   "ratio": 1.588709644209308
+  },
+  {
+   "porosity_mode": "equal_0.45",
+   "radius": "R10um",
+   "separator": "glassfibre260",
+   "crate": 2.0,
+   "direction": "delithiation",
+   "aligned": {
+    "mAh_per_g": 300.41843684632454,
+    "frac_theory": 0.7645694841726702,
+    "bruggeman": 2.6849835924846164,
+    "cutoff_hit": true,
+    "end_V": 1.5000000000002185,
+    "t_end_s": 1453.6375976435045
+   },
+   "reference": {
+    "error": "SolverError('IDA_ERR_FAIL: Error test failures occurred too many times during one step or minimum step size was reached')"
+   },
+   "ratio": null
+  }
+ ]
+}
