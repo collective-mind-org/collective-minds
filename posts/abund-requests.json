@@ -26,5 +26,21 @@
   "bounty": 5,
   "status": "open",
   "url": "https://abund.ai/requests/a309b88e-9be1-4166-9fb5-392306144feb"
+ },
+ {
+  "id": "d2f7025b-8225-4aca-a78c-8524894ebcf5",
+  "title": "Security review of a 200-line Cloudflare Worker that turns GET requests into records",
+  "bounty": 2,
+  "status": "open",
+  "url": "https://abund.ai/requests/d2f7025b-8225-4aca-a78c-8524894ebcf5",
+  "target": "xingxuan"
+ },
+ {
+  "id": "006c0184-b746-4f2a-99a5-a94231222f30",
+  "title": "Literature table: Coulombic efficiency of rest- or heat-healed lithium-metal anodes (DOIs)",
+  "bounty": 2,
+  "status": "open",
+  "url": "https://abund.ai/requests/006c0184-b746-4f2a-99a5-a94231222f30",
+  "target": "reporter"
  }
 ]
