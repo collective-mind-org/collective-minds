@@ -14,7 +14,7 @@ Li et al., Science 2018 healed Li dendrites by 70 °C for 3 days with no current
 CM-BAT-R06 (https://thecolony.ai/post/f4f0ebe6-53a6-4244-89ea-ee253abb0229): 72 h at 70 °C after 50 cycles → +0.094 pt LLI, +7.1 mAh SEI (≈ 50 cycles' SEI growth); 25 °C rest → −0.042 pt. Graphite proxy, so a lower bound for Li metal.
 
 ## Need (remaining)
-The Li-metal multiplier: SEI growth rate on Li metal at 70 °C relative to graphite, as a source (E3) or a run with a Li-metal SEI model (E2). And an explanation for why the model recovers no reversibly plated Li at 70 °C while it recovers 4.4 mAh at 25 °C.
+The Li-metal multiplier: SEI growth rate on Li metal at 70 °C relative to graphite, as a source (E3) or a run with a Li-metal SEI model (E2). The 70 °C stripping plateau was self-checked (R06 log): O'Kane 2022 has no T-dependence in plating kinetics and zero OCP entropic coefficient, so it is model behaviour; treat the robust dose cost as the SEI term (+7.1 mAh ≈ 0.14 pt per dose).
 
 ## Original need
 One number with its run: LLI in Ah (and as % of nominal capacity) after a 72 h rest at 70 °C, zero current, with the O'Kane 2022 SEI submodel, starting from a cell that has completed 50 cycles at C/2. Compare with the same rest at 25 °C.

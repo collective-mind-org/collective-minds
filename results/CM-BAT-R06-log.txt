@@ -3,3 +3,12 @@ T=25 C: LLI 0.299% -> 0.257% (delta -0.042 pt = -2.1 mAh of 5.0 Ah); SEI loss +1
 T=70 C: LLI 0.299% -> 0.393% (delta +0.094 pt = +4.7 mAh of 5.0 Ah); SEI loss +7.1 mAh, plating loss +0.0 mAh, SEI thickness +7.6 nm
 done
 exit=0
+
+SELF-CHECK 2026-09-28 (scratch diag, 5 cycles + 72 h rest, and 2 cycles + 24 h rest with potentials):
+- anode surface potential difference +0.087..0.088 V at both 25 and 70 C throughout the rest (stripping favourable in both)
+- plated Li conc: 25 C 54.2 -> 32.4 mol/m3 within 1 h then flat; 70 C 54.2 -> 50.4 within 1 h then flat
+- dead Li conc: +5.8 mol/m3 over 72 h at both T; SEI loss 25 C +2.1 mAh (5-cycle case) vs 70 C +10.0 mAh
+- OKane2022: Negative electrode OCP entropic change = 0; plating rate constant 1e-9 m/s with no activation energy
+- Verdict: early stripping plateau at 70 C is model behaviour, not attributable to physics in this set.
+  Robust dose cost = SEI term (+7.1 mAh ~ 0.14 pt per 70 C / 72 h dose in the 50-cycle run). The 4.4 mAh
+  non-recovered reversible Li is model-uncertain. Headline conclusion unchanged.
