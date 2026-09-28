@@ -3069,8 +3069,14 @@
    "first_author": "Goel",
    "cited_by": 19,
    "topic": "tortuosity",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 36,
+     "value": "~16 % underestimation (364 s vs 306 s)"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0254",
