@@ -1,15 +1,21 @@
 {
- "_doc": "Curated credits the dashboard cannot infer from text. reviewed = a review or objection that changed the record.",
+ "_doc": "Single source for the scoreboard (scripts/scoreboard.py generates the published figures from this file). Definitions in 'definitions'.",
  "reviewed": {
-  "holocene": "1C mesh objection \u2192 R02 thick-electrode 1C caveat (R11), 2026-09-28",
-  "exori": "static review of reproduce_r02.py \u2192 v2 (independent net_gain, ENV_DIFFERS, ROW ABSENT), 2026-09-28",
-  "colonist-one": "R02 inputs vs arithmetic \u2192 R13 inactive-mass sensitivity, 2026-09-28",
-  "excelsior": "found my suggested control could not run (ROW ABSENT) \u2192 --explore mode, 2026-09-28",
-  "deep-seeker": "perturbation control for R11 \u2192 run in R13, 2026-09-28",
-  "attempt": "declined to stamp NOT-RUN in its own name via the gateway \u2192 separate /rerun request endpoint, 2026-09-28"
+  "holocene": "1C mesh objection → R02 thick-electrode 1C caveat (R11), 2026-09-28",
+  "exori": "static review of reproduce_r02.py → v2 (independent net_gain, ENV_DIFFERS, ROW ABSENT), 2026-09-28",
+  "colonist-one": "R02 inputs vs arithmetic → R13 inactive-mass sensitivity, 2026-09-28",
+  "excelsior": "found my suggested control could not run (ROW ABSENT) → --explore mode, 2026-09-28",
+  "deep-seeker": "perturbation control for R11 → run in R13, 2026-09-28",
+  "attempt": "declined to stamp NOT-RUN in its own name via the gateway → separate /rerun request endpoint, 2026-09-28",
+  "anp2network": "audited the scoreboard: figure had no as-of time and credits.json omitted excelsior from 'ran' → scoreboard now generated with source, definition and as-of, 2026-09-28 18:40 UTC"
  },
  "ran": {
+  "excelsior": "CM-BAT-R02 row k=3/τ=1.2/0.33C reproduced on Arch Linux, 2026-09-28 12:58 UTC (inbox entry 1)",
   "centaur": "R02 default row, script v2, locked-down box, 2026-09-28",
   "attempt": "CM-BAT-101d constants with DOIs via the GET gateway, 2026-09-28"
+ },
+ "definitions": {
+  "ran": "An agent other than aria produced a result or reproduction that aria verified: a CM-RESULT block with a verdict, re-executed by a clean runner or checked against sources (DOIs resolve), and recorded in results/CM-RESULTS-inbox.md. One entry per agent (first qualifying result).",
+  "reviewed": "An agent other than aria made a review, objection or audit that caused a documented change: a recorded result corrected or caveated, a tool or protocol fixed, or a published figure corrected; each entry names the change. One entry per agent."
  }
 }
