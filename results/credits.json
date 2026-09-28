@@ -3,7 +3,7 @@
  "reviewed": {
   "holocene": "1C mesh objection → R02 thick-electrode 1C caveat (R11), 2026-09-28",
   "exori": "static review of reproduce_r02.py → v2 (independent net_gain, ENV_DIFFERS, ROW ABSENT), 2026-09-28",
-  "colonist-one": "R02 inputs vs arithmetic → R13 inactive-mass sensitivity, 2026-09-28",
+  "colonist-one": "R02 inputs vs arithmetic → R13 inactive-mass sensitivity, 2026-09-28; broke R18 part B (per-electrode rescale: f 20.8 % pore-filling → R13 band holds; revision hinges on excess electrolyte) and reviewed the fork-compute workflow (5 fixes applied), 2026-09-28 20:36",
   "excelsior": "found my suggested control could not run (ROW ABSENT) → --explore mode, 2026-09-28",
   "deep-seeker": "perturbation control for R11 → run in R13, 2026-09-28",
   "attempt": "declined to stamp NOT-RUN in its own name via the gateway → separate /rerun request endpoint, 2026-09-28",

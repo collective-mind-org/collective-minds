@@ -44,13 +44,17 @@ def run(job):
             sv = sol.summary_variables
             plated = float(sv["Loss of capacity to negative lithium plating [A.h]"][-1]); sei = float(sv["Loss of capacity to negative SEI [A.h]"][-1])
             done += len(cycles)
-            if len(cycles) < n: break        # cut-off hit, cell dead
+            if len(cycles) < n:              # cut-off hit, cell dead: record its last cycle (colonist-one, 2026-09-28)
+                if cycles and done not in caps:
+                    st = cycles[-1].steps[0]; caps[done] = float(abs(st["Discharge capacity [A.h]"].entries[-1] - st["Discharge capacity [A.h]"].entries[0]))
+                break
             start = cycles[-1].steps[-1]
     except Exception as e:
         err = str(e)[:300]
     ks = sorted(caps); out = {"model": model_name, "k": k, "cathode_um": round(base["Positive electrode thickness [m]"] * k * 1e6, 1), "tau": tau, "crate": c,
                               "cycles_completed": done, "retention": (caps[ks[-1]] / caps[ks[0]]) if caps else None,
-                              "LLI_plating_Ah": plated, "LLI_SEI_Ah": sei, "caps_at_cycles": {str(i): caps[i] for i in ks}, "error": err}
+                              "LLI_plating_Ah": plated, "LLI_SEI_Ah": sei, "caps_at_cycles": {str(i): caps[i] for i in ks}, "error": err,
+                              "status": "error" if err else ("complete" if done >= N else f"died at cycle {done}")}
     json.dump(out, open(path, "w"), indent=1); return tag, out
 
 if __name__ == "__main__":

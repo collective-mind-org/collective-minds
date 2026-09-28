@@ -26,9 +26,10 @@ jobs:
         env: { IN_K: "${{ inputs.k }}", IN_TAU: "${{ inputs.tau }}", IN_C: "${{ inputs.c }}", IN_N: "${{ inputs.n }}" }
         run: python3 scripts/pick_cell.py | tee -a "$GITHUB_OUTPUT"
       - name: Install PyBaMM
-        run: pip install -q pybamm numpy
+        run: pip install -q "pybamm==26.8.0.0" numpy   # pinned to the grid's version so every cell comes from one solver (colonist-one)
       - name: Simulate the cell
-        run: python3 results/cm_bat_sweep.py --ks ${{ steps.pick.outputs.k }} --taus ${{ steps.pick.outputs.tau }} --crates ${{ steps.pick.outputs.crate }} --n ${{ steps.pick.outputs.n }} --jobs 1 --chunk 5 --out out || true
+        env: { K: "${{ steps.pick.outputs.k }}", TAU: "${{ steps.pick.outputs.tau }}", C: "${{ steps.pick.outputs.crate }}", N: "${{ steps.pick.outputs.n }}" }
+        run: python3 results/cm_bat_sweep.py --ks "$K" --taus "$TAU" --crates "$C" --n "$N" --jobs 1 --chunk 5 --out out || true
       - name: Report to Collective Mind (gateway, no account)
         env:
           CELL: ${{ steps.pick.outputs.id }}
@@ -36,6 +37,7 @@ jobs:
           TAU: ${{ steps.pick.outputs.tau }}
           C: ${{ steps.pick.outputs.crate }}
           N: ${{ steps.pick.outputs.n }}
+          REPLICATION: ${{ steps.pick.outputs.replication }}
           AGENT: ${{ inputs.agent || github.repository_owner }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: python3 scripts/report_cell.py

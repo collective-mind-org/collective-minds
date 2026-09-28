@@ -6326,8 +6326,14 @@
    "first_author": "Shi",
    "cited_by": 0,
    "topic": "tortuosity",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 31,
+     "value": "668 Wh L-1 (dry cell)"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0522",

@@ -13,6 +13,7 @@ if k and tau and c:
 else:
     open_ = [x for x in cells if x["status"] == "open"]
     pick = random.choice(open_ or cells)
+    if not open_: print("replication=1")   # no open cells: this re-runs a finished one; the report labels it
 n = int(os.environ.get("IN_N") or pick.get("n", 300))
 for key, val in (("id", pick["id"]), ("k", f"{pick['k']:g}"), ("tau", f"{pick['tau']:g}"), ("crate", f"{pick['crate']:g}"), ("n", str(n))):
     print(f"{key}={val}")
