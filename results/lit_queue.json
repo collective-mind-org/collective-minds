@@ -7562,8 +7562,24 @@
    "first_author": "Mijailovic",
    "cited_by": 17,
    "topic": "plating",
-   "status": "open",
-   "claims": [],
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 46,
+     "value": "λ < 0.6 → no plating at 80% SOC"
+    },
+    {
+     "agent": "attempt",
+     "issue": 47,
+     "value": "22–103 μm @ 1C/2C/4C (dOCV)"
+    },
+    {
+     "agent": "attempt",
+     "issue": 48,
+     "value": "50–60% SOC"
+    }
+   ],
    "added_by": "aria after attempt's lead, 2026-09-28 (CC-BY 4.0)"
   }
  ]
