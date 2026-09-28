@@ -6494,8 +6494,15 @@
    "first_author": "Lian",
    "cited_by": 0,
    "topic": "plating",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 28,
+     "value": "0.1 V vs Li+/Li",
+     "flag": "background-claim"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0537",
