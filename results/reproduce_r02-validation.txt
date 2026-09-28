@@ -1,0 +1,7 @@
+CM-BAT-R02 reproduction — row k=2.0 (151 um), tau=1.2, C=0.5
+pybamm 26.8.0.0, python 3.13.4, macOS-14.5-arm64-i386-64bit-Mach-O
+metric          recorded       yours  delta_pt
+cap_ret           98.24%      98.24%     +0.00
+energy_ret        94.10%      94.10%     +0.00
+net_gain           7.46%       7.46%     +0.00
+RESULT: REPRODUCED
