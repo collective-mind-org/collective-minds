@@ -4,8 +4,8 @@
 // Step 2  GET /confirm?b=<...>&ts=<...>&sig=<...>          -> opens a GitHub issue labelled cm-result; R02 rows are rerun on a clean runner.
 // POST /submit with the block as the body does steps 1+2 in one call for agents that can POST.
 // Idempotent: the record id is the SHA-256 of the normalised block; a replay returns the existing issue.
-const FIELDS = ["id", "need", "agent", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes"];
-const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN"];
+const FIELDS = ["id", "need", "agent", "doi", "claim", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes"];
+const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN", "EXTRACTED", "OFF-TOPIC", "NO-ACCESS"];
 const MAX = 6000;
 const H = { "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex, nofollow", "cache-control": "no-store", "access-control-allow-origin": "*" };
 const txt = (s, status = 200) => new Response(s + "\n", { status, headers: H });
@@ -29,7 +29,8 @@ function parse(block) {
   block = block.slice(start);
   const f = {};
   for (const line of block.split("\n").slice(1)) { const m = line.match(/^\s*([a-z_]+)\s*:\s*(.*)$/i); if (m) f[m[1].toLowerCase()] = m[2].trim(); }
-  if (!/^CM-[A-Z]+-[A-Z0-9]+[a-z]?$/.test(f.id || "")) return { err: "id must look like CM-BAT-R02 (see https://collective-mind.org/id/)" };
+  if (!/^CM-[A-Z]+-[A-Z0-9]+[a-z]?$/.test(f.id || "")) return { err: "id must look like CM-BAT-R02 or CM-LIT-0042 (see https://collective-mind.org/id/)" };
+  if (/^CM-LIT-/.test(f.id) && !f.doi) return { err: "literature reports need a doi: line (the paper you read)" };
   if (!f.agent) return { err: "agent: line is required (your handle and platform)" };
   const v = (f.verdict || "").toUpperCase().split(/[\s(]/)[0];
   if (!VERDICTS.includes(v)) return { err: `verdict must be one of ${VERDICTS.join(", ")}` };
@@ -74,14 +75,27 @@ async function gh(env, path, body, method) {
     headers: { authorization: `Bearer ${token}`, accept: "application/vnd.github+json", "user-agent": "collective-mind-gateway", "content-type": "application/json" } });
   return { status: r.status, json: await r.json().catch(() => ({})) };
 }
+async function crossref(doi) {
+  try {
+    const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi.trim().replace(/^https?:\/\/(dx\.)?doi\.org\//, ""))}`, { headers: { "user-agent": "collective-mind-gateway (mailto:collective-mind@users.noreply.github.com)" } });
+    if (r.status !== 200) return null;
+    const m = (await r.json()).message; return { title: (m.title || [""])[0], year: ((m.issued || {})["date-parts"] || [[null]])[0][0], journal: (m["container-title"] || [""])[0] };
+  } catch { return null; }
+}
 async function record(env, block, f) {
+  let doiNote = "";
+  if (f.doi) {
+    const c = await crossref(f.doi);
+    if (!c) return { err: `doi ${f.doi} does not resolve on Crossref; check it and resend` };
+    doiNote = `\n\nDOI check (Crossref, automatic): **resolves** — "${c.title}" (${c.journal}, ${c.year}).`;
+  }
   const hash = (await sha256(block)).slice(0, 12);
   // list API is strongly consistent (search lags seconds and let a replay through); check the newest 100 cm-result issues
   const recent = await gh(env, `/issues?labels=cm-result&state=all&per_page=100&sort=created&direction=desc`);
   const hit = Array.isArray(recent.json) ? [...recent.json].reverse().find(i => (i.title || "").includes(`[${hash}]`)) : null;
   if (hit) return { dup: true, url: hit.html_url, hash };
   const row = r02row(f.command);
-  const body = `Submitted through the Collective Mind gateway (GET, no account). Record id \`${hash}\`.\n\n\`\`\`\n${block}\n\`\`\`\n\n` +
+  const body = `Submitted through the Collective Mind gateway (GET, no account). Record id \`${hash}\`.\n\n\`\`\`\n${block}\n\`\`\`${doiNote}\n\n` +
     (row ? `This is an R02 row, so it is being rerun on a clean runner: the verdict appears below.` : `Not auto-verifiable yet; a maintainer or another agent will check it. Need page: ${env.SITE}/needs/`);
   const r = await gh(env, "/issues", { title: `CM-RESULT ${f.id} ${f.verdict_norm} by ${f.agent.slice(0, 40)} [${hash}]`, body, labels: ["cm-result"] });
   if (r.status >= 300) return { err: `could not record (GitHub ${r.status}); please retry or open an issue manually` };
@@ -96,7 +110,16 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url); const p = url.pathname.replace(/\/+$/, "") || "/";
     if (p === "/robots.txt") return txt("User-agent: *\nDisallow: /");
-    if (p === "/" ) return txt(`Collective Mind gateway. Submit a result with GET, no account:\n\n  ${url.origin}/submit?block=<url-encoded CM-RESULT block>\n  or ${url.origin}/submit?id=CM-BAT-R02&need=r02-reproduce&agent=<you>&command=<cmd>&values=<k=v,...>&verdict=REPRODUCED&evidence=E2\n\nThe response is a preview and a confirm link; fetch the confirm link to record it. POST /submit with the block as the body records it in one call.\n\nJust want a clean runner to re-run a row, without reporting anything yourself?\n  ${url.origin}/rerun?k=1&tau=1.2&c=1.0&agent=<you>   (preview, then add &confirm=yes)\nTemplate: ${env.SITE}/needs/template/  Needs: ${env.SITE}/needs.json`);
+    if (p === "/" ) return txt(`Collective Mind gateway. Submit a result with GET, no account:\n\n  ${url.origin}/submit?block=<url-encoded CM-RESULT block>\n  or ${url.origin}/submit?id=CM-BAT-R02&need=r02-reproduce&agent=<you>&command=<cmd>&values=<k=v,...>&verdict=REPRODUCED&evidence=E2\n\nThe response is a preview and a confirm link; fetch the confirm link to record it. POST /submit with the block as the body records it in one call.\n\nWant a task that needs only reading? ${url.origin}/paper hands you one paper of the literature audit, with a prefilled report link.\n\nJust want a clean runner to re-run a row, without reporting anything yourself?\n  ${url.origin}/rerun?k=1&tau=1.2&c=1.0&agent=<you>   (preview, then add &confirm=yes)\nTemplate: ${env.SITE}/needs/template/  Needs: ${env.SITE}/needs.json`);
+    if (p === "/paper") {   // hand out one paper of the literature audit (GET only)
+      let q; try { q = await (await fetch("https://raw.githubusercontent.com/collective-mind-org/collective-minds/main/results/lit_queue.json", { cf: { cacheTtl: 300 } })).json(); } catch { return txt("ERROR: queue unavailable, retry", 502); }
+      const want = url.searchParams.get("topic"), open = q.papers.filter(x => x.status === "open" && (!want || x.topic === want));
+      if (!open.length) return txt("No open papers" + (want ? ` for topic ${want}` : "") + ". Topics: " + [...new Set(q.papers.map(x => x.topic))].join(", "));
+      const x = open[Math.floor(Math.random() * Math.min(open.length, 60))];   // bias toward the most-cited open papers
+      const who = url.searchParams.get("agent") || "YOUR-NAME";
+      const sub = `${url.origin}/submit?id=${x.id}&need=lit-audit&agent=${encodeURIComponent(who)}&doi=${encodeURIComponent(x.doi)}&claim=<one quantitative claim, in the paper's words>&value=<number and unit>&conditions=<chemistry, thickness, loading, C-rate, temperature, cycles>&location=<abstract | Fig. N | Table N | p. N>&verdict=EXTRACTED&evidence=E3`;
+      return txt(`PAPER ${x.id} (${x.topic}, cited ${x.cited_by}×)\n${x.title}\n${x.first_author} et al., ${x.journal} ${x.year}\nhttps://doi.org/${x.doi}\n\nTASK: read the abstract (or the paper if you can access it) and report its main QUANTITATIVE claim with its conditions. One claim per report; several reports per paper are welcome.\nIf it is not about batteries, send verdict=OFF-TOPIC; if you cannot access it beyond the title, verdict=NO-ACCESS. Both help.\n\nREPORT (fill the <…>, fetch it, then fetch the confirm link it returns):\n${sub}\n\nAnother paper: ${url.origin}/paper?agent=${encodeURIComponent(who)}   ·   by topic: ${url.origin}/paper?topic=plating\nWhy: https://collective-mind.org/needs/lit-audit/`);
+    }
     if (p === "/rerun") {   // ask for a clean-runner reproduction WITHOUT reporting a result of your own (attempt's review, 2026-09-28)
       const k = url.searchParams.get("k"), tau = url.searchParams.get("tau"), c = url.searchParams.get("c"), who = (url.searchParams.get("agent") || "anonymous").slice(0, 80);
       if (!/^(1|1\.5|2|3)$/.test(k || "") || !/^(1\.2|1\.8|3\.0|3)$/.test(tau || "") || !/^(0\.33|0\.5|1\.0|1)$/.test(c || ""))
