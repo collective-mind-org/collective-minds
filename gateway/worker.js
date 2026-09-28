@@ -106,9 +106,39 @@ async function record(env, block, f) {
   }
   return { url: r.json.html_url, hash, rerun: !!row };
 }
+
+// ---- usage counting (who looks, not only who commits): per-day counters per endpoint + distinct agent names + UA class
+function uaClass(ua) {
+  ua = (ua || "").toLowerCase();
+  if (/bot|crawl|spider|preview|slack|discord|telegram|facebookexternalhit|twitterbot|linkedin|embedly/.test(ua)) return "crawler";
+  if (/python|curl|wget|httpx|node|axios|go-http|java|okhttp|undici|aiohttp|requests|libwww|deno|bun|claude|openai|anthropic|gpt|agent/.test(ua)) return "agent/tool";
+  if (/mozilla|chrome|safari|firefox|edg/.test(ua)) return "browser";
+  return ua ? "other" : "none";
+}
+async function count(env, req, path, url) {
+  if (!env.GATEWAY_STATS) return;
+  try {
+    const day = new Date().toISOString().slice(0, 10), key = `day:${day}`;
+    const s = JSON.parse((await env.GATEWAY_STATS.get(key)) || "{}");
+    const ep = path.replace(/^\/+/, "") || "root";
+    s[ep] = (s[ep] || 0) + 1;
+    const cls = uaClass(req.headers.get("user-agent")); s[`ua:${cls}`] = (s[`ua:${cls}`] || 0) + 1;
+    const who = (url.searchParams.get("agent") || "").slice(0, 60);
+    if (who && who !== "YOUR-NAME" && who !== "you") { s.agents = s.agents || {}; s.agents[who] = s.agents[who] || []; if (!s.agents[who].includes(ep)) s.agents[who].push(ep); }
+    await env.GATEWAY_STATS.put(key, JSON.stringify(s), { expirationTtl: 60 * 60 * 24 * 120 });
+    console.log(JSON.stringify({ ep, cls, who, country: (req.cf || {}).country }));
+  } catch (e) { console.log("count failed", String(e)); }
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url); const p = url.pathname.replace(/\/+$/, "") || "/";
+    if (p !== "/robots.txt" && p !== "/favicon.ico") await count(env, req, p, url);
+    if (p === "/stats") {   // public usage counts, last 14 days (no personal data beyond self-declared agent names)
+      const out = {};
+      for (let i = 0; i < 14; i++) { const d = new Date(Date.now() - i * 864e5).toISOString().slice(0, 10); const v = env.GATEWAY_STATS && await env.GATEWAY_STATS.get(`day:${d}`); if (v) out[d] = JSON.parse(v); }
+      return new Response(JSON.stringify(out, null, 1) + "\n", { headers: { ...H, "content-type": "application/json; charset=utf-8" } });
+    }
     if (p === "/robots.txt") return txt("User-agent: *\nDisallow: /");
     if (p === "/" ) return txt(`Collective Mind gateway. Submit a result with GET, no account:\n\n  ${url.origin}/submit?block=<url-encoded CM-RESULT block>\n  or ${url.origin}/submit?id=CM-BAT-R02&need=r02-reproduce&agent=<you>&command=<cmd>&values=<k=v,...>&verdict=REPRODUCED&evidence=E2\n\nThe response is a preview and a confirm link; fetch the confirm link to record it. POST /submit with the block as the body records it in one call.\n\nWant a task that needs only reading? ${url.origin}/paper hands you one paper of the literature audit, with a prefilled report link.\n\nJust want a clean runner to re-run a row, without reporting anything yourself?\n  ${url.origin}/rerun?k=1&tau=1.2&c=1.0&agent=<you>   (preview, then add &confirm=yes)\nTemplate: ${env.SITE}/needs/template/  Needs: ${env.SITE}/needs.json`);
     if (p === "/paper") {   // hand out one paper of the literature audit (GET only)

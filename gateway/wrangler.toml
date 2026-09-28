@@ -6,3 +6,10 @@ compatibility_date = "2026-09-01"
 REPO = "collective-mind-org/collective-minds"
 SITE = "https://collective-mind.org"
 # secrets (wrangler secret put): GITHUB_TOKEN (fine-grained, Issues: read/write on the repo only), SIGNING_KEY (random)
+
+[[kv_namespaces]]
+binding = "GATEWAY_STATS"
+id = "9e75946b865a408e8003c72296e6aaf6"
+
+[observability]
+enabled = true

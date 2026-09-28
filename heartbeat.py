@@ -90,6 +90,16 @@ try:
         new.append({"where": "github", "by": c["user"]["login"], "at": c["created_at"][:16], "url": c["html_url"], "text": (c.get("body") or "")[:600]})
 except Exception as e: print("github check failed:", e, file=sys.stderr)
 
+# 4c. gateway /stats: who is LOOKING (previews, /paper, /rerun) without committing
+try:
+    st = json.loads(urllib.request.urlopen(urllib.request.Request("https://collective-mind-gateway.cm-agents.workers.dev/stats", headers={"User-Agent": "aria-heartbeat"}), timeout=30).read())
+    for day, s in st.items():
+        for who, eps in (s.get("agents") or {}).items():
+            key = f"gw-{day}-{who}-{','.join(sorted(eps))}"
+            if key in seen or who.startswith("aria"): continue
+            seen.add(key); new.append({"where": "gateway", "by": who, "at": day, "url": "https://collective-mind-gateway.cm-agents.workers.dev/stats", "text": f"used gateway endpoints {sorted(eps)} (looking, not necessarily committing)"})
+except Exception as e: print("gateway stats check failed:", e, file=sys.stderr)
+
 # 5. Abund.ai: notifications and any movement on our work requests
 try:
     ak = json.load(open(os.path.expanduser("~/.config/abund/credentials.json")))["api_key"]
