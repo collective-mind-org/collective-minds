@@ -1,0 +1,269 @@
+{
+ "meta": {
+  "kappa_S_m": 0.949,
+  "eps_anode": 0.25,
+  "area_m2": 0.10270000000000001,
+  "Q_Ah": 5.0,
+  "L0_um": 85.2,
+  "K_eff_V": 0.08
+ },
+ "k_at_lambda_0.6": {
+  "1.2": 2.14,
+  "1.5": 1.91,
+  "1.8": 1.75,
+  "2.4": 1.51,
+  "3.0": 1.35
+ },
+ "rows": [
+  {
+   "tau": 1.2,
+   "k": 1.0,
+   "anode_um": 85,
+   "cathode_um": 76,
+   "i_A_m2": 24.34,
+   "lambda": 0.131,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 1.2,
+   "k": 1.5,
+   "anode_um": 128,
+   "cathode_um": 113,
+   "i_A_m2": 36.51,
+   "lambda": 0.295,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 1.2,
+   "k": 2.0,
+   "anode_um": 170,
+   "cathode_um": 151,
+   "i_A_m2": 48.69,
+   "lambda": 0.525,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 1.2,
+   "k": 2.5,
+   "anode_um": 213,
+   "cathode_um": 189,
+   "i_A_m2": 60.86,
+   "lambda": 0.82,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 1.2,
+   "k": 3.0,
+   "anode_um": 256,
+   "cathode_um": 227,
+   "i_A_m2": 73.03,
+   "lambda": 1.181,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": false
+  },
+  {
+   "tau": 1.5,
+   "k": 1.0,
+   "anode_um": 85,
+   "cathode_um": 76,
+   "i_A_m2": 24.34,
+   "lambda": 0.164,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 1.5,
+   "k": 1.5,
+   "anode_um": 128,
+   "cathode_um": 113,
+   "i_A_m2": 36.51,
+   "lambda": 0.369,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 1.5,
+   "k": 2.0,
+   "anode_um": 170,
+   "cathode_um": 151,
+   "i_A_m2": 48.69,
+   "lambda": 0.656,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 1.5,
+   "k": 2.5,
+   "anode_um": 213,
+   "cathode_um": 189,
+   "i_A_m2": 60.86,
+   "lambda": 1.025,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 1.5,
+   "k": 3.0,
+   "anode_um": 256,
+   "cathode_um": 227,
+   "i_A_m2": 73.03,
+   "lambda": 1.476,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 1.8,
+   "k": 1.0,
+   "anode_um": 85,
+   "cathode_um": 76,
+   "i_A_m2": 24.34,
+   "lambda": 0.197,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 1.8,
+   "k": 1.5,
+   "anode_um": 128,
+   "cathode_um": 113,
+   "i_A_m2": 36.51,
+   "lambda": 0.443,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 1.8,
+   "k": 2.0,
+   "anode_um": 170,
+   "cathode_um": 151,
+   "i_A_m2": 48.69,
+   "lambda": 0.787,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 1.8,
+   "k": 2.5,
+   "anode_um": 213,
+   "cathode_um": 189,
+   "i_A_m2": 60.86,
+   "lambda": 1.23,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": false
+  },
+  {
+   "tau": 1.8,
+   "k": 3.0,
+   "anode_um": 256,
+   "cathode_um": 227,
+   "i_A_m2": 73.03,
+   "lambda": 1.771,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": false
+  },
+  {
+   "tau": 2.4,
+   "k": 1.0,
+   "anode_um": 85,
+   "cathode_um": 76,
+   "i_A_m2": 24.34,
+   "lambda": 0.262,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 2.4,
+   "k": 1.5,
+   "anode_um": 128,
+   "cathode_um": 113,
+   "i_A_m2": 36.51,
+   "lambda": 0.59,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 2.4,
+   "k": 2.0,
+   "anode_um": 170,
+   "cathode_um": 151,
+   "i_A_m2": 48.69,
+   "lambda": 1.049,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 2.4,
+   "k": 2.5,
+   "anode_um": 213,
+   "cathode_um": 189,
+   "i_A_m2": 60.86,
+   "lambda": 1.64,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 2.4,
+   "k": 3.0,
+   "anode_um": 256,
+   "cathode_um": 227,
+   "i_A_m2": 73.03,
+   "lambda": 2.361,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": null
+  },
+  {
+   "tau": 3.0,
+   "k": 1.0,
+   "anode_um": 85,
+   "cathode_um": 76,
+   "i_A_m2": 24.34,
+   "lambda": 0.328,
+   "measured_rule": "no plating to 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 3.0,
+   "k": 1.5,
+   "anode_um": 128,
+   "cathode_um": 113,
+   "i_A_m2": 36.51,
+   "lambda": 0.738,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": true
+  },
+  {
+   "tau": 3.0,
+   "k": 2.0,
+   "anode_um": 170,
+   "cathode_um": 151,
+   "i_A_m2": 48.69,
+   "lambda": 1.312,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": false
+  },
+  {
+   "tau": 3.0,
+   "k": 2.5,
+   "anode_um": 213,
+   "cathode_um": 189,
+   "i_A_m2": 60.86,
+   "lambda": 2.05,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": false
+  },
+  {
+   "tau": 3.0,
+   "k": 3.0,
+   "anode_um": 256,
+   "cathode_um": 227,
+   "i_A_m2": 73.03,
+   "lambda": 2.951,
+   "measured_rule": "plating before 80 % SOC",
+   "R16_usable": false
+  }
+ ]
+}
