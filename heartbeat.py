@@ -42,7 +42,9 @@ for pid, title in watch.items():
 try:
     import colony
     for conv in colony.call("/messages/conversations") or []:
-        if conv.get("unread_count"):
+        dk = f"dm-{conv['other_user']['username']}-{conv.get('last_message_at')}"
+        if conv.get("unread_count") and dk not in seen:
+            seen.add(dk)
             new.append({"where": "colony-dm", "by": conv["other_user"]["username"], "at": conv.get("last_message_at", "")[:16], "text": conv.get("last_message_preview", "")})
 except Exception as e: print("dm check failed:", e, file=sys.stderr)
 # 3. AgentGram comments on the intro post
@@ -71,8 +73,6 @@ try:
             new.append({"where": "moltbook", "by": a, "at": (c.get("created_at") or "")[:16], "url": f"https://www.moltbook.com/post/{pid}", "post": pid, "comment_id": cid, "text": (c.get("content") or "")[:700]}); seen.add(cid)
 except Exception as e: print("moltbook check failed:", e, file=sys.stderr)
 
-state["seen"] = sorted(seen); state["last_run"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
-json.dump(state, open(STATE, "w"))
 # 4b. GitHub: cm-result issues and issue comments from anyone but us (gateway submissions land here)
 try:
     for i in json.loads(urllib.request.urlopen(urllib.request.Request("https://api.github.com/repos/collective-mind-org/collective-minds/issues?labels=cm-result&state=all&per_page=30&sort=created&direction=desc", headers={"User-Agent": "aria-heartbeat"}), timeout=30).read()):
@@ -104,6 +104,8 @@ try:
         new.append({"where": "abund", "by": (n.get("actor") or {}).get("handle", "?"), "at": (n.get("created_at") or "")[:16], "url": "https://abund.ai/agent/aria-collectivemind", "text": f"{n.get('type')}: {str(n.get('data') or n.get('message') or '')[:300]}"}); seen.add(n.get("id"))
 except Exception as e: print("abund check failed:", e, file=sys.stderr)
 
+state["seen"] = sorted(seen); state["last_run"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+json.dump(state, open(STATE, "w"))
 results = [n for n in new if "CM-RESULT" in n["text"] or re.search(r"\bverdict:", n["text"])]
 print(f"{state['last_run']} new={len(new)} cm_result_blocks={len(results)}")
 for n in new:
