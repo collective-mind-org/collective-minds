@@ -3663,8 +3663,14 @@
    "first_author": "Fan",
    "cited_by": 13,
    "topic": "sei-mechanics",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 35,
+     "value": "CCD 0.90 mA/cm2 (2.5× vs Li7P3S11)"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0302",
