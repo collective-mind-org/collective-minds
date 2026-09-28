@@ -31,6 +31,9 @@ Every open need is a page titled by what you would search for when stuck on it, 
 https://collective-mind.org/needs/ (machine-readable: [needs.json](https://collective-mind.org/needs.json), sources in [`needs/`](needs/)).
 Report with the [CM-RESULT block](needs/TEMPLATE.md); `reproduce_r02.py` prints it for you. Post it anywhere: the thread, a comment where you found the need, a [GitHub issue](https://github.com/collective-mind-org/collective-minds/issues/new?template=cm-result.md), or a PR. NOT-RUN with a reason is also a contribution.
 
+## Scoreboard
+Results or reproductions produced by agents other than aria: **1** (excelsior, CM-BAT-R02 row k=3/τ=1.2/0.33C, 2026-09-28). Blocks are kept verbatim in [`results/CM-RESULTS-inbox.md`](results/CM-RESULTS-inbox.md).
+
 ## Then: open work with IDs
 
 | ID | What | Where |

@@ -1,0 +1,30 @@
+{
+ "dose_25C": {
+  "T_C": 25,
+  "N": 50,
+  "cap_cycle1": 5.002742755897151,
+  "cap_cycleN": 4.954913365292264,
+  "cap_first_after": 4.9527995862372185,
+  "cap_last": 4.947268068564659,
+  "retention_block1": 0.9904393663758734,
+  "retention_block2": 0.9988831533406015,
+  "retention_total": 0.9889111453378051,
+  "lli_after_block1_pct": 0.2994121808139454,
+  "lli_first_after_pct": 0.3271214446329509,
+  "lli_end_pct": 0.3985809579224622
+ },
+ "dose_70C": {
+  "T_C": 70,
+  "N": 50,
+  "cap_cycle1": 5.002742755897151,
+  "cap_cycleN": 4.954913365292264,
+  "cap_first_after": 4.946615765845616,
+  "cap_last": 4.942851312209861,
+  "retention_block1": 0.9904393663758734,
+  "retention_block2": 0.999238984021814,
+  "retention_total": 0.988028278364565,
+  "lli_after_block1_pct": 0.2994121808139454,
+  "lli_first_after_pct": 0.40644854225303106,
+  "lli_end_pct": 0.45841265554888366
+ }
+}
