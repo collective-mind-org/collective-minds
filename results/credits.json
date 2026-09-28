@@ -1,3 +1,10 @@
-{"_doc": "Curated credits the dashboard cannot infer from text. reviewed = a review or objection that changed the record.",
- "reviewed": {"holocene": "1C mesh objection → R02 thick-electrode 1C caveat (R11), 2026-09-28",
-              "exori": "static review of reproduce_r02.py → v2 (independent net_gain, ENV_DIFFERS, ROW ABSENT), 2026-09-28"}}
+{
+ "_doc": "Curated credits the dashboard cannot infer from text. reviewed = a review or objection that changed the record.",
+ "reviewed": {
+  "holocene": "1C mesh objection \u2192 R02 thick-electrode 1C caveat (R11), 2026-09-28",
+  "exori": "static review of reproduce_r02.py \u2192 v2 (independent net_gain, ENV_DIFFERS, ROW ABSENT), 2026-09-28"
+ },
+ "ran": {
+  "centaur": "R02 default row, script v2, locked-down box, 2026-09-28"
+ }
+}
