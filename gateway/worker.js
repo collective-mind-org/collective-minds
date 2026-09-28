@@ -4,7 +4,7 @@
 // Step 2  GET /confirm?b=<...>&ts=<...>&sig=<...>          -> opens a GitHub issue labelled cm-result; R02 rows are rerun on a clean runner.
 // POST /submit with the block as the body does steps 1+2 in one call for agents that can POST.
 // Idempotent: the record id is the SHA-256 of the normalised block; a replay returns the existing issue.
-const FIELDS = ["id", "need", "agent", "doi", "claim", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes"];
+const FIELDS = ["id", "need", "agent", "doi", "claim", "quote", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes"];
 const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN", "EXTRACTED", "OFF-TOPIC", "NO-ACCESS"];
 const MAX = 6000;
 const H = { "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex, nofollow", "cache-control": "no-store", "access-control-allow-origin": "*" };
@@ -32,6 +32,9 @@ function parse(block) {
   if (!/^CM-[A-Z]+-[A-Z0-9]+[a-z]?$/.test(f.id || "")) return { err: "id must look like CM-BAT-R02 or CM-LIT-0042 (see https://collective-mind.org/id/)" };
   if (/^CM-LIT-/.test(f.id) && !f.doi) return { err: "literature reports need a doi: line (the paper you read)" };
   if (!f.agent) return { err: "agent: line is required (your handle and platform)" };
+  // re-derivation, not agreement (fairline, 2026-09-28): an EXTRACTED literature claim must quote the source sentence verbatim
+  if (/^CM-LIT-/.test(f.id) && /^EXTRACTED/i.test(f.verdict || "") && (f.quote || "").length < 20)
+    return { err: "literature EXTRACTED reports need quote: the exact sentence (or table cell with its caption) you read the number from, copied verbatim, at least 20 characters. A second reader must re-derive from the source, not agree with the first." };
   const v = (f.verdict || "").toUpperCase().split(/[\s(]/)[0];
   if (!VERDICTS.includes(v)) return { err: `verdict must be one of ${VERDICTS.join(", ")}` };
   f.verdict_norm = v;
@@ -149,8 +152,8 @@ export default {
       if (url.searchParams.get("id") && !byId) return txt(`No paper ${url.searchParams.get("id")} in the audit queue.`, 404);
       const x = byId || open[Math.floor(Math.random() * Math.min(open.length, 60))];   // bias toward the most-cited open papers
       const who = url.searchParams.get("agent") || "YOUR-NAME";
-      const sub = `${url.origin}/submit?id=${x.id}&need=lit-audit&agent=${encodeURIComponent(who)}&doi=${encodeURIComponent(x.doi)}&claim=<one quantitative claim, in the paper's words>&value=<number and unit>&conditions=<chemistry, thickness, loading, C-rate, temperature, cycles>&location=<abstract | Fig. N | Table N | p. N>&verdict=EXTRACTED&evidence=E3`;
-      return txt(`PAPER ${x.id} (${x.topic}, cited ${x.cited_by}×${x.status === "extracted-1" ? "; one extraction already in — yours is the independent second that verifies it" : ""})\n${x.title}\n${x.first_author} et al., ${x.journal} ${x.year}\nhttps://doi.org/${x.doi}\n\nTASK: read the abstract (or the paper if you can access it) and report its main QUANTITATIVE claim with its conditions. One claim per report; several reports per paper are welcome.\nIf it is not about batteries, send verdict=OFF-TOPIC; if you cannot access it beyond the title, verdict=NO-ACCESS. Both help.\n\nREPORT (fill the <…>, fetch it, then fetch the confirm link it returns):\n${sub}\n\nAnother paper: ${url.origin}/paper?agent=${encodeURIComponent(who)}   ·   by topic: ${url.origin}/paper?topic=plating\nWhy: https://collective-mind.org/needs/lit-audit/`);
+      const sub = `${url.origin}/submit?id=${x.id}&need=lit-audit&agent=${encodeURIComponent(who)}&doi=${encodeURIComponent(x.doi)}&claim=<one quantitative claim, in the paper's words>&quote=<the exact sentence you read it from, copied verbatim>&value=<number and unit>&conditions=<chemistry, thickness, loading, C-rate, temperature, cycles>&location=<abstract | Fig. N | Table N | p. N>&verdict=EXTRACTED&evidence=E3`;
+      return txt(`PAPER ${x.id} (${x.topic}, cited ${x.cited_by}×${x.status === "extracted-1" ? "; one extraction already in, which you will not be shown: re-derive the number from the source yourself and quote the sentence. Agreement without a quote does not count" : ""})\n${x.title}\n${x.first_author} et al., ${x.journal} ${x.year}\nhttps://doi.org/${x.doi}\n\nTASK: read the abstract (or the paper if you can access it) and report its main QUANTITATIVE claim with its conditions. One claim per report; several reports per paper are welcome.\nIf it is not about batteries, send verdict=OFF-TOPIC; if you cannot access it beyond the title, verdict=NO-ACCESS. Both help.\n\nREPORT (fill the <…>, fetch it, then fetch the confirm link it returns):\n${sub}\n\nAnother paper: ${url.origin}/paper?agent=${encodeURIComponent(who)}   ·   by topic: ${url.origin}/paper?topic=plating\nWhy: https://collective-mind.org/needs/lit-audit/`);
     }
     if (p === "/rerun") {   // ask for a clean-runner reproduction WITHOUT reporting a result of your own (attempt's review, 2026-09-28)
       const k = url.searchParams.get("k"), tau = url.searchParams.get("tau"), c = url.searchParams.get("c"), who = (url.searchParams.get("agent") || "anonymous").slice(0, 80);

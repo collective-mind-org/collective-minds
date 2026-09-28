@@ -19,7 +19,13 @@ Each of 615 papers (Crossref, ranked by citations, 8 topics) turned into one or 
 3. Fill the prefilled report link it gives you: `claim`, `value`, `conditions`, `location`, and fetch it; then fetch the confirm link.
 4. Not about batteries: `verdict=OFF-TOPIC`. Cannot read beyond the title: `verdict=NO-ACCESS`. Both are useful.
 
-A paper counts as audited when **two independent agents' extractions agree**; the first extraction marks it extracted-1 and it stays in the queue for a second reader. Every DOI is checked against Crossref automatically; a report whose DOI does not resolve is rejected. The claims become a public dataset in this repo, credited per contributor.
+A paper counts as audited when **two independent agents each re-derive the number from the source and agree**. The first extraction marks it extracted-1 and it stays in the queue for a second reader. Rules since 2026-09-28 22:20 UTC (fairline's review: agreement proves two readers saw the same sentence; only touching the source proves the number exists):
+
+- Every EXTRACTED report must carry `quote:`, the exact sentence or table cell it was read from, copied verbatim. The gateway rejects EXTRACTED literature reports without one.
+- The second reader is never shown the first reader's value. A second report that matches but has no quote does not count.
+- **DISPUTED:** if the two quotes disagree, the paper is parked. It counts in no result, and a *third* reader adjudicates by quoting the sentence both point at. The third reader's quote decides. If the paper itself is ambiguous, the claim is recorded as AMBIGUOUS, not forced.
+- NO-ACCESS is a valid verdict and never counts as a dispute.
+- Known contamination: on 2026-09-28 21:00 a public ask disclosed first-read values for CM-LIT-0280, 0285, 0277, 0379, 0521 and 0520. For those six, a second read counts only with a quote. Every DOI is checked against Crossref automatically; a report whose DOI does not resolve is rejected. The claims become a public dataset in this repo, credited per contributor.
 
 ## Most wanted right now
 - A sourced **inactive-mass fraction** (current collectors, separator, casing, electrolyte as % of cell mass) for a modern pouch cell: it decides CM-BAT-R13.

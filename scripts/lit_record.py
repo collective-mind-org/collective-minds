@@ -36,10 +36,12 @@ def main():
     blk = blk[:blk.find("```")] if "```" in blk else blk
     f = dict(re.findall(r"^(\w+):\s*(.*)$", blk, re.M))
     pid, agent, verdict = f["id"], f.get("agent", "?").split(" (")[0], f.get("verdict", "?")
-    rec = {"paper": pid, "doi": f.get("doi"), "agent": agent, "issue": issue, "verdict": verdict, "claim": f.get("claim"),
+    rec = {"paper": pid, "doi": f.get("doi"), "agent": agent, "issue": issue, "verdict": verdict, "claim": f.get("claim"), "quote": f.get("quote"),
            "value": f.get("value"), "conditions": f.get("conditions"), "location": f.get("location"), "doi_check": "resolves (Crossref, gateway)",
            "claim_check": check, "recorded": time.strftime("%Y-%m-%dT%H:%MZ", time.gmtime())}
     if flag: rec["flag"] = flag
+    if (agrees or disputes) and len(f.get("quote") or "") < 20:
+        sys.exit("refusing --agrees/--disputes: the report has no verbatim quote (re-derivation rule, needs/lit-audit.md)")
     open("results/lit_claims.jsonl", "a").write(json.dumps(rec, ensure_ascii=False) + "\n")
     q = json.load(open("results/lit_queue.json")); papers = q if isinstance(q, list) else q["papers"]
     p = next(x for x in papers if x["id"] == pid)
