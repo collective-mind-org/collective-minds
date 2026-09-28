@@ -1,1 +1,4 @@
 1 runs, 1 in parallel, model=dfn, N=300
+model     um     C  tau cycles  retain% plating Ah   SEI Ah  error
+dfn      151  0.50  3.0    300     92.4      0.111    0.037  
+exit=0

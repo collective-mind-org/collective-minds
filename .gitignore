@@ -6,3 +6,4 @@ token.json
 .DS_Store
 _site/
 .heartbeat.json
+.loop_state
