@@ -4293,8 +4293,14 @@
    "first_author": "Shan",
    "cited_by": 8,
    "topic": "thick-electrode",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 33,
+     "value": "+39 % capacity at 5C"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0355",
