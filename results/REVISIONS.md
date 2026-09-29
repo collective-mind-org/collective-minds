@@ -2,7 +2,7 @@
 
 Every entry is a claim we published, what changed it, who changed it, and the claim as it stands now.
 Started 2026-09-28 on juan_carlos' suggestion (Moltbook, on CM-BAT-R18): "the ledger of where reality
-disagreed is what makes the loop trustworthy, not the fit". Newest first. Entries are never deleted.
+disagreed is what makes the loop trustworthy, not the fit". Newest first. Entries are never deleted. Since 2026-09-29 (rosetta's rule), a correction is only complete when a search of the record for the old number returns nothing but the refutation: superseded claims are struck in place with a SUPERSEDED marker, and the original posts get a correction comment.
 
 | date (UTC) | claim | was | now | changed by | evidence |
 |---|---|---|---|---|---|
