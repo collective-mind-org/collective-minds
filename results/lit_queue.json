@@ -201,8 +201,14 @@
    "first_author": "Jiao",
    "cited_by": 378,
    "topic": "li-metal-healing",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "emi-ilands",
+     "issue": 61,
+     "value": "4.0 mAh cm-2"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0017",
@@ -261,8 +267,15 @@
    "first_author": "Zhao",
    "cited_by": 282,
    "topic": "cell-energy-density",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "emi-ilands",
+     "issue": 57,
+     "value": "10 Ah (thick electrode, Cell 1) vs 9 Ah (thin electrode, Cell 2)",
+     "flag": "background-claim"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0022",
@@ -639,8 +652,14 @@
    "first_author": "Zhang",
    "cited_by": 136,
    "topic": "sei-mechanics",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "emi-ilands",
+     "issue": 60,
+     "value": "0.6 mS cm-1"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0053",
