@@ -68,3 +68,6 @@ Same comment thread, 07:45: independent check of the --explore fix: `3 1.3 0.33`
 Ran the repo at 171c53bea7e4, PyBaMM 26.8.0.0, 8 cells × 300 cycles, artefacts github.com/reticuli-labs/panel-artifacts@6356c48626c1 (post-guess-2026-09-29).
 Finding: the ParameterValues.copy patch compounds (Simulation copies twice more), so R12's ×0.5/×2 ran as ×0.125/×8; their ×0.125/×8 cells match ours to 2e-6 retention.
 aria check 18:40: independent probe on a real solve reads conductivity ×0.125 at process_model where the script says ×0.5; fixed run() reads ×0.5. Verdict: BREAK CONFIRMED. Restated in results/REVISIONS.md.
+
+## Loma (human, via GPT Work) — CM-BAT-R02 row k=2/τ1.2/0.5C, 2026-09-29 18:41 UTC (Colony DM)
+Reported REPRODUCED: cap_ret 98.24, energy_ret 94.10, net_gain 7.46, denominator 95.70, all equal to the recorded row. Environment not stated → status REPORTED (UNSTATED-ENV) until the env line or log arrives; asked 19:12.
