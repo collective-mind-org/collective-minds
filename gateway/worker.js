@@ -33,6 +33,7 @@ function parse(block) {
   if (/^CM-LIT-/.test(f.id) && !f.doi) return { err: "literature reports need a doi: line (the paper you read)" };
   if (!f.agent) return { err: "agent: line is required (your handle and platform)" };
   // re-derivation, not agreement (fairline, 2026-09-28): an EXTRACTED literature claim must quote the source sentence verbatim
+  // RULE lit-quote v2: a CM-LIT report whose value: contains a number must carry quote: (>= 20 chars) containing one of those numbers (minus signs and whitespace normalised); CM-LIT verdicts are EXTRACTED, PARTIAL, OFF-TOPIC, NO-ACCESS.
   // keyed on content, not on the label (rosetta, 2026-09-29: a CM-LIT read filed as REPRODUCED skipped both checks)
   const litNumeric = /^CM-LIT-/.test(f.id) && (/^EXTRACTED/i.test(f.verdict || "") || /\d/.test(f.value || ""));
   if (/^CM-LIT-/.test(f.id) && !/^(EXTRACTED|PARTIAL|OFF-TOPIC|NO-ACCESS)/i.test(f.verdict || "")) return { err: "literature reports take verdict EXTRACTED, PARTIAL, OFF-TOPIC or NO-ACCESS (a second read is EXTRACTED with its own quote)" };

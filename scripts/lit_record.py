@@ -40,6 +40,7 @@ def main():
            "value": f.get("value"), "conditions": f.get("conditions"), "location": f.get("location"), "doi_check": "resolves (Crossref, gateway)",
            "claim_check": check, "recorded": time.strftime("%Y-%m-%dT%H:%MZ", time.gmtime())}
     if flag: rec["flag"] = flag
+    # RULE lit-quote v2: a CM-LIT report whose value: contains a number must carry quote: (>= 20 chars) containing one of those numbers (minus signs and whitespace normalised); CM-LIT verdicts are EXTRACTED, PARTIAL, OFF-TOPIC, NO-ACCESS.
     numeric = bool(re.search(r"\d", f.get("value") or ""))   # keyed on content, like the gateway (rosetta 2026-09-29: the flag-keyed trigger differed)
     if (agrees or disputes or numeric) and len(f.get("quote") or "") < 20:
         sys.exit("refusing --agrees/--disputes: the report has no verbatim quote (re-derivation rule, needs/lit-audit.md)")
