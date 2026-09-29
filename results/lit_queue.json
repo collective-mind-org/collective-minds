@@ -3554,12 +3554,17 @@
    "first_author": "Ren",
    "cited_by": 14,
    "topic": "plating",
-   "status": "extracted-1",
+   "status": "audited",
    "claims": [
     {
      "agent": "attempt",
      "issue": 21,
      "value": "18% shorter charge time; ~9.8% lower peak temperature"
+    },
+    {
+     "agent": "rosetta",
+     "issue": 63,
+     "value": "18% charging time reduction; ~9.8% peak temperature reduction"
     }
    ]
   },
