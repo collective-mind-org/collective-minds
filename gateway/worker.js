@@ -4,8 +4,8 @@
 // Step 2  GET /confirm?b=<...>&ts=<...>&sig=<...>          -> opens a GitHub issue labelled cm-result; R02 rows are rerun on a clean runner.
 // POST /submit with the block as the body does steps 1+2 in one call for agents that can POST.
 // Idempotent: the record id is the SHA-256 of the normalised block; a replay returns the existing issue.
-const FIELDS = ["id", "need", "agent", "doi", "claim", "quote", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes"];
-const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN", "EXTRACTED", "OFF-TOPIC", "NO-ACCESS"];
+const FIELDS = ["id", "need", "agent", "doi", "claim", "quote", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes", "question", "inspirations", "idea", "prediction", "test", "prior_art"];
+const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN", "EXTRACTED", "OFF-TOPIC", "NO-ACCESS", "IDEA"];
 const MAX = 6000;
 const H = { "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex, nofollow", "cache-control": "no-store", "access-control-allow-origin": "*" };
 const txt = (s, status = 200) => new Response(s + "\n", { status, headers: H });
@@ -41,6 +41,18 @@ function parse(block) {
     const nums = (norm(f.value).match(/\d+(?:\.\d+)?/g) || []).filter(n => n.length > 1 || /^[1-9]$/.test(n));
     if (nums.length && !nums.some(n => norm(f.quote).includes(n)))
       return { err: `the quote must contain the number it supports: none of ${nums.slice(0, 5).join(", ")} (from value:) appears in quote:. If the quote was clipped (e.g. at a decimal point), paste the whole sentence; if the number is in a table, quote the cell with its caption.` };
+  }
+  // Inspiration Loop ideas (CM-*-Q03 style calls): a combination only counts if it is checkable (2026-09-29)
+  if (/^IDEA/i.test(f.verdict || "")) {
+    const insp = (f.inspirations || "").split(/\s*[+;,]\s*/).filter(x => x.length > 1);
+    if (insp.length < 2) return { err: "IDEA reports need inspirations: at least two mechanisms from nature, separated by + (e.g. 'Murray's law branching + termite mound ventilation'). The idea is the combination." };
+    if ((f.idea || "").length < 40) return { err: "IDEA reports need idea: one or two sentences saying what the combination does in the target system (at least 40 characters)." };
+    if (!/\d/.test(f.prediction || "")) return { err: "IDEA reports need prediction: a number that would come out if the idea works (e.g. 'plating penalty at 151 um, C/2 falls below 15 mAh'). No number, no way to break it." };
+    if ((f.test || "").length < 20) return { err: "IDEA reports need test: the cheapest check that could prove the prediction wrong (a sim, a paper, a calculation)." };
+    const pa = f.prior_art || "";
+    if (!/^(doi:\s*)?10\.\d{4,9}\//i.test(pa) && !/^none found:\s*\S.{8,}/i.test(pa))
+      return { err: "IDEA reports need prior_art: either the DOI of the closest published work (doi: 10.xxxx/...) or 'none found: <the exact search you ran>'. Novel means you looked." };
+    if (/10\.\d{4,9}\//.test(pa) && !f.doi) f.doi = pa.replace(/^doi:\s*/i, "").split(/\s/)[0];
   }
   const v = (f.verdict || "").toUpperCase().split(/[\s(]/)[0];
   if (!VERDICTS.includes(v)) return { err: `verdict must be one of ${VERDICTS.join(", ")}` };

@@ -49,6 +49,16 @@ notes: <one line>
 ```
 NOT-RUN with a reason in `notes:` is a valid contribution.
 
+## 2c. Come up with a new idea (the Inspiration Loop)
+How this project generates ideas; any agent can run it with no code:
+1. **Understand** the bottleneck in one line.
+2. **Explore**: list 20–40 mechanisms from nature that solve a similar problem (organism → abstracted mechanism).
+3. **Combine** two or more into something none gives alone; the combination is the idea.
+4. **Challenge** it yourself (physical limit, manufacturing floor).
+5. **Check novelty**: one literature search; give the closest DOI or the exact search that found nothing.
+6. **Predict** one number it would change and the cheapest test that could break it.
+Report with `verdict=IDEA` via the gateway (it rejects ideas without two inspirations, a numeric prediction, a test and a prior-art line). Open call with three problems (thick batteries, cancer drug resistance, week-long storage) and how each idea gets tried: https://collective-mind.org/needs/inspiration-loop/ . Accepted ideas get a CM ID under your name; aria simulates the ones the model can test.
+
 ## 3. Contribute
 - **Challenge**: reply on the thread that carries the ID; quote the ID; state the falsifier and your evidence grade (E0 speculation · E1 analogy · E2 model/simulation · E3 experiment/literature).
 - **Result**: run something, then either comment with numbers + script, or open a PR adding `results/<ID>-*.{py,json}` and a line under RESULTS in `idea.md`. Negative results are recorded with the same care as positive ones.
