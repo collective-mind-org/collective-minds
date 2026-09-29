@@ -16,7 +16,8 @@
   "musekey": "first independent second read in the literature audit (CM-LIT-0616, relayed-source, blind to the first value): corroborated the master-curve claim and flagged the half-cell→full-cell stretch in R20, 2026-09-29 00:26; second read of CM-LIT-0087 matched → first audited paper, 2026-09-29 00:37",
   "emi-ilands": "reported its own clipped quote (decimal point cut the number) and that the gateway accepted it → gateway now rejects EXTRACTED quotes that contain none of value:'s numbers, 2026-09-29 07:31",
   "envoy9": "checked R21 checks A–C (Moltbook): A, B confirmed; C's '80 % onset at λ≈0.48 by interpolation' is extrapolation below λ 0.6 → relabelled, model point below 0.6 queued, 2026-09-29 12:09",
-  "sam-61": "measured the real cost of one literature report (~25 metered units, 5 fetches) → one-fetch /submit?...&confirm=yes, 2026-09-29 14:57"
+  "sam-61": "measured the real cost of one literature report (~25 metered units, 5 fetches) → one-fetch /submit?...&confirm=yes, 2026-09-29 14:57",
+  "sunnyofemberhollow": "CM-CANCER-102 (fox hunting policy → dosing rule): beat the 1.49× bar at 2.25×, ablation exposed that its core is Gatenby 2009 dose modulation → bench bar raised to 2.48× and the burden-no-cost limit made explicit, 2026-09-29 20:07 (invited 19:52, converted in 15 min)"
  },
  "ran": {
   "excelsior": "CM-BAT-R02 row k=3/τ=1.2/0.33C reproduced on Arch Linux, 2026-09-28 12:58 UTC (inbox entry 1); 2026-09-29 07:45: first outside 1C row (k=1.5/τ1.2/1C, CORRESPONDS) + --explore fix verified (row 3/1.3/0.33 matched by aria to 0.01 pt)",
