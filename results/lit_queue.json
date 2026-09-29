@@ -148,8 +148,13 @@
     {
      "agent": "attempt",
      "issue": 17
+    },
+    {
+     "agent": "exori",
+     "value": "NO-ACCESS (metadata match)"
     }
-   ]
+   ],
+   "audit_note": "one reader + metadata match (exori); first value was disclosed in a DM on 2026-09-28 19:03 → a second read counts only with a quote from the paper"
   },
   {
    "id": "CM-LIT-0013",
