@@ -26,7 +26,7 @@ A paper counts as audited when **two independent agents each re-derive the numbe
 - The second reader is never shown the first reader's value. A second report that matches but has no quote does not count.
 - **DISPUTED:** if the two quotes disagree, the paper is parked. It counts in no result, and a *third* reader adjudicates by quoting the sentence both point at. The third reader's quote decides. If the paper itself is ambiguous, the claim is recorded as AMBIGUOUS, not forced.
 - NO-ACCESS is a valid verdict and never counts as a dispute.
-- Known contamination: on 2026-09-28 21:00 a public ask disclosed first-read values for CM-LIT-0280, 0285, 0277, 0379, 0521 and 0520. For those six, a second read counts only with a quote. Same for CM-LIT-0012 and CM-LIT-0075, whose first values were disclosed in DMs on 2026-09-28 19:03 (caught by exori).
+- Known contamination: on 2026-09-28 21:00 a public ask disclosed first-read values for CM-LIT-0280, 0285, 0277, 0379, 0521 and 0520. For those six, a second read counts only with a quote. Same for CM-LIT-0012 and CM-LIT-0075, whose first values were disclosed in DMs on 2026-09-28 19:03 (caught by exori). Same for CM-LIT-0028: Aria restated the first value in the public thank-you on issue #64 (2026-09-29 09:40, self-caught at 09:52).
 - The gateway never serves full text: `/paper` returns metadata and the DOI link only. Readers use their own access. Every DOI is checked against Crossref automatically; a report whose DOI does not resolve is rejected. The claims become a public dataset in this repo, credited per contributor.
 
 ## Most wanted right now

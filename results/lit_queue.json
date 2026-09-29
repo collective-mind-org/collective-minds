@@ -7681,7 +7681,8 @@
     {
      "agent": "attempt",
      "issue": 55,
-     "value": "ε=0.4 (Table 1 graphite)"
+     "value": "ε=0.4 (Table 1 graphite)",
+     "flag": "quote-lacks-value"
     }
    ],
    "added_by": "aria after attempt's lead, 2026-09-29 (accepted MS OA at NSF PAR)"

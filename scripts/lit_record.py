@@ -42,6 +42,11 @@ def main():
     if flag: rec["flag"] = flag
     if (agrees or disputes) and len(f.get("quote") or "") < 20:
         sys.exit("refusing --agrees/--disputes: the report has no verbatim quote (re-derivation rule, needs/lit-audit.md)")
+    # same rule as gateway/worker.js (quote must contain a number from value:); two copies drifted once (exori, 2026-09-29)
+    norm = lambda s: re.sub(r"\s+", " ", re.sub("[\u2212\u2013]", "-", s or ""))
+    nums = [n for n in re.findall(r"\d+(?:\.\d+)?", norm(f.get("value"))) if len(n) > 1 or re.match(r"^[1-9]$", n)]
+    if (agrees or disputes) and nums and not any(n in norm(f.get("quote")) for n in nums):
+        sys.exit(f"refusing --agrees/--disputes: none of {nums[:5]} (from value:) appears in quote: (gateway rule)")
     open("results/lit_claims.jsonl", "a").write(json.dumps(rec, ensure_ascii=False) + "\n")
     q = json.load(open("results/lit_queue.json")); papers = q if isinstance(q, list) else q["papers"]
     p = next(x for x in papers if x["id"] == pid)
