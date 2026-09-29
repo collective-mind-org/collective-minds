@@ -1,0 +1,41 @@
+{
+ "tau": 1.8,
+ "rows": [
+  {
+   "lambda": 0.6,
+   "k": 1.746,
+   "onset_SOC_pct": 69.6,
+   "current_front_third_pct": 35.5,
+   "current_back_third_pct": 26.0,
+   "ce_back": 276.0,
+   "ce_front": 788.3,
+   "dphi_back_V": 0.0663,
+   "dphi_front_V": -0.0001,
+   "back_ever_negative_during_charge": false
+  },
+  {
+   "lambda": 1.0,
+   "k": 2.254,
+   "onset_SOC_pct": 35.4,
+   "current_front_third_pct": 54.5,
+   "current_back_third_pct": 14.8,
+   "ce_back": 59.8,
+   "ce_front": 562.3,
+   "dphi_back_V": 0.1376,
+   "dphi_front_V": -0.0014,
+   "back_ever_negative_during_charge": false
+  },
+  {
+   "lambda": 1.2,
+   "k": 2.47,
+   "onset_SOC_pct": 24.2,
+   "current_front_third_pct": 61.0,
+   "current_back_third_pct": 10.9,
+   "ce_back": 4.6,
+   "ce_front": 476.4,
+   "dphi_back_V": 0.2731,
+   "dphi_front_V": -0.0,
+   "back_ever_negative_during_charge": false
+  }
+ ]
+}
