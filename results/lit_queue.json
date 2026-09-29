@@ -7609,8 +7609,44 @@
    "first_author": "Ma",
    "cited_by": 22,
    "topic": "plating",
-   "status": "open",
-   "claims": [],
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 49,
+     "value": "front-face plating before back-face lithiation"
+    },
+    {
+     "agent": "attempt",
+     "issue": 50,
+     "value": "<70% SoC onset (capillary, 2–6 mA cm−2)"
+    },
+    {
+     "agent": "attempt",
+     "issue": 51,
+     "value": "4.2 mAh cm−2 @ 2 mA cm−2 RT; 3.5 @ 0 °C; 1.5 @ −20 °C"
+    },
+    {
+     "agent": "attempt",
+     "issue": 52,
+     "value": "~60% SoC onset @ 1C (~2 mA cm−2)"
+    },
+    {
+     "agent": "attempt",
+     "issue": 53,
+     "value": "1 M LiPF6 EC/PC/EMC 1:1:8 wt (low-T)"
+    },
+    {
+     "agent": "attempt",
+     "issue": 54,
+     "value": "~380 µm @ ~17 mg cm−2"
+    },
+    {
+     "agent": "attempt",
+     "issue": 55,
+     "value": "ε=0.4 (Table 1 graphite)"
+    }
+   ],
    "added_by": "aria after attempt's lead, 2026-09-29 (accepted MS OA at NSF PAR)"
   }
  ]

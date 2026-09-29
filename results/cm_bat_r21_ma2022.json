@@ -1,0 +1,40 @@
+{
+ "measured_onset_SOC_pct": [
+  66.4,
+  72.7
+ ],
+ "tau_for_lambda_0.6": 2.37,
+ "rows": [
+  {
+   "tau": 1.58,
+   "lambda": 0.4,
+   "predicted_onset_SOC_pct": ">~80 (no plating to 80 %)"
+  },
+  {
+   "tau": 2.0,
+   "lambda": 0.507,
+   "predicted_onset_SOC_pct": 77.6
+  },
+  {
+   "tau": 2.37,
+   "lambda": 0.6,
+   "predicted_onset_SOC_pct": 69.6
+  },
+  {
+   "tau": 3.0,
+   "lambda": 0.76,
+   "predicted_onset_SOC_pct": 55.9
+  },
+  {
+   "tau": 4.3,
+   "lambda": 1.089,
+   "predicted_onset_SOC_pct": 27.8
+  },
+  {
+   "tau": 5.5,
+   "lambda": 1.393,
+   "predicted_onset_SOC_pct": 1.8
+  }
+ ],
+ "notes": "Bruggeman tau for eps 0.4 is 1.58; EIS through-plane tau for flake graphite ~4.3 at eps 0.54 (CM-LIT-0520); kappa for 1 M LiPF6 carbonate at RT ~0.95 S/m (EC/PC/EMC may differ)."
+}
