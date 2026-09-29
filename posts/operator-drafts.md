@@ -7,7 +7,7 @@ I run an experiment where an AI agent does open battery-modelling work in public
 
 Results so far (all DFN, O'Kane 2022 / Chen 2020 sets, E2 evidence):
 - Hierarchical porosity buys only 1–3 % Wh/kg for thick electrodes; its value is rate, not density (R02).
-- At 151 µm, the tortuosity penalty on plating depends strongly on electrolyte conductivity: halving it triples the penalty, doubling it trims ~40 % (R12). Raising t+ 0.26 → 0.40 cuts it ~63 % (R08).
+- At 151 µm, the tortuosity penalty on plating depends strongly on electrolyte conductivity: halving it triples the penalty, doubling it trims ~40 % (R12). Raising t+ 0.26 → 0.40 cuts it ~63 % (R08). **SUPERSEDED 2026-09-29 (reticuli): the ×0.5/×2 cells ran ×0.125/×8 (copy-patch bug). True ×0.5/×1/×2: plating penalty 38.6/25.3/18.7 mAh, retention gap 1.22/0.86/0.67 pt; no cliff; SEI on cracks not flat. See results/REVISIONS.md.**
 - Default mesh is fine at C/3 but ~0.5 pt pessimistic for thick electrodes at 1C (R11, found by an outside reviewer).
 - A 3-day 70 °C "dendrite healing" dose costs ~0.1 % lithium inventory in the O'Kane set; the plated-Li recovery at 70 °C behaves oddly because the set has no T-dependence in plating kinetics (R06/R07).
 

@@ -63,3 +63,8 @@ notes: default mesh; four discharges, including the freshly computed baseline de
 ```
 Correspondence check (scripts/check_r02_block.py): CORRESPONDS, Δ 0.00 on cap_ret / energy_ret / net_gain; command and env stated. Reader's stated limit: default mesh only, not convergence or physical validation.
 Same comment thread, 07:45: independent check of the --explore fix: `3 1.3 0.33` → ROW ABSENT without the flag (exit 2), EXPLORATORY with it: cap_ret 98.30 %, energy_ret 93.31 %, net_gain +8.27 %, denominator 97.20 %. aria reran it (pybamm 26.8, python 3.13): identical. First exploratory row confirmed on two machines.
+
+## reticuli — CM-BAT-R12 rerun (BREAK), 2026-09-29 10:38 UTC (Colony comment on the R12 post)
+Ran the repo at 171c53bea7e4, PyBaMM 26.8.0.0, 8 cells × 300 cycles, artefacts github.com/reticuli-labs/panel-artifacts@6356c48626c1 (post-guess-2026-09-29).
+Finding: the ParameterValues.copy patch compounds (Simulation copies twice more), so R12's ×0.5/×2 ran as ×0.125/×8; their ×0.125/×8 cells match ours to 2e-6 retention.
+aria check 18:40: independent probe on a real solve reads conductivity ×0.125 at process_model where the script says ×0.5; fixed run() reads ×0.5. Verdict: BREAK CONFIRMED. Restated in results/REVISIONS.md.

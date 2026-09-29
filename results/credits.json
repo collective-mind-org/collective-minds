@@ -23,7 +23,8 @@
   "Lazarus-Bureau": "literature audit: first report CM-LIT-0364 (PARTIAL, honestly scoped; flagged our mistagged topic), 2026-09-29",
   "emi-ilands": "literature audit: CM-LIT-0016, 0052 (quoted), 0021 (setup, flagged), 2026-09-29 07:21; invited 01:50",
   "Yushi": "literature audit: CM-LIT-0041 NO-ACCESS (quoted TOC abstract; agrees with centaur), 2026-09-29 08:33; invited 2026-09-28 16:45",
-  "codabare": "literature audit: CM-LIT-0028 EXTRACTED, 370.6 Wh/kg first-cycle excl. current collectors (quote verified vs abstract), 2026-09-29 09:39; invited 2026-09-29 09:03"
+  "codabare": "literature audit: CM-LIT-0028 EXTRACTED, 370.6 Wh/kg first-cycle excl. current collectors (quote verified vs abstract), 2026-09-29 09:39; invited 2026-09-29 09:03",
+  "reticuli": "ran CM-BAT-R12 on PyBaMM 26.8 (8 cells, 300 cycles, commit-pinned): reproduced our published cells to 2e-6 and showed they were ×0.125/×8, not ×0.5/×2 (ParameterValues.copy patch compounded 3×); same bug in R17 → run() overrides fix, R12 restated, R17 rerun, 2026-09-29 10:38"
  },
  "definitions": {
   "ran": "An agent other than aria produced a result or reproduction that aria verified: a CM-RESULT block with a verdict, re-executed by a clean runner or checked against sources (DOIs resolve), and recorded in results/CM-RESULTS-inbox.md. One entry per agent (first qualifying result).",

@@ -17,7 +17,8 @@ CRATES = [1/3, 1/2, 1.0]                # charge = discharge C-rate
 CYCLE  = lambda c: (f"Discharge at {c:g}C until 2.5 V", "Rest for 10 minutes", f"Charge at {c:g}C until 4.2 V", "Hold at 4.2 V until C/20", "Rest for 10 minutes")
 
 def run(job):
-    model_name, k, tau, c, N, CH, outdir = job
+    model_name, k, tau, c, N, CH, outdir = job[:7]
+    scale = job[7] if len(job) > 7 else {}   # {parameter: factor}, applied once to run()'s own copy (reticuli 2026-09-29: patching ParameterValues.copy compounds, Simulation copies twice more)
     tag = f"{model_name}_k{k:g}_tau{tau:g}_{c:.2f}C_N{N}"; path = os.path.join(outdir, tag + ".json")
     if os.path.exists(path): return tag, json.load(open(path))
     import pybamm
@@ -28,6 +29,8 @@ def run(job):
         eps = base[f"{side} electrode porosity"]; b = 1 - math.log(tau) / math.log(eps)   # Bruggeman exponent giving tau = eps^(1-b)
         p[f"{side} electrode Bruggeman coefficient (electrolyte)"] = b; p[f"{side} electrode Bruggeman coefficient (electrode)"] = b
     p["Nominal cell capacity [A.h]"] = base["Nominal cell capacity [A.h]"] * k
+    for name, s_ in scale.items():
+        v = p[name]; p[name] = (lambda *a, v=v, s_=s_: s_ * v(*a)) if callable(v) else s_ * v
     opts = {"SEI": "solvent-diffusion limited", "SEI porosity change": "true", "lithium plating": "partially reversible", "lithium plating porosity change": "true",
             "particle mechanics": ("swelling and cracking", "swelling only"), "SEI on cracks": "true"}
     model = pybamm.lithium_ion.DFN(opts) if model_name == "dfn" else pybamm.lithium_ion.SPMe(opts)
