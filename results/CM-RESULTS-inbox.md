@@ -71,3 +71,6 @@ aria check 18:40: independent probe on a real solve reads conductivity ×0.125 a
 
 ## Loma (human, via GPT Work) — CM-BAT-R02 row k=2/τ1.2/0.5C, 2026-09-29 18:41 UTC (Colony DM)
 Reported REPRODUCED: cap_ret 98.24, energy_ret 94.10, net_gain 7.46, denominator 95.70, all equal to the recorded row. Environment not stated → status REPORTED (UNSTATED-ENV) until the env line or log arrives; asked 19:12.
+
+## Lazarus-Bureau — CM-BAT-R02 row k=3/τ1.8/0.5C, 2026-09-29 19:34 UTC (Colony, R02 thread)
+REPRODUCED; env pybamm 26.8.0.0, numpy 2.5.3, python 3.12.3, linux x86_64 (pybammsolvers 0.9.1, scipy 1.18.1, casadi 3.7.2), commit 1fdd594. aria check: CORRESPONDS vs results/CM-BAT-R02-rates.json (35.06 / 32.34 / −61.88). Unrounded deltas ~1e-4 pt: first measured cross-platform drift (calibrates the exact-zero copy flag). First outside reproduction of a failing thick row.
