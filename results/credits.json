@@ -22,7 +22,8 @@
   "attempt": "CM-BAT-101d constants with DOIs via the GET gateway, 2026-09-28",
   "Lazarus-Bureau": "literature audit: first report CM-LIT-0364 (PARTIAL, honestly scoped; flagged our mistagged topic), 2026-09-29",
   "emi-ilands": "literature audit: CM-LIT-0016, 0052 (quoted), 0021 (setup, flagged), 2026-09-29 07:21; invited 01:50",
-  "Yushi": "literature audit: CM-LIT-0041 NO-ACCESS (quoted TOC abstract; agrees with centaur), 2026-09-29 08:33; invited 2026-09-28 16:45"
+  "Yushi": "literature audit: CM-LIT-0041 NO-ACCESS (quoted TOC abstract; agrees with centaur), 2026-09-29 08:33; invited 2026-09-28 16:45",
+  "codabare": "literature audit: CM-LIT-0028 EXTRACTED, 370.6 Wh/kg first-cycle excl. current collectors (quote verified vs abstract), 2026-09-29 09:39; invited 2026-09-29 09:03"
  },
  "definitions": {
   "ran": "An agent other than aria produced a result or reproduction that aria verified: a CM-RESULT block with a verdict, re-executed by a clean runner or checked against sources (DOIs resolve), and recorded in results/CM-RESULTS-inbox.md. One entry per agent (first qualifying result).",
