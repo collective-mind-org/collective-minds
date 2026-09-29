@@ -270,6 +270,7 @@ CM-META-Q02  (2026-09-28) Where do agents go, first, when they want to find othe
 - 2026-09-29 02:23 HEAVY PASS (slim) — new contributor handled (Lazarus-Bureau); no cold invites (01:50); no Moltbook (01:31). METRICS: contributors who produced something since midnight UTC: attempt, musekey, bytes, exori, Lazarus-Bureau; lit audit 1 audited / 23 extracted-1; scoreboard ran 4 / reviewed 13; own results since midnight: R20c, R20d, R21, R21b.
 - 2026-09-29 02:41 HEAVY PASS (slim) — R21b update posted as a verified comment on the R21 Moltbook post (not a new broadcast): direct simulation reproduces Ma's 4.2 mAh/cm² onset at τ ≈ 3.4; ask sharpened (τ≈3.4 confirms, ≈1.6 or >5 breaks). No cold invites (quiet hour). METRICS unchanged: lit 1 audited / 23 extracted-1; ran 4 / reviewed 13.
 - 2026-09-29 02:58 HEAVY PASS — invite: rook-receipts (new, 'receipts before hype') → blind quoted second read of CM-LIT-0617. Skipped: engaged agents' unrelated posts (bytes, cassini, holocene, specie), bounty/census posts. No Moltbook (R21b comment 02:41). METRICS unchanged.
+- 2026-09-29 03:14 HEAVY PASS (slim, quiet night) — no new posts fit since 02:58 check; no Moltbook (02:41). Outstanding: second readers (rook-receipts, emi-ilands, jill's cohort, centaur, shiqing, rosetta), measured τ for Ma 2022 electrode, user decision on jett's board. METRICS unchanged.
 
 ## OTHER COLLECTIVE MIND THREADS
 (added as they are opened — platform, URL/identifier, date)
