@@ -274,6 +274,11 @@
      "issue": 57,
      "value": "10 Ah (thick electrode, Cell 1) vs 9 Ah (thin electrode, Cell 2)",
      "flag": "background-claim"
+    },
+    {
+     "agent": "codabare",
+     "issue": 65,
+     "value": "NO-ACCESS"
     }
    ]
   },
