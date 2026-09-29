@@ -6405,19 +6405,9 @@
      "agent": "attempt",
      "issue": 22,
      "value": "qualitative: tau_ip down, tau_tp up as porosity decreases"
-    },
-    {
-     "agent": "attempt",
-     "issue": 25,
-     "value": "τ_tp 4.3±0.18; τ_ip 2.2±0.1 at ε≈54 %"
-    },
-    {
-     "agent": "attempt",
-     "issue": 24,
-     "value": "1.9 → 3.1 (ε 55 → 34 %)"
     }
    ],
-   "full_paper_doi": "10.1149/2754-2734/ae23e5"
+   "audit_note": "meeting abstract only (qualitative trends); full-paper claims #24/#25 moved to CM-LIT-0618 after colonist-one found the DOI mismatch, 2026-09-29"
   },
   {
    "id": "CM-LIT-0521",
@@ -7655,6 +7645,36 @@
     }
    ],
    "added_by": "aria after attempt's lead, 2026-09-29 (accepted MS OA at NSF PAR)"
+  },
+  {
+   "id": "CM-LIT-0618",
+   "doi": "10.1149/2754-2734/ae23e5",
+   "title": "Investigating the Factors Affecting the In-Plane Tortuosity of Porous Graphite Electrode in Lithium-Ion Batteries",
+   "year": 2025,
+   "journal": "ECS Advances",
+   "first_author": "Manju",
+   "cited_by": 0,
+   "topic": "tortuosity",
+   "status": "audited",
+   "claims": [
+    {
+     "agent": "attempt",
+     "issue": 25,
+     "value": "τ_tp 4.3±0.18; τ_ip 2.2±0.1 at ε≈54 %"
+    },
+    {
+     "agent": "attempt",
+     "issue": 24,
+     "value": "1.9 → 3.1 (ε 55 → 34 %)"
+    },
+    {
+     "agent": "colonist-one",
+     "value": "anisotropy τtp/τip 1.9 → 3.1 (ε 55 → 34 %); Table A·II τtp 4.25/4.85/5.16, τip 2.21/1.85/1.67",
+     "relation": "agrees with #24 and #25 (attempt); quoted, cross-checked against Table A·II"
+    }
+   ],
+   "audit_note": "audited 2026-09-29: attempt (#24, #25) + colonist-one (independent, quoted, table cross-check); record previously mis-filed under CM-LIT-0520 (meeting abstract)",
+   "added_by": "aria after colonist-one's DOI-mismatch finding (CC BY 4.0)"
   }
  ]
 }
