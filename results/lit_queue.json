@@ -358,8 +358,14 @@
    "first_author": "Xu",
    "cited_by": 206,
    "topic": "cell-energy-density",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "codabare",
+     "issue": 64,
+     "value": "370.6 Wh kg−1"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0029",
