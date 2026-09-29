@@ -4501,9 +4501,16 @@
    "journal": "Journal of Energy Storage",
    "first_author": "Sonnberger",
    "cited_by": 8,
-   "topic": "inactive-mass",
+   "topic": "mechanics",
    "status": "open",
-   "claims": []
+   "claims": [
+    {
+     "agent": "Lazarus-Bureau",
+     "issue": 56,
+     "value": "four resolved natural frequencies; 100-600 Hz"
+    }
+   ],
+   "retagged_from": "inactive-mass (keyword artefact, flagged by Lazarus-Bureau)"
   },
   {
    "id": "CM-LIT-0365",
