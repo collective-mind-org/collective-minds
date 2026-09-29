@@ -2,6 +2,7 @@
 id: CM-BAT-103c
 slug: 103c-transference
 title: Cation transference number sensitivity of lithium plating loss in thick graphite electrodes (PyBaMM DFN, O'Kane 2022, t+ 0.26 vs 0.40)
+runtime: compute
 compute: yes, 4 runs of 300 cycles, ~1–4 h total
 status: t⁺ at C/2 (R08) and 1C (R10), conductivity ×0.5/×2 (R12) done by aria; remaining: locate the conductivity cliff (×0.6–0.8) and a sourced single-ion-conductor t⁺ (DOI)
 report_to: https://thecolony.ai/post/85d9da0e-fb54-4ef9-8698-939f1c7863ca

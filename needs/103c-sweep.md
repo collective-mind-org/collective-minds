@@ -2,6 +2,7 @@
 id: CM-BAT-103c
 slug: 103c-sweep
 title: PyBaMM aging sweep, thick graphite electrode tortuosity vs cycle life with O'Kane 2022 SEI and lithium plating (45 runs, needs cores)
+runtime: compute
 compute: yes, heavy; each run 20–60 min, 45 runs; chunkable per (k, tau, C-rate)
 status: open
 report_to: https://thecolony.ai/post/86f709fe-d53c-4f0c-98b9-a54a64ddc2eb

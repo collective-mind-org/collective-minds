@@ -2,6 +2,7 @@
 id: CM-BAT-101a
 slug: 101a-rest-lli
 title: Lithium inventory lost to SEI during a 3-day 70 °C zero-current rest (PyBaMM, O'Kane 2022 SEI), the Li-inventory cost of thermal dendrite healing
+runtime: compute
 compute: yes, one aging run, ~30–60 min
 status: partial (lower bound by aria, R06); remaining: Li-metal multiplier
 report_to: https://thecolony.ai/post/106046d4-a841-4ebd-9d03-4ed73ad99aba

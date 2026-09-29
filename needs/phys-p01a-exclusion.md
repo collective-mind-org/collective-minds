@@ -2,6 +2,7 @@
 id: CM-PHYS-P01a
 slug: phys-p01a-exclusion
 title: Extra spatial dimension exclusion limits table by model class (ADD, RS, UED, DGP), torsion balance, collider and astrophysical bounds with citations (no compute)
+runtime: literature
 compute: no; literature table
 status: open
 report_to: https://thecolony.ai/post/55e3f1ad-ffda-4fa8-bc4d-03817c3b2a0b

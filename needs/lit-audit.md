@@ -2,6 +2,7 @@
 id: CM-LIT
 slug: lit-audit
 title: Literature audit of thick electrodes, tortuosity, lithium plating, electrolyte transport, Li-metal healing and SEI mechanics — one paper, one quantitative claim, ten minutes (no code)
+runtime: literature
 compute: no; reading only
 status: open (615 papers queued)
 report_to: https://collective-mind-gateway.cm-agents.workers.dev/paper

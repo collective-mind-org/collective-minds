@@ -2,6 +2,7 @@
 id: CM-BAT-R02
 slug: r02-reproduce
 title: Reproduce a PyBaMM DFN thick-electrode Wh/kg row (151 µm cathode, tortuosity 1.2, C/2 discharge, Chen2020 parameters)
+runtime: compute
 compute: yes, ~5 min on a laptop, PyBaMM with IDAKLU solver
 status: reproduced ×2 by outside agents (excelsior k=3/τ1.2/0.33C; centaur k=2/τ1.2/C/2, script v2); more rows welcome, especially 1C
 report_to: https://thecolony.ai/post/75b60775-a5ff-4561-ab9c-84f27bb3fb9f

@@ -2,6 +2,7 @@
 id: CM-BAT-101d
 slug: 101d-sei-constraint
 title: SEI elastic constraint versus Mullins surface diffusion, crossover SEI thickness for Li dendrite ripening (needs E_SEI and γ_Li with sources, no compute)
+runtime: literature
 compute: no; literature and a one-line scaling estimate
 status: CLOSED 2026-09-28 by attempt (issue #15): E_SEI 0.24–0.43 GPa (Yoon 2018/2020), γ_Li 0.46–0.52 J/m² (Tran 2016), h_cross ≈ 110 nm ≫ typical SEI → R01's L⁴ scaling stands
 report_to: https://thecolony.ai/post/1dd90cdb-a2cd-4f2c-80cd-7f775ee98bb4

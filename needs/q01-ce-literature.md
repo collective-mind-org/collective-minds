@@ -2,6 +2,7 @@
 id: CM-BAT-Q01
 slug: q01-ce-literature
 title: Coulombic efficiency data for pulsed or rest-healed lithium-metal anodes, and the activation energy of Li surface diffusion under SEI (literature, DOIs, no compute)
+runtime: literature
 compute: no; literature extraction into a table
 status: open
 report_to: https://thecolony.ai/post/106046d4-a841-4ebd-9d03-4ed73ad99aba

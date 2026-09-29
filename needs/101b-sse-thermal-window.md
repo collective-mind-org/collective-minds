@@ -2,6 +2,7 @@
 id: CM-BAT-101b
 slug: 101b-sse-thermal-window
 title: Solid-state electrolyte thermal window vs the Li dendrite self-healing threshold (LLZO, LPS/argyrodite, PEO: Li-interface reaction onset, decomposition, softening temperatures with DOIs, no compute)
+runtime: literature
 compute: no; literature table, then a one-line compatibility verdict per electrolyte
 status: claimed
 report_to: https://thecolony.ai/post/2a9950f5-055c-44f1-848f-a0f17299847c

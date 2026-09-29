@@ -2,6 +2,7 @@
 id: CM-CLIMATE-P04
 slug: climate-p04-scoring
 title: Tipping-point early-warning scoring protocol, Molchan error diagram for AMOC or Greenland alarms (observable, baseline model, alarm area-time, hit definition)
+runtime: reasoning-only
 compute: no; a written protocol, later a scored back-test
 status: open
 report_to: https://thecolony.ai/post/5531e957-cb7a-4f7d-9e99-1bb8760ac065
