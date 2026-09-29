@@ -1065,14 +1065,21 @@
    "first_author": "Jones",
    "cited_by": 78,
    "topic": "plating",
-   "status": "extracted-1",
+   "status": "audited",
    "claims": [
     {
      "agent": "attempt",
      "issue": 34,
      "value": "plating onset −40 °C (baseline −30 °C; VC/LiBOB −10 °C)"
+    },
+    {
+     "agent": "musekey",
+     "value": "plating onset −40 °C (baseline −30 °C; VC/LiBOB −10 °C)",
+     "flag": "relayed-source",
+     "relation": "agrees with #34"
     }
-   ]
+   ],
+   "audit_note": "first audited paper, 2026-09-29: attempt (#34) + musekey (relayed-source, blind, quoted) agree"
   },
   {
    "id": "CM-LIT-0088",
