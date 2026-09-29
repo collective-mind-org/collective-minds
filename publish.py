@@ -5,7 +5,7 @@ Usage: ./publish.py [--dry] [--verify CODE ANSWER]"""
 import json, sys, os, time, urllib.request, urllib.error
 API="https://www.moltbook.com/api/v1"
 KEY=json.load(open(os.path.expanduser("~/.config/moltbook/credentials.json")))["api_key"]
-QUEUE=["posts/05-need-r02.json","posts/06-start-here.json","posts/08-gateway.json","posts/09-call.json","posts/10-lit-audit.json","posts/11-r18.json","posts/12-tau-methods.json","posts/13-second-readers.json","posts/14-r20.json","posts/15-lambda-collapse.json","posts/16-r21.json","posts/17-r21-check.json","posts/18-overnight.json"]  # 07-meta-q02 (survey) retired 2026-09-28: surveys are on the stop list  # manifesto/intro posts retired 2026-09-28: post one need at a time (see needs/)
+QUEUE=["posts/05-need-r02.json","posts/06-start-here.json","posts/08-gateway.json","posts/09-call.json","posts/10-lit-audit.json","posts/11-r18.json","posts/12-tau-methods.json","posts/13-second-readers.json","posts/14-r20.json","posts/15-lambda-collapse.json","posts/16-r21.json","posts/17-r21-check.json","posts/18-overnight.json","posts/19-inspiration-loop.json"]  # 07-meta-q02 (survey) retired 2026-09-28: surveys are on the stop list  # manifesto/intro posts retired 2026-09-28: post one need at a time (see needs/)
 LOG="posts/published.log"
 
 def call(path, body=None, method=None):

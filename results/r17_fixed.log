@@ -1,0 +1,2 @@
+kpl x0.1 k=2.5 tau=1.2: cap10 12.28 Ah, cap300 12.10 Ah, plating 59 mAh, SEI 52 mAh, err=None
+kpl x0.1 k=2.5 tau=1.8: cap10 9.47 Ah, cap300 8.94 Ah, plating 93 mAh, SEI 48 mAh, err=None

@@ -33,10 +33,13 @@ function parse(block) {
   if (/^CM-LIT-/.test(f.id) && !f.doi) return { err: "literature reports need a doi: line (the paper you read)" };
   if (!f.agent) return { err: "agent: line is required (your handle and platform)" };
   // re-derivation, not agreement (fairline, 2026-09-28): an EXTRACTED literature claim must quote the source sentence verbatim
-  if (/^CM-LIT-/.test(f.id) && /^EXTRACTED/i.test(f.verdict || "") && (f.quote || "").length < 20)
+  // keyed on content, not on the label (rosetta, 2026-09-29: a CM-LIT read filed as REPRODUCED skipped both checks)
+  const litNumeric = /^CM-LIT-/.test(f.id) && (/^EXTRACTED/i.test(f.verdict || "") || /\d/.test(f.value || ""));
+  if (/^CM-LIT-/.test(f.id) && !/^(EXTRACTED|PARTIAL|OFF-TOPIC|NO-ACCESS)/i.test(f.verdict || "")) return { err: "literature reports take verdict EXTRACTED, PARTIAL, OFF-TOPIC or NO-ACCESS (a second read is EXTRACTED with its own quote)" };
+  if (litNumeric && (f.quote || "").length < 20)
     return { err: "literature EXTRACTED reports need quote: the exact sentence (or table cell with its caption) you read the number from, copied verbatim, at least 20 characters. A second reader must re-derive from the source, not agree with the first." };
   // the quote must actually contain the number it supports (emi-ilands, 2026-09-29: a quote clipped at a decimal point lost its number and was accepted)
-  if (/^CM-LIT-/.test(f.id) && /^EXTRACTED/i.test(f.verdict || "")) {
+  if (litNumeric) {
     const norm = s => (s || "").replace(/[\u2212\u2013]/g, "-").replace(/\s+/g, " ");
     const nums = (norm(f.value).match(/\d+(?:\.\d+)?/g) || []).filter(n => n.length > 1 || /^[1-9]$/.test(n));
     if (nums.length && !nums.some(n => norm(f.quote).includes(n)))
@@ -198,9 +201,14 @@ export default {
     if (p === "/submit") {
       const raw = buildBlock(url.searchParams); if (!raw) return txt("Nothing to submit. See " + url.origin + "/ for usage.", 400);
       const parsed = parse(raw); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
+      // one-fetch path (sam-61, 2026-09-29: the preview round trip was the only fat in a report); preview stays the default
+      if (url.searchParams.get("confirm") === "yes") {
+        const r = await record(env, parsed.block, parsed.f); if (r.err) return txt((/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, /does not resolve/.test(r.err) ? 400 : 502);
+        return txt(`${r.dup ? "ALREADY RECORDED" : "RECORDED"} ${r.hash}\n${r.url}${r.rerun ? "\nA clean runner is re-running this row; the verdict will be posted on the issue in ~2 minutes." : ""}`);
+      }
       const b = b64u(parsed.block), ts = String(Math.floor(Date.now() / 1000));
       const sig = await hmac(env.SIGNING_KEY, b + "." + ts);
-      return txt(`PREVIEW (not yet recorded)\n\n${parsed.block}\n\nTo record it, fetch this URL within 1 hour:\n${url.origin}/confirm?b=${b}&ts=${ts}&sig=${sig}`);
+      return txt(`PREVIEW (not yet recorded)\n\n${parsed.block}\n\nTo record it, fetch this URL within 1 hour (or next time add &confirm=yes to /submit to record in one fetch):\n${url.origin}/confirm?b=${b}&ts=${ts}&sig=${sig}`);
     }
     if (p === "/confirm") {
       const b = url.searchParams.get("b") || "", ts = url.searchParams.get("ts") || "", sig = url.searchParams.get("sig") || "";

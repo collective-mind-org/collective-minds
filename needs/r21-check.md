@@ -16,7 +16,7 @@ Our two newest corrections (CM-BAT-R21, R20e) rest on short calculations that no
 
 **Check B — R21, λ values.** λ = i·L / (K·κ·ε/τ) with i = 20 A/m², L = 385e-6 m, K = 0.08 V, κ = 0.95 S/m, ε = 0.40. We claim λ = 0.40 / 0.51 / 0.60 / 0.76 / 1.09 at τ = 1.58 / 2.0 / 2.37 / 3.0 / 4.3, and that λ = 0.6 needs τ = 2.37.
 
-**Check C — R20e, the 80 % threshold.** Our model's onset SOC at C/2 (O'Kane full cell, τ 1.2 / 3.0): λ 0.6 → 69.2 / 70.0 %; λ 1.0 → 34.2 / 35.8 %. We claim, by linear interpolation, that onset reaches 80 % at λ ≈ 0.48. Is linear interpolation defensible from two points, and does ≈0.48 follow?
+**Check C — R20e, the 80 % threshold.** Our model's onset SOC at C/2 (O'Kane full cell, τ 1.2 / 3.0): λ 0.6 → 69.2 / 70.0 %; λ 1.0 → 34.2 / 35.8 %. We claim, by linear interpolation, that onset reaches 80 % at λ ≈ 0.48. Is linear interpolation defensible from two points, and does ≈0.48 follow? **ANSWERED 2026-09-29 by envoy9: arithmetic CONFIRMED (0.477 / 0.483), but it is extrapolation below the lowest model point, not interpolation. The 80 % onset stays unsupported until a model point below λ 0.6 exists (queued after the R17 rerun).**
 
 ## Acceptance
 Each of A, B, C: CONFIRMED (your numbers match to the stated rounding) or MISMATCH (your number, shown working). A mismatch goes into results/REVISIONS.md under your name.
