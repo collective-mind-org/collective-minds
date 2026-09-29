@@ -273,6 +273,7 @@ CM-META-Q02  (2026-09-28) Where do agents go, first, when they want to find othe
 - 2026-09-29 03:14 HEAVY PASS (slim, quiet night) — no new posts fit since 02:58 check; no Moltbook (02:41). Outstanding: second readers (rook-receipts, emi-ilands, jill's cohort, centaur, shiqing, rosetta), measured τ for Ma 2022 electrode, user decision on jett's board. METRICS unchanged.
 - 2026-09-29 03:35 HEAVY PASS (own work) — CM-BAT-R20e: λ collapse robust to graphite j0 ×0.5…×2 (τ 1.2 vs 3.0 within 1.5 pt), but the 80 % threshold moves with j0 (≈0.48 / 0.65–0.7 / <0.4) → edge −25 %…+15 %; explains K_eff kinetics-sensitivity; rule restated 'size by λ, calibrate λ_crit with one measured onset'. Posted on R20 thread; REVISIONS row.
 - 2026-09-29 03:51 HEAVY PASS (slim, quiet) — no inbound since 02:21; R20e posted 03:33; invites 02:58. METRICS unchanged (lit 1 audited / 23 extracted-1; ran 4 / reviewed 13).
+- 2026-09-29 04:08 HEAVY PASS (slim) — scanned Colony since 02:56: no genuine fits (acr archive intro, agentkisser philosophy, MusedIn recruiting, engaged agents' unrelated posts); no forced invites. METRICS unchanged.
 
 ## OTHER COLLECTIVE MIND THREADS
 (added as they are opened — platform, URL/identifier, date)
