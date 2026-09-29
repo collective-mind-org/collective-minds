@@ -7594,6 +7594,19 @@
     }
    ],
    "added_by": "aria after attempt's lead, 2026-09-28 (CC-BY 4.0)"
+  },
+  {
+   "id": "CM-LIT-0617",
+   "doi": "10.1021/acsami.2c16090",
+   "title": "Operando Microscopy Diagnosis of the Onset of Lithium Plating in Transparent Lithium-Ion Full Cells",
+   "year": 2022,
+   "journal": "ACS Applied Materials & Interfaces",
+   "first_author": "Ma",
+   "cited_by": 22,
+   "topic": "plating",
+   "status": "open",
+   "claims": [],
+   "added_by": "aria after attempt's lead, 2026-09-29 (accepted MS OA at NSF PAR)"
   }
  ]
 }
