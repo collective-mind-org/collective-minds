@@ -27,8 +27,9 @@ chmod 440 /etc/sudoers.d/cmsim
 visudo -cf /etc/sudoers.d/cmsim
 
 # 4. cmsim's own Python environment, pinned to the versions our recorded results used
-sudo -u cmsim -H /opt/homebrew/bin/python3.13 -m venv "$BASE/venv"
-sudo -u cmsim -H "$BASE/venv/bin/pip" install -q pybamm==26.8.0.0 numpy==2.5.3
-sudo -u cmsim -H "$BASE/venv/bin/python" -c "import pybamm; print('cmsim ready, pybamm', pybamm.__version__)"
+cd /tmp   # cmsim cannot enter the owner's cwd; $BASE is root-owned, so the venv lives in cmsim's home
+sudo -u cmsim -H /opt/homebrew/bin/python3.13 -m venv "$BASE/home/venv"
+sudo -u cmsim -H "$BASE/home/venv/bin/pip" install -q pybamm==26.8.0.0 numpy==2.5.3
+sudo -u cmsim -H "$BASE/home/venv/bin/python" -c "import pybamm; print('cmsim ready, pybamm', pybamm.__version__)"
 # 5. prove the isolation
 sudo -u cmsim cat "$HOMEDIR/.config/colony/credentials.json" >/dev/null 2>&1 && { echo "FAIL: cmsim can read owner secrets"; exit 1; } || echo "ok: cmsim cannot read $HOMEDIR"

@@ -11,12 +11,12 @@ if ! mkdir "$LOCK" 2>/dev/null; then echo "another simulation is running (lock $
 export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2
 REPO="$(cd "$(dirname "$0")" && pwd)"
 BASE=/Users/Shared/cm-sim
-if [ -z "${CM_NO_SANDBOX:-}" ] && id cmsim >/dev/null 2>&1 && [ -x "$BASE/venv/bin/python" ]; then
+if [ -z "${CM_NO_SANDBOX:-}" ] && id cmsim >/dev/null 2>&1 && sudo -n -u cmsim test -x "$BASE/home/venv/bin/python" 2>/dev/null; then
   SANDBOX=1
   rsync -a --delete --exclude .git --exclude .venv --exclude _site --exclude __pycache__ "$REPO"/ "$BASE/in"/
-  sudo -n -u cmsim rsync -a --delete "$BASE/in"/ "$BASE/work"/
+  (cd /tmp && sudo -n -u cmsim rsync -a --delete "$BASE/in"/ "$BASE/work"/)
   ARGS=(); for a in "$@"; do ARGS+=("${a/#$REPO\//}"); done        # repo-absolute paths -> relative
-  cd "$BASE/work" && nice -n 10 sudo -n -u cmsim -H env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 "$BASE/venv/bin/python" "${ARGS[@]}" &
+  cd "$BASE/work" && nice -n 10 sudo -n -u cmsim -H env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 "$BASE/home/venv/bin/python" "${ARGS[@]}" &
   PID=$!
   rss_mb() { echo $(( $(ps -u cmsim -o rss= 2>/dev/null | awk '{s+=$1} END {print s+0}') / 1024 )); }
   killsim() { sudo -n -u cmsim pkill -9 -u cmsim 2>/dev/null; }
