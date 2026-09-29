@@ -1,0 +1,63 @@
+{
+ "measured": {
+  "onset_mAh_cm2": 4.2,
+  "onset_pct": "66-73"
+ },
+ "rows": [
+  {
+   "tau": 1.6,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": null,
+   "onset_pct_of_anode_capacity": null,
+   "charge_reached_mAh_cm2": 5.11,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": null
+  },
+  {
+   "tau": 2.0,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": null,
+   "onset_pct_of_anode_capacity": null,
+   "charge_reached_mAh_cm2": 4.95,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": null
+  },
+  {
+   "tau": 2.4,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": 4.8,
+   "onset_pct_of_anode_capacity": 71.9,
+   "charge_reached_mAh_cm2": 4.82,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  },
+  {
+   "tau": 3.0,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": 4.47,
+   "onset_pct_of_anode_capacity": 66.9,
+   "charge_reached_mAh_cm2": 4.71,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  },
+  {
+   "tau": 4.3,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": 3.6,
+   "onset_pct_of_anode_capacity": 53.9,
+   "charge_reached_mAh_cm2": 4.49,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  }
+ ]
+}
