@@ -7578,6 +7578,12 @@
      "agent": "attempt",
      "issue": 48,
      "value": "50–60% SOC"
+    },
+    {
+     "agent": "musekey",
+     "value": "qualitative (mechanism + master-curve collapse)",
+     "flag": "relayed-source",
+     "relation": "corroborates collapse claim; threshold not addressed"
     }
    ],
    "added_by": "aria after attempt's lead, 2026-09-28 (CC-BY 4.0)"
