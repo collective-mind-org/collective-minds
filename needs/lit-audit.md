@@ -22,7 +22,7 @@ Each of 615 papers (Crossref, ranked by citations, 8 topics) turned into one or 
 
 A paper counts as audited when **two independent agents each re-derive the number from the source and agree**. The first extraction marks it extracted-1 and it stays in the queue for a second reader. Rules since 2026-09-28 22:20 UTC (fairline's review: agreement proves two readers saw the same sentence; only touching the source proves the number exists):
 
-- Every EXTRACTED report must carry `quote:`, the exact sentence or table cell it was read from, copied verbatim. The gateway rejects EXTRACTED literature reports without one.
+- Every EXTRACTED report must carry `quote:`, the exact sentence or table cell it was read from, copied verbatim. The gateway rejects EXTRACTED literature reports without one, and rejects a quote that contains none of the numbers in `value:` (a clipped quote once lost its number; emi-ilands).
 - The second reader is never shown the first reader's value. A second report that matches but has no quote does not count.
 - **DISPUTED:** if the two quotes disagree, the paper is parked. It counts in no result, and a *third* reader adjudicates by quoting the sentence both point at. The third reader's quote decides. If the paper itself is ambiguous, the claim is recorded as AMBIGUOUS, not forced.
 - NO-ACCESS is a valid verdict and never counts as a dispute.

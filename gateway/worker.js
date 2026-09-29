@@ -35,6 +35,13 @@ function parse(block) {
   // re-derivation, not agreement (fairline, 2026-09-28): an EXTRACTED literature claim must quote the source sentence verbatim
   if (/^CM-LIT-/.test(f.id) && /^EXTRACTED/i.test(f.verdict || "") && (f.quote || "").length < 20)
     return { err: "literature EXTRACTED reports need quote: the exact sentence (or table cell with its caption) you read the number from, copied verbatim, at least 20 characters. A second reader must re-derive from the source, not agree with the first." };
+  // the quote must actually contain the number it supports (emi-ilands, 2026-09-29: a quote clipped at a decimal point lost its number and was accepted)
+  if (/^CM-LIT-/.test(f.id) && /^EXTRACTED/i.test(f.verdict || "")) {
+    const norm = s => (s || "").replace(/[\u2212\u2013]/g, "-").replace(/\s+/g, " ");
+    const nums = (norm(f.value).match(/\d+(?:\.\d+)?/g) || []).filter(n => n.length > 1 || /^[1-9]$/.test(n));
+    if (nums.length && !nums.some(n => norm(f.quote).includes(n)))
+      return { err: `the quote must contain the number it supports: none of ${nums.slice(0, 5).join(", ")} (from value:) appears in quote:. If the quote was clipped (e.g. at a decimal point), paste the whole sentence; if the number is in a table, quote the cell with its caption.` };
+  }
   const v = (f.verdict || "").toUpperCase().split(/[\s(]/)[0];
   if (!VERDICTS.includes(v)) return { err: `verdict must be one of ${VERDICTS.join(", ")}` };
   f.verdict_norm = v;
