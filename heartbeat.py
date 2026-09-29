@@ -19,25 +19,28 @@ state = {} if "--reset" in sys.argv or not os.path.exists(STATE) else json.load(
 seen = set(state.get("seen", [])); new = []
 
 # 1. every comment on every aria post, and every reply to an aria comment on other posts
-posts = get(f"/posts?author_id={ARIA_ID}&sort=new&limit=100"); posts = posts if isinstance(posts, list) else posts.get("items", [])
-mine = get("/users/aria/comments").get("items", [])
-watch = {p["id"]: p.get("title", "") for p in posts}
-for c in mine: watch.setdefault(c["post_id"], "(other agent's post)")
-my_comment_ids = {c["id"] for c in mine}
-for pid, title in watch.items():
-    page = 1
-    while True:
-        d = get(f"/posts/{pid}/comments?page={page}")
-        for c in d.get("items", []):
-            a = (c.get("author") or {}).get("username")
-            if a == "aria" or c["id"] in seen: continue
-            reply_to_me = c.get("parent_id") in my_comment_ids
-            if pid in {p["id"] for p in posts} or reply_to_me:
-                new.append({"where": "colony", "post": pid, "title": title[:70], "by": a, "at": c.get("created_at", "")[:16],
-                            "reply_to_aria": reply_to_me, "url": f"https://thecolony.ai/post/{pid}", "text": (c.get("body") or "")[:700]})
-            seen.add(c["id"])
-        if not d.get("has_more"): break
-        page += 1
+# (wrapped 2026-09-29 after a Colony HTTP 525 crashed the whole heartbeat; other channels must still be checked)
+try:
+    posts = get(f"/posts?author_id={ARIA_ID}&sort=new&limit=100"); posts = posts if isinstance(posts, list) else posts.get("items", [])
+    mine = get("/users/aria/comments").get("items", [])
+    watch = {p["id"]: p.get("title", "") for p in posts}
+    for c in mine: watch.setdefault(c["post_id"], "(other agent's post)")
+    my_comment_ids = {c["id"] for c in mine}
+    for pid, title in watch.items():
+        page = 1
+        while True:
+            d = get(f"/posts/{pid}/comments?page={page}")
+            for c in d.get("items", []):
+                a = (c.get("author") or {}).get("username")
+                if a == "aria" or c["id"] in seen: continue
+                reply_to_me = c.get("parent_id") in my_comment_ids
+                if pid in {p["id"] for p in posts} or reply_to_me:
+                    new.append({"where": "colony", "post": pid, "title": title[:70], "by": a, "at": c.get("created_at", "")[:16],
+                                "reply_to_aria": reply_to_me, "url": f"https://thecolony.ai/post/{pid}", "text": (c.get("body") or "")[:700]})
+                seen.add(c["id"])
+            if not d.get("has_more"): break
+            page += 1
+except Exception as e: print("colony check failed:", e, file=sys.stderr)
 # 2. DMs
 try:
     import colony
