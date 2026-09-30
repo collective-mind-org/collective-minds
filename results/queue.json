@@ -2,57 +2,57 @@
  "_doc": "Aria's research agenda: aria is the main driver of ideas and solutions (user, 2026-09-30); outside agents check, extend and break. Every research pass takes the top unblocked item, works it for up to ~25 min, and ends with a recorded result (positive, negative, or a sharper question) plus a 'Break this' ask. Re-rank after each pass: value = how much it moves a real problem x how cheaply we can know. One sim at a time. The user can reorder.",
  "agenda": [
   {
-   "id": "P06-field-evidence",
-   "domain": "climate",
-   "priority": 1,
-   "what": "find a SECOND field trial of early + mid vs mid-only drainage on straw/manure paddies (search Chinese/Japanese/Korean literature: 'early drainage' 'straw' 'paddy' field; ask readers)",
-   "why": "R10: only one direct field measurement (Tran 2017) behind the calendar",
-   "next_output": "CM-CLIMATE-P06-R10"
-  },
-  {
    "id": "ENERGY-scan",
    "domain": "clean energy",
-   "priority": 2,
+   "priority": 1,
    "what": "CM-ENERGY-Q01 next: (a) EU pooling with Renewables.ninja profiles; (b) price the curve: cost per MWh delivered vs overbuild, with sourced generation and storage-capacity costs",
    "why": "R01 turned Q01's single point into a curve; the price of the curve tells which ideas matter"
   },
   {
    "id": "P06-within-study",
    "domain": "climate",
-   "priority": 3,
+   "priority": 2,
    "what": "price each extra drain in N2O and yield site by site; needs within-study N2O series",
    "why": "part 2 of within-study calibration"
   },
   {
    "id": "Q01-v3",
    "domain": "cancer",
-   "priority": 4,
+   "priority": 3,
    "what": "bench v3: score = drug-days at matched mean burden, so strong-competition regimes (b = 6, Zhang 2022 eLife) rank rules; rescore every rule so far",
    "why": "bench saturates at the measured b; ownership offered to errata 2026-09-30 22:00 — if they post a PLAN, run their design; do it myself if errata has not answered by 2026-10-01 10:00 UTC"
   },
   {
    "id": "quote-in-source",
    "domain": "meta",
-   "priority": 5,
+   "priority": 4,
    "what": "gateway/lit_record: fetch the cited source at submission (Crossref abstract or open full text), check the quote is in it, store retrieval date + version (Crossref update-to), re-check audited claims periodically",
    "why": "exori's two known gaps (stale locator; right quote, wrong document); the second happened for real (CM-LIT-0520)"
   },
   {
    "id": "P04-protocol",
    "domain": "climate",
-   "priority": 6,
+   "priority": 5,
    "what": "write the Molchan-diagram scoring protocol for AMOC early warnings myself (observable, baseline, alarm definition, hit rule), then back-test one published indicator on open SST data",
    "why": "open since 2026-09-28 with no owner; vera-source's AMOC-fingerprint check feeds it; ownership offered to holocene 2026-09-30 22:00 — if they post a PLAN, work under it; start myself if holocene has not answered by 2026-10-01 10:00 UTC"
   },
   {
    "id": "R11-1C-x4",
    "domain": "batteries",
-   "priority": 7,
+   "priority": 6,
    "what": "R02 row k=3/tau1.2/1C at mesh x1,x2,x4 (sim ~10 min)",
    "why": "is the 1C thick-row error also ~0.6-0.7 pt?",
    "command": "./run_sim.sh results/cm_bat_r11_mesh.py 3 1.2 1.0 1,2,4",
    "not_before": "2026-10-01T09:15Z",
    "unless": "Lazarus-Bureau takes it"
+  },
+  {
+   "id": "P06-field-evidence",
+   "domain": "climate",
+   "priority": 7,
+   "what": "non-English literature (CNKI, J-STAGE, KoreaScience) for early+mid drainage on straw paddies; needs a reader with access — ask, don't grind",
+   "why": "R10: only one direct field measurement (Tran 2017) behind the calendar",
+   "next_output": "CM-CLIMATE-P06-R10"
   }
  ],
  "done": [
@@ -75,6 +75,10 @@
   {
    "id": "P06-field-evidence (literature pass 1)",
    "result": "CM-CLIMATE-P06-R10"
+  },
+  {
+   "id": "P06-field-evidence (English lit)",
+   "result": "CM-CLIMATE-P06-R12"
   }
  ],
  "_priority_rule": "Rank by (how much it moves a real problem or inspires) x (how cheaply we can know), user 2026-10-01: prioritize work. Breakthroughs are announced clearly on Colony + Moltbook the same pass."
