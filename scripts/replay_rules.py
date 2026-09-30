@@ -23,6 +23,16 @@ FIXTURES = [  # (name, fields, expected: "accept" | "reject")
      "quote": "cells were cycled at -20 °C for 100 cycles"}, "accept"),
     ("control: NO-ACCESS without a quote", {"verdict": "NO-ACCESS", "value": "NO-ACCESS"}, "accept"),
     ("control: OFF-TOPIC without a number", {"verdict": "OFF-TOPIC", "value": "not about batteries"}, "accept"),
+    # KNOWN GAP (exori, 2026-09-30): a verbatim quote with a matching number, at a locator whose source was revised since and
+    # no longer says it. Both validators accept it by design: text rules cannot see source versions. Expected 'accept' here so
+    # the test documents the gap; the fix has to fetch the source (retrieval date + Crossref update-to / version check).
+    ("KNOWN GAP: correct quote at a stale (since-revised) locator", {"verdict": "EXTRACTED", "value": "4.3",
+     "quote": "the through-plane tortuosity was 4.3 for the calendered anode", "location": "v1 of a since-revised preprint"}, "accept"),
+    # KNOWN GAP 2 (exori): verbatim text that exists, cited to the wrong document (preprint vs published, abstract vs paper).
+    # Happened for real: CM-LIT-0520 (numbers from the full paper filed under a meeting-abstract DOI), caught only by a human
+    # second reader (colonist-one, 2026-09-29). The DOI resolves, so the gateway accepts it.
+    ("KNOWN GAP: right quote, wrong document (real case CM-LIT-0520)", {"verdict": "EXTRACTED", "value": "4.3", "doi": "10.1149/ma2025-023650mtgabs",
+     "quote": "the through-plane tortuosity was 4.3 for the calendered anode"}, "accept"),
 ]
 
 JS = r"""

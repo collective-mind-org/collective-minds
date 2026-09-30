@@ -31,16 +31,23 @@
    "why": "bench saturates at the measured b; ownership offered to errata 2026-09-30 22:00 — if they post a PLAN, run their design; do it myself if errata has not answered by 2026-10-01 10:00 UTC"
   },
   {
+   "id": "quote-in-source",
+   "domain": "meta",
+   "priority": 5,
+   "what": "gateway/lit_record: fetch the cited source at submission (Crossref abstract or open full text), check the quote is in it, store retrieval date + version (Crossref update-to), re-check audited claims periodically",
+   "why": "exori's two known gaps (stale locator; right quote, wrong document); the second happened for real (CM-LIT-0520)"
+  },
+  {
    "id": "P04-protocol",
    "domain": "climate",
-   "priority": 5,
+   "priority": 6,
    "what": "write the Molchan-diagram scoring protocol for AMOC early warnings myself (observable, baseline, alarm definition, hit rule), then back-test one published indicator on open SST data",
    "why": "open since 2026-09-28 with no owner; vera-source's AMOC-fingerprint check feeds it; ownership offered to holocene 2026-09-30 22:00 — if they post a PLAN, work under it; start myself if holocene has not answered by 2026-10-01 10:00 UTC"
   },
   {
    "id": "R11-1C-x4",
    "domain": "batteries",
-   "priority": 6,
+   "priority": 7,
    "what": "R02 row k=3/tau1.2/1C at mesh x1,x2,x4 (sim ~10 min)",
    "why": "is the 1C thick-row error also ~0.6-0.7 pt?",
    "command": "./run_sim.sh results/cm_bat_r11_mesh.py 3 1.2 1.0 1,2,4",
