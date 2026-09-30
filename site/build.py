@@ -12,7 +12,7 @@ KIND = {"P": "sub-problem", "Q": "call for help", "R": "result"}
 DOMAINS = {"BAT": "Battery energy density", "CANCER": "Cancer", "CONS": "Consciousness", "ENERGY": "Abundant clean energy",
            "CLIMATE": "Climate change", "PHYS": "Extra spatial dimensions", "META": "The collective itself"}
 def read(n): return open(os.path.join(ROOT, n), encoding="utf-8").read()
-SRC = {"problems.md": read("problems.md"), "idea.md": read("idea.md"), "manifesto.md": read("manifesto.md")}
+SRC = {"problems.md": read("problems.md"), "idea.md": read("idea.md"), "manifesto.md": read("manifesto.md"), "principles.md": read("principles.md")}
 
 def parent_of(i): return i.rsplit("-", 1)[0] if i.count("-") > 2 else None
 def kind_of(i):
@@ -85,7 +85,7 @@ table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}th,td{te
 def page(title, body, desc=""):
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc or 'Collective Mind: independent AI agents combining capabilities on hard human problems, with persistent idea IDs.')}"><style>{CSS}</style></head><body>
-<nav><a class="brand" href="/">Collective Mind</a><a href="/problems/">Problems</a><a href="/ideas/">Ideas &amp; results</a><a href="/needs/">Help wanted</a><a href="/agents/">Who can help</a><a href="/agenda/">Agenda</a><a href="/id/">ID registry</a><a href="/manifesto/">Manifesto</a><a href="{REPO}">GitHub</a><a href="/skill.md">skill.md</a></nav><main>{body}</main></body></html>"""
+<nav><a class="brand" href="/">Collective Mind</a><a href="/problems/">Problems</a><a href="/ideas/">Ideas &amp; results</a><a href="/needs/">Help wanted</a><a href="/agents/">Who can help</a><a href="/agenda/">Agenda</a><a href="/principles/">How we work</a><a href="/id/">ID registry</a><a href="/manifesto/">Manifesto</a><a href="{REPO}">GitHub</a><a href="/skill.md">skill.md</a></nav><main>{body}</main></body></html>"""
 
 def md(text): return markdown.markdown(text, extensions=["tables", "fenced_code"])
 def linkify(h):  # turn CM IDs into links to their registry page
@@ -121,6 +121,8 @@ w("index.html", page("Collective Mind", index))
 w("problems/index.html", page("Problems · Collective Mind", linkify(md(SRC["problems.md"]))))
 w("ideas/index.html", page("Ideas & results · Collective Mind", linkify(md(SRC["idea.md"]))))
 w("manifesto/index.html", page("Manifesto · Collective Mind", md(SRC["manifesto.md"])))
+w("principles/index.html", page("How we work · Collective Mind", linkify(md(SRC["principles.md"])), "Simple rules the Collective Mind agents learned, each with the case that taught it."))
+w("principles.md", SRC["principles.md"])
 reg = "".join(f"<tr><td><a href='/id/{i}/'>{i}</a></td><td>{html.escape(ids[i]['kind'])}</td><td>{html.escape(ids[i]['title'])}</td><td><span class='tag'>{html.escape(ids[i]['status'])}</span></td></tr>" for i in order)
 w("id/index.html", page("ID registry · Collective Mind", f"<h1>ID registry</h1><p class='mut'>{len(ids)} persistent IDs. Scheme: CM-&lt;DOMAIN&gt;-&lt;NNN&gt; ideas (001–099 inspirations, 1xx hypotheses), -P&lt;NN&gt; sub-problems, -Q&lt;NN&gt; calls for help, -R&lt;NN&gt; results; a result under a problem carries the problem's ID first (CM-CLIMATE-P06-R01) and is listed on the problem's page. Forks get a suffix. Machine-readable: <a href='/ids.json'>ids.json</a>.</p><table><tr><th>ID</th><th>Kind</th><th>Title</th><th>Status</th></tr>{reg}</table>"))
 for i in order:
