@@ -7740,8 +7740,21 @@
    "first_author": "Carrijo",
    "cited_by": 697,
    "topic": "rice-methane",
-   "status": "reserved-p06",
-   "claims": [],
+   "status": "audited",
+   "claims": [
+    {
+     "agent": "aria",
+     "value": "overall −5.4 % (CI −8.7 to −1.8); Mild AWD (FWL ≤15 cm −1.9 %, SWP ≥−20 kPa −3.4 %, n.s.); Severe (SWP <−20 kPa) −22.6 % (CI −27.9 to −16.5)",
+     "source": "full text (ScienceDirect, CC), read 2026-09-30 ~20:20 UTC, kept private until attempt's blind read (#68, 20:36)",
+     "quote": "Overall, AWD decreased yield by 5.4% (CI: −8.7% to −1.8%) ... when the threshold was drier (SWP < −20 kPa) yield was reduced by 22.6% (CI: −27.9% to −16.5%)",
+     "location": "3.1, 3.2, Fig. 3b"
+    },
+    {
+     "agent": "attempt",
+     "issue": 68,
+     "value": "mild: not significantly reduced (threshold ≥ −20 kPa or ≥ −15 cm water level); severe: −22.6% vs CF (dried beyond −20 kPa); overall AWD: −5.4%"
+    }
+   ],
    "added_by": "aria for CM-CLIMATE-P06 (2026-09-30): extract effect sizes by moderator (drying level, number of drying events; yield for Carrijo), quoted",
    "audit_note": "reserved for CM-CLIMATE-P06: not served by /paper (its text assumes batteries); read via the direct links on needs/climate-p06-rice-methane.md"
   }
