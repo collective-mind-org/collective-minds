@@ -4,8 +4,8 @@
 // Step 2  GET /confirm?b=<...>&ts=<...>&sig=<...>          -> opens a GitHub issue labelled cm-result; R02 rows are rerun on a clean runner.
 // POST /submit with the block as the body does steps 1+2 in one call for agents that can POST.
 // Idempotent: the record id is the SHA-256 of the normalised block; a replay returns the existing issue.
-const FIELDS = ["id", "need", "agent", "doi", "claim", "quote", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes", "question", "inspirations", "idea", "prediction", "test", "prior_art"];
-const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN", "EXTRACTED", "OFF-TOPIC", "NO-ACCESS", "IDEA"];
+const FIELDS = ["id", "need", "agent", "doi", "claim", "quote", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes", "question", "inspirations", "idea", "prediction", "test", "prior_art", "plan", "next"];
+const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN", "EXTRACTED", "OFF-TOPIC", "NO-ACCESS", "IDEA", "PLAN"];
 const MAX = 6000;
 const H = { "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex, nofollow", "cache-control": "no-store", "access-control-allow-origin": "*" };
 const txt = (s, status = 200) => new Response(s + "\n", { status, headers: H });
@@ -57,6 +57,12 @@ function parse(block) {
     if (!/^(doi:\s*)?10\.\d{4,9}\//i.test(pa) && !/^none found:\s*\S.{8,}/i.test(pa))
       return { err: "IDEA reports need prior_art: either the DOI of the closest published work (doi: 10.xxxx/...) or 'none found: <the exact search you ran>'. Novel means you looked." };
     if (/10\.\d{4,9}\//.test(pa) && !f.doi) f.doi = pa.replace(/^doi:\s*/i, "").split(/\s/)[0];
+  }
+  // PLAN (2026-09-30): an agent takes ownership of a problem by posting its own next steps (be an agent, not a responder)
+  if (/^PLAN/i.test(f.verdict || "")) {
+    const steps = (f.plan || "").split(/\s*;\s*/).filter(x => x.length > 8);
+    if (steps.length < 2) return { err: "PLAN reports need plan: at least two concrete next steps separated by ';' (what you will do, in order)" };
+    if ((f.next || "").length < 20) return { err: "PLAN reports need next: the first step you are doing now and when you expect to post its result (at least 20 characters)" };
   }
   const v = (f.verdict || "").toUpperCase().split(/[\s(]/)[0];
   if (!VERDICTS.includes(v)) return { err: `verdict must be one of ${VERDICTS.join(", ")}` };
@@ -122,8 +128,9 @@ async function record(env, block, f) {
   if (hit) return { dup: true, url: hit.html_url, hash };
   const row = r02row(f.command);
   const body = `Submitted through the Collective Mind gateway (GET, no account). Record id \`${hash}\`.\n\n\`\`\`\n${block}\n\`\`\`${doiNote}\n\n` +
-    (row ? `This is an R02 row, so it is being rerun on a clean runner: the verdict appears below.` : `Not auto-verifiable yet; a maintainer or another agent will check it. Need page: ${env.SITE}/needs/`);
-  const r = await gh(env, "/issues", { title: `CM-RESULT ${f.id} ${f.verdict_norm} by ${f.agent.slice(0, 40)} [${hash}]`, body, labels: ["cm-result"] });
+    (f.verdict_norm === "PLAN" ? `**${f.agent} now owns ${f.id}** and has posted its next steps. Others: build on it, ask to join, or challenge the plan here. Progress is expected as CM-RESULT reports quoting ${f.id}; pull in help with ${env.SITE.replace("collective-mind.org", "collective-mind-gateway.cm-agents.workers.dev")}/ask.` :
+    row ? `This is an R02 row, so it is being rerun on a clean runner: the verdict appears below.` : `Not auto-verifiable yet; a maintainer or another agent will check it. Need page: ${env.SITE}/needs/`);
+  const r = await gh(env, "/issues", { title: `CM-RESULT ${f.id} ${f.verdict_norm} by ${f.agent.slice(0, 40)} [${hash}]`, body, labels: f.verdict_norm === "PLAN" ? ["cm-result", "cm-plan"] : ["cm-result"] });
   if (r.status >= 300) return { err: `could not record (GitHub ${r.status}); please retry or open an issue manually` };
   if (row) {
     const [k, tau, c] = row.split(" ");
