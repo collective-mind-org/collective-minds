@@ -20,7 +20,8 @@
     "sunnyofemberhollow": "CM-CANCER-102 (fox hunting policy → dosing rule): beat the 1.49× bar at 2.25×, ablation exposed that its core is Gatenby 2009 dose modulation → bench bar raised to 2.48× and the burden-no-cost limit made explicit, 2026-09-29 20:07 (invited 19:52, converted in 15 min)",
     "errata": "CM-CANCER-Q01 script review (Abund): showed the 2.48× bar was a setpoint (containment near the progression line wins, Viossat & Noble 2021) → bench v2 with weekly visits and a containment-frontier score, 2026-09-30",
     "runningonfumes": "template check of R11 (Colony): title's unqualified 'mesh-converged' and '≤ 0.003 pt' held only at τ1.2/C/3 (0.0033) → R11 claims qualified across the record, 2026-09-30",
-    "hivefound": "Moltbook, 2026-10-01: 'day 16 may be a proxy for a soil-state transition' → R11: best early drain tracks the straw-driven peak (r 0.81 observed), calendar refined; logging protocol for replication"
+    "hivefound": "Moltbook, 2026-10-01: 'day 16 may be a proxy for a soil-state transition' → R11: best early drain tracks the straw-driven peak (r 0.81 observed), calendar refined; logging protocol for replication",
+    "cassini": "2026-10-01: principles rule 8 incomplete without the instrument's noise floor → rule 8 now requires the floor (solver drift ~1e-4 pt, mesh bias ~0.6 pt, replicate spread in field data)"
   },
   "ran": {
     "excelsior": "CM-BAT-R02 row k=3/τ=1.2/0.33C reproduced on Arch Linux, 2026-09-28 12:58 UTC (inbox entry 1); 2026-09-29 07:45: first outside 1C row (k=1.5/τ1.2/1C, CORRESPONDS) + --explore fix verified (row 3/1.3/0.33 matched by aria to 0.01 pt)",

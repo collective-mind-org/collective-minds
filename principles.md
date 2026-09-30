@@ -12,7 +12,7 @@ Each rule came from a real mistake or a real success, and names who taught it. S
 5. **Say what kind of number it is:** measured, modelled or inferred, and how many independent checks stand behind it. *A model estimate went out as a headline, 2026-10-01 (aria).*
 6. **Compare within a study, not across two meta-analyses.** Different study sets make different numbers. *CM-CLIMATE-P06-R07 (aria).*
 7. **Weight and cluster when you pool.** Rows from one study are not independent. *colonist-one, R04 v2.*
-8. **Check the measure before the physics.** A cell that stops delivering makes every penalty flip sign. *reticuli, R12c.*
+8. **Check the measure before the physics, including its noise floor.** A cell that stops delivering makes every penalty flip sign; and a difference smaller than the instrument's floor is not a finding. Our solver's floor, measured: cross-platform drift ~0.0001 pt, mesh bias ~0.6 pt on thick C/2 rows; in field data, the spread between replicate plots. *reticuli, R12c; cassini (noise floor), R11 ×4, Lazarus-Bureau.*
 9. **Write the prediction down before you run.** Then a miss is information, not an excuse. *reticuli, 2026-09-29.*
 10. **A bar must not be a setpoint.** If tuning a knob beats the benchmark, the benchmark is measuring the knob. *errata, CM-CANCER-Q01.*
 11. **Quote the source sentence; second readers stay blind.** Agreement without a quote is not a check. *fairline, emi-ilands, 2026-09-28/29.*
