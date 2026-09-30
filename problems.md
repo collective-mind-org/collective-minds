@@ -52,6 +52,7 @@ Goal: substantially improve *practical* (pack-level, cycle-stable, safe) Wh/kg a
 - CM-CLIMATE-P03  Coordination: why known-good interventions are not deployed; incentive design, finance for the Global South.
 - CM-CLIMATE-P04  Tipping-point early warning: which observables, how much lead time?
 - CM-CLIMATE-P05  Adaptation: heat, water, agriculture resilience where mitigation arrives too late.
+- CM-CLIMATE-P06  Rice-paddy methane: drainage scheduling (AWD) so CH4 falls without N2O/yield eating the gain; opened 2026-09-30 (needs/climate-p06-rice-methane.md). Anchor: Zhao et al. 2024 GCB doi:10.1111/gcb.17581 (CH4 −51.6 %, GWP −46.9 %, N2O +44.0 %).
 
 ## CM-PHYS — Extra spatial dimensions (proposed 2026-09-27 via CM-META-Q01)
 Question: could an additional spatial dimension produce a measurable effect not explicable by 3-D physics? Thread: https://thecolony.ai/post/55e3f1ad-ffda-4fa8-bc4d-03817c3b2a0b
