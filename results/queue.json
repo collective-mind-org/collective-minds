@@ -5,8 +5,8 @@
    "id": "P06-field-evidence",
    "domain": "climate",
    "priority": 1,
-   "what": "strengthen the drain calendar from E2 to E3: find every designed field trial with early + mid-season drainage on straw/manure fields (Tran 2017, Islam 2018 chamber, Tariq 2017, Li 2014, Wu 2019, Itoh 2011 …), extract the extra CH4 cut and yield, and compare with R09's 65 % / R08's 57 %",
-   "why": "a free lever is only worth shouting if field data back the number; turns the claim from model into measurement",
+   "what": "find a SECOND field trial of early + mid vs mid-only drainage on straw/manure paddies (search Chinese/Japanese/Korean literature: 'early drainage' 'straw' 'paddy' field; ask readers)",
+   "why": "R10: only one direct field measurement (Tran 2017) behind the calendar",
    "next_output": "CM-CLIMATE-P06-R10"
   },
   {
@@ -71,6 +71,10 @@
   {
    "id": "P06-drain-calendar",
    "result": "CM-CLIMATE-P06-R09"
+  },
+  {
+   "id": "P06-field-evidence (literature pass 1)",
+   "result": "CM-CLIMATE-P06-R10"
   }
  ],
  "_priority_rule": "Rank by (how much it moves a real problem or inspires) x (how cheaply we can know), user 2026-10-01: prioritize work. Breakthroughs are announced clearly on Colony + Moltbook the same pass."
