@@ -1,0 +1,290 @@
+[
+ {
+  "group": "GJ20220101",
+  "variant": "v1",
+  "R2": -0.549,
+  "kEh": 1.3428,
+  "kR": 1.3428,
+  "rows": [
+   {
+    "wm": "md_14days",
+    "measured_cut": 0.279,
+    "model_cut": [
+     0.088,
+     0.088
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_14days+awd",
+    "measured_cut": -0.382,
+    "model_cut": [
+     0.169,
+     0.426
+    ],
+    "held_out": true
+   },
+   {
+    "wm": "md_21days",
+    "measured_cut": -0.109,
+    "model_cut": [
+     0.159,
+     0.159
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_28days",
+    "measured_cut": 0.301,
+    "model_cut": [
+     0.271,
+     0.271
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_28days+awd",
+    "measured_cut": 0.759,
+    "model_cut": [
+     0.31,
+     0.575
+    ],
+    "held_out": true
+   }
+  ]
+ },
+ {
+  "group": "GJ20220101",
+  "variant": "v2",
+  "R2": -0.539,
+  "kEh": 0.1264,
+  "kR": 1.3253,
+  "rows": [
+   {
+    "wm": "md_14days",
+    "measured_cut": 0.279,
+    "model_cut": [
+     0.103,
+     0.103
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_14days+awd",
+    "measured_cut": -0.382,
+    "model_cut": [
+     0.184,
+     0.449
+    ],
+    "held_out": true
+   },
+   {
+    "wm": "md_21days",
+    "measured_cut": -0.109,
+    "model_cut": [
+     0.18,
+     0.18
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_28days",
+    "measured_cut": 0.301,
+    "model_cut": [
+     0.299,
+     0.299
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_28days+awd",
+    "measured_cut": 0.759,
+    "model_cut": [
+     0.336,
+     0.61
+    ],
+    "held_out": true
+   }
+  ]
+ },
+ {
+  "group": "GJ20230101",
+  "variant": "v1",
+  "R2": 0.309,
+  "kEh": 0.06,
+  "kR": 0.06,
+  "rows": [
+   {
+    "wm": "md_14days",
+    "measured_cut": 0.773,
+    "model_cut": [
+     0.687,
+     0.687
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_14days+awd",
+    "measured_cut": 0.557,
+    "model_cut": [
+     0.687,
+     0.846
+    ],
+    "held_out": true
+   },
+   {
+    "wm": "md_21days",
+    "measured_cut": 0.567,
+    "model_cut": [
+     0.767,
+     0.767
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_21days+awd",
+    "measured_cut": 0.099,
+    "model_cut": [
+     0.767,
+     0.913
+    ],
+    "held_out": true
+   }
+  ]
+ },
+ {
+  "group": "GJ20230101",
+  "variant": "v2",
+  "R2": 0.391,
+  "kEh": 0.2685,
+  "kR": 0.0528,
+  "rows": [
+   {
+    "wm": "md_14days",
+    "measured_cut": 0.773,
+    "model_cut": [
+     0.688,
+     0.688
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_14days+awd",
+    "measured_cut": 0.557,
+    "model_cut": [
+     0.688,
+     0.829
+    ],
+    "held_out": true
+   },
+   {
+    "wm": "md_21days",
+    "measured_cut": 0.567,
+    "model_cut": [
+     0.76,
+     0.76
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_21days+awd",
+    "measured_cut": 0.099,
+    "model_cut": [
+     0.76,
+     0.884
+    ],
+    "held_out": true
+   }
+  ]
+ },
+ {
+  "group": "GJ20240101",
+  "variant": "v1",
+  "R2": 0.596,
+  "kEh": 0.6204,
+  "kR": 0.6204,
+  "rows": [
+   {
+    "wm": "md_14days",
+    "measured_cut": 0.111,
+    "model_cut": [
+     0.06,
+     0.06
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_14days+awd",
+    "measured_cut": 0.229,
+    "model_cut": [
+     0.06,
+     0.06
+    ],
+    "held_out": true
+   },
+   {
+    "wm": "md_21days",
+    "measured_cut": 0.336,
+    "model_cut": [
+     0.06,
+     0.539
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_21days+awd",
+    "measured_cut": 0.706,
+    "model_cut": [
+     0.101,
+     0.58
+    ],
+    "held_out": true
+   }
+  ]
+ },
+ {
+  "group": "GJ20240101",
+  "variant": "v2",
+  "R2": 0.608,
+  "kEh": 0.2734,
+  "kR": 1.5316,
+  "rows": [
+   {
+    "wm": "md_14days",
+    "measured_cut": 0.111,
+    "model_cut": [
+     0.046,
+     0.046
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_14days+awd",
+    "measured_cut": 0.229,
+    "model_cut": [
+     0.046,
+     0.046
+    ],
+    "held_out": true
+   },
+   {
+    "wm": "md_21days",
+    "measured_cut": 0.336,
+    "model_cut": [
+     0.046,
+     0.531
+    ],
+    "held_out": false
+   },
+   {
+    "wm": "md_21days+awd",
+    "measured_cut": 0.706,
+    "model_cut": [
+     0.081,
+     0.566
+    ],
+    "held_out": true
+   }
+  ]
+ }
+]
