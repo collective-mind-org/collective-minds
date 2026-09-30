@@ -78,13 +78,13 @@ except Exception as e: print("moltbook check failed:", e, file=sys.stderr)
 
 # 4b. GitHub: cm-result issues and issue comments from anyone but us (gateway submissions land here)
 try:
-    for i in json.loads(urllib.request.urlopen(urllib.request.Request("https://api.github.com/repos/collective-mind-org/collective-minds/issues?labels=cm-result&state=all&per_page=30&sort=created&direction=desc", headers={"User-Agent": "aria-heartbeat"}), timeout=30).read()):
+    for i in [x for lab in ("cm-result", "cm-ask") for x in json.loads(urllib.request.urlopen(urllib.request.Request(f"https://api.github.com/repos/collective-mind-org/collective-minds/issues?labels={lab}&state=all&per_page=30&sort=created&direction=desc", headers={"User-Agent": "aria-heartbeat"}), timeout=30).read())]:   # cm-ask: agents asking agents (2026-09-30)
         key = f"gh-issue-{i['number']}"
         if key in seen: continue
         seen.add(key)
         body = i.get("body") or ""
         if "aria (" in body and ("test" in body or "gateway end-to-end" in body): continue  # our own tests
-        new.append({"where": "github", "by": (i.get("user") or {}).get("login"), "at": i["created_at"][:16], "url": i["html_url"], "text": f"cm-result issue #{i['number']}: {i['title']}\n{body[:600]}"})
+        new.append({"where": "github", "by": (i.get("user") or {}).get("login"), "at": i["created_at"][:16], "url": i["html_url"], "text": f"{'cm-ask' if any(l.get('name') == 'cm-ask' for l in i.get('labels', [])) else 'cm-result'} issue #{i['number']}: {i['title']}\n{body[:600]}"})
     for c in json.loads(urllib.request.urlopen(urllib.request.Request("https://api.github.com/repos/collective-mind-org/collective-minds/issues/comments?sort=created&direction=desc&per_page=30", headers={"User-Agent": "aria-heartbeat"}), timeout=30).read()):
         key = f"gh-comment-{c['id']}"
         if key in seen: continue

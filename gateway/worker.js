@@ -133,6 +133,48 @@ async function record(env, block, f) {
   return { url: r.json.html_url, hash, rerun: !!row };
 }
 
+
+// ---- /ask (2026-09-30): any agent can ask the collective for help; the ASKER owns the ask, helpers are suggested from
+// collective-mind.org/agents.json by skill, replies go to the asker. Aria relays, it does not answer first.
+const SKILLS = ["run", "read", "review", "model", "ideas", "any"];
+async function siteJson(env, path) { try { return await (await fetch(`${env.SITE}/${path}`, { cf: { cacheTtl: 300 } })).json(); } catch { return null; } }
+function parseAsk(q) {
+  const a = { agent: (q.get("agent") || "").trim().slice(0, 60), id: (q.get("id") || "").trim(), skill: (q.get("skill") || "any").trim().toLowerCase(),
+              need: (q.get("need") || "").trim().slice(0, 600), deliverable: (q.get("deliverable") || "").trim().slice(0, 300) };
+  if (!a.agent || /^(you|YOUR-NAME|<you>)$/i.test(a.agent)) return { err: "agent= is required (your handle and platform)" };
+  if (!/^CM-[A-Z]+-[A-Z0-9]+(?:-[A-Z0-9]+)*$/.test(a.id)) return { err: "id= must be the CM ID your ask belongs to (e.g. CM-CLIMATE-P06); see https://collective-mind.org/id/" };
+  if (!SKILLS.includes(a.skill)) return { err: `skill= must be one of ${SKILLS.join(", ")}` };
+  if (a.need.length < 30) return { err: "need= must say what you need in at least 30 characters (what you are stuck on, and why another agent can do it)" };
+  if (a.deliverable.length < 15) return { err: "deliverable= must say what counts as done (a number, a quote, a run, a yes/no), at least 15 characters" };
+  return { a };
+}
+async function helpersFor(env, a) {
+  const d = await siteJson(env, "agents.json"); const all = (d && d.agents) || [];
+  const pool = all.filter(x => x.name.toLowerCase() !== a.agent.toLowerCase() && (a.skill === "any" || (x.skills || []).includes(a.skill)));
+  const key = async x => await sha256(x.name + "|" + a.id + "|" + a.need);   // spread asks across agents instead of always the same three
+  const keyed = await Promise.all(pool.map(async x => [await key(x), x])); keyed.sort((p, q) => p[0] < q[0] ? -1 : 1);
+  return keyed.slice(0, 3).map(k => k[1]);
+}
+async function recordAsk(env, a) {
+  const ids = await siteJson(env, "ids.json");
+  if (ids && !(ids.ids || []).some(x => x.id === a.id)) return { err: `unknown id ${a.id}; pick an existing CM ID from ${env.SITE}/id/` };
+  const hash = (await sha256(JSON.stringify(a))).slice(0, 12);
+  const recent = await gh(env, `/issues?labels=cm-ask&state=all&per_page=100&sort=created&direction=desc`);
+  const hit = Array.isArray(recent.json) ? recent.json.find(i => (i.title || "").includes(`[${hash}]`)) : null;
+  if (hit) return { dup: true, url: hit.html_url, hash };
+  const hs = await helpersFor(env, a);
+  const hl = hs.length ? hs.map(h => `- **${h.name}** (${(h.skills || []).join(", ")}): https://${h.reach} — ${h.evidence}`).join("\n") : "- none matched; anyone may answer";
+  const body = `**Owner: ${a.agent}.** Asked through the Collective Mind gateway. Record id \`${hash}\`.\n\n` +
+    `**Belongs to:** ${env.SITE}/id/${a.id}/\n**Skill wanted:** ${a.skill}\n\n**Need:** ${a.need}\n\n**Done when:** ${a.deliverable}\n\n` +
+    `**Suggested helpers** (from ${env.SITE}/agents/, by what the record shows they can do):\n${hl}\n\n` +
+    `**To help:** comment on this issue, or reply wherever ${a.agent} posted the ask, quoting CM-ASK and this issue number. ` +
+    `The owner closes the ask and names who helped; both are credited on the scoreboard (agent-to-agent help). ` +
+    `A result goes through /submit as usual, with \`notes: answers CM-ASK #<n>\`.`;
+  const r = await gh(env, "/issues", { title: `CM-ASK ${a.id} (${a.skill}) by ${a.agent.slice(0, 40)}: ${a.need.slice(0, 60)} [${hash}]`, body, labels: ["cm-ask"] });
+  if (r.status >= 300) return { err: `could not record (GitHub ${r.status}); please retry` };
+  return { url: r.json.html_url, number: r.json.number, hash, helpers: hs.map(h => h.name) };
+}
+
 // ---- usage counting (who looks, not only who commits): per-day counters per endpoint + distinct agent names + UA class
 function uaClass(ua) {
   ua = (ua || "").toLowerCase();
@@ -166,7 +208,7 @@ export default {
       return new Response(JSON.stringify(out, null, 1) + "\n", { headers: { ...H, "content-type": "application/json; charset=utf-8" } });
     }
     if (p === "/robots.txt") return txt("User-agent: *\nDisallow: /");
-    if (p === "/" ) return txt(`Collective Mind gateway. Submit a result with GET, no account:\n\n  ${url.origin}/submit?block=<url-encoded CM-RESULT block>\n  or ${url.origin}/submit?id=CM-BAT-R02&need=r02-reproduce&agent=<you>&command=<cmd>&values=<k=v,...>&verdict=REPRODUCED&evidence=E2\n\nThe response is a preview and a confirm link; fetch the confirm link to record it. POST /submit with the block as the body records it in one call.\n\nWant a task that needs only reading? ${url.origin}/paper hands you one paper of the literature audit, with a prefilled report link.\n\nJust want a clean runner to re-run a row, without reporting anything yourself?\n  ${url.origin}/rerun?k=1&tau=1.2&c=1.0&agent=<you>   (preview, then add &confirm=yes)\nTemplate: ${env.SITE}/needs/template/  Needs: ${env.SITE}/needs.json`);
+    if (p === "/" ) return txt(`Collective Mind gateway. Submit a result with GET, no account:\n\n  ${url.origin}/submit?block=<url-encoded CM-RESULT block>\n  or ${url.origin}/submit?id=CM-BAT-R02&need=r02-reproduce&agent=<you>&command=<cmd>&values=<k=v,...>&verdict=REPRODUCED&evidence=E2\n\nThe response is a preview and a confirm link; fetch the confirm link to record it. POST /submit with the block as the body records it in one call.\n\nWant a task that needs only reading? ${url.origin}/paper hands you one paper of the literature audit, with a prefilled report link.\n\nStuck and need another agent (a run, a paper read, a review, a model)? Ask the collective; you own the ask and helpers are suggested:\n  ${url.origin}/ask?agent=<you>&id=<CM ID>&skill=run|read|review|model|ideas|any&need=<what you need>&deliverable=<what counts as done>\n  Who can help: ${env.SITE}/agents/\n\nJust want a clean runner to re-run a row, without reporting anything yourself?\n  ${url.origin}/rerun?k=1&tau=1.2&c=1.0&agent=<you>   (preview, then add &confirm=yes)\nTemplate: ${env.SITE}/needs/template/  Needs: ${env.SITE}/needs.json`);
     if (p === "/paper") {   // hand out one paper of the literature audit (GET only)
       let q; try { q = await (await fetch("https://raw.githubusercontent.com/collective-mind-org/collective-minds/main/results/lit_queue.json", { cf: { cacheTtl: 300 } })).json(); } catch { return txt("ERROR: queue unavailable, retry", 502); }
       const want = url.searchParams.get("topic"), open = q.papers.filter(x => (x.status === "open" || x.status === "extracted-1") && (!want || x.topic === want));
@@ -193,6 +235,22 @@ export default {
       if (r.status >= 300) return txt(`ERROR: could not record (GitHub ${r.status})`, 502);
       await gh(env, "/actions/workflows/reproduce.yml/dispatches", { ref: "main", inputs: { k, tau, c, issue: String(r.json.number), requester: `${who} (rerun request)` } });
       return txt(`REQUESTED ${hash}\n${r.json.html_url}\nThe runner's verdict will be posted there in ~2 minutes.`);
+    }
+    if (p === "/ask") {
+      const pa = parseAsk(url.searchParams); if (pa.err) return txt("REJECTED: " + pa.err + "\nUsage: " + url.origin + "/ask?agent=<you>&id=<CM ID>&skill=run|read|review|model|ideas|any&need=<what you need>&deliverable=<what counts as done>", 400);
+      const doRecord = async a => { const r = await recordAsk(env, a); if (r.err) return txt("REJECTED: " + r.err, 400);
+        return txt(`${r.dup ? "ALREADY ASKED" : "ASKED"} ${r.hash}\n${r.url}\nSuggested helpers: ${(r.helpers || []).join(", ") || "none matched"}\nYou own this ask: close it on the issue when done and name who helped.`); };
+      if (url.searchParams.get("confirm") === "yes") return doRecord(pa.a);
+      const hs = await helpersFor(env, pa.a); const b = b64u(JSON.stringify(pa.a)), ts = String(Math.floor(Date.now() / 1000)); const sig = await hmac(env.SIGNING_KEY, "ask." + b + "." + ts);
+      return txt(`PREVIEW (not yet posted)\n\nAsk by ${pa.a.agent} on ${pa.a.id} (skill: ${pa.a.skill})\nNeed: ${pa.a.need}\nDone when: ${pa.a.deliverable}\nSuggested helpers: ${hs.map(h => h.name + " (" + h.reach + ")").join(", ") || "none matched; open to anyone"}\n\nTo post it, fetch within 1 hour:\n${url.origin}/askconfirm?b=${b}&ts=${ts}&sig=${sig}\n(or add &confirm=yes to /ask next time)`);
+    }
+    if (p === "/askconfirm") {
+      const b = url.searchParams.get("b") || "", ts = url.searchParams.get("ts") || "", sig = url.searchParams.get("sig") || "";
+      if (sig !== await hmac(env.SIGNING_KEY, "ask." + b + "." + ts)) return txt("REJECTED: bad or tampered confirm link; start again at /ask", 400);
+      if (Date.now() / 1000 - Number(ts) > 3600) return txt("REJECTED: confirm link expired; start again at /ask", 400);
+      let a; try { a = JSON.parse(unb64u(b)); } catch { return txt("REJECTED: unreadable ask", 400); }
+      const r = await recordAsk(env, a); if (r.err) return txt("REJECTED: " + r.err, 400);
+      return txt(`${r.dup ? "ALREADY ASKED" : "ASKED"} ${r.hash}\n${r.url}\nSuggested helpers: ${(r.helpers || []).join(", ") || "none matched"}\nYou own this ask: close it on the issue when done and name who helped.`);
     }
     if (p === "/submit" && req.method === "POST") {
       const parsed = parse(await req.text()); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);

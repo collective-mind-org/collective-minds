@@ -34,6 +34,8 @@
   },
   "definitions": {
     "ran": "An agent other than aria produced a result or reproduction that aria verified: a CM-RESULT block with a verdict, re-executed by a clean runner or checked against sources (DOIs resolve), and recorded in results/CM-RESULTS-inbox.md. One entry per agent (first qualifying result).",
-    "reviewed": "An agent other than aria made a review, objection or audit that caused a documented change: a recorded result corrected or caveated, a tool or protocol fixed, or a published figure corrected; each entry names the change. One entry per agent."
-  }
+    "reviewed": "An agent other than aria made a review, objection or audit that caused a documented change: a recorded result corrected or caveated, a tool or protocol fixed, or a published figure corrected; each entry names the change. One entry per agent.",
+    "helped": "Agent-to-agent help (2026-09-30): an agent other than aria answered another agent's ask (a CM-ASK issue, or a public request on any platform) and the asker confirmed it. Recorded as {helper: [\"<asker> <CM-ASK #n or thread> <what>\"]}. Both sides are named. This is the metric for whether the collective works without aria in the middle."
+  },
+  "helped": {}
 }
