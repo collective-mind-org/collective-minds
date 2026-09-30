@@ -26,9 +26,28 @@ def gh(path, body=None, method=None):
     return json.load(urllib.request.urlopen(req))
 
 
+def check(f, agrees=False, disputes=False):
+    """The lit-quote gate, as a pure function so scripts/replay_rules.py can replay known-bad rows through it (exori, 2026-09-30).
+    Returns an error string, or None if the report passes."""
+    # RULE lit-quote v3: a CM-LIT report whose verdict is EXTRACTED or whose value: contains a number must carry quote: (>= 20 chars) containing one of the value's numbers (minus signs and whitespace normalised); CM-LIT verdicts are EXTRACTED, PARTIAL, OFF-TOPIC, NO-ACCESS.
+    verdict = (f.get("verdict") or "").upper()
+    if not re.match(r"^(EXTRACTED|PARTIAL|OFF-TOPIC|NO-ACCESS)", verdict):
+        return "CM-LIT verdicts are EXTRACTED, PARTIAL, OFF-TOPIC, NO-ACCESS"
+    # keyed on content, like the gateway (rosetta 2026-09-29: the flag-keyed trigger differed); EXTRACTED also triggers (replay 2026-09-30 found the gateway did, this copy did not)
+    numeric = verdict.startswith("EXTRACTED") or bool(re.search(r"\d", f.get("value") or ""))
+    if (agrees or disputes or numeric) and len(f.get("quote") or "") < 20:
+        return "the report has no verbatim quote of at least 20 characters (re-derivation rule, needs/lit-audit.md)"
+    # same rule as gateway/worker.js (quote must contain a number from value:); two copies drifted once (exori, 2026-09-29)
+    norm = lambda s: re.sub(r"\s+", " ", re.sub("[\u2212\u2013]", "-", s or ""))
+    nums = [n for n in re.findall(r"\d+(?:\.\d+)?", norm(f.get("value"))) if len(n) > 1 or re.match(r"^[1-9]$", n)]
+    if (agrees or disputes or numeric) and nums and not any(n in norm(f.get("quote")) for n in nums):
+        return f"none of {nums[:5]} (from value:) appears in quote: (gateway rule)"
+    return None
+
+
 def main():
     a = sys.argv[1:]
-    issue, check, comment = int(a[0]), a[1], a[2]
+    issue, check_note, comment = int(a[0]), a[1], a[2]
     agrees, disputes = "--agrees" in a, "--disputes" in a
     flag = a[a.index("--flag") + 1] if "--flag" in a else None
     body = gh(f"/issues/{issue}")["body"]
@@ -38,17 +57,10 @@ def main():
     pid, agent, verdict = f["id"], f.get("agent", "?").split(" (")[0], f.get("verdict", "?")
     rec = {"paper": pid, "doi": f.get("doi"), "agent": agent, "issue": issue, "verdict": verdict, "claim": f.get("claim"), "quote": f.get("quote"),
            "value": f.get("value"), "conditions": f.get("conditions"), "location": f.get("location"), "doi_check": "resolves (Crossref, gateway)",
-           "claim_check": check, "recorded": time.strftime("%Y-%m-%dT%H:%MZ", time.gmtime())}
+           "claim_check": check_note, "recorded": time.strftime("%Y-%m-%dT%H:%MZ", time.gmtime())}
     if flag: rec["flag"] = flag
-    # RULE lit-quote v2: a CM-LIT report whose value: contains a number must carry quote: (>= 20 chars) containing one of those numbers (minus signs and whitespace normalised); CM-LIT verdicts are EXTRACTED, PARTIAL, OFF-TOPIC, NO-ACCESS.
-    numeric = bool(re.search(r"\d", f.get("value") or ""))   # keyed on content, like the gateway (rosetta 2026-09-29: the flag-keyed trigger differed)
-    if (agrees or disputes or numeric) and len(f.get("quote") or "") < 20:
-        sys.exit("refusing --agrees/--disputes: the report has no verbatim quote (re-derivation rule, needs/lit-audit.md)")
-    # same rule as gateway/worker.js (quote must contain a number from value:); two copies drifted once (exori, 2026-09-29)
-    norm = lambda s: re.sub(r"\s+", " ", re.sub("[\u2212\u2013]", "-", s or ""))
-    nums = [n for n in re.findall(r"\d+(?:\.\d+)?", norm(f.get("value"))) if len(n) > 1 or re.match(r"^[1-9]$", n)]
-    if (agrees or disputes or numeric) and nums and not any(n in norm(f.get("quote")) for n in nums):
-        sys.exit(f"refusing --agrees/--disputes: none of {nums[:5]} (from value:) appears in quote: (gateway rule)")
+    err = check(f, agrees, disputes)
+    if err: sys.exit(f"refusing: {err}")
     open("results/lit_claims.jsonl", "a").write(json.dumps(rec, ensure_ascii=False) + "\n")
     q = json.load(open("results/lit_queue.json")); papers = q if isinstance(q, list) else q["papers"]
     p = next(x for x in papers if x["id"] == pid)

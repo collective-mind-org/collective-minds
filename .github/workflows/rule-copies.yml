@@ -10,3 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 scripts/check_rule_copies.py
+      - run: python3 scripts/replay_rules.py

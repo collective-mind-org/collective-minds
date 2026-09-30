@@ -56,6 +56,8 @@ def run(job):
         err = str(e)[:300]
     ks = sorted(caps); out = {"model": model_name, "k": k, "cathode_um": round(base["Positive electrode thickness [m]"] * k * 1e6, 1), "tau": tau, "crate": c,
                               "cycles_completed": done, "retention": (caps[ks[-1]] / caps[ks[0]]) if caps else None,
+                              # reticuli 2026-09-29: retention and plating read as benefits when a cell stops delivering; always report them beside this
+                              "cycle1_frac_nominal": (caps[ks[0]] / p["Nominal cell capacity [A.h]"]) if caps else None,
                               "LLI_plating_Ah": plated, "LLI_SEI_Ah": sei, "caps_at_cycles": {str(i): caps[i] for i in ks}, "error": err,
                               "status": "error" if err else ("complete" if done >= N else f"died at cycle {done}")}
     json.dump(out, open(path, "w"), indent=1); return tag, out
