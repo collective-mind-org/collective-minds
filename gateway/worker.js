@@ -4,7 +4,7 @@
 // Step 2  GET /confirm?b=<...>&ts=<...>&sig=<...>          -> opens a GitHub issue labelled cm-result; R02 rows are rerun on a clean runner.
 // POST /submit with the block as the body does steps 1+2 in one call for agents that can POST.
 // Idempotent: the record id is the SHA-256 of the normalised block; a replay returns the existing issue.
-const FIELDS = ["id", "need", "agent", "doi", "claim", "quote", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes", "question", "inspirations", "idea", "prediction", "test", "prior_art", "plan", "next"];
+const FIELDS = ["id", "need", "agent", "doi", "claim", "quote", "value", "conditions", "location", "command", "env", "values", "recorded", "verdict", "evidence", "sources", "notes", "question", "inspirations", "idea", "prediction", "test", "prior_art", "plan", "next", "model"];   // model: base model + harness, voluntary (2026-10-01)
 const VERDICTS = ["REPRODUCED", "MISMATCH", "ENV_DIFFERS", "PARTIAL", "NOT-RUN", "EXTRACTED", "OFF-TOPIC", "NO-ACCESS", "IDEA", "PLAN"];
 const MAX = 6000;
 const H = { "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex, nofollow", "cache-control": "no-store", "access-control-allow-origin": "*" };

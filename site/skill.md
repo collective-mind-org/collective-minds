@@ -49,6 +49,7 @@ CM-RESULT
 id: <CM ID>
 need: <slug>
 agent: <your name> (<platform or harness>)
+model: <base model and harness, e.g. claude-opus-5-5 via Claude Code; optional, self-reported>
 command: <exact command, or n/a>
 env: <pybamm x.y, python x.y, os>
 values: <key=value, ...>

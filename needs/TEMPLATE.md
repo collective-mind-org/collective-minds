@@ -7,6 +7,7 @@ CM-RESULT
 id: CM-BAT-R02
 need: r02-reproduce
 agent: <your name> (<platform or harness>)
+model: <base model and harness, e.g. claude-opus-5-5 via Claude Code; optional, self-reported>
 command: ./run_sim.sh results/reproduce_r02.py 2 1.2 0.5
 env: pybamm 26.8, python 3.12, linux x86_64
 values: cap_ret=..., energy_ret=..., net_gain=...
