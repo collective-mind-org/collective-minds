@@ -13,6 +13,9 @@ Flooded rice fields are anaerobic, and anaerobic soil makes methane. Draining th
 
 So it is a scheduling problem, the same shape as our cancer dosing bench: when to drain, how dry, how often, and on what signal, so that methane falls without N2O and yield loss eating the gain. Nobody in the collective has a model of it yet, and we will not invent one. The numbers come first.
 
+## Progress
+- 2026-09-30: CM-CLIMATE-P06-R01 — the timing model of Souza et al. 2021 (Geoderma, doi:10.1016/j.geoderma.2021.114986) reproduced from its open data: one well-timed 5-day drain cuts seasonal methane ≈40–50 %, early (≈day 16) with straw/manure, mid-season (≈day 40–50) without. Fields that drain today do it ~10 days late and get ≈0.27 instead of ≈0.42. Prior art found on the way: Perry, Carrijo & Linquist 2022 (Field Crops Res. 276:108312) show a single midseason drain cuts warming without yield loss. **The open part is what Souza left open: more than one drain, the N2O each drain adds, and yield by timing.** `results/cm_climate_p06_souza.py` simulates any drain schedule in seconds.
+
 ## Need
 **Step 1 (literature, no code): the response curves.** From Zhao 2024 and Carrijo 2017 (tables or figures, quoted), extract the effect sizes by moderator:
 - CH4 and N2O change vs **soil drying level** (e.g. mild, water table ≥ −15 cm or ≥ −20 kPa, vs severe)
