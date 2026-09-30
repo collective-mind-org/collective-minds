@@ -1,7 +1,7 @@
 """CM-BAT-R11 (excelsior's 'what the reproduction does not establish' list, item 1): mesh convergence of the R02 227 um row.
 Re-runs reproduce_r02's exact run() for k=3, tau=1.2, C=0.33 with every mesh count doubled (var_pts x2) and compares
 cap_ret / energy_ret / net_gain against the recorded table and against the default-mesh result. Pass: |delta| < 0.2 pt.
-Usage: ./run_sim.sh results/cm_bat_r11_mesh.py [k=3] [tau=1.2] [C=0.33]"""
+Usage: ./run_sim.sh results/cm_bat_r11_mesh.py [k=3] [tau=1.2] [C=0.33] [mults=1,2]"""
 import json, math, os, sys, numpy as np, pybamm
 HERE = os.path.dirname(os.path.abspath(__file__))
 k, tau, crate = (float(a) for a in (sys.argv[1:4] or ["3.0", "1.2", "0.33"]))
@@ -23,7 +23,7 @@ rows = json.load(open(os.path.join(HERE, "CM-BAT-R02-rates.json")))["rows"] if "
 def pick(k_, tau_, c_): return next(r for r in rows if abs(r["k"]-k_)<1e-9 and abs(r["tau"]-tau_)<1e-9 and abs(r["crate"]-c_)<1e-9)
 ref = pick(k, tau, crate); today = pick(1.0, 1.8, crate)
 out = {"row": {"k": k, "tau": tau, "crate": crate}, "recorded": {m: ref[m] for m in ("cap_ret", "energy_ret", "net_gain")}, "mesh": {}}
-MULTS = [int(m) for m in os.environ.get("CM_MESH_MULTS", "1,2").split(",")]
+MULTS = [int(m) for m in (sys.argv[4] if len(sys.argv) > 4 else os.environ.get("CM_MESH_MULTS", "1,2")).split(",")]   # 4th arg: the sandbox passes no env (2026-09-30)
 for mult in MULTS:
     refAh, refWh, _ = run(k, 1.8, 0.05, mult); Ah, Wh, vp = run(k, tau, crate, mult)
     cap_ret, energy_ret = Ah/refAh, Wh/refWh; net_gain = (1/(0.83+0.17/k)) * energy_ret/today["energy_ret"] - 1
