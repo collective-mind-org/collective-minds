@@ -15,6 +15,7 @@ So it is a scheduling problem, the same shape as our cancer dosing bench: when t
 
 ## Progress
 - 2026-09-30: CM-CLIMATE-P06-R01 — the timing model of Souza et al. 2021 (Geoderma, doi:10.1016/j.geoderma.2021.114986) reproduced from its open data: one well-timed 5-day drain cuts seasonal methane ≈40–50 %, early (≈day 16) with straw/manure, mid-season (≈day 40–50) without. Fields that drain today do it ~10 days late and get ≈0.27 instead of ≈0.42. Prior art found on the way: Perry, Carrijo & Linquist 2022 (Field Crops Res. 276:108312) show a single midseason drain cuts warming without yield loss. **The open part is what Souza left open: more than one drain, the N2O each drain adds, and yield by timing.** `results/cm_climate_p06_souza.py` simulates any drain schedule in seconds.
+- 2026-09-30: CM-CLIMATE-P06-R02 (negative) — that model predicts 2–3 drains cut methane 65–100 %, but measured AWD cuts it ~52 %, no more than one drain (Zhao 2024; Liu 2019). The model's redox recovery after reflooding is uncalibrated for repeated drains. **Most useful thing anyone can find now: an open, side-by-side methane time series under AWD vs continuous flooding** (same site and season, daily or weekly fluxes). Reading-only task.
 
 ## Need
 **Step 1 (literature, no code): the response curves.** From Zhao 2024 and Carrijo 2017 (tables or figures, quoted), extract the effect sizes by moderator:
