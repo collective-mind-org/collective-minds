@@ -1,0 +1,222 @@
+[
+ {
+  "site": "GUTCFNO01",
+  "OA": false,
+  "best_single": 0.138,
+  "best_day": 56.0,
+  "A day 40": 0.078,
+  "B day 50": 0.127,
+  "C days 16+40": 0.088,
+  "D day 16": 0.01
+ },
+ {
+  "site": "HAQCFNO01",
+  "OA": false,
+  "best_single": 0.125,
+  "best_day": 45.0,
+  "A day 40": 0.124,
+  "B day 50": 0.123,
+  "C days 16+40": 0.21,
+  "D day 16": 0.086
+ },
+ {
+  "site": "HUACFNO01",
+  "OA": false,
+  "best_single": 0.427,
+  "best_day": 33.0,
+  "A day 40": 0.413,
+  "B day 50": 0.357,
+  "C days 16+40": 0.662,
+  "D day 16": 0.319
+ },
+ {
+  "site": "JIACFNO01",
+  "OA": false,
+  "best_single": 0.364,
+  "best_day": 84.0,
+  "A day 40": 0.125,
+  "B day 50": 0.186,
+  "C days 16+40": 0.147,
+  "D day 16": 0.035
+ },
+ {
+  "site": "LIACFNO01",
+  "OA": false,
+  "best_single": 0.914,
+  "best_day": 46.0,
+  "A day 40": 0.886,
+  "B day 50": 0.904,
+  "C days 16+40": 0.888,
+  "D day 16": 0.484
+ },
+ {
+  "site": "SASCFNO01",
+  "OA": false,
+  "best_single": 0.382,
+  "best_day": 66.0,
+  "A day 40": 0.33,
+  "B day 50": 0.357,
+  "C days 16+40": 0.493,
+  "D day 16": 0.213
+ },
+ {
+  "site": "ZOUCFNO01",
+  "OA": false,
+  "best_single": 0.304,
+  "best_day": 31.0,
+  "A day 40": 0.28,
+  "B day 50": 0.215,
+  "C days 16+40": 0.516,
+  "D day 16": 0.241
+ },
+ {
+  "site": "HUACFOM01",
+  "OA": true,
+  "best_single": 0.365,
+  "best_day": 29.0,
+  "A day 40": 0.337,
+  "B day 50": 0.278,
+  "C days 16+40": 0.613,
+  "D day 16": 0.306
+ },
+ {
+  "site": "HUACFOM02",
+  "OA": true,
+  "best_single": 0.658,
+  "best_day": 18.0,
+  "A day 40": 0.25,
+  "B day 50": 0.097,
+  "C days 16+40": 0.861,
+  "D day 16": 0.65
+ },
+ {
+  "site": "HUACFOM03",
+  "OA": true,
+  "best_single": 0.488,
+  "best_day": 17.0,
+  "A day 40": 0.14,
+  "B day 50": 0.032,
+  "C days 16+40": 0.623,
+  "D day 16": 0.487
+ },
+ {
+  "site": "ISLCFOM01",
+  "OA": true,
+  "best_single": 0.613,
+  "best_day": 16.0,
+  "A day 40": 0.253,
+  "B day 50": 0.204,
+  "C days 16+40": 0.813,
+  "D day 16": 0.613
+ },
+ {
+  "site": "WANCFOM01",
+  "OA": true,
+  "best_single": 0.461,
+  "best_day": 18.0,
+  "A day 40": 0.034,
+  "B day 50": 0.005,
+  "C days 16+40": 0.488,
+  "D day 16": 0.453
+ },
+ {
+  "site": "WUXCFOM01",
+  "OA": true,
+  "best_single": 0.359,
+  "best_day": 8.0,
+  "A day 40": 0.17,
+  "B day 50": 0.138,
+  "C days 16+40": 0.426,
+  "D day 16": 0.258
+ },
+ {
+  "site": "WUXCFOM02",
+  "OA": true,
+  "best_single": 0.335,
+  "best_day": 10.0,
+  "A day 40": 0.16,
+  "B day 50": 0.128,
+  "C days 16+40": 0.463,
+  "D day 16": 0.305
+ },
+ {
+  "site": "HAQMDNO01",
+  "OA": false,
+  "best_single": 0.38,
+  "best_day": 25.0,
+  "A day 40": 0.135,
+  "B day 50": 0.033,
+  "C days 16+40": 0.385,
+  "D day 16": 0.25
+ },
+ {
+  "site": "LIAMDNO01",
+  "OA": false,
+  "best_single": 0.537,
+  "best_day": 66.0,
+  "A day 40": 0.29,
+  "B day 50": 0.419,
+  "C days 16+40": 0.33,
+  "D day 16": 0.071
+ },
+ {
+  "site": "SASMDNO01",
+  "OA": false,
+  "best_single": 0.447,
+  "best_day": 35.0,
+  "A day 40": 0.444,
+  "B day 50": 0.415,
+  "C days 16+40": 0.672,
+  "D day 16": 0.329
+ },
+ {
+  "site": "WUXMDNO01",
+  "OA": false,
+  "best_single": 0.317,
+  "best_day": 16.0,
+  "A day 40": 0.208,
+  "B day 50": 0.152,
+  "C days 16+40": 0.521,
+  "D day 16": 0.317
+ },
+ {
+  "site": "ZHAMDNO01",
+  "OA": false,
+  "best_single": 0.268,
+  "best_day": 31.0,
+  "A day 40": 0.251,
+  "B day 50": 0.204,
+  "C days 16+40": 0.471,
+  "D day 16": 0.224
+ },
+ {
+  "site": "ZOUMDNO01",
+  "OA": false,
+  "best_single": 0.411,
+  "best_day": 20.0,
+  "A day 40": 0.3,
+  "B day 50": 0.226,
+  "C days 16+40": 0.669,
+  "D day 16": 0.4
+ },
+ {
+  "site": "ZOUMDNO02",
+  "OA": false,
+  "best_single": 0.568,
+  "best_day": 12.0,
+  "A day 40": 0.086,
+  "B day 50": 0.031,
+  "C days 16+40": 0.61,
+  "D day 16": 0.526
+ },
+ {
+  "site": "ISLMDOM01",
+  "OA": true,
+  "best_single": 0.747,
+  "best_day": 16.0,
+  "A day 40": 0.185,
+  "B day 50": 0.115,
+  "C days 16+40": 0.883,
+  "D day 16": 0.747
+ }
+]
