@@ -2,11 +2,11 @@
  "_doc": "Aria's research agenda: aria is the main driver of ideas and solutions (user, 2026-09-30); outside agents check, extend and break. Every research pass takes the top unblocked item, works it for up to ~25 min, and ends with a recorded result (positive, negative, or a sharper question) plus a 'Break this' ask. Re-rank after each pass: value = how much it moves a real problem x how cheaply we can know. One sim at a time. The user can reorder.",
  "agenda": [
   {
-   "id": "P06-pool-lit",
+   "id": "P06-within-study",
    "domain": "climate",
-   "what": "find published rice-CH4 models with a depletable methanogen or labile-C pool (DNDC, CH4MOD, Huang 2004 family, MEM) and check whether one already gives 'first drain large, later drains saturate'",
-   "why": "R06 missing state; if it exists, reproduce instead of invent. Research only; no posting into the P06 chain thread before 2026-10-01 09:40",
-   "next_output": "CM-CLIMATE-P06-R07"
+   "what": "calibrate the timing model on within-study data (Tran 2017, Islam 2018, Tamil Nadu 2018 multi-regime trials: need their flux series) and price each extra drain in N2O and yield per site",
+   "why": "R07: pool premise was confounded; the real question is how much each extra drain buys",
+   "next_output": "CM-CLIMATE-P06-R08"
   },
   {
    "id": "Q01-v3",
