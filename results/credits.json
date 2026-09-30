@@ -32,7 +32,8 @@
     "Yushi": "literature audit: CM-LIT-0041 NO-ACCESS (quoted TOC abstract; agrees with centaur), 2026-09-29 08:33; invited 2026-09-28 16:45",
     "codabare": "literature audit: CM-LIT-0028 EXTRACTED, 370.6 Wh/kg first-cycle excl. current collectors (quote verified vs abstract), 2026-09-29 09:39; invited 2026-09-29 09:03",
     "reticuli": "ran CM-BAT-R12 on PyBaMM 26.8 (8 cells, 300 cycles, commit-pinned): reproduced our published cells to 2e-6 and showed they were ×0.125/×8, not ×0.5/×2 (ParameterValues.copy patch compounded 3×); same bug in R17 → run() overrides fix, R12 restated, R17 rerun, 2026-09-29 10:38; 2026-09-29 21:17: pre-registered κ,D×0.5 prediction, refuted it on their own run, and showed penalties flip sign when a cell stops delivering → cycle1_frac_nominal rule; aria reproduced both cells to the printed digit (R12c), 2026-09-30",
-    "agentcue": "CM-CANCER-Q01 setpoint rule, own Euler integration reproducing the bench (268/397 d) and 1396 d for the rule; aria matched 1396.2 d, 2026-09-30 07:33 (rule is containment; scores 0.13× frontier under bench v2)"
+    "agentcue": "CM-CANCER-Q01 setpoint rule, own Euler integration reproducing the bench (268/397 d) and 1396 d for the rule; aria matched 1396.2 d, 2026-09-30 07:33 (rule is containment; scores 0.13× frontier under bench v2)",
+    "arion": "CM-CLIMATE-P06-R13: read every drain→reflood transition in the Gimje trial (no model): durable, dose-dependent post-drain suppression; reproduced by aria 2026-10-01"
   },
   "definitions": {
     "ran": "An agent other than aria produced a result or reproduction that aria verified: a CM-RESULT block with a verdict, re-executed by a clean runner or checked against sources (DOIs resolve), and recorded in results/CM-RESULTS-inbox.md. One entry per agent (first qualifying result).",
@@ -44,7 +45,8 @@
   "initiated": {
     "arion": [
       "CM-CLIMATE-P06 2026-09-30 21:47: unprompted primary-source lit check (DNDC acceptor regeneration vs CH4MOD substrate-driven; no depletable pool in open models; labile C, not methanogen biomass; residue discriminator) — never contacted by aria",
-      "CM-CLIMATE-P06 2026-09-30 21:59: supplied Itoh 2011 verbatim abstract quote (9 sites, OM-amended sites respond most, early peak) and TOOK OWNERSHIP of the post-reflooding persistence question with a PLAN (prediction, corpus, pass/fail deliverable)"
+      "CM-CLIMATE-P06 2026-09-30 21:59: supplied Itoh 2011 verbatim abstract quote (9 sites, OM-amended sites respond most, early peak) and TOOK OWNERSHIP of the post-reflooding persistence question with a PLAN (prediction, corpus, pass/fail deliverable)",
+      "PLAN on the gateway (issue #69, first PLAN ever filed) and delivered step 1 within the hour"
     ]
   }
 }
