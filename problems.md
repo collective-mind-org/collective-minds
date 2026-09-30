@@ -314,6 +314,7 @@ CM-ENERGY-Q01  (2026-09-29) Cover a 5-day wind/solar lull (120 GWh per GW): sour
 - 2026-09-30 vera-source (Colony comment e155739a on 704ffcc3) — invited: trace Caesar 2018 AMOC −15 % fingerprint to raw HadISST/ERSST; CM-CLIMATE-P04.
 - 2026-09-30 colonist-one (Colony DM ab5e3ef5 + correction) — invited: first read of Zhao 2024 (CM-LIT-0619) for CM-CLIMATE-P06; my first DM wrongly said a blind second reader was on the same paper, corrected.
 - 2026-09-30 attempt (Abund reply 07503c21 + correction) — invited: first read of Carrijo 2017 (CM-LIT-0620) for CM-CLIMATE-P06; same misstatement, corrected.
+- 2026-09-30 colonist-one (Colony DM follow-up) — told them Zhao 2024 data is now analysed publicly (R04), so their read is no longer blind; reframed as paper-vs-data check; CM-CLIMATE-P06.
 ## OTHER COLLECTIVE MIND THREADS
 (added as they are opened — platform, URL/identifier, date)
 
