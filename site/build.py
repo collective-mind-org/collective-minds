@@ -5,7 +5,7 @@ import json, os, re, sys, html, datetime, markdown
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "_site")
 DOMAIN = "collective-mind.org"; REPO = "https://github.com/collective-mind-org/collective-minds"
-ID_RE = re.compile(r"\bCM-[A-Z]+-(?:[PQR]\d{2}[a-z]?|\d{3}[a-z]?(?:\([ivx]+\))?)\b(?!-)")
+ID_RE = re.compile(r"\bCM-[A-Z]+-(?:[PQR]\d{2}[a-z]?|\d{3}[a-z]?(?:\([ivx]+\))?)(?:-[PQR]\d{2}[a-z]?)*\b(?!-)")   # nested: CM-CLIMATE-P06-R01 (result under a problem)
 TAG_RE = re.compile(r"\[(inspiration|hypothesis|challenged|needs-evidence[^\]]*|negative-result|pre-empted|open|known[^\]]*|open question|closed)\]")
 URL_RE = re.compile(r"https?://[^\s)>\]]+")
 KIND = {"P": "sub-problem", "Q": "call for help", "R": "result"}
@@ -14,15 +14,17 @@ DOMAINS = {"BAT": "Battery energy density", "CANCER": "Cancer", "CONS": "Conscio
 def read(n): return open(os.path.join(ROOT, n), encoding="utf-8").read()
 SRC = {"problems.md": read("problems.md"), "idea.md": read("idea.md"), "manifesto.md": read("manifesto.md")}
 
+def parent_of(i): return i.rsplit("-", 1)[0] if i.count("-") > 2 else None
 def kind_of(i):
-    t = i.split("-")[2]
+    t = i.split("-")[-1]
     if t[0] in KIND: return KIND[t[0]]
     return "inspiration" if t[:3].isdigit() and int(t[:3]) < 100 else "hypothesis / idea"
 
 ids = {}
 def clean(t):
     t = URL_RE.sub("", t); t = TAG_RE.sub("", t); t = t.replace("**", "").replace("`", "")
-    t = re.sub(r"^\s*\([^)]*\)\s*", "", t.strip()); t = re.sub(r"\s+", " ", t).strip(" —–-:|*(),.;")
+    t = re.sub(r"^\s*\([^)]*\)\s*", "", t.strip()); t = re.sub(r"^\s*\[(?:E\d|negative-result|pre-empted|inspiration|hypothesis|reproduction)[^\]]*\]\s*", "", t)   # leading (date, author) and [evidence, kind] tags; keeps [CLOSED …] notes
+    t = re.sub(r"\s+", " ", t).strip(" —–-:|*(),.;")
     return t
 for fname in ("idea.md", "problems.md", "manifesto.md"):
     lines = SRC[fname].splitlines()
@@ -51,7 +53,8 @@ for e in ids.values():
     ptags = [t for f, t in e["tags"] if f == "problems.md"]; itags = [t for f, t in e["tags"] if f == "idea.md"]
     st = (ptags or itags or [None])[-1]
     if st is None:
-        if e["kind"] == "result": st = "negative result" if "NEGATIVE" in (e["defined"] or {}).get("text", "") else "recorded"
+        dtext = (e["defined"] or {}).get("text", "")
+        if e["kind"] == "result": st = "negative result" if ("NEGATIVE" in dtext or "[negative-result" in dtext) else ("partly superseded" if "SUPERSEDED" in dtext else "recorded")
         elif e["kind"] == "inspiration": st = "inspiration"
         else: st = "open"
     e["status"] = st.split(":")[0].strip()
@@ -59,6 +62,11 @@ for e in ids.values():
     e["title"] = (e.get("_title") or e["_seg"] or "")[:160]
     e["tags"] = [t for f, t in e["tags"]]; e.pop("_seg", None); e.pop("_title", None)
 
+def is_activity(m):   # outreach / pass logs: dated log lines in problems.md, not the record itself
+    return m["file"] == "problems.md" and re.match(r"^[-*]\s*20\d\d-\d\d-\d\d", m["text"]) is not None
+children = {}
+for i in ids:
+    if parent_of(i): children.setdefault(parent_of(i), []).append(i)
 def sort_key(i):
     p = i.split("-"); return (list(DOMAINS).index(p[1]) if p[1] in DOMAINS else 99, p[2][0] not in "0123456789", p[2])
 order = sorted(ids, key=sort_key)
@@ -114,13 +122,20 @@ w("problems/index.html", page("Problems · Collective Mind", linkify(md(SRC["pro
 w("ideas/index.html", page("Ideas & results · Collective Mind", linkify(md(SRC["idea.md"]))))
 w("manifesto/index.html", page("Manifesto · Collective Mind", md(SRC["manifesto.md"])))
 reg = "".join(f"<tr><td><a href='/id/{i}/'>{i}</a></td><td>{html.escape(ids[i]['kind'])}</td><td>{html.escape(ids[i]['title'])}</td><td><span class='tag'>{html.escape(ids[i]['status'])}</span></td></tr>" for i in order)
-w("id/index.html", page("ID registry · Collective Mind", f"<h1>ID registry</h1><p class='mut'>{len(ids)} persistent IDs. Scheme: CM-&lt;DOMAIN&gt;-&lt;NNN&gt; ideas (001–099 inspirations, 1xx hypotheses), -P&lt;NN&gt; sub-problems, -Q&lt;NN&gt; calls for help, -R&lt;NN&gt; results. Forks get a suffix. Machine-readable: <a href='/ids.json'>ids.json</a>.</p><table><tr><th>ID</th><th>Kind</th><th>Title</th><th>Status</th></tr>{reg}</table>"))
+w("id/index.html", page("ID registry · Collective Mind", f"<h1>ID registry</h1><p class='mut'>{len(ids)} persistent IDs. Scheme: CM-&lt;DOMAIN&gt;-&lt;NNN&gt; ideas (001–099 inspirations, 1xx hypotheses), -P&lt;NN&gt; sub-problems, -Q&lt;NN&gt; calls for help, -R&lt;NN&gt; results; a result under a problem carries the problem's ID first (CM-CLIMATE-P06-R01) and is listed on the problem's page. Forks get a suffix. Machine-readable: <a href='/ids.json'>ids.json</a>.</p><table><tr><th>ID</th><th>Kind</th><th>Title</th><th>Status</th></tr>{reg}</table>"))
 for i in order:
     e = ids[i]
-    ments = "".join(f"<div class='mention'><span class='mut'>{m['file']}:{m['line']}</span><br>{linkify(md(m['text']))}</div>" for m in e["mentions"])
+    mention = lambda m: f"<div class='mention'><span class='mut'>{m['file']}:{m['line']}</span><br>{linkify(md(m['text']))}</div>"
+    rec = [m for m in e["mentions"] if not is_activity(m)]; act = [m for m in e["mentions"] if is_activity(m)]
+    ments = "".join(mention(m) for m in rec) or "<p class=mut>only activity so far</p>"
+    if act: ments += f"<details><summary class='mut'>Activity log ({len(act)} mentions: invitations, passes)</summary>{''.join(mention(m) for m in act)}</details>"
+    kids = sorted(children.get(i, []), key=lambda k: k.split("-")[-1])
+    kids_h = ("<h2>Results and sub-items</h2><table><tr><th>ID</th><th>Status</th><th>What</th></tr>" + "".join(f"<tr><td><a href='/id/{k}/'>{k}</a></td><td><span class='tag'>{html.escape(ids[k]['status'])}</span></td><td>{html.escape(ids[k]['title'])}</td></tr>" for k in kids) + "</table>") if kids else ""
+    needs_h = "".join(f"<div class='card'><b>Help wanted:</b> <a href='/needs/{n['slug']}/'>{html.escape(n['title'])}</a> <span class='mut'>({html.escape(n.get('runtime', n.get('compute', '?')).split(';')[0])})</span></div>" for n in NEEDS if n.get("id") in (i, parent_of(i)))
+    par_h = f"<p class='mut'>Part of <a href='/id/{parent_of(i)}/'>{parent_of(i)}</a></p>" if parent_of(i) and parent_of(i) in ids else ""
     urls = "".join(f"<li><a href='{html.escape(u)}'>{html.escape(u)}</a></li>" for u in e["urls"])
     body = f"""<h1>{i}</h1><p><span class="tag">{html.escape(e['kind'])}</span><span class="tag">{html.escape(e['status'])}</span><span class="tag">{html.escape(DOMAINS.get(e['domain'], e['domain']))}</span></p>
-<p>{html.escape(e['title'])}</p><h2>Lineage (every mention in the registry, in order)</h2>{ments}<h2>Threads &amp; sources</h2><ul>{urls or '<li class=mut>none recorded yet</li>'}</ul>
+<p>{html.escape(e['title'])}</p>{par_h}{needs_h}{kids_h}<h2>Record (every mention in the registry, in order)</h2>{ments}<h2>Threads &amp; sources</h2><ul>{urls or '<li class=mut>none recorded yet</li>'}</ul>
 <p class="mut">Cite as <code>{e['url']}</code>. To build on or challenge this, quote the ID on any platform, or open a PR on <a href="{REPO}">the repo</a>.</p>"""
     w(f"id/{i}/index.html", page(f"{i} · Collective Mind", body, e["title"]))
 
