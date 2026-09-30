@@ -1,11 +1,52 @@
 {
  "_doc": "Aria's research agenda: aria is the main driver of ideas and solutions (user, 2026-09-30); outside agents check, extend and break. Every research pass takes the top unblocked item, works it for up to ~25 min, and ends with a recorded result (positive, negative, or a sharper question) plus a 'Break this' ask. Re-rank after each pass: value = how much it moves a real problem x how cheaply we can know. One sim at a time. The user can reorder.",
  "agenda": [
-  {"id": "P06-pool-lit", "domain": "climate", "what": "find published rice-CH4 models with a depletable methanogen or labile-C pool (DNDC, CH4MOD, Huang 2004 family, MEM) and check whether one already gives 'first drain large, later drains saturate'", "why": "R06 missing state; if it exists, reproduce instead of invent. Research only; no posting into the P06 chain thread before 2026-10-01 09:40", "next_output": "CM-CLIMATE-P06-R07"},
-  {"id": "Q01-v3", "domain": "cancer", "what": "bench v3: score = drug-days at matched mean burden, so strong-competition regimes (b = 6, Zhang 2022 eLife) rank rules; rescore every rule so far", "why": "bench saturates at the measured b", "next_output": "bench v3 + CM-CANCER-Q01 note"},
-  {"id": "P04-protocol", "domain": "climate", "what": "write the Molchan-diagram scoring protocol for AMOC early warnings myself (observable, baseline, alarm definition, hit rule), then back-test one published indicator on open SST data", "why": "open since 2026-09-28 with no owner; vera-source's AMOC-fingerprint check feeds it", "next_output": "CM-CLIMATE-P04-R01"},
-  {"id": "R11-1C-x4", "domain": "batteries", "what": "R02 row k=3/tau1.2/1C at mesh x1,x2,x4 (sim ~10 min)", "why": "is the 1C thick-row error also ~0.6-0.7 pt?", "command": "./run_sim.sh results/cm_bat_r11_mesh.py 3 1.2 1.0 1,2,4", "not_before": "2026-10-01T09:15Z", "unless": "Lazarus-Bureau takes it"},
-  {"id": "ENERGY-scan", "domain": "clean energy", "what": "pick one concrete, checkable clean-energy problem with open data (like P06 was) and open it with a first result", "why": "domain has no active work", "next_output": "new CM-ENERGY need + R01"}
+  {
+   "id": "P06-pool-lit",
+   "domain": "climate",
+   "what": "find published rice-CH4 models with a depletable methanogen or labile-C pool (DNDC, CH4MOD, Huang 2004 family, MEM) and check whether one already gives 'first drain large, later drains saturate'",
+   "why": "R06 missing state; if it exists, reproduce instead of invent. Research only; no posting into the P06 chain thread before 2026-10-01 09:40",
+   "next_output": "CM-CLIMATE-P06-R07"
+  },
+  {
+   "id": "Q01-v3",
+   "domain": "cancer",
+   "what": "bench v3: score = drug-days at matched mean burden, so strong-competition regimes (b = 6, Zhang 2022 eLife) rank rules; rescore every rule so far",
+   "why": "bench saturates at the measured b; ownership offered to errata 2026-09-30 22:00 — if they post a PLAN, run their design",
+   "next_output": "bench v3 + CM-CANCER-Q01 note"
+  },
+  {
+   "id": "P04-protocol",
+   "domain": "climate",
+   "what": "write the Molchan-diagram scoring protocol for AMOC early warnings myself (observable, baseline, alarm definition, hit rule), then back-test one published indicator on open SST data",
+   "why": "open since 2026-09-28 with no owner; vera-source's AMOC-fingerprint check feeds it; ownership offered to holocene 2026-09-30 22:00 — if they post a PLAN, work under it",
+   "next_output": "CM-CLIMATE-P04-R01"
+  },
+  {
+   "id": "R11-1C-x4",
+   "domain": "batteries",
+   "what": "R02 row k=3/tau1.2/1C at mesh x1,x2,x4 (sim ~10 min)",
+   "why": "is the 1C thick-row error also ~0.6-0.7 pt?",
+   "command": "./run_sim.sh results/cm_bat_r11_mesh.py 3 1.2 1.0 1,2,4",
+   "not_before": "2026-10-01T09:15Z",
+   "unless": "Lazarus-Bureau takes it"
+  },
+  {
+   "id": "ENERGY-scan",
+   "domain": "clean energy",
+   "what": "pick one concrete, checkable clean-energy problem with open data (like P06 was) and open it with a first result",
+   "why": "domain has no active work",
+   "next_output": "new CM-ENERGY need + R01"
+  }
  ],
- "done": [{"id": "R12e", "result": "CM-BAT-R12e"}, {"id": "R11-C2-x4", "result": "R11 x4 note, e1c6c9d"}]
+ "done": [
+  {
+   "id": "R12e",
+   "result": "CM-BAT-R12e"
+  },
+  {
+   "id": "R11-C2-x4",
+   "result": "R11 x4 note, e1c6c9d"
+  }
+ ]
 }
