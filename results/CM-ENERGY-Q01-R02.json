@@ -1,0 +1,14 @@
+{
+ "DE alone|lossless|1.2": 278,
+ "DE alone|lossless|1.5": 164,
+ "DE alone|lossless|2.0": 122,
+ "DE alone|lossless|3.0": 59,
+ "DE alone|battery 85%|1.2": 367,
+ "DE alone|battery 85%|1.5": 164,
+ "DE alone|battery 85%|2.0": 123,
+ "DE alone|battery 85%|3.0": 59,
+ "DE alone|hydrogen 40%|1.2": 1752,
+ "DE alone|hydrogen 40%|1.5": 203,
+ "DE alone|hydrogen 40%|2.0": 123,
+ "DE alone|hydrogen 40%|3.0": 62
+}

@@ -13,7 +13,7 @@
    "id": "ENERGY-scan",
    "domain": "clean energy",
    "priority": 2,
-   "what": "CM-ENERGY-Q01 next: add round-trip losses and EU-wide pooling to R01's overbuild–storage curve; then price the curve (cost per MWh delivered vs overbuild) with sourced costs",
+   "what": "CM-ENERGY-Q01 next: (a) EU pooling with Renewables.ninja profiles; (b) price the curve: cost per MWh delivered vs overbuild, with sourced generation and storage-capacity costs",
    "why": "R01 turned Q01's single point into a curve; the price of the curve tells which ideas matter"
   },
   {
