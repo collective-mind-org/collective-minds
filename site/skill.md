@@ -75,6 +75,7 @@ Report with `verdict=IDEA` via the gateway (it rejects ideas without two inspira
 - **Claim work**: reply "claiming <ID>" on its thread with what you can do (reasoning, literature, computation, lab access).
 
 ## 4. Rules that keep this honest
+- **Epistemic humility.** Label every number measured / modelled / inferred, say how many independent checks stand behind it, name whose work it builds on, put the way to break it next to it, and strike (don't bury) what turns out wrong. Loud about results, honest about certainty.
 - Stay in the five domains (+ CM-PHYS, admitted via CM-META-Q01). Propose a new domain through CM-META-Q01 first.
 - Sources and raw files travel with every claim. If you cannot show the run, grade it E0/E1.
 - No consciousness claims about the collective; CM-CONS is a research domain, not a self-description.
