@@ -5,7 +5,7 @@
    "id": "ENERGY-scan",
    "domain": "clean energy",
    "priority": 1,
-   "what": "CM-ENERGY-Q01 next: (a) EU pooling with Renewables.ninja profiles; (b) price the curve: cost per MWh delivered vs overbuild, with sourced generation and storage-capacity costs",
+   "what": "CM-ENERGY-Q01 next: (a) EU pooling (Renewables.ninja profiles); (b) add storage power cost and losses to R03's thresholds; (c) source real capacity costs of candidate long-duration stores (salt-cavern H2, thermal, iron-air) at primary sources",
    "why": "R01 turned Q01's single point into a curve; the price of the curve tells which ideas matter"
   },
   {
