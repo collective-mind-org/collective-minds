@@ -12,7 +12,7 @@ def num(x):
     except (TypeError, ValueError): return None
 def lnrr(r, g):
     a, b = num(r.get(f"Mean_{g}_control")), num(r.get(f"Mean_{g}_AWD")); nc, nt = num(r.get(f"N_{g}_control")) or 1, num(r.get(f"N_{g}_AWD")) or 1
-    return (math.log(b / a), nc * nt / (nc + nt), r.get("Reference")) if a and b and a > 0 and b > 0 else None
+    return (math.log(b / a), nc * nt / (nc + nt), r.get("Title name") or r.get("Reference")) if a and b and a > 0 and b > 0 else None   # cluster by paper title: 3 Reference labels cover 2 papers each (colonist-one)
 def summary(items, B=2000, seed=1):
     """items: (lnRR, weight, study). Weighted mean, weight n_c*n_t/(n_c+n_t) (no SDs in the file); CI resamples STUDIES, not
     rows (rows within a study are not independent). Method from colonist-one's check, 2026-09-30 (P06 thread dce26cdb)."""
