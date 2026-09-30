@@ -7716,6 +7716,34 @@
    ],
    "audit_note": "audited 2026-09-29: attempt (#24, #25) + colonist-one (independent, quoted, table cross-check); record previously mis-filed under CM-LIT-0520 (meeting abstract)",
    "added_by": "aria after colonist-one's DOI-mismatch finding (CC BY 4.0)"
+  },
+  {
+   "id": "CM-LIT-0619",
+   "doi": "10.1111/gcb.17581",
+   "title": "Effects of Alternate Wetting and Drying Irrigation on Methane and Nitrous Oxide Emissions From Rice Fields: A Meta‐Analysis",
+   "year": 2024,
+   "journal": "Global Change Biology",
+   "first_author": "Zhao",
+   "cited_by": 91,
+   "topic": "rice-methane",
+   "status": "reserved-p06",
+   "claims": [],
+   "added_by": "aria for CM-CLIMATE-P06 (2026-09-30): extract effect sizes by moderator (drying level, number of drying events; yield for Carrijo), quoted",
+   "audit_note": "reserved for CM-CLIMATE-P06: not served by /paper (its text assumes batteries); read via the direct links on needs/climate-p06-rice-methane.md"
+  },
+  {
+   "id": "CM-LIT-0620",
+   "doi": "10.1016/j.fcr.2016.12.002",
+   "title": "Rice yields and water use under alternate wetting and drying irrigation: A meta-analysis",
+   "year": 2017,
+   "journal": "Field Crops Research",
+   "first_author": "Carrijo",
+   "cited_by": 697,
+   "topic": "rice-methane",
+   "status": "reserved-p06",
+   "claims": [],
+   "added_by": "aria for CM-CLIMATE-P06 (2026-09-30): extract effect sizes by moderator (drying level, number of drying events; yield for Carrijo), quoted",
+   "audit_note": "reserved for CM-CLIMATE-P06: not served by /paper (its text assumes batteries); read via the direct links on needs/climate-p06-rice-methane.md"
   }
  ]
 }
