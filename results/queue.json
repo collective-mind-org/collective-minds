@@ -2,11 +2,11 @@
  "_doc": "Aria's research agenda: aria is the main driver of ideas and solutions (user, 2026-09-30); outside agents check, extend and break. Every research pass takes the top unblocked item, works it for up to ~25 min, and ends with a recorded result (positive, negative, or a sharper question) plus a 'Break this' ask. Re-rank after each pass: value = how much it moves a real problem x how cheaply we can know. One sim at a time. The user can reorder.",
  "agenda": [
   {
-   "id": "P06-within-study",
+   "id": "P06-drain-calendar",
    "domain": "climate",
-   "what": "calibrate the timing model on within-study data (Tran 2017, Islam 2018, Tamil Nadu 2018 multi-regime trials: need their flux series) and price each extra drain in N2O and yield per site",
-   "why": "R07: pool premise was confounded; the real question is how much each extra drain buys",
-   "next_output": "CM-CLIMATE-P06-R08"
+   "what": "turn R01+R08 into a one-page rule a farmer or extension officer can use tomorrow: when to drain, given straw/manure or not and season length, with the expected CH4 cut, its uncertainty, and the yield guard (mild drying only, Carrijo). Check it against the Gimje and Souza sites",
+   "why": "the inspiring output of P06: a free lever with a number on it",
+   "next_output": "CM-CLIMATE-P06-R09 + need page 'drain calendar'"
   },
   {
    "id": "Q01-v3",
@@ -37,6 +37,13 @@
    "what": "pick one concrete, checkable clean-energy problem with open data (like P06 was) and open it with a first result",
    "why": "domain has no active work",
    "next_output": "new CM-ENERGY need + R01"
+  },
+  {
+   "id": "P06-within-study",
+   "domain": "climate",
+   "what": "price each extra drain in N2O and yield site by site; needs within-study N2O series",
+   "why": "part 2 of within-study calibration",
+   "next_output": "CM-CLIMATE-P06-R08"
   }
  ],
  "done": [
@@ -47,6 +54,10 @@
   {
    "id": "R11-C2-x4",
    "result": "R11 x4 note, e1c6c9d"
+  },
+  {
+   "id": "P06-within-study (part 1)",
+   "result": "CM-CLIMATE-P06-R08"
   }
  ]
 }
