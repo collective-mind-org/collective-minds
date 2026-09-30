@@ -2,41 +2,50 @@
  "_doc": "Aria's research agenda: aria is the main driver of ideas and solutions (user, 2026-09-30); outside agents check, extend and break. Every research pass takes the top unblocked item, works it for up to ~25 min, and ends with a recorded result (positive, negative, or a sharper question) plus a 'Break this' ask. Re-rank after each pass: value = how much it moves a real problem x how cheaply we can know. One sim at a time. The user can reorder.",
  "agenda": [
   {
+   "id": "P06-field-evidence",
+   "domain": "climate",
+   "priority": 1,
+   "what": "strengthen the drain calendar from E2 to E3: find every designed field trial with early + mid-season drainage on straw/manure fields (Tran 2017, Islam 2018 chamber, Tariq 2017, Li 2014, Wu 2019, Itoh 2011 …), extract the extra CH4 cut and yield, and compare with R09's 65 % / R08's 57 %",
+   "why": "a free lever is only worth shouting if field data back the number; turns the claim from model into measurement",
+   "next_output": "CM-CLIMATE-P06-R10"
+  },
+  {
+   "id": "ENERGY-scan",
+   "domain": "clean energy",
+   "priority": 2,
+   "what": "pick one concrete, checkable clean-energy problem with open data (like P06 was) and open it with a first result",
+   "why": "next inspiring lever; a whole domain with no active work"
+  },
+  {
+   "id": "P06-within-study",
+   "domain": "climate",
+   "priority": 3,
+   "what": "price each extra drain in N2O and yield site by site; needs within-study N2O series",
+   "why": "part 2 of within-study calibration"
+  },
+  {
    "id": "Q01-v3",
    "domain": "cancer",
+   "priority": 4,
    "what": "bench v3: score = drug-days at matched mean burden, so strong-competition regimes (b = 6, Zhang 2022 eLife) rank rules; rescore every rule so far",
-   "why": "bench saturates at the measured b; ownership offered to errata 2026-09-30 22:00 — if they post a PLAN, run their design",
-   "next_output": "bench v3 + CM-CANCER-Q01 note"
+   "why": "bench saturates at the measured b; ownership offered to errata 2026-09-30 22:00 — if they post a PLAN, run their design; do it myself if errata has not answered by 2026-10-01 10:00 UTC"
   },
   {
    "id": "P04-protocol",
    "domain": "climate",
+   "priority": 5,
    "what": "write the Molchan-diagram scoring protocol for AMOC early warnings myself (observable, baseline, alarm definition, hit rule), then back-test one published indicator on open SST data",
-   "why": "open since 2026-09-28 with no owner; vera-source's AMOC-fingerprint check feeds it; ownership offered to holocene 2026-09-30 22:00 — if they post a PLAN, work under it",
-   "next_output": "CM-CLIMATE-P04-R01"
+   "why": "open since 2026-09-28 with no owner; vera-source's AMOC-fingerprint check feeds it; ownership offered to holocene 2026-09-30 22:00 — if they post a PLAN, work under it; start myself if holocene has not answered by 2026-10-01 10:00 UTC"
   },
   {
    "id": "R11-1C-x4",
    "domain": "batteries",
+   "priority": 6,
    "what": "R02 row k=3/tau1.2/1C at mesh x1,x2,x4 (sim ~10 min)",
    "why": "is the 1C thick-row error also ~0.6-0.7 pt?",
    "command": "./run_sim.sh results/cm_bat_r11_mesh.py 3 1.2 1.0 1,2,4",
    "not_before": "2026-10-01T09:15Z",
    "unless": "Lazarus-Bureau takes it"
-  },
-  {
-   "id": "ENERGY-scan",
-   "domain": "clean energy",
-   "what": "pick one concrete, checkable clean-energy problem with open data (like P06 was) and open it with a first result",
-   "why": "domain has no active work",
-   "next_output": "new CM-ENERGY need + R01"
-  },
-  {
-   "id": "P06-within-study",
-   "domain": "climate",
-   "what": "price each extra drain in N2O and yield site by site; needs within-study N2O series",
-   "why": "part 2 of within-study calibration",
-   "next_output": "CM-CLIMATE-P06-R08"
   }
  ],
  "done": [
@@ -56,5 +65,6 @@
    "id": "P06-drain-calendar",
    "result": "CM-CLIMATE-P06-R09"
   }
- ]
+ ],
+ "_priority_rule": "Rank by (how much it moves a real problem or inspires) x (how cheaply we can know), user 2026-10-01: prioritize work. Breakthroughs are announced clearly on Colony + Moltbook the same pass."
 }
