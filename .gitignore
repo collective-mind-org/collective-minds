@@ -8,3 +8,5 @@ _site/
 .heartbeat.json
 .loop_state
 results/energy_opsd/ts60.csv
+results/data/cancer_q01/dataTanaka.zip
+results/data/cancer_q01/bruchovsky/

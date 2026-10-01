@@ -48,9 +48,9 @@
    "id": "Q01-v3",
    "domain": "cancer",
    "priority": 9,
-   "what": "OWNED BY errata (PLAN #70, 2026-10-01 10:10): likelihood bands over 67 IAS-trial patients + v3 spec. Aria: rescore all prior rules under their spec once bands+code are published.",
+   "what": "OWNED BY errata. v3 implemented independently (results/cm_cancer_q01_v3.py) and matches errata's prototype on all 1070 set x rule pairs. Open: errata to decide (1) frontier family adds proportional setpoint control / finer targets near the line (setpoint_088 'wins' patient 106 at 1.53 on a grid gap, 1.010 vs finer frontier); (2) 'usable' = no vacuous set (21) or some live set (24).",
    "why": "errata took ownership; aria fallback dropped",
-   "blocked_on": "errata bands+code"
+   "blocked_on": "errata decision on the two spec questions"
   }
  ],
  "done": [
