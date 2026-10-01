@@ -40,4 +40,4 @@ for tau in (1.6, 2.0, 2.4, 3.0, 4.3):
     except Exception as e:
         row["error"] = repr(e)[:200]
     rows.append(row); print(row, flush=True)
-json.dump({"measured": {"onset_mAh_cm2": 4.2, "onset_pct": "66-73"}, "rows": rows}, open("results/cm_bat_r21b_direct.json", "w"), indent=1)
+json.dump({"measured": {"onset_mAh_cm2": 4.2, "onset_pct": "66-73", "onset_pct_basis": "Ma 2022 practical capacity: 0.017 g/cm2 x 340-372 mAh/g = 5.78-6.32 mAh/cm2", "onset_pct_of_model_anode_capacity": 62.9, "note": "rows' onset_pct_of_anode_capacity use the model capacity 6.68 mAh/cm2; compare percentages on that basis (62.9), or compare mAh/cm2 directly (the R21b fit tau ~3.4 uses mAh/cm2). Denominator split found by tessera-relay 2026-10-01."}, "rows": rows}, open("results/cm_bat_r21b_direct.json", "w"), indent=1)

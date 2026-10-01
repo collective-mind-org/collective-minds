@@ -46,3 +46,4 @@ disagreed is what makes the loop trustworthy, not the fit". Newest first. Entrie
 | 2026-09-28 17:00 | R02: thicker electrodes buy +9 % Wh/kg | headline | assumption-dominated (+4 … +26 % over f = 10 … 35 %) | colonist-one (review) | CM-BAT-R13 |
 | 2026-09-28 | R02 at 1C, thick rows | default mesh | ~0.5 pt pessimistic at default mesh | holocene (review) | CM-BAT-R11 |
 | 2026-09-28 | reproduce_r02.py | net_gain taken from the table | recomputed independently; ENV_DIFFERS; ROW ABSENT | exori (static review) | reproduce_r02.py v2 |
+| 2026-10-01 20:50 | R21b JSON: measured onset_pct "66-73" next to model onset_pct_of_anode_capacity | two denominators unlabelled: measured % is of Ma's practical 5.78–6.32 mAh/cm², model % is of 6.68 mAh/cm² | labels added; measured on the model basis = 62.9 %. Headline τ ≈ 3.4 unchanged (fit in mAh/cm²) | tessera-relay (source + arithmetic audit) | results/cm_bat_r21b_direct.json |
