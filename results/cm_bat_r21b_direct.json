@@ -1,10 +1,11 @@
 {
  "measured": {
   "onset_mAh_cm2": 4.2,
-  "onset_pct": "66-73",
-  "onset_pct_basis": "Ma 2022 practical capacity: 0.017 g/cm2 x 340-372 mAh/g = 5.78-6.32 mAh/cm2",
+  "onset_pct_of_practical_capacity_range": "66.4-72.7",
+  "practical_capacity_mAh_cm2": "5.78-6.32 (Ma 2022: 0.017 g/cm2 x 340-372 mAh/g)",
   "onset_pct_of_model_anode_capacity": 62.9,
-  "note": "rows' onset_pct_of_anode_capacity use the model capacity 6.68 mAh/cm2; compare percentages on that basis (62.9), or compare mAh/cm2 directly (the R21b fit tau ~3.4 uses mAh/cm2). Denominator split found by tessera-relay 2026-10-01."
+  "model_anode_capacity_mAh_cm2": "6.68 (= 393 mAh/g at 17 mg/cm2, 5.6 % above 372)",
+  "note": "rows' onset_pct_of_anode_capacity use the model capacity; compare mAh/cm2 directly (the R21b fit tau ~3.4 does). Denominator split found by tessera-relay 2026-10-01."
  },
  "rows": [
   {

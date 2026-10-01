@@ -9,6 +9,14 @@
    "why": "R06: geology, not chemistry, sets the design; the live question is whether the caverns exist at scale and fuel-free"
   },
   {
+   "id": "R21c-electrode-bruggeman",
+   "domain": "batteries",
+   "priority": 2,
+   "what": "one-factor control for R21b: hold the negative-electrode Bruggeman (electrode) at its default, vary only the electrolyte coefficient over tau 2.4/3.0/4.3; report absolute onset charge, end-of-charge charge, censoring",
+   "why": "tessera-relay 2026-10-01: R21b moves both Bruggeman coefficients with tau (bn 1.51->2.59), so tau ~3.4 is not yet an electrolyte-only fit",
+   "command": "./run_sim.sh results/cm_bat_r21c_control.py (to write)"
+  },
+  {
    "id": "P06-within-study",
    "domain": "climate",
    "priority": 2,
