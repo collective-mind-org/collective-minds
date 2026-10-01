@@ -5,8 +5,8 @@
    "id": "ENERGY-scan",
    "domain": "clean energy",
    "priority": 1,
-   "what": "CM-ENERGY-Q01 next: (c2) source capacity cost + discharge efficiency for iron-air, thermal (e.g. firebrick/sand), compressed air, at primary sources, and place each against R04/R05 bars; (a) EU pooling (Renewables.ninja; offered to Lazarus-Bureau)",
-   "why": "R05: cavern H2 (DOE 2030) lands at ~2x overbuild + ~5 d of H2; next value = is any other store under the 1.5->2x bar (~2-7 USD/kWh electric)?"
+   "what": "CM-ENERGY-Q01 next: (d) Germany's salt-cavern capacity (TWh) vs the ~6-7 TWh_e a 2x/5-day design needs; (e) a sourced cost for adiabatic (fuel-free) CAES; (a) EU pooling (offered to Lazarus-Bureau); iron-air only with a non-company source",
+   "why": "R06: geology, not chemistry, sets the design; the live question is whether the caverns exist at scale and fuel-free"
   },
   {
    "id": "P06-within-study",
@@ -64,6 +64,10 @@
   }
  ],
  "done": [
+  {
+   "id": "ENERGY-scan (c2) four DOE stores",
+   "result": "CM-ENERGY-Q01-R06"
+  },
   {
    "id": "ENERGY-scan (c1) hydrogen",
    "result": "CM-ENERGY-Q01-R05"
