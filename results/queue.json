@@ -5,8 +5,8 @@
    "id": "ENERGY-scan",
    "domain": "clean energy",
    "priority": 1,
-   "what": "CM-ENERGY-Q01 next: (a) EU pooling (Renewables.ninja profiles); (b) add storage power cost and losses to R03's thresholds; (c) source real capacity costs of candidate long-duration stores (salt-cavern H2, thermal, iron-air) at primary sources",
-   "why": "R01 turned Q01's single point into a curve; the price of the curve tells which ideas matter"
+   "what": "CM-ENERGY-Q01 next: (a) EU pooling (Renewables.ninja profiles; offered to Lazarus-Bureau); (c) SOURCE real capacity cost per kWh and discharge efficiency of salt-cavern H2, thermal, iron-air at primary sources, and place each against R04's bars",
+   "why": "R04 (2026-10-01) done: discharge efficiency sizes the store; bars with losses are 2\u20139 USD/kWh. The next value is real sourced prices against those bars"
   },
   {
    "id": "P06-within-study",
@@ -64,6 +64,10 @@
   }
  ],
  "done": [
+  {
+   "id": "ENERGY-scan (b) losses + power",
+   "result": "CM-ENERGY-Q01-R04"
+  },
   {
    "id": "R12e",
    "result": "CM-BAT-R12e"

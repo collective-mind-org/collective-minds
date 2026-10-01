@@ -1,0 +1,218 @@
+{
+ "lossless|1.2": {
+  "GWh": 278,
+  "P_dis": 1.25,
+  "P_chg": 2.63,
+  "wind_share": 0.8
+ },
+ "lossless|1.5": {
+  "GWh": 164,
+  "P_dis": 1.23,
+  "P_chg": 3.44,
+  "wind_share": 0.9
+ },
+ "lossless|2.0": {
+  "GWh": 122,
+  "P_dis": 1.2,
+  "P_chg": 4.03,
+  "wind_share": 0.9
+ },
+ "lossless|3.0": {
+  "GWh": 59,
+  "P_dis": 1.13,
+  "P_chg": 3.0,
+  "wind_share": 0.9
+ },
+ "battery 85% on charge|1.2": {
+  "GWh": 367,
+  "P_dis": 1.25,
+  "P_chg": 2.63,
+  "wind_share": 0.8
+ },
+ "battery 85% on charge|1.5": {
+  "GWh": 164,
+  "P_dis": 1.23,
+  "P_chg": 3.5,
+  "wind_share": 0.9
+ },
+ "battery 85% on charge|2.0": {
+  "GWh": 123,
+  "P_dis": 1.2,
+  "P_chg": 4.15,
+  "wind_share": 0.9
+ },
+ "battery 85% on charge|3.0": {
+  "GWh": 59,
+  "P_dis": 1.13,
+  "P_chg": 3.42,
+  "wind_share": 0.9
+ },
+ "battery 85% on discharge|1.2": {
+  "GWh": 432,
+  "P_dis": 1.25,
+  "P_chg": 2.63,
+  "wind_share": 0.8
+ },
+ "battery 85% on discharge|1.5": {
+  "GWh": 193,
+  "P_dis": 1.23,
+  "P_chg": 3.5,
+  "wind_share": 0.9
+ },
+ "battery 85% on discharge|2.0": {
+  "GWh": 144,
+  "P_dis": 1.2,
+  "P_chg": 4.15,
+  "wind_share": 0.9
+ },
+ "battery 85% on discharge|3.0": {
+  "GWh": 70,
+  "P_dis": 1.13,
+  "P_chg": 3.42,
+  "wind_share": 0.9
+ },
+ "battery 85% split|1.2": {
+  "GWh": 398,
+  "P_dis": 1.25,
+  "P_chg": 2.63,
+  "wind_share": 0.8
+ },
+ "battery 85% split|1.5": {
+  "GWh": 178,
+  "P_dis": 1.23,
+  "P_chg": 3.5,
+  "wind_share": 0.9
+ },
+ "battery 85% split|2.0": {
+  "GWh": 133,
+  "P_dis": 1.2,
+  "P_chg": 4.15,
+  "wind_share": 0.9
+ },
+ "battery 85% split|3.0": {
+  "GWh": 64,
+  "P_dis": 1.13,
+  "P_chg": 3.42,
+  "wind_share": 0.9
+ },
+ "H2 40% on charge|1.2": {
+  "GWh": 1752,
+  "P_dis": 1.25,
+  "P_chg": 2.86,
+  "wind_share": 0.8
+ },
+ "H2 40% on charge|1.5": {
+  "GWh": 203,
+  "P_dis": 1.23,
+  "P_chg": 3.53,
+  "wind_share": 0.8
+ },
+ "H2 40% on charge|2.0": {
+  "GWh": 123,
+  "P_dis": 1.2,
+  "P_chg": 4.95,
+  "wind_share": 0.9
+ },
+ "H2 40% on charge|3.0": {
+  "GWh": 62,
+  "P_dis": 1.13,
+  "P_chg": 6.12,
+  "wind_share": 0.9
+ },
+ "H2 40% on discharge|1.2": {
+  "GWh": 4380,
+  "P_dis": 1.25,
+  "P_chg": 2.86,
+  "wind_share": 0.8
+ },
+ "H2 40% on discharge|1.5": {
+  "GWh": 508,
+  "P_dis": 1.23,
+  "P_chg": 3.53,
+  "wind_share": 0.8
+ },
+ "H2 40% on discharge|2.0": {
+  "GWh": 308,
+  "P_dis": 1.2,
+  "P_chg": 4.95,
+  "wind_share": 0.9
+ },
+ "H2 40% on discharge|3.0": {
+  "GWh": 156,
+  "P_dis": 1.13,
+  "P_chg": 6.12,
+  "wind_share": 0.9
+ },
+ "H2 40% split 0.7x0.57|1.2": {
+  "GWh": 3077,
+  "P_dis": 1.25,
+  "P_chg": 2.86,
+  "wind_share": 0.8
+ },
+ "H2 40% split 0.7x0.57|1.5": {
+  "GWh": 356,
+  "P_dis": 1.23,
+  "P_chg": 3.53,
+  "wind_share": 0.8
+ },
+ "H2 40% split 0.7x0.57|2.0": {
+  "GWh": 216,
+  "P_dis": 1.2,
+  "P_chg": 4.95,
+  "wind_share": 0.9
+ },
+ "H2 40% split 0.7x0.57|3.0": {
+  "GWh": 109,
+  "P_dis": 1.13,
+  "P_chg": 6.12,
+  "wind_share": 0.9
+ },
+ "battery 85% split|cap0.5": [
+  986,
+  208,
+  133,
+  64
+ ],
+ "battery 85% split|cap1.0": [
+  552,
+  178,
+  133,
+  64
+ ],
+ "battery 85% split|cap1.5": [
+  421,
+  178,
+  133,
+  64
+ ],
+ "battery 85% split|cap99": [
+  398,
+  178,
+  133,
+  64
+ ],
+ "H2 40% split 0.7x0.57|cap0.5": [
+  8330,
+  2318,
+  290,
+  111
+ ],
+ "H2 40% split 0.7x0.57|cap1.0": [
+  5242,
+  744,
+  216,
+  109
+ ],
+ "H2 40% split 0.7x0.57|cap1.5": [
+  3775,
+  499,
+  216,
+  109
+ ],
+ "H2 40% split 0.7x0.57|cap99": [
+  3077,
+  356,
+  216,
+  109
+ ]
+}
