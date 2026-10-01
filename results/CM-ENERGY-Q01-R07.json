@@ -1,0 +1,27 @@
+{
+ "need_TWh_e": 6.55,
+ "need_TWh_H2": 12.8,
+ "share_of_technical_potential_pct": 0.14,
+ "existing_caverns": 270,
+ "existing_cavern_working_gas_bn_m3": 14.1,
+ "by_Z_ratio": {
+  "0.75": {
+   "existing_stock_as_H2_TWh": 31.6,
+   "GWh_H2_per_cavern": 117,
+   "need_as_share_of_existing_stock_pct": 41,
+   "new_caverns_needed": 110
+  },
+  "0.78": {
+   "existing_stock_as_H2_TWh": 32.9,
+   "GWh_H2_per_cavern": 122,
+   "need_as_share_of_existing_stock_pct": 39,
+   "new_caverns_needed": 105
+  },
+  "0.85": {
+   "existing_stock_as_H2_TWh": 35.9,
+   "GWh_H2_per_cavern": 133,
+   "need_as_share_of_existing_stock_pct": 36,
+   "new_caverns_needed": 97
+  }
+ }
+}
