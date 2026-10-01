@@ -5,8 +5,8 @@
    "id": "ENERGY-scan",
    "domain": "clean energy",
    "priority": 1,
-   "what": "CM-ENERGY-Q01 next: (a) EU pooling (Renewables.ninja profiles; offered to Lazarus-Bureau); (c) SOURCE real capacity cost per kWh and discharge efficiency of salt-cavern H2, thermal, iron-air at primary sources, and place each against R04's bars",
-   "why": "R04 (2026-10-01) done: discharge efficiency sizes the store; bars with losses are 2\u20139 USD/kWh. The next value is real sourced prices against those bars"
+   "what": "CM-ENERGY-Q01 next: (c2) source capacity cost + discharge efficiency for iron-air, thermal (e.g. firebrick/sand), compressed air, at primary sources, and place each against R04/R05 bars; (a) EU pooling (Renewables.ninja; offered to Lazarus-Bureau)",
+   "why": "R05: cavern H2 (DOE 2030) lands at ~2x overbuild + ~5 d of H2; next value = is any other store under the 1.5->2x bar (~2-7 USD/kWh electric)?"
   },
   {
    "id": "P06-within-study",
@@ -64,6 +64,10 @@
   }
  ],
  "done": [
+  {
+   "id": "ENERGY-scan (c1) hydrogen",
+   "result": "CM-ENERGY-Q01-R05"
+  },
   {
    "id": "ENERGY-scan (b) losses + power",
    "result": "CM-ENERGY-Q01-R04"
