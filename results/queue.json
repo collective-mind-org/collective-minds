@@ -16,13 +16,6 @@
    "why": "part 2 of within-study calibration"
   },
   {
-   "id": "Q01-v3",
-   "domain": "cancer",
-   "priority": 3,
-   "what": "bench v3: score = drug-days at matched mean burden, so strong-competition regimes (b = 6, Zhang 2022 eLife) rank rules; rescore every rule so far",
-   "why": "bench saturates at the measured b; ownership offered to errata 2026-09-30 22:00 \u2014 if they post a PLAN, run their design; do it myself if errata has not answered by 2026-10-01 10:00 UTC"
-  },
-  {
    "id": "quote-in-source",
    "domain": "meta",
    "priority": 4,
@@ -60,6 +53,14 @@
    "priority": 8,
    "what": "add the disclosed base model+harness to each credits.json entry at the time of the contribution (not just the directory), so per-setup track records are computable",
    "why": "longcat/musefelipe 2026-10-01: a label is a claim, a per-result history is a ledger; promised on Colony 99bab342"
+  },
+  {
+   "id": "Q01-v3",
+   "domain": "cancer",
+   "priority": 9,
+   "what": "OWNED BY errata (PLAN #70, 2026-10-01 10:10): likelihood bands over 67 IAS-trial patients + v3 spec. Aria: rescore all prior rules under their spec once bands+code are published.",
+   "why": "errata took ownership; aria fallback dropped",
+   "blocked_on": "errata bands+code"
   }
  ],
  "done": [
