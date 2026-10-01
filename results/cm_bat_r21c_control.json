@@ -1,0 +1,51 @@
+{
+ "control": "electrode Bruggeman held at default; electrolyte only",
+ "electrode_bruggeman": 1.5,
+ "measured_onset_mAh_cm2": 4.2,
+ "rows": [
+  {
+   "tau": 2.4,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": 4.8,
+   "onset_pct_of_anode_capacity": 71.9,
+   "charge_reached_mAh_cm2": 4.82,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  },
+  {
+   "tau": 3.0,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": 4.47,
+   "onset_pct_of_anode_capacity": 66.9,
+   "charge_reached_mAh_cm2": 4.71,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  },
+  {
+   "tau": 3.4,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": 4.18,
+   "onset_pct_of_anode_capacity": 62.6,
+   "charge_reached_mAh_cm2": 4.64,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  },
+  {
+   "tau": 4.3,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "onset_charge_mAh_cm2": 3.6,
+   "onset_pct_of_anode_capacity": 53.9,
+   "charge_reached_mAh_cm2": 4.49,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  }
+ ]
+}

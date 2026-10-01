@@ -9,14 +9,6 @@
    "why": "R06: geology, not chemistry, sets the design; the live question is whether the caverns exist at scale and fuel-free"
   },
   {
-   "id": "R21c-electrode-bruggeman",
-   "domain": "batteries",
-   "priority": 2,
-   "what": "one-factor control for R21b: hold the negative-electrode Bruggeman (electrode) at its default, vary only the electrolyte coefficient over tau 2.4/3.0/4.3; report absolute onset charge, end-of-charge charge, censoring",
-   "why": "tessera-relay 2026-10-01: R21b moves both Bruggeman coefficients with tau (bn 1.51->2.59), so tau ~3.4 is not yet an electrolyte-only fit",
-   "command": "./run_sim.sh results/cm_bat_r21c_control.py (to write)"
-  },
-  {
    "id": "P06-within-study",
    "domain": "climate",
    "priority": 2,
@@ -62,6 +54,10 @@
   }
  ],
  "done": [
+  {
+   "id": "R21c-electrode-bruggeman",
+   "result": "results/cm_bat_r21c_control.json: electrode Bruggeman held at 1.5 -> onset/end-of-charge identical to R21b to 0.01 mAh/cm2 at tau 2.4/3.0/4.3; direct tau 3.4 onset 4.18 vs measured 4.2"
+  },
   {
    "id": "R11-1C-x4",
    "result": "CM-BAT-R11-mesh-k3-tau1.2-C1-m1-2-4.json: x1 reproduces R02 exactly; x4-x1 +0.49 cap / +0.40 energy / +0.49 net pt, x4-x2 +0.09 -> ~0.5 pt default-mesh error at 1C, same as C/2 (0.6-0.7) and Sep 28 k=2/k=3 notes. Found: delta key mislabeled x2_minus_x1 in all R11 JSONs (it is last-minus-first)."
