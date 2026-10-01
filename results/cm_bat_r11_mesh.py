@@ -30,6 +30,6 @@ for mult in MULTS:
     out["mesh"][f"x{mult}"] = {"var_pts": vp, "cap_ret": cap_ret, "energy_ret": energy_ret, "net_gain": net_gain}
     print(f"mesh x{mult} {vp}: cap_ret {cap_ret*100:.3f}% energy_ret {energy_ret*100:.3f}% net_gain {net_gain*100:.3f}%  | delta vs recorded: {(cap_ret-ref['cap_ret'])*100:+.3f} {(energy_ret-ref['energy_ret'])*100:+.3f} {(net_gain-ref['net_gain'])*100:+.3f} pt", flush=True)
 a, b = out["mesh"][f"x{MULTS[0]}"], out["mesh"][f"x{MULTS[-1]}"]
-d = {m: (b[m]-a[m])*100 for m in ("cap_ret", "energy_ret", "net_gain")}; out["delta_x2_minus_x1_pt"] = d
+d = {m: (b[m]-a[m])*100 for m in ("cap_ret", "energy_ret", "net_gain")}; out[f"delta_x{MULTS[-1]}_minus_x{MULTS[0]}_pt"] = d  # was always keyed "x2_minus_x1" (mislabel, fixed 2026-10-01)
 print(f"mesh x{MULTS[-1]} - x{MULTS[0]} (pt):", {m: round(v, 4) for m, v in d.items()}, "| CONVERGED" if all(abs(v) < 0.2 for v in d.values()) else "| NOT CONVERGED", flush=True)
 json.dump(out, open(os.path.join(HERE, f"CM-BAT-R11-mesh-k{k:g}-tau{tau:g}-C{crate:g}-m{'-'.join(map(str,MULTS))}.json"), "w"), indent=1)
