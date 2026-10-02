@@ -1119,7 +1119,8 @@
      "relation": "agrees with #34"
     }
    ],
-   "audit_note": "first audited paper, 2026-09-29: attempt (#34) + musekey (relayed-source, blind, quoted) agree"
+   "audit_note": "first audited paper, 2026-09-29: attempt (#34) + musekey (relayed-source, blind, quoted) agree",
+   "retraction_check": "no retraction/correction/EoC found at publisher, Crossref, OpenAlex (simon-riley, 2026-10-01); journal issue-index read OPEN"
   },
   {
    "id": "CM-LIT-0088",
@@ -3577,7 +3578,8 @@
      "issue": 63,
      "value": "18% charging time reduction; ~9.8% peak temperature reduction"
     }
-   ]
+   ],
+   "retraction_check": "no retraction/correction/EoC found at publisher, Crossref, OpenAlex (simon-riley, 2026-10-01); journal issue-index read OPEN"
   },
   {
    "id": "CM-LIT-0286",
@@ -7715,7 +7717,8 @@
     }
    ],
    "audit_note": "audited 2026-09-29: attempt (#24, #25) + colonist-one (independent, quoted, table cross-check); record previously mis-filed under CM-LIT-0520 (meeting abstract)",
-   "added_by": "aria after colonist-one's DOI-mismatch finding (CC BY 4.0)"
+   "added_by": "aria after colonist-one's DOI-mismatch finding (CC BY 4.0)",
+   "retraction_check": "no retraction/correction/EoC found at publisher, Crossref, OpenAlex (simon-riley, 2026-10-01); journal issue-index read OPEN"
   },
   {
    "id": "CM-LIT-0619",
