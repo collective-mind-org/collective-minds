@@ -1,0 +1,101 @@
+{
+ "id": "CM-ENERGY-Q01-R08",
+ "date": "2026-10-03",
+ "question": "How fast has Germany built natural-gas salt caverns? (R07 needs ~100 new caverns)",
+ "source": "LBEG, 'Untertage-Gasspeicherung in Deutschland', Stand 1.1.<year> (Erdöl Erdgas Kohle), https://www.lbeg.niedersachsen.de/energie_rohstoffe/erdoel_und_erdgas/untertagegasspeicher/publikation_untertageerdgaspeicherung/publikation-zur-untertage-erdgasspeicherung-in-der-zeitschrift-eek-898.html",
+ "series": [
+  {
+   "report_stand": "1.1.2002",
+   "caverns_in_operation": 140,
+   "quote": "letztere mit insgesamt 140 Einzelkavernen, in Betrieb. Diese Anzahl entspricht dem Stand des Vorjahres"
+  },
+  {
+   "report_stand": "1.1.2003",
+   "caverns_in_operation": 142,
+   "quote": "letztere mit insgesamt 142 Einzelkavernen, in Betrieb"
+  },
+  {
+   "report_stand": "1.1.2004",
+   "caverns_in_operation": 145,
+   "quote": "wurden insgesamt 145 Einzelkavernen genutzt"
+  },
+  {
+   "report_stand": "1.1.2005",
+   "caverns_in_operation": 149,
+   "quote": "bestehen derzeit aus 149 Einzelkavernen"
+  },
+  {
+   "report_stand": "1.1.2006",
+   "caverns_in_operation": 155,
+   "quote": "Die Anzahl der Einzelkavernen hat sich in den o. a. Kavernenspeicherbetrieben um 6 auf 155 erhöht"
+  },
+  {
+   "report_stand": "1.1.2014",
+   "caverns_in_operation": 244,
+   "quote": "hat sich gegenüber dem Vorjahr hierdurch um 13 Kavernen auf nunmehr 244 erhöht"
+  },
+  {
+   "report_stand": "1.1.2015",
+   "caverns_in_operation": 258,
+   "quote": "hat sich gegenüber dem Vorjahr hierdurch um 14 Kavernen auf nunmehr 258 erhöht"
+  },
+  {
+   "report_stand": "1.1.2016",
+   "caverns_in_operation": 260,
+   "quote": "um zwei Kavernen auf nunmehr 260 erhöht"
+  },
+  {
+   "report_stand": "1.1.2017",
+   "caverns_in_operation": 266,
+   "quote": "um sechs Kavernen auf 266 erhöht"
+  },
+  {
+   "report_stand": "1.1.2018",
+   "caverns_in_operation": 270,
+   "quote": "um vier Kavernen auf nunmehr 270 erhöht"
+  },
+  {
+   "report_stand": "1.1.2019",
+   "caverns_in_operation": 271,
+   "quote": "um eine Kaverne auf nunmehr 271 erhöht"
+  },
+  {
+   "report_stand": "1.1.2020",
+   "caverns_in_operation": 272,
+   "quote": "um eine Kaverne auf nunmehr 272 erhöht"
+  },
+  {
+   "report_stand": "1.1.2021",
+   "caverns_in_operation": 272,
+   "quote": "hat sich in der Summe ebenfalls nicht verändert"
+  },
+  {
+   "report_stand": "1.1.2022",
+   "caverns_in_operation": 270,
+   "quote": "um zwei Kavernen auf nunmehr 270 Kavernen gefallen"
+  },
+  {
+   "report_stand": "1.1.2023",
+   "caverns_in_operation": 270,
+   "quote": "trotz der Inbetriebnahme einer weiteren Kaverne im Speicher Katharina bei 270 Kavernen stagniert"
+  },
+  {
+   "report_stand": "1.1.2025",
+   "caverns_in_operation": 269,
+   "quote": "um eins verringert auf 269 Einzelkavernen"
+  }
+ ],
+ "derived": {
+  "boom_2006_2014_net_per_year": 11.4,
+  "peak_net_per_year": 14,
+  "2017_2024_net_per_year": 0.38,
+  "years_for_100_at_boom_rate": 8.7,
+  "years_for_100_at_peak": 7.1
+ },
+ "caveats": [
+  "net counts (commissioned minus retired); gross build rate is slightly higher",
+  "natural-gas caverns only; oil/product caverns excluded",
+  "2007-2013 reports give no single total sentence (missing years not interpolated)",
+  "H2 caverns may differ in size from the gas-fleet average used in R07"
+ ]
+}
