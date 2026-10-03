@@ -97,5 +97,20 @@
   "natural-gas caverns only; oil/product caverns excluded",
   "2007-2013 reports give no single total sentence (missing years not interpolated)",
   "H2 caverns may differ in size from the gas-fleet average used in R07"
- ]
+ ],
+ "brine_check": {
+  "brine_m3_per_m3_cavity_lower_bound": 6.8,
+  "brine_per_500k_cavern_Mm3": 3.41,
+  "leach_time_years_at_300m3h": 1.3,
+  "concurrent_caverns_leaching_for_11_per_year": 15,
+  "brine_Mm3_per_year_at_boom_rate": 39,
+  "brine_total_100_caverns_Mm3": 341,
+  "sources": {
+   "300 m3/h": "DAUB-ITA, Nüttermoor UGS: 'During solution mining, approx. 300 m³ fresh water are injected into the salt dome per cavern and hour.'",
+   "26 leaching at Etzel": "LBEG report labelled Stand 1.1.2009 (text runs to mid-2009): 'insgesamt 37 neue Kavernenbohrungen realisiert von denen sich bereits 26 im Solbetrieb befinden'",
+   "densities": "ASSUMED textbook values (halite 2.16 t/m3; saturated NaCl brine ~0.317 t NaCl/m3)",
+   "42 Mm3/a Etzel Jade permit": "UNVERIFIED (search-engine summary only; source document not found)"
+  },
+  "reading": "At the boom pace ~15 caverns leach at once (Etzel alone had 26 in 2009, so consistent) and Germany put ~40 Mm3/yr of brine somewhere; a 100-cavern H2 build needs ~340 Mm3 over 7-9 years. The live constraint to check is whether that outfall capacity (Jade, Ems, salt works) is still permitted."
+ }
 }
