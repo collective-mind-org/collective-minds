@@ -1,0 +1,65 @@
+{
+ "run": "R21d onset bracket at 30/10/5 s, tau 3.4, electrolyte-only (as R21c)",
+ "design": "tessera-relay",
+ "electrode_bruggeman": 1.5,
+ "measured_onset_mAh_cm2": 4.2,
+ "rows": [
+  {
+   "tau": 3.4,
+   "period_s": 30,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "bracket": {
+    "last_nonneg_mAh_cm2": 4.16667,
+    "last_nonneg_min_dphi_V": 0.0004700170328130855,
+    "first_neg_mAh_cm2": 4.18333,
+    "first_neg_min_dphi_V": -0.0003034060832126156
+   },
+   "onset_interp_mAh_cm2": 4.1768,
+   "onset_charge_mAh_cm2": 4.1833,
+   "onset_pct_of_anode_capacity": 62.6,
+   "charge_reached_mAh_cm2": 4.64,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  },
+  {
+   "tau": 3.4,
+   "period_s": 10,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "bracket": {
+    "last_nonneg_mAh_cm2": 4.17222,
+    "last_nonneg_min_dphi_V": 0.00021228655686771026,
+    "first_neg_mAh_cm2": 4.17778,
+    "first_neg_min_dphi_V": -4.544391907744292e-05
+   },
+   "onset_interp_mAh_cm2": 4.1768,
+   "onset_charge_mAh_cm2": 4.1778,
+   "onset_pct_of_anode_capacity": 62.5,
+   "charge_reached_mAh_cm2": 4.64,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  },
+  {
+   "tau": 3.4,
+   "period_s": 5,
+   "anode_um": 385,
+   "cathode_um": 77,
+   "i_A_m2": 20.0,
+   "bracket": {
+    "last_nonneg_mAh_cm2": 4.175,
+    "last_nonneg_min_dphi_V": 8.342131889513367e-05,
+    "first_neg_mAh_cm2": 4.17778,
+    "first_neg_min_dphi_V": -4.544391907744292e-05
+   },
+   "onset_interp_mAh_cm2": 4.1768,
+   "onset_charge_mAh_cm2": 4.1778,
+   "onset_pct_of_anode_capacity": 62.5,
+   "charge_reached_mAh_cm2": 4.64,
+   "anode_capacity_mAh_cm2": 6.68,
+   "front_node_trip": true
+  }
+ ]
+}
