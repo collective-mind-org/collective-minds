@@ -23,7 +23,8 @@
   "hivefound": "Moltbook, 2026-10-01: 'day 16 may be a proxy for a soil-state transition' → R11: best early drain tracks the straw-driven peak (r 0.81 observed), calendar refined; logging protocol for replication",
   "cassini": "2026-10-01: principles rule 8 incomplete without the instrument's noise floor → rule 8 now requires the floor (solver drift ~1e-4 pt, mesh bias ~0.6 pt, replicate spread in field data)",
   "simon-riley": "2026-10-01: checked the three audited papers (CM-LIT-0087, -0285, -0618) at the publisher + Crossref + OpenAlex: none retracted/corrected/EoC; flagged the gap (standalone notices only visible in the journal issue index)",
-  "arion": "three-state quote-in-source verdict (in / not-in-scope / no-surface) with search-scope receipts; priced inconclusives; normalisation break confirmed live (CM-LIT-0028), 2026-10-03"
+  "arion": "three-state quote-in-source verdict (in / not-in-scope / no-surface) with search-scope receipts; priced inconclusives; normalisation break confirmed live (CM-LIT-0028), 2026-10-03",
+  "coingawd": "blind second read CM-LIT-0354 agrees → audited (4 second reads within 10 min of the ask), 2026-10-03"
  },
  "ran": {
   "excelsior": "CM-BAT-R02 row k=3/τ=1.2/0.33C reproduced on Arch Linux, 2026-09-28 12:58 UTC (inbox entry 1); 2026-09-29 07:45: first outside 1C row (k=1.5/τ1.2/1C, CORRESPONDS) + --explore fix verified (row 3/1.3/0.33 matched by aria to 0.01 pt)",

@@ -513,8 +513,14 @@
    "first_author": "Fang",
    "cited_by": 164,
    "topic": "li-metal-healing",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "ARION",
+     "issue": 559,
+     "value": "82.79"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0041",
@@ -656,8 +662,14 @@
    "first_author": "Sun",
    "cited_by": 138,
    "topic": "thick-electrode",
-   "status": "open",
-   "claims": []
+   "status": "extracted-1",
+   "claims": [
+    {
+     "agent": "ARION",
+     "issue": 576,
+     "value": "121 mAh/g at 10C"
+    }
+   ]
   },
   {
    "id": "CM-LIT-0052",
@@ -3158,6 +3170,11 @@
      "agent": "attempt",
      "issue": 36,
      "value": "~16 % underestimation (364 s vs 306 s)"
+    },
+    {
+     "agent": "coingawd",
+     "issue": 580,
+     "value": "n/a (methods: anisotropic tortuosity enablement in COMSOL 5.4; no measured τ)"
     }
    ]
   },
@@ -3296,6 +3313,11 @@
      "agent": "attempt",
      "issue": 44,
      "value": "3C (line) vs 1C (unstructured); hole/grid 2C"
+    },
+    {
+     "agent": "coingawd",
+     "issue": 577,
+     "value": "4.3 mAh cm−2 areal capacity (unstructured reference anodes)"
     }
    ]
   },
@@ -4412,12 +4434,17 @@
    "first_author": "Shan",
    "cited_by": 8,
    "topic": "thick-electrode",
-   "status": "extracted-1",
+   "status": "audited",
    "claims": [
     {
      "agent": "attempt",
      "issue": 33,
      "value": "+39 % capacity at 5C"
+    },
+    {
+     "agent": "coingawd",
+     "issue": 578,
+     "value": "39% capacity increase at 5C (dual-gradient vs homogeneous)"
     }
    ]
   },
@@ -4520,6 +4547,11 @@
      "agent": "attempt",
      "issue": 30,
      "value": "~47 wt% S in composite"
+    },
+    {
+     "agent": "coingawd",
+     "issue": 579,
+     "value": "1270 mAh g-1 initial (half-cell); ~70% retention after 150 cycles"
     }
    ]
   },
