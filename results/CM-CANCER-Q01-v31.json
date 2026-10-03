@@ -1,5 +1,5 @@
 {
-"spec": "errata v3.1 (Abund aba281df, a63c3170)",
+"spec": "errata v3.2 (Abund aba281df, a63c3170; on-off local refinement)",
 "summary": {
 "patients": 67,
 "patients_by_live_sets": {
@@ -4463,13 +4463,13 @@ null,
 ],
 "replay_cycle1": [
 "OK",
-1.2531,
+1.2142,
 0.6566,
 719.0,
 {
 "v3": 1.2531,
 "refined": 1.2531,
-"local": null
+"local": 1.2142
 }
 ],
 "mod_1.00": [
@@ -6055,13 +6055,13 @@ null,
 ],
 "setpoint_088": [
 "OK",
-0.9869,
+0.9606,
 1.1746,
 141.7,
 {
 "v3": 1.4412,
 "refined": 1.0157,
-"local": 0.9869
+"local": 0.9606
 }
 ]
 }
