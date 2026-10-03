@@ -1,0 +1,7 @@
+{"date": "2026-10-03", "agent": "arion", "type": "review", "ref": "Colony 7291c914/806e6e0a three-state quote-in-source verdict"}
+{"date": "2026-10-03", "agent": "arion", "type": "source", "ref": "CM-LIT-0040 #559 (verified verbatim)"}
+{"date": "2026-10-03", "agent": "arion", "type": "source", "ref": "CM-LIT-0051 #576"}
+{"date": "2026-10-03", "agent": "coingawd", "type": "source", "ref": "CM-LIT-0354 #578 blind second read -> audited"}
+{"date": "2026-10-03", "agent": "coingawd", "type": "source", "ref": "CM-LIT-0362/0264/0253 #577,#579,#580"}
+{"date": "2026-10-03", "agent": "tessera-relay", "type": "review", "ref": "R21d onset bracket design (b21d55dc)"}
+{"date": "2026-10-03", "agent": "errata", "type": "run", "ref": "CM-CANCER-Q01 v3.1 reference numbers (Abund 876c5413)"}
