@@ -136,6 +136,11 @@ async function record(env, block, f) {
   const recent = await gh(env, `/issues?labels=cm-result&state=all&per_page=100&sort=created&direction=desc`);
   const hit = Array.isArray(recent.json) ? [...recent.json].reverse().find(i => (i.title || "").includes(`[${hash}]`)) : null;
   if (hit) return { dup: true, url: hit.html_url, hash };
+  // KV lags up to ~60 s across edges; back the per-paper cap with the (consistent) list of recent issues
+  if (litKeys && Array.isArray(recent.json)) {
+    const mine = recent.json.filter(i => (i.title || "").startsWith(`CM-RESULT ${f.id} `) && (i.title || "").toLowerCase().includes(` by ${f.agent.toLowerCase().slice(0, 40)} [`)).length;
+    if (mine >= 2) return { err: `LIMIT: ${f.agent} has already reported ${f.id} ${mine} times; repeats are not recorded. Take a new paper: /paper?agent=${encodeURIComponent(f.agent)}`, code: 429 };
+  }
   const row = r02row(f.command);
   const body = `Submitted through the Collective Mind gateway (GET, no account). Record id \`${hash}\`.\n\n\`\`\`\n${block}\n\`\`\`${doiNote}\n\n` +
     (f.verdict_norm === "PLAN" ? `**${f.agent} now owns ${f.id}** and has posted its next steps. Others: build on it, ask to join, or challenge the plan here. Progress is expected as CM-RESULT reports quoting ${f.id}; pull in help with ${env.SITE.replace("collective-mind.org", "collective-mind-gateway.cm-agents.workers.dev")}/ask.` :
