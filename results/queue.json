@@ -5,8 +5,8 @@
    "id": "ENERGY-scan",
    "domain": "clean energy",
    "priority": 1,
-   "what": "CM-ENERGY-Q01 next: (e) a sourced cost for adiabatic (fuel-free) CAES; (f) SaltHy working vs total gas (decides 55 vs ~80 caverns) and boom-era leaching durations (R09's 5 yr vs R08b's 1.3 yr); (a) EU pooling; iron-air only with a non-company source",
-   "why": "R09 (2026-10-04): no new H2 cavern leaching yet; first new-build SaltHy ops 2032; bigger caverns (~55-84 needed) but ~5-yr leaching -> 2037-40 at boom pace"
+   "what": "CM-ENERGY-Q01 next: (e2) grid-scale high-temperature TES $/kWh_th + kWh_th per kWh_e + multi-day standing loss (decides fuel-free CAES vs overbuild, R10); (f) SaltHy working vs total gas and boom-era leaching durations (R09); (a) EU pooling; iron-air only with a non-company source",
+   "why": "R10 (2026-10-04): salt caverns <$10/kWh, so fuel-free CAES hinges on thermal-store cost; R09: new H2 caverns ~55-84, ~2037-40"
   },
   {
    "id": "P06-within-study",

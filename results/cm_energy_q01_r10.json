@@ -1,0 +1,27 @@
+{
+ "id": "CM-ENERGY-Q01-R10",
+ "date": "2026-10-04",
+ "question": "(e) A sourced cost for adiabatic (fuel-free) CAES, to replace R06's CAES case (DOE 2030 baseline: RTE 52 %, gas-fired, cavern 6.84 $/kWh, 1,153 $/kW).",
+ "sources": [
+  {"ref": "Yang, Wang, Wang, Rui, He, 'Cost Reducing Adiabatic Compressed Air Energy Storage for Long Duration Energy Storage Applications', arXiv:2511.03463 (KCL / Warwick / Energy Systems Catapult / CUP Beijing; not a vendor)", "retrieved": "2026-10-04", "quotes": [
+    "A-CAES was reported to be as low as $120/kWh for a 100+ MW project in 2024",
+    "Current A-CAES turbine power costs range from $600–900/kW",
+    "Current energy costs for A-CAES projects are around $200–400/kWh, with IET’s projects using above-ground stainless steel high-pressure tanks 41 and Hydrostor employing man-made underground rock-based caverns 42",
+    "solution-mined salt caverns can be <$10/kWh 43",
+    "the analysis assumes a round-trip efficiency (RTE) of 70%, which is consistent with values commonly adopted in peer-reviewed modelling studies and represents a plausible upper bound"]},
+  {"ref": "DOE/OE-0037 CAES Technology Strategy Assessment, July 2023, p.2 and Table 1", "quotes": [
+    "adiabatic, where the heated and compressed air is either stored in the reservoir during charging and is available at discharge, with an RTE upper bound of 70%",
+    "1,153 Base Capital Costs for Compressor, Balance of Plant, and EPC ($/kW)",
+    "6.84 Base cavern storage cost ($/kWh)"],
+   "note": "R06's CAES row is this DOE baseline, which is diabatic (RTE 52 %); it was never a fuel-free number"}
+ ],
+ "derived": {
+  "A-CAES_energy_side_cost_$per_kWh": "salt cavern <10 + thermal store (TES) X; X at grid scale for 100+ h NOT SOURCED",
+  "TES_hint_unverified": "~£40k packed bed for a 250 kW / 1 MWh unit (~£40/kWh_e), Nottingham repository, search summary only",
+  "R06_bars_energy_cost_to_beat_overbuild_$per_kWh": {"1.5->2.0x": [19.9, 59.6], "2.0->3.0x": [34.9, 104.7]},
+  "RTE_change": "R06 used 0.721 per leg (52 %); A-CAES 60-70 % -> 0.77-0.84 per leg, which lowers the GWh_e needed"
+ },
+ "finding": "The fuel-free CAES question reduces to one number. With salt caverns under 10 $/kWh, A-CAES beats overbuild on the 2x->3x step if its thermal store costs below ~25-95 $/kWh_e, and on the 1.5x->2x step below ~10-50. Today's whole-plant A-CAES prices (120-400 $/kWh) are for 3-10 h plants with tanks or hard-rock caverns and do not transfer to a 5-day salt-cavern store.",
+ "caveats": ["no grid-scale TES $/kWh source yet", "multi-day TES standing heat loss not modelled (would lower RTE for 5-day storage)", "the arXiv paper is a preprint", "R06 bars are for 'every store' sizing, not optimised mixes"],
+ "break_this": "One sourced grid-scale cost for high-temperature (≥500 °C) thermal storage in $/kWh_th, plus the kWh_th stored per kWh_e for A-CAES; or a measured standing-loss rate for a packed bed held 3-5 days."
+}
