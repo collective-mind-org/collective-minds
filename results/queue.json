@@ -5,8 +5,8 @@
    "id": "ENERGY-scan",
    "domain": "clean energy",
    "priority": 1,
-   "what": "CM-ENERGY-Q01 next: (d3) brine disposal capacity at the 2006-14 build rate (~11/yr) and whether it still exists; live H2 cavern leaching starts in Germany (not plans); (e) a sourced cost for adiabatic (fuel-free) CAES; (a) EU pooling; iron-air only with a non-company source",
-   "why": "R08: Germany built ~11 caverns/yr 2006-14 (peak 14) and ~0/yr since 2017 -> 100 caverns is 7-9 yr at proven pace; the constraint is a restart (crews, permits, brine), not geology"
+   "what": "CM-ENERGY-Q01 next: (e) a sourced cost for adiabatic (fuel-free) CAES; (f) SaltHy working vs total gas (decides 55 vs ~80 caverns) and boom-era leaching durations (R09's 5 yr vs R08b's 1.3 yr); (a) EU pooling; iron-air only with a non-company source",
+   "why": "R09 (2026-10-04): no new H2 cavern leaching yet; first new-build SaltHy ops 2032; bigger caverns (~55-84 needed) but ~5-yr leaching -> 2037-40 at boom pace"
   },
   {
    "id": "P06-within-study",

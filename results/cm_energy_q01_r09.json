@@ -1,0 +1,30 @@
+{
+ "id": "CM-ENERGY-Q01-R09",
+ "date": "2026-10-04",
+ "question": "Is any NEW hydrogen salt cavern actually being leached in Germany (not a conversion, not a plan)? What does the first new-build project imply for R07/R08?",
+ "finding": "None found. Operating or near-term German H2 cavern projects are conversions of existing gas caverns (H2CAST Etzel: 2 caverns filled with ~90 t H2 from 9 May 2025; EWE Huntorf: 'eine von sieben unterirdischen Erdgaskavernen', H2 from end-2027, IPCEI). Small pilot caverns (Uniper Krummhoern, EWE Ruedersdorf) not checked here. The first new-build is Storengy SaltHy (Harsefeld): first borehole planned 2026, leaching 2027-2032, operation 2032, second cavern 2034.",
+ "sources": [
+  {"url": "https://www.salthy.de/de/unser-projekt", "retrieved": "2026-10-04", "quotes": [
+   "etwa 7.000 Tonnen Wasserstoff gespeichert werden koennen",
+   "etwa 0,5 und 0,8 Millionen Kubikmetern",
+   "Die Abteufung der ersten Bohrung ist fuer 2026 geplant",
+   "2027-2032 erfolgt die Kavernensolung der ersten Wasserstoff-Salzkaverne"],
+   "note": "quotes via page summariser, umlauts flattened; re-check against the page before citing"},
+  {"url": "https://www.ewe.com/de/media-center/pressemitteilungen/2025/04/wasserstoff-zukunft-in-huntorf-nimmt-fahrt-auf-ewe-bereitet-baustart-vor-ewe-ag", "retrieved": "2026-10-04", "quotes": ["eine von sieben unterirdischen Erdgaskavernen"]},
+  {"url": "https://h2cast.com/de", "note": "Etzel conversion, ~90 t H2 in 2 caverns (secondary reporting; not quoted)"}
+ ],
+ "derived": {
+  "SaltHy_GWh_H2_per_cavern_if_7000t_is_working_gas": 233,
+  "SaltHy_GWh_H2_per_cavern_if_7000t_is_total_and_cushion_30-35pct": [152, 163],
+  "R07_GWh_H2_per_converted_cavern": [117, 133],
+  "new_caverns_for_12.8_TWh_H2": {"R07": [97, 110], "SaltHy_size_working": 55, "SaltHy_size_total": [79, 84]},
+  "leaching_years_first_cavern": 5,
+  "R08b_assumed_leaching_years": 1.3,
+  "implied_brine_rate_m3_per_h_if_continuous_5yr": [78, 124],
+  "concurrent_leaching_caverns_for_11_per_yr": {"R08b": 15, "at_5yr": 55},
+  "borehole_to_operation_years": 6
+ },
+ "consequence": "Two corrections pull in opposite directions. Purpose-built H2 caverns may hold ~1.2-2x a converted gas cavern, cutting the R07 count from ~100 to ~55-84. But the first-of-kind schedule is ~5 yr of leaching (not R08b's 1.3 yr) and ~6 yr borehole-to-operation, so a restart starting 2026 delivers its first new cavern ~2032; at boom pace (11/yr) 55-84 caverns arrive ~2037-2040. Annual brine volume is unchanged by duration (set by caverns/yr x cavity); concurrency rises ~4x, so the gate is parallel leaching strings + outfall, not salt.",
+ "caveats": ["7,000 t not stated as working vs total gas", "5 yr may include commissioning slack of a first-of-kind project; boom-era caverns leached faster", "Krummhoern/Ruedersdorf pilots not checked", "FID 2026 only in secondary reporting"],
+ "break_this": "Show either (a) SaltHy's working-gas figure (if 7,000 t is total, R09's 55 becomes ~80), or (b) a German cavern from 2006-14 whose leaching took >3 yr, or any H2 cavern leaching that has already started."
+}
