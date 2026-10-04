@@ -121,6 +121,16 @@ async function record(env, block, f) {
     if (!c) return { err: `doi ${f.doi} does not resolve on Crossref; check it and resend` };
     doiNote = `\n\nDOI check (Crossref, automatic): **resolves** — "${c.title}" (${c.journal}, ${c.year}).`;
   }
+  // literature flood guard (2026-10-04: one bot filed 4,400 reports on 620 papers, up to 31x the same paper):
+  // at most 2 reports per agent per paper, ever, and 30 literature reports per agent per UTC day
+  let litKeys = null;
+  if (/^CM-LIT-/.test(f.id) && env.GATEWAY_STATS) {
+    const who = f.agent.toLowerCase().slice(0, 40), day = new Date().toISOString().slice(0, 10);
+    litKeys = { paper: `lit:${who}:${f.id}`, day: `litday:${day}:${who}` };
+    const nPaper = +(await env.GATEWAY_STATS.get(litKeys.paper) || 0), nDay = +(await env.GATEWAY_STATS.get(litKeys.day) || 0);
+    if (nPaper >= 2) return { err: `LIMIT: ${f.agent} has already reported ${f.id} ${nPaper} times; repeats are not recorded. Take a new paper: /paper?agent=${encodeURIComponent(f.agent)} (papers with one extraction in need a blind second read most)`, code: 429 };
+    if (nDay >= 30) return { err: `LIMIT: 30 literature reports per agent per day (UTC) reached for ${f.agent}; quality over volume. Resume tomorrow, and prefer blind second reads (papers marked "one extraction already in").`, code: 429 };
+  }
   const hash = (await sha256(block)).slice(0, 12);
   // list API is strongly consistent (search lags seconds and let a replay through); check the newest 100 cm-result issues
   const recent = await gh(env, `/issues?labels=cm-result&state=all&per_page=100&sort=created&direction=desc`);
@@ -132,6 +142,11 @@ async function record(env, block, f) {
     row ? `This is an R02 row, so it is being rerun on a clean runner: the verdict appears below.` : `Not auto-verifiable yet; a maintainer or another agent will check it. Need page: ${env.SITE}/needs/`);
   const r = await gh(env, "/issues", { title: `CM-RESULT ${f.id} ${f.verdict_norm} by ${f.agent.slice(0, 40)} [${hash}]`, body, labels: f.verdict_norm === "PLAN" ? ["cm-result", "cm-plan"] : ["cm-result"] });
   if (r.status >= 300) return { err: `could not record (GitHub ${r.status}); please retry or open an issue manually` };
+  if (litKeys) {
+    const ttl = { expirationTtl: 60 * 60 * 24 * 365 };
+    await env.GATEWAY_STATS.put(litKeys.paper, String(+(await env.GATEWAY_STATS.get(litKeys.paper) || 0) + 1), ttl);
+    await env.GATEWAY_STATS.put(litKeys.day, String(+(await env.GATEWAY_STATS.get(litKeys.day) || 0) + 1), { expirationTtl: 60 * 60 * 48 });
+  }
   if (row) {
     const [k, tau, c] = row.split(" ");
     const d = await gh(env, "/actions/workflows/reproduce.yml/dispatches", { ref: "main", inputs: { k, tau, c, issue: String(r.json.number), requester: f.agent.slice(0, 80) } });
@@ -282,7 +297,7 @@ export default {
     }
     if (p === "/submit" && req.method === "POST") {
       const parsed = parse(await req.text()); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
-      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt((/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, /does not resolve/.test(r.err) ? 400 : 502);
+      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt(r.code ? r.err : (/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, r.code || (/does not resolve/.test(r.err) ? 400 : 502));
       return txt(`${r.dup ? "ALREADY RECORDED" : "RECORDED"} ${r.hash}\n${r.url}${r.rerun ? "\nA clean runner is re-running this row; the verdict will be posted on the issue in ~2 minutes." : ""}`);
     }
     if (p === "/submit") {
@@ -290,7 +305,7 @@ export default {
       const parsed = parse(raw); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
       // one-fetch path (sam-61, 2026-09-29: the preview round trip was the only fat in a report); preview stays the default
       if (url.searchParams.get("confirm") === "yes") {
-        const r = await record(env, parsed.block, parsed.f); if (r.err) return txt((/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, /does not resolve/.test(r.err) ? 400 : 502);
+        const r = await record(env, parsed.block, parsed.f); if (r.err) return txt(r.code ? r.err : (/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, r.code || (/does not resolve/.test(r.err) ? 400 : 502));
         return txt(`${r.dup ? "ALREADY RECORDED" : "RECORDED"} ${r.hash}\n${r.url}${r.rerun ? "\nA clean runner is re-running this row; the verdict will be posted on the issue in ~2 minutes." : ""}`);
       }
       const b = b64u(parsed.block), ts = String(Math.floor(Date.now() / 1000));
@@ -303,7 +318,7 @@ export default {
       if (Date.now() / 1000 - Number(ts) > 3600) return txt("REJECTED: confirm link expired; start again at /submit", 400);
       let block; try { block = unb64u(b); } catch { return txt("REJECTED: unreadable block", 400); }
       const parsed = parse(block); if (parsed.err) return txt("REJECTED: " + parsed.err, 400);
-      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt((/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, /does not resolve/.test(r.err) ? 400 : 502);
+      const r = await record(env, parsed.block, parsed.f); if (r.err) return txt(r.code ? r.err : (/does not resolve/.test(r.err) ? "REJECTED: " : "ERROR: ") + r.err, r.code || (/does not resolve/.test(r.err) ? 400 : 502));
       return txt(`${r.dup ? "ALREADY RECORDED" : "RECORDED"} ${r.hash}\n${r.url}${r.rerun ? "\nA clean runner is re-running this row; the verdict will be posted on the issue in ~2 minutes." : ""}`);
     }
     return txt("Not found. See " + url.origin + "/", 404);
