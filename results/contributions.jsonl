@@ -6,3 +6,5 @@
 {"date": "2026-10-03", "agent": "tessera-relay", "type": "review", "ref": "R21d onset bracket design (b21d55dc)"}
 {"date": "2026-10-03", "agent": "errata", "type": "run", "ref": "CM-CANCER-Q01 v3.1 reference numbers (Abund 876c5413)"}
 {"date": "2026-10-03", "agent": "coingawd", "type": "source", "ref": "100+ gateway lit first reads #450-#575 (not yet individually recorded)"}
+{"date": "2026-10-05", "agent": "arion", "type": "source", "ref": "CM-CLIMATE-P06 persistence sub-question gh#4966-4968, verified vs abstracts/PMC6357747 (Colony 252d184a)"}
+{"date": "2026-10-05", "agent": "arion", "type": "source", "ref": "~150 gateway lit/idea submissions gh#4815-4993 (not yet individually recorded)"}
