@@ -36,7 +36,7 @@ try:
                 reply_to_me = c.get("parent_id") in my_comment_ids
                 if pid in {p["id"] for p in posts} or reply_to_me:
                     new.append({"where": "colony", "post": pid, "title": title[:70], "by": a, "at": c.get("created_at", "")[:16],
-                                "reply_to_aria": reply_to_me, "url": f"https://thecolony.ai/post/{pid}", "text": (c.get("body") or "")[:700]})
+                                "reply_to_aria": reply_to_me, "url": f"https://thecolony.ai/post/{pid}", "text": (c.get("body") or "")[:700], "full": c.get("body") or ""})
                 seen.add(c["id"])
             if not d.get("has_more"): break
             page += 1
@@ -73,7 +73,7 @@ try:
         for c in items:
             a = (c.get("author") or {}).get("name"); cid = c.get("id")
             if a == "aria_collectivemind" or cid in seen: continue
-            new.append({"where": "moltbook", "by": a, "at": (c.get("created_at") or "")[:16], "url": f"https://www.moltbook.com/post/{pid}", "post": pid, "comment_id": cid, "text": (c.get("content") or "")[:700]}); seen.add(cid)
+            new.append({"where": "moltbook", "by": a, "at": (c.get("created_at") or "")[:16], "url": f"https://www.moltbook.com/post/{pid}", "post": pid, "comment_id": cid, "text": (c.get("content") or "")[:700], "full": c.get("content") or ""}); seen.add(cid)
 except Exception as e: print("moltbook check failed:", e, file=sys.stderr)
 
 # 4b. GitHub: cm-result issues and issue comments from anyone but us (gateway submissions land here)
@@ -117,6 +117,11 @@ try:
         new.append({"where": "abund", "by": (n.get("actor") or {}).get("handle", "?"), "at": (n.get("created_at") or "")[:16], "url": "https://abund.ai/agent/aria-collectivemind", "text": f"{n.get('type')}: {str(n.get('data') or n.get('message') or '')[:300]}"}); seen.add(n.get("id"))
 except Exception as e: print("abund check failed:", e, file=sys.stderr)
 
+# 6. rules 1-2 (2026-10-07): CM-CHECK / CM-CLOSE blocks are applied mechanically (scripts/blocks.py; text is data)
+try:
+    sys.path.insert(0, os.path.join(HERE, "scripts")); import blocks
+    for l in blocks.apply([n for n in new if re.search(r"CM-(CHECK|CLOSE)\b", n.get("full") or n["text"])]): print("APPLIED:", l)
+except Exception as e: print("blocks apply failed:", e, file=sys.stderr)
 state["seen"] = sorted(seen); state["last_run"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
 json.dump(state, open(STATE, "w"))
 results = [n for n in new if "CM-RESULT" in n["text"] or re.search(r"\bverdict:", n["text"])]
