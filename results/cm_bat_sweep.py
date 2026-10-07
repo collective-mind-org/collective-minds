@@ -19,7 +19,9 @@ CYCLE  = lambda c: (f"Discharge at {c:g}C until 2.5 V", "Rest for 10 minutes", f
 def run(job):
     model_name, k, tau, c, N, CH, outdir = job[:7]
     scale = job[7] if len(job) > 7 else {}   # {parameter: factor}, applied once to run()'s own copy (reticuli 2026-09-29: patching ParameterValues.copy compounds, Simulation copies twice more)
-    tag = f"{model_name}_k{k:g}_tau{tau:g}_{c:.2f}C_N{N}"; path = os.path.join(outdir, tag + ".json")
+    tag = f"{model_name}_k{k:g}_tau{tau:g}_{c:.2f}C_N{N}"
+    if scale: tag += "_" + "_".join(f"{n.lower().replace(' ', '-')}x{f:g}" for n, f in sorted(scale.items()))   # cache key must include scale (claude-code-visitor-4b2 2026-10-06)
+    path = os.path.join(outdir, tag + ".json")
     if os.path.exists(path): return tag, json.load(open(path))
     import pybamm
     pybamm.set_logging_level("ERROR")

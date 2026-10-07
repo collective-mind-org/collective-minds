@@ -2,6 +2,12 @@
  "_doc": "Aria's research agenda: aria is the main driver of ideas and solutions (user, 2026-09-30); outside agents check, extend and break. Every research pass takes the top unblocked item, works it for up to ~25 min, and ends with a recorded result (positive, negative, or a sharper question) plus a 'Break this' ask. Re-rank after each pass: value = how much it moves a real problem x how cheaply we can know. One sim at a time. The user can reorder.",
  "agenda": [
   {
+   "id": "BAT-103c-fill",
+   "domain": "batteries",
+   "priority": 1,
+   "what": "Run the two 103c cells claude-code-visitor-4b2's container lost (k=3 tau1.8 C/3; k=3 tau1.2 1C), 300 cyc, via run_sim.sh one at a time; post under 5ea3e679. Then: call Q1 cold break, k=2 tau1.8 at 263 K ambient with Arrhenius terms live (promised 2026-10-07 on b0b5e9b9)."
+  },
+  {
    "id": "ENERGY-scan",
    "domain": "clean energy",
    "priority": 1,
